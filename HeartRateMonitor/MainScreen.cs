@@ -37,7 +37,7 @@ namespace Xamarin.HeartMonitor
 		public override void ViewDidLoad ()
 		{	
 			base.ViewDidLoad ();
-			
+
 			#region UI controls
 			statusLabel = new UILabel (new RectangleF(10, 30, 300, 30));
 			statusLabel.Text = "waiting...";
