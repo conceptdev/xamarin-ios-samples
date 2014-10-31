@@ -3,7 +3,7 @@ TodoToday (iOS 8 Extension)
 
 Xamarin.iOS Unified API (64-bit) example that implements an iOS 8 Today Extension.
 
-![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-samples/master/TodoToday/Screenshots/today-screen-sml.png "Today extension")
+![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/TodoToday/Screenshots/today-screen%20-sml.PNG "Today extension")
 
 SQLite database access is done with ADO.NET to avoid the need for a Unified version of any external components.
 
