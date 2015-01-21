@@ -15,6 +15,9 @@ namespace WatchCalcExtension
 		[Outlet]
 		WatchKit.WKInterfaceLabel display { get; set; }
 
+		[Outlet]
+		WatchKit.WKInterfaceLabel displayResult { get; set; }
+
 		[Action ("button0")]
 		partial void button0 ();
 
@@ -56,6 +59,11 @@ namespace WatchCalcExtension
 			if (display != null) {
 				display.Dispose ();
 				display = null;
+			}
+
+			if (displayResult != null) {
+				displayResult.Dispose ();
+				displayResult = null;
 			}
 		}
 	}

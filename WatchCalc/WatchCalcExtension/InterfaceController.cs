@@ -7,8 +7,8 @@ namespace WatchCalcExtension
 {
 	public partial class InterfaceController : WKInterfaceController
 	{
-		string displayText = "";
-
+		string displayText = "", displayResultText = "";
+		double arg1 = 0, arg2 = 0, result = 0;
 
 		public InterfaceController (IntPtr handle) : base (handle)
 		{
@@ -34,44 +34,72 @@ namespace WatchCalcExtension
 			Console.WriteLine ("{0} did deactivate", this);
 		}
 
-		partial void button0 () {
-			displayText += "0";
+		void filterButton (string num) {
+			if (displayText == "0") {
+				displayText = num;
+			} else {
+				displayText += num;
+			}
 			display.SetText(displayText);
+		}
+
+		partial void button0 () {
+			filterButton ("0");
 		}
 		partial void button1 () {
-			displayText += "1";
-			display.SetText(displayText);
+			filterButton ("1");
 		}
 		partial void button2 () {
-			displayText += "2";
-			display.SetText(displayText);
+			filterButton ("2");
 		}
 		partial void button3 () {
-			displayText += "3";
-			display.SetText(displayText);
+			filterButton ("3");
 		}
 		partial void button4 () {
-			displayText += "4";
-			display.SetText(displayText);
+			filterButton ("4");
 		}
 		partial void button5 () {
-			displayText += "5";
-			display.SetText(displayText);
+			filterButton ("5");
 		}
 		partial void button6 () {
-			displayText += "6";
-			display.SetText(displayText);
+			filterButton ("6");
 		}
 		partial void button7 () {
-			displayText += "7";
-			display.SetText(displayText);
+			filterButton ("7");
 		}
 		partial void button8 () {
-			displayText += "8";
-			display.SetText(displayText);
+			filterButton ("8");
 		}
 		partial void button9 () {
-			displayText += "9";
+			filterButton ("9");
+		}
+		partial void buttonPlus () {
+			// set top to last number
+			double t1;
+			if (double.TryParse(displayText, out t1)) {
+
+				arg2 = t1;
+
+				result = arg1 + arg2;
+
+
+				Console.WriteLine("result = " + result);
+
+				arg1 = result;
+				displayResultText = result.ToString();
+				displayResult.SetText(displayResultText);
+
+				displayText = "0";
+				display.SetText(displayText);
+			}
+			display.SetText("0");
+		}
+		partial void buttonPoint () {
+			if (displayText.Contains(".")) {
+				// noop
+			} else {
+				displayText += ".";
+			}
 			display.SetText(displayText);
 		}
 	}
