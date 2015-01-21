@@ -1,7 +1,9 @@
 WatchCalc (WatchKit)
 ========
 
- Apple Watch version of an old calculator watch :-)
+Apple Watch version of an old calculator watch :-)
+
+Yes, I realise the touch targets are probably going to be too tiny on the real device...
 
 ![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchCalc/Screenshots/calc1.png "watch")
 
