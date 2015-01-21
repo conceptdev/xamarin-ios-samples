@@ -53,6 +53,12 @@ namespace WatchCalcExtension
 
 		[Action ("buttonPoint")]
 		partial void buttonPoint ();
+
+		[Action ("clearMenu")]
+		partial void clearMenu ();
+
+		[Action ("closeMenu")]
+		partial void closeMenu ();
 		
 		void ReleaseDesignerOutlets ()
 		{

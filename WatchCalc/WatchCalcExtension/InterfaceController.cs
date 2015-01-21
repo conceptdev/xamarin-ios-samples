@@ -102,6 +102,16 @@ namespace WatchCalcExtension
 			}
 			display.SetText(displayText);
 		}
+		partial void clearMenu ()
+		{
+			displayResultText = "-";
+			displayResult.SetText(displayResultText);
+
+			displayText = "0";
+			display.SetText(displayText);
+
+			result = arg1 = arg2 = 0;
+		}
 	}
 }
 

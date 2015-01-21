@@ -98,6 +98,20 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="xsX-yB-koJ">
+                        <items>
+                            <menuItem title="Clear" icon="decline" id="cCC-AO-gj0">
+                                <connections>
+                                    <action selector="clearMenu" destination="AgC-eL-Hgc" id="hqB-02-HSm"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Return" icon="repeat" id="cqm-oQ-BX3">
+                                <connections>
+                                    <action selector="closeMenu" destination="AgC-eL-Hgc" id="iDi-Mf-lqz"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="display" destination="gJi-XQ-mLo" id="ob5-fD-tfD"/>
                         <outlet property="displayResult" destination="dCU-9r-wxY" id="kSX-Tx-J7Y"/>
