@@ -24,7 +24,7 @@ Using **App Groups** requires configuration in the [Apple iOS Provisioning site]
 	to setup an **App ID** and an **App Group** and then configuring the **Entitlements.plist** 
 	in Xamarin.Studio:
 
-~[](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchInsta/Screenshots/app-groups.png "xamarin studio")
+![](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchInsta/Screenshots/app-groups.png "xamarin studio")
 
 This is just a demonstration... a fully fledged Instagram integration would no doubt require more
 	robust image updating code, and a better first-run experience :)
