@@ -3,8 +3,10 @@ WatchTodo (WatchKit)
 
  Apple Watch version of [Todo](https://github.com/conceptdev/xamarin-forms-samples/tree/master/Todo).
 
-![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchTodo/Screenshots/todolist.png "watch") ![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchTodo/Screenshots/tododone.png "watch") ![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchTodo/Screenshots/todonot.png "watch")
+ Uses SQLite database in shared App Group container to sync list between watch and iPhone.
+  Still some bugs to iron out when re-populating the Row Controllers...
 
+![screenshot](https://raw.githubusercontent.com/conceptdev/xamarin-ios-samples/master/WatchTodo/Screenshots/watchtodo.png "watch")
 
 There are also Xamarin [docs for the Watch Kit preview](http://developer.xamarin.com/guides/ios/watch/).
 
