@@ -47,7 +47,7 @@
                         </label>
                         <switch width="1" alignment="left" value="YES" title="Done" id="81J-0T-9TK">
                             <connections>
-                                <action selector="DoneSwitched:" destination="da8-FD-BJM" id="H6b-rf-jkf"/>
+                                <action selector="DoneSwitch:" destination="da8-FD-BJM" id="ki4-dM-KXl"/>
                             </connections>
                         </switch>
                         <label alignment="left" text="Todo Notes" numberOfLines="0" id="05d-tJ-U8T"/>

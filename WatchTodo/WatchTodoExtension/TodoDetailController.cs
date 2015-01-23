@@ -32,31 +32,30 @@ namespace WatchTodoExtension
 			Notes.SetText (todo.Notes);
 			Done.SetOn (todo.Done);
 		}
-
-//		partial void DoneSwitched (Foundation.NSObject value) {
-//			Console.WriteLine ("value:" + value);
-//			var done = value as NSValue;
-//			todo.Done = ;
-//
-//		}
-
+			
 		public TodoItemDatabase Database { get; set; }
+		partial void DoneSwitch (System.Boolean value)
+		{
+			todo.Done = value;
+		}
 		partial void Save ()
 		{
-			var FileManager = new NSFileManager ();
-			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
-			var appGroupContainerPath = appGroupContainer.Path;
-			Console.WriteLine ("agcpath: " + appGroupContainerPath);
+			if (Database == null) 
+			{
+				var FileManager = new NSFileManager ();
+				var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+				var appGroupContainerPath = appGroupContainer.Path;
+				Console.WriteLine ("agcpath: " + appGroupContainerPath);
 
-			var sqliteFilename = "TodoSQLite.db3";
-			//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
-			//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
-			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
-			var conn = new SQLiteConnection (path);
+				var sqliteFilename = "TodoSQLite.db3";
+				//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
+				//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
+				var path = Path.Combine(appGroupContainerPath, sqliteFilename);
+				var conn = new SQLiteConnection (path);
 
-			Database = new TodoItemDatabase(conn);
-
-			Database.SaveItem(todo);
+				Database = new TodoItemDatabase(conn);
+			}
+			Database.SaveItem(todo.As());
 
 			PopController();
 		}

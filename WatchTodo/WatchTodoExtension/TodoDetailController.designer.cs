@@ -21,8 +21,8 @@ namespace WatchTodoExtension
 		[Outlet]
 		WatchKit.WKInterfaceLabel Notes { get; set; }
 
-		[Action ("DoneSwitched:")]
-		partial void DoneSwitched (Foundation.NSObject value);
+		[Action ("DoneSwitch:")]
+		partial void DoneSwitch (System.Boolean value);
 
 		[Action ("Save")]
 		partial void Save ();

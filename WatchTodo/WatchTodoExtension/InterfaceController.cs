@@ -32,20 +32,10 @@ namespace WatchTodoExtension
 
 
 			var sqliteFilename = "TodoSQLite.db3";
-			//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
-			//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
 			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
 			var conn = new SQLiteConnection (path);
 
 			Database = new TodoItemDatabase(conn);
-
-			data = Database.GetItems ().ToList();
-//			data.Add (new TodoItem{ Name="buy apples", Done=true});
-//			data.Add (new TodoItem{ Name="buy bananas"});
-//			data.Add (new TodoItem{ Name="buy pears", Done=true});
-//			data.Add (new TodoItem{ Name="buy rockmelon"});
-//			data.Add (new TodoItem{ Name="buy kiwi"});
-//			data.Add (new TodoItem{ Name="buy dragonfruit"});
 		}
 
 		public override NSObject GetContextForSegue (string segueIdentifier, WKInterfaceTable table, nint rowIndex)
@@ -63,11 +53,19 @@ namespace WatchTodoExtension
 			// This method is called when the watch view controller is about to be visible to the user.
 			Console.WriteLine ("{0} will activate", this);
 
+			// reload each view
+			data = Database.GetItems ().ToList();
+
+
 			TodoTable.SetNumberOfRows ((nint)data.Count, "todoRow");
 
 			for (var i = 0; i < data.Count; i++) {
+
 				var elementRow = (TodoRowController)TodoTable.GetRowController (i);
+
 				elementRow.Name.SetText (data [i].Name);
+
+				Console.WriteLine (elementRow.Name + " set " + data [i].Name);
 				if (data [i].Done)
 					elementRow.DoneImage.SetImage ("done");
 				else
