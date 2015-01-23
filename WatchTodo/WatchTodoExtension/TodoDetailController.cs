@@ -1,6 +1,8 @@
 ﻿using System;
 using WatchKit;
 using Foundation;
+using System.IO;
+using SQLite;
 
 namespace WatchTodoExtension
 {
@@ -11,7 +13,7 @@ namespace WatchTodoExtension
 		{
 		}
 
-		TodoItem todo;
+		NSTodoItem todo;
 
 		public override void Awake (NSObject context)
 		{
@@ -19,7 +21,7 @@ namespace WatchTodoExtension
 			// Configure interface objects here.
 			Console.WriteLine ("{0} awake with context", this);
 
-			todo = context as TodoItem;
+			todo = context as NSTodoItem;
 		}
 		public override void WillActivate ()
 		{
@@ -31,11 +33,32 @@ namespace WatchTodoExtension
 			Done.SetOn (todo.Done);
 		}
 
-		partial void DoneSwitched (Foundation.NSObject value) {
-			Console.WriteLine ("value:" + value);
+//		partial void DoneSwitched (Foundation.NSObject value) {
+//			Console.WriteLine ("value:" + value);
 //			var done = value as NSValue;
-//			todo.Done = done;
+//			todo.Done = ;
+//
+//		}
 
+		public TodoItemDatabase Database { get; set; }
+		partial void Save ()
+		{
+			var FileManager = new NSFileManager ();
+			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+			var appGroupContainerPath = appGroupContainer.Path;
+			Console.WriteLine ("agcpath: " + appGroupContainerPath);
+
+			var sqliteFilename = "TodoSQLite.db3";
+			//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
+			//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
+			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
+			var conn = new SQLiteConnection (path);
+
+			Database = new TodoItemDatabase(conn);
+
+			Database.SaveItem(todo);
+
+			PopController();
 		}
 		public override void DidDeactivate ()
 		{

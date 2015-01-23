@@ -25,6 +25,8 @@
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchProfiling>true</MtouchProfiling>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -95,6 +97,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="SQLite">
+      <HintPath>..\Components\sqlite-net-1.0.8.3\lib\ios-unified\SQLite.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -114,6 +119,13 @@
     <Compile Include="WatchTodoViewController.designer.cs">
       <DependentUpon>WatchTodoViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\TodoItem.cs" />
+    <Compile Include="Data\TodoItemDatabase.cs" />
+    <Compile Include="TodoItemSource.cs" />
+    <Compile Include="WatchTodoItemViewController.cs" />
+    <Compile Include="WatchTodoItemViewController.designer.cs">
+      <DependentUpon>WatchTodoItemViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -122,5 +134,18 @@
       <Name>WatchTodoExtension</Name>
       <IsAppExtension>True</IsAppExtension>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="sqlite-net">
+      <Version>1.0.8.3</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TodoSQLite.db3" />
   </ItemGroup>
 </Project>

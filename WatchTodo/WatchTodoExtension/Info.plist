@@ -7,7 +7,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>WatchTodoExtension</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.WatchTodo.watchkitextension</string>
+	<string>com.conceptdevelopment.WatchTodo.watchkitextension</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,7 +25,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.your-company.WatchTodo.watchkitapp</string>
+			<string>com.conceptdevelopment.WatchTodo.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>

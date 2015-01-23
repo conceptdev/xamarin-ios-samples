@@ -51,6 +51,11 @@
                             </connections>
                         </switch>
                         <label alignment="left" text="Todo Notes" numberOfLines="0" id="05d-tJ-U8T"/>
+                        <button width="1" alignment="left" title="Save" id="O6T-Lk-Wcu">
+                            <connections>
+                                <action selector="Save" destination="da8-FD-BJM" id="sdM-Og-7l1"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="Done" destination="81J-0T-9TK" id="V20-zG-Jm5"/>

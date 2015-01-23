@@ -3,6 +3,9 @@
 using WatchKit;
 using Foundation;
 using System.Collections.Generic;
+using System.IO;
+using SQLite;
+using System.Linq;
 
 namespace WatchTodoExtension
 {
@@ -13,6 +16,7 @@ namespace WatchTodoExtension
 		}
 
 		List<TodoItem> data = new List<TodoItem>();
+		public TodoItemDatabase Database { get; set; }
 
 		public override void Awake (NSObject context)
 		{
@@ -21,19 +25,34 @@ namespace WatchTodoExtension
 			// Configure interface objects here.
 			Console.WriteLine ("{0} awake with context", this);
 
+			var FileManager = new NSFileManager ();
+			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+			var appGroupContainerPath = appGroupContainer.Path;
+			Console.WriteLine ("agcpath: " + appGroupContainerPath);
 
-			data.Add (new TodoItem{ Name="buy apples", Done=true});
-			data.Add (new TodoItem{ Name="buy bananas"});
-			data.Add (new TodoItem{ Name="buy pears", Done=true});
-			data.Add (new TodoItem{ Name="buy rockmelon"});
-			data.Add (new TodoItem{ Name="buy kiwi"});
-			data.Add (new TodoItem{ Name="buy dragonfruit"});
+
+			var sqliteFilename = "TodoSQLite.db3";
+			//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
+			//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
+			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
+			var conn = new SQLiteConnection (path);
+
+			Database = new TodoItemDatabase(conn);
+
+			data = Database.GetItems ().ToList();
+//			data.Add (new TodoItem{ Name="buy apples", Done=true});
+//			data.Add (new TodoItem{ Name="buy bananas"});
+//			data.Add (new TodoItem{ Name="buy pears", Done=true});
+//			data.Add (new TodoItem{ Name="buy rockmelon"});
+//			data.Add (new TodoItem{ Name="buy kiwi"});
+//			data.Add (new TodoItem{ Name="buy dragonfruit"});
 		}
 
 		public override NSObject GetContextForSegue (string segueIdentifier, WKInterfaceTable table, nint rowIndex)
 		{
 			if (segueIdentifier == "showTodoItem") {
-				return data[(int)rowIndex];
+				var nst = data [(int)rowIndex];
+				return nst.As();
 			}
 			return null;
 		}

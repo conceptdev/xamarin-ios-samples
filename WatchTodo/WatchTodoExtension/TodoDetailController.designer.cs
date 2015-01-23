@@ -23,9 +23,17 @@ namespace WatchTodoExtension
 
 		[Action ("DoneSwitched:")]
 		partial void DoneSwitched (Foundation.NSObject value);
+
+		[Action ("Save")]
+		partial void Save ();
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (Done != null) {
+				Done.Dispose ();
+				Done = null;
+			}
+
 			if (Name != null) {
 				Name.Dispose ();
 				Name = null;
@@ -34,11 +42,6 @@ namespace WatchTodoExtension
 			if (Notes != null) {
 				Notes.Dispose ();
 				Notes = null;
-			}
-
-			if (Done != null) {
-				Done.Dispose ();
-				Done = null;
 			}
 		}
 	}

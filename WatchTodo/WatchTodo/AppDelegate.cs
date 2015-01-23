@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using Foundation;
 using UIKit;
+using System.IO;
+using SQLite;
 
 namespace WatchTodo
 {
@@ -19,7 +21,43 @@ namespace WatchTodo
 			get;
 			set;
 		}
-		
+
+
+		public static AppDelegate Current { get; private set; }
+		public TodoItemDatabase Database { get; set; }
+
+
+		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+		{
+			Current = this;
+
+
+			var FileManager = new NSFileManager ();
+			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+			var appGroupContainerPath = appGroupContainer.Path;
+			Console.WriteLine ("agcpath: " + appGroupContainerPath);
+
+
+			var sqliteFilename = "TodoSQLite.db3";
+			// App Group storage, shared with Watch Extension
+			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
+			var conn = new SQLiteConnection (path);
+
+			Database = new TodoItemDatabase(conn);
+
+
+			// HACK: temporary population of data
+			if (Database.GetItems ().Count() == 0) {
+				Database.SaveItem (new TodoItem { Name = "buy pineapple" });
+				Database.SaveItem (new TodoItem { Name = "buy dragon fruit", Done = true });
+				Database.SaveItem (new TodoItem { Name = "buy honeydew" });
+				Database.SaveItem (new TodoItem { Name = "buy rockmelon" });
+			}
+
+
+			return true;
+		}
+
 		// This method is invoked when the application is about to move from active to inactive state.
 		// OpenGL applications should use this method to pause.
 		public override void OnResignActivation (UIApplication application)
