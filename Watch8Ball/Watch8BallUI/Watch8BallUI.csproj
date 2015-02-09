@@ -108,23 +108,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\Watch8BallExtension\GlanceController.cs">
-      <Link>GlanceController.cs</Link>
-    </Compile>
-    <Compile Include="..\Watch8BallExtension\GlanceController.designer.cs">
-      <Link>GlanceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\Watch8BallExtension\InterfaceController.cs">
-      <Link>InterfaceController.cs</Link>
-    </Compile>
-    <Compile Include="..\Watch8BallExtension\InterfaceController.designer.cs">
-      <Link>InterfaceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\Watch8BallExtension\NotificationController.cs">
-      <Link>NotificationController.cs</Link>
-    </Compile>
-    <Compile Include="..\Watch8BallExtension\NotificationController.designer.cs">
-      <Link>NotificationController.designer.cs</Link>
-    </Compile>
+    <BundleResource Include="Resources\8ball.png" />
   </ItemGroup>
 </Project>
