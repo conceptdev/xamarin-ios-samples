@@ -119,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="PushNotificationPayload.json" />
+    <BundleResource Include="..\WatchCalcUI\Resources\bg%402x.png">
+      <Link>Resources\bg%402x.png</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.AppExtension.CSharp.targets" />
   <ItemGroup>
