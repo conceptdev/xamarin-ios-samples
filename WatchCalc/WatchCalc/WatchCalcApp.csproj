@@ -123,4 +123,9 @@
       <IsAppExtension>True</IsAppExtension>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\WatchCalcUI\Resources\bg%402x.png">
+      <Link>Resources\bg%402x.png</Link>
+    </BundleResource>
+  </ItemGroup>
 </Project>

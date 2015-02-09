@@ -110,24 +110,4 @@
   <ItemGroup>
     <BundleResource Include="Resources\bg%402x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\WatchCalcExtension\GlanceController.cs">
-      <Link>GlanceController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchCalcExtension\GlanceController.designer.cs">
-      <Link>GlanceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchCalcExtension\InterfaceController.cs">
-      <Link>InterfaceController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchCalcExtension\InterfaceController.designer.cs">
-      <Link>InterfaceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchCalcExtension\NotificationController.cs">
-      <Link>NotificationController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchCalcExtension\NotificationController.designer.cs">
-      <Link>NotificationController.designer.cs</Link>
-    </Compile>
-  </ItemGroup>
 </Project>
