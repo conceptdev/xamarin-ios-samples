@@ -24,6 +24,14 @@ namespace WatchTodo
 			base.ViewDidLoad ();
 			Title = "WatchTodo";
 			// Perform any additional setup after loading the view, typically from a nib.
+
+			NSUserDefaults shared = new NSUserDefaults(
+				"group.com.conceptdevelopment.WatchTodo", NSUserDefaultsType.SuiteName);
+			var isEnabled = shared.BoolForKey ("enabled_preference");
+			var name = shared.StringForKey ("name_preference");
+			Console.WriteLine ("Enabled: " + isEnabled);
+			Console.WriteLine ("Name: " + name);
+			//Title = name; // for testing
 		}
 
 		public override void ViewWillAppear (bool animated)

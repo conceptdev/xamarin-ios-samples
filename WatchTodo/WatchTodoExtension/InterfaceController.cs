@@ -57,6 +57,14 @@ namespace WatchTodoExtension
 			// This method is called when the watch view controller is about to be visible to the user.
 			Console.WriteLine ("{0} will activate", this);
 
+			NSUserDefaults shared = new NSUserDefaults(
+				"group.com.conceptdevelopment.WatchTodo", NSUserDefaultsType.SuiteName);
+			var isEnabled = shared.BoolForKey ("enabled_preference");
+			var name = shared.StringForKey ("name_preference");
+			Console.WriteLine ("Enabled: " + isEnabled);
+			Console.WriteLine ("Name: " + name);
+			// SetTitle (name); // for testing
+
 			// reload each view
 			data = Database.GetItems ().ToList();
 
