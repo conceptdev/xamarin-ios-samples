@@ -37,6 +37,8 @@ namespace WatchTodo
 
 			AppDelegate.Current.Database.SaveItem(item);
 
+			AppDelegate.Current.wormHole.PassMessage ("buttonMessage","1");
+
 			NavigationController.PopViewController(true);
 		}
 
@@ -44,6 +46,8 @@ namespace WatchTodo
 		{
 			if (item.ID > 0)
 				AppDelegate.Current.Database.DeleteItem (item.ID);
+
+			AppDelegate.Current.wormHole.PassMessage ("buttonMessage", "0");
 
 			NavigationController.PopViewController(true);
 		}

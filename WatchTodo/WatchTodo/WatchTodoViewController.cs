@@ -6,10 +6,13 @@ using UIKit;
 using System.Collections.Generic;
 using System.Linq;
 
+using WormHoleSharp;
+
 namespace WatchTodo
 {
 	public partial class WatchTodoViewController : UIViewController
 	{
+		
 		public WatchTodoViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -30,8 +33,21 @@ namespace WatchTodo
 			items = AppDelegate.Current.Database.GetItems ().ToList();
 
 			todoItemTableView.Source = new TodoItemSource (items);
-		}
 
+			AppDelegate.Current.wormHole.ListenForMessage<string> ("buttonMessage", (message) => {
+				Console.WriteLine("Message Received: " + message);
+				BeginInvokeOnMainThread (() => {
+					// refresh
+					todoItemTableView.Source = new TodoItemSource (items);
+				});
+			});
+		}
+		public override void ViewWillDisappear (bool animated)
+		{
+			AppDelegate.Current.wormHole.StopListeningForMessageWithIdentifier (WormholeMessage.MessageType);
+
+			base.ViewWillDisappear (animated);
+		}
 
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{

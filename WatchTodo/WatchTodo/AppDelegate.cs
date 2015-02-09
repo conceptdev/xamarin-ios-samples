@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using System.IO;
 using SQLite;
+using WormHoleSharp;
 
 namespace WatchTodo
 {
@@ -25,12 +26,13 @@ namespace WatchTodo
 
 		public static AppDelegate Current { get; private set; }
 		public TodoItemDatabase Database { get; set; }
-
+		public Wormhole wormHole {get;set;}
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			Current = this;
 
+			wormHole = new Wormhole ("group.com.conceptdevelopment.WatchTodo", "messageDir");
 
 			var FileManager = new NSFileManager ();
 			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
