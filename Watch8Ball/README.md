@@ -10,6 +10,6 @@ There are also Xamarin [docs for the Watch Kit preview](http://developer.xamarin
 
 *watch screenshots use [Bezel](http://infinitapps.com/bezel/) courtesy of [infinitapps](http://infinitapps.com/)* :)
 
-*watch bezal art courtesy of [Max Rudberg](http://blog.maxrudberg.com/post/110056879433/apple-watch-bezels-for-bezel)*
+*watch bezel art courtesy of [Max Rudberg](http://blog.maxrudberg.com/post/110056879433/apple-watch-bezels-for-bezel)*
 
 *eightball icon from [iconarchive](http://www.iconarchive.com/show/pool-ball-icons-by-barkerbaggies/Ball-8-icon.html) ([license](http://creativecommons.org/licenses/by-nc-sa/4.0/))*
