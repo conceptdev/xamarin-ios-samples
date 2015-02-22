@@ -36,7 +36,9 @@ namespace WatchTodoExtension
 		//partial void DoneSwitch (bool value)
 		partial void DoneSwitch (WatchKit.WKInterfaceSwitch sender)
 		{
-			//todo.Done = value;
+			var x = (NSNumber)(NSObject)sender;
+			todo.Done = x.BoolValue;
+			Console.WriteLine("DoneSwitch : " + sender);
 		}
 		partial void Save ()
 		{
