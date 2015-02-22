@@ -11,27 +11,26 @@ using UIKit;
 
 namespace WatchTodoExtension
 {
-	[Register ("TodoRowController")]
-	partial class TodoRowController
+	[Register ("TodoNewController")]
+	partial class TodoNewController
 	{
 		[Outlet]
-		WatchKit.WKInterfaceImage DoneImage { get; set; }
+		[GeneratedCode ("iOS Designer", "1.0")]
+		WatchKit.WKInterfaceButton EnterText { get; set; }
 
 		[Outlet]
-		WatchKit.WKInterfaceSeparator Line { get; set; }
-
-		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		WatchKit.WKInterfaceLabel Name { get; set; }
+
+		[Action ("WKInterfaceButton5_Activated:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void WKInterfaceButton5_Activated (WatchKit.WKInterfaceButton sender);
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (DoneImage != null) {
-				DoneImage.Dispose ();
-				DoneImage = null;
-			}
-			if (Line != null) {
-				Line.Dispose ();
-				Line = null;
+			if (EnterText != null) {
+				EnterText.Dispose ();
+				EnterText = null;
 			}
 			if (Name != null) {
 				Name.Dispose ();

@@ -143,6 +143,10 @@
     <Compile Include="Wormhole.cs" />
     <Compile Include="CFNotificationCenter.cs" />
     <Compile Include="WormholeMessage.cs" />
+    <Compile Include="TodoNewController.cs" />
+    <Compile Include="TodoNewController.designer.cs">
+      <DependentUpon>TodoNewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="PushNotificationPayload.json" />

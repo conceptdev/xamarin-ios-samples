@@ -63,11 +63,9 @@ namespace WatchTodoExtension
 			var name = shared.StringForKey ("name_preference");
 			Console.WriteLine ("Enabled: " + isEnabled);
 			Console.WriteLine ("Name: " + name);
-			// SetTitle (name); // for testing
 
 			// reload each view
 			data = Database.GetItems ().ToList();
-
 
 			TodoTable.SetNumberOfRows ((nint)data.Count, "todoRow");
 
@@ -75,13 +73,9 @@ namespace WatchTodoExtension
 
 				var elementRow = (TodoRowController)TodoTable.GetRowController (i);
 
-				elementRow.Name.SetText (data [i].Name);
+				elementRow.Set(data [i].Name, data [i].Done);
 
-				Console.WriteLine (elementRow.Name + " set " + data [i].Name);
-				if (data [i].Done)
-					elementRow.DoneImage.SetImage ("done");
-				else
-					elementRow.DoneImage.SetImage ("notdone");
+				Console.WriteLine (i + " set " + data [i].Name + " (" + data[i].Done + ")");
 			}
 
 			wormHole.ListenForMessage<string> (WormholeMessage.MessageType, (message) => {
@@ -95,13 +89,9 @@ namespace WatchTodoExtension
 
 					var elementRow = (TodoRowController)TodoTable.GetRowController (i);
 
-					elementRow.Name.SetText (data1 [i].Name);
+					elementRow.Set(data1 [i].Name, data1 [i].Done);
 
-					Console.WriteLine (elementRow.Name + " set " + data1 [i].Name);
-					if (data1 [i].Done)
-						elementRow.DoneImage.SetImage ("done");
-					else
-						elementRow.DoneImage.SetImage ("notdone");
+					Console.WriteLine (i + " set " + data1 [i].Name + " (" + data[i].Done + ")");
 				}
 			});
 		}
@@ -112,6 +102,11 @@ namespace WatchTodoExtension
 				
 			// This method is called when the watch view controller is no longer visible to the user.
 			Console.WriteLine ("{0} did deactivate", this);
+		}
+
+		partial void New()
+		{
+			PushController ("todoAdd", null);
 		}
 	}
 }

@@ -25,6 +25,11 @@ namespace WatchTodoExtension
 			database.CreateTable<TodoItem>();
 		}
 
+		public void Close()
+		{
+			database.Close ();
+		}
+
 		public IEnumerable<TodoItem> GetItems ()
 		{
 			lock (locker) {

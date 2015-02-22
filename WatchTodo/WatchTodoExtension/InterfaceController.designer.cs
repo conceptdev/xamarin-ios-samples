@@ -14,6 +14,9 @@ namespace WatchTodoExtension
 	{
 		[Outlet]
 		WatchKit.WKInterfaceTable TodoTable { get; set; }
+
+		[Action ("New")]
+		partial void New ();
 		
 		void ReleaseDesignerOutlets ()
 		{

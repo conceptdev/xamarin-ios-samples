@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
         <!--Todo-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="Todo" id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="todoList" title="Todo" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <table alignment="left" id="0YF-xz-Twq">
                             <items>
                                 <tableRow identifier="todoRow" id="bh3-EQ-GjK" customClass="TodoRowController">
                                     <group key="rootItem" width="1" alignment="left" id="Dza-3g-ul1">
                                         <items>
+                                            <separator height="1" heightAdjustment="-5" alignment="left" verticalAlignment="center" id="DCc-xr-xB7">
+                                                <color key="color" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
                                             <label alignment="left" verticalAlignment="center" text="Name" numberOfLines="2" id="vVV-Lh-0xf"/>
                                             <imageView alignment="right" verticalAlignment="center" image="notdone.png" contentMode="scaleAspectFit" id="jjk-nc-B2k"/>
                                         </items>
@@ -24,12 +27,22 @@
                                     </group>
                                     <connections>
                                         <outlet property="DoneImage" destination="jjk-nc-B2k" id="i0E-Hn-2wB"/>
+                                        <outlet property="Line" destination="DCc-xr-xB7" id="DOD-W8-pXo"/>
                                         <outlet property="Name" destination="vVV-Lh-0xf" id="0uA-Gq-xwC"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <menu key="menu" id="2">
+                        <items>
+                            <menuItem title="New" icon="add" id="3">
+                                <connections>
+                                    <action selector="New" destination="AgC-eL-Hgc" id="Orh-fk-CvT"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="TodoTable" destination="0YF-xz-Twq" id="SAg-tw-S4X"/>
                     </connections>
@@ -37,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
         </scene>
-        <!--Detail-->
+        <!--Todo-->
         <scene sceneID="q2w-fE-Y52">
             <objects>
-                <controller title="Detail" id="da8-FD-BJM" customClass="TodoDetailController">
+                <controller identifier="todoDetail" title="Todo" id="da8-FD-BJM" customClass="TodoDetailController">
                     <items>
                         <label alignment="left" text="Todo Name" id="cds-9H-AJx">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
@@ -101,6 +114,33 @@
                 <controller id="gdX-wl-uQE" customClass="NotificationController"/>
             </objects>
             <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+        <!--Add-->
+        <scene sceneID="0">
+            <objects>
+                <controller identifier="todoAdd" title="Add" id="1" customClass="TodoNewController">
+                    <items>
+                        <group width="1" alignment="left" id="t8B-FS-GXz">
+                            <items>
+                                <separator height="1" alignment="left" verticalAlignment="center" id="cdT-ne-ZXl">
+                                    <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
+                                <label alignment="left" text="new item" id="4"/>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Enter Text" id="5">
+                            <connections>
+                                <action selector="WKInterfaceButton5_Activated:" destination="1" id="6"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="EnterText" destination="5" id="name-outlet-5"/>
+                        <outlet property="Name" destination="4" id="name-outlet-4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="543" y="124"/>
         </scene>
     </scenes>
 </document>

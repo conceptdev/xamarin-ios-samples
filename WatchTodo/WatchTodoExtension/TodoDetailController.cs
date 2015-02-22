@@ -8,8 +8,7 @@ namespace WatchTodoExtension
 {
 	public partial class TodoDetailController : WKInterfaceController
 	{
-		public TodoDetailController
-		(IntPtr handle) : base (handle)
+		public TodoDetailController (IntPtr handle) : base (handle)
 		{
 		}
 
@@ -34,9 +33,10 @@ namespace WatchTodoExtension
 		}
 			
 		public TodoItemDatabase Database { get; set; }
-		partial void DoneSwitch (System.Boolean value)
+		//partial void DoneSwitch (bool value)
+		partial void DoneSwitch (WatchKit.WKInterfaceSwitch sender)
 		{
-			todo.Done = value;
+			//todo.Done = value;
 		}
 		partial void Save ()
 		{
@@ -55,6 +55,7 @@ namespace WatchTodoExtension
 
 				Database = new TodoItemDatabase(conn);
 			}
+			Console.WriteLine ("Save the todo " + todo.Name);
 			Database.SaveItem(todo.As());
 
 			PopController();

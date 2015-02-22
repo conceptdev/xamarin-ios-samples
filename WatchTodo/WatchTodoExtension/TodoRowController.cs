@@ -8,5 +8,17 @@ namespace WatchTodoExtension
 		public TodoRowController ()
 		{
 		}
+
+		public void Set (string name, bool done) 
+		{
+			Name.SetText (name);
+			if (done) {
+				DoneImage.SetImage ("done");
+				Line.SetColor (UIKit.UIColor.Green);
+			} else {
+				DoneImage.SetImage ("notdone");
+				Line.SetColor (UIKit.UIColor.Red);
+			}
+		}
 	}
 }

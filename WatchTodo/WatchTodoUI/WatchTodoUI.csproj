@@ -108,38 +108,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\WatchTodoExtension\GlanceController.cs">
-      <Link>GlanceController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\GlanceController.designer.cs">
-      <Link>GlanceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\InterfaceController.cs">
-      <Link>InterfaceController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\InterfaceController.designer.cs">
-      <Link>InterfaceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\NotificationController.cs">
-      <Link>NotificationController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\NotificationController.designer.cs">
-      <Link>NotificationController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\TodoDetailController.cs">
-      <Link>TodoDetailController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\TodoDetailController.designer.cs">
-      <Link>TodoDetailController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\TodoRowController.cs">
-      <Link>TodoRowController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchTodoExtension\TodoRowController.designer.cs">
-      <Link>TodoRowController.designer.cs</Link>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\done%402x.png" />
     <BundleResource Include="Resources\notdone%402x.png" />
   </ItemGroup>
