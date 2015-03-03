@@ -67,20 +67,17 @@ namespace WatchTodoExtension
 			// reload each view
 			data = Database.GetItems ().ToList();
 
+			// HACK: the recommendation is to use Insert and Remove rows
+			// becaues if you reload the entire table, all the data is
+			// re-sent from the extension to the watch
 			TodoTable.SetNumberOfRows ((nint)data.Count, "todoRow");
-
 			for (var i = 0; i < data.Count; i++) {
-
 				var elementRow = (TodoRowController)TodoTable.GetRowController (i);
-
 				elementRow.Set(data [i].Name, data [i].Done);
-
-				Console.WriteLine (i + " set " + data [i].Name + " (" + data[i].Done + ")");
 			}
 
 			wormHole.ListenForMessage<string> (WormholeMessage.MessageType, (message) => {
-				//SelectionLabel.SetText(message.Id.ToString());
-				// reload each view
+				// reload each view - duplicate of code above
 				var data1 = Database.GetItems ().ToList();
 
 				TodoTable.SetNumberOfRows ((nint)data1.Count, "todoRow");
@@ -90,8 +87,6 @@ namespace WatchTodoExtension
 					var elementRow = (TodoRowController)TodoTable.GetRowController (i);
 
 					elementRow.Set(data1 [i].Name, data1 [i].Done);
-
-					Console.WriteLine (i + " set " + data1 [i].Name + " (" + data[i].Done + ")");
 				}
 			});
 		}

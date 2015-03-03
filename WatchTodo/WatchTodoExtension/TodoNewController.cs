@@ -20,7 +20,7 @@ namespace WatchTodoExtension
 		{
 			if (entryMode) {
 				Console.WriteLine("EntryMode=true");
-				var suggest = new string[]{"Get groceries", "Buy gas", ""};
+				var suggest = new string[]{"Get groceries", "Buy gas", "Post letter"};
 
 				PresentTextInputController( suggest, WatchKit.WKTextInputMode.AllowEmoji, (a) => {
 					Console.WriteLine("Text was selected");
