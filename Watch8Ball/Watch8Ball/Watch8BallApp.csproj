@@ -87,8 +87,13 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignProvision>f65fbd14-720d-4ae3-acc2-0d3cec813b6f</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -98,6 +103,17 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-180.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-120.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-114.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-196.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-172.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-88.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-80.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-58.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-55.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-48.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />

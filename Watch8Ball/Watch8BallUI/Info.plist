@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.Watch8Ball.watchkitapp</string>
+	<string>com.conceptdevelopment.watch8ball.watchkitapp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>com.your-company.Watch8BallUI</string>
+	<string>com.conceptdevelopment.watch8ballui</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
@@ -24,7 +24,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.your-company.Watch8BallUI</string>
+	<string>com.conceptdevelopment.watch8ball</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>CFBundleDisplayName</key>

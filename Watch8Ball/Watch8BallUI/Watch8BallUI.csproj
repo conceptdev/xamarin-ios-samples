@@ -87,8 +87,10 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -109,5 +111,19 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Resources\8ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-114.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-120.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-180.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-57.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-172.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-196.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-48.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-55.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-58.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-80.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-88.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
   </ItemGroup>
 </Project>
