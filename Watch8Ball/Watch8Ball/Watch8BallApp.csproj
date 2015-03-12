@@ -102,18 +102,18 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-180.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-120.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-114.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ball-57.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-196.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-172.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-88.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-80.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-58.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-55.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\8ballw-48.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-180.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-120.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-114.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-196.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-172.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-88.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-80.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-58.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-55.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ballw-48.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />

@@ -189,3 +189,5 @@ FakesAssemblies/
 *.userprefs
 
 *.userprefs
+
+*.DS_Store
