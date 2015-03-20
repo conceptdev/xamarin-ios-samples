@@ -9,9 +9,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Calc</string>
+	<string>WatchCalc</string>
 	<key>CFBundlePackageType</key>
-	<string>XPC!</string>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
@@ -30,7 +30,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.2</string>
 	<key>CFBundleDisplayName</key>
-	<string>Calc</string>
+	<string>WatchCalc</string>
 	<key>XSAppIconAssets</key>
 	<string>Images.xcassets/AppIcons.appiconset</string>
 </dict>
