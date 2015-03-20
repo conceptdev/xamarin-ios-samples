@@ -34,5 +34,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleName</key>
+	<string>8Ball</string>
 </dict>
 </plist>

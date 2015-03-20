@@ -125,5 +125,6 @@
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-80.png" />
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-88.png" />
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-44%402x.png" />
   </ItemGroup>
 </Project>

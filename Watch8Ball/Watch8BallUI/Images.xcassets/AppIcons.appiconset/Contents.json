@@ -26,25 +26,21 @@
       "idiom": "iphone"
     },
     {
-      "filename": "8ball-57.png",
       "size": "57x57",
       "scale": "1x",
       "idiom": "iphone"
     },
     {
-      "filename": "8ball-114.png",
       "size": "57x57",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "8ball-120.png",
       "size": "60x60",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "8ball-180.png",
       "size": "60x60",
       "scale": "3x",
       "idiom": "iphone"
@@ -124,6 +120,7 @@
     },
     {
       "role": "companionSettings",
+      "filename": "8ballw-88.png",
       "size": "29.3x29.3",
       "scale": "3x",
       "idiom": "watch"
