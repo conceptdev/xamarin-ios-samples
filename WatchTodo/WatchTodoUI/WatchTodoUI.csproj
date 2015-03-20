@@ -98,6 +98,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Images.xcassets\" />
+    <Folder Include="Images.xcassets\AppIcons.appiconset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -110,5 +112,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\done%402x.png" />
     <BundleResource Include="Resources\notdone%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-24%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-27.5%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-29%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-29%403x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-44%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-86%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-98%402x.png" />
   </ItemGroup>
 </Project>

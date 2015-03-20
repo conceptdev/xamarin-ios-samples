@@ -31,5 +31,7 @@
 	<string>8.2</string>
 	<key>CFBundleDisplayName</key>
 	<string>Todo</string>
+	<key>XSAppIconAssets</key>
+	<string>Images.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>
