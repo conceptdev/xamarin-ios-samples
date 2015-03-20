@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>WatchInsta</string>
+	<key>CFBundleName</key>
+	<string>WatchInsta</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.conceptdevelopment.watchinsta</string>
 	<key>CFBundleShortVersionString</key>

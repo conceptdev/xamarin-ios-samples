@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Images.xcassets\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -108,23 +109,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\WatchInstaExtension\GlanceController.cs">
-      <Link>GlanceController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchInstaExtension\GlanceController.designer.cs">
-      <Link>GlanceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchInstaExtension\InterfaceController.cs">
-      <Link>InterfaceController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchInstaExtension\InterfaceController.designer.cs">
-      <Link>InterfaceController.designer.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchInstaExtension\NotificationController.cs">
-      <Link>NotificationController.cs</Link>
-    </Compile>
-    <Compile Include="..\WatchInstaExtension\NotificationController.designer.cs">
-      <Link>NotificationController.designer.cs</Link>
-    </Compile>
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-24%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-27.5%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-29%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-29%403x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-44%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-86%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-98%402x.png" />
   </ItemGroup>
 </Project>
