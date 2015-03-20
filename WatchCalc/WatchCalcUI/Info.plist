@@ -9,7 +9,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>com.your-company.WatchCalcUI</string>
+	<string>Calc</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
@@ -24,12 +24,14 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.your-company.WatchCalcUI</string>
+	<string>com.your-company.WatchCalc</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>MinimumOSVersion</key>
 	<string>8.2</string>
 	<key>CFBundleDisplayName</key>
 	<string>Calc</string>
+	<key>XSAppIconAssets</key>
+	<string>Images.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>

@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>WatchCalc</string>
+	<key>CFBundleName</key>
+	<string>WatchCalc</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.your-company.WatchCalc</string>
 	<key>CFBundleShortVersionString</key>
