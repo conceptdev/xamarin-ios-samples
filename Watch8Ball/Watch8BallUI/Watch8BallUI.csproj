@@ -91,6 +91,7 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignProvision>1645f800-c4d1-46bb-bbc4-d4155d84406d</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

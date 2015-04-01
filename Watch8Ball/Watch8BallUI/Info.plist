@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.watch8ball.watchkitapp</string>
+	<string>co.conceptdev.WatchEight.watchkitapp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -24,14 +24,12 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.conceptdevelopment.watch8ball</string>
+	<string>co.conceptdev.WatchEight</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>CFBundleDisplayName</key>
 	<string>8Ball</string>
 	<key>MinimumOSVersion</key>
 	<string>8.2</string>
-	<key>XSAppIconAssets</key>
-	<string>Images.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>

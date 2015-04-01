@@ -20,11 +20,14 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386</MtouchArch>
-    <MtouchLink>None</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchProfiling>true</MtouchProfiling>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
+    <CodesignProvision>8e9d44a2-badb-435e-919d-4d7b7aac0cb8</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -52,6 +55,9 @@
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>6d54850e-2a89-4e8a-961e-9d63ab3b9b45</CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -87,7 +93,7 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>f65fbd14-720d-4ae3-acc2-0d3cec813b6f</CodesignProvision>
+    <CodesignProvision>f69d4efe-e2e5-4717-9f8a-a7d398feaafe</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <IpaPackageName>
     </IpaPackageName>
@@ -107,6 +113,10 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-120.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-114.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-80.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-87.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-58.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\8ball-29.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -131,5 +141,9 @@
       <Name>Watch8BallExtension</Name>
       <IsAppExtension>True</IsAppExtension>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
 </Project>

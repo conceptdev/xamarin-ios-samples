@@ -134,10 +134,9 @@
       "idiom": "watch"
     },
     {
-      "role": "appLauncher",
+      "role": "longLook",
       "filename": "8ballw-88.png",
       "size": "44x44",
-      "subtype": "42mm",
       "scale": "2x",
       "idiom": "watch"
     },

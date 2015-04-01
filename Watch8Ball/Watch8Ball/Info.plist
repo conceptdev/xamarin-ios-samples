@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Watch8Ball</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.watch8ball</string>
+	<string>co.conceptdev.WatchEight</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -13,7 +13,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>8.2</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

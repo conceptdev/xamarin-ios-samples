@@ -7,11 +7,11 @@
 	<key>CFBundleDisplayName</key>
 	<string>Watch8BallExtension</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.watch8ball.watchkitextension</string>
+	<string>co.conceptdev.WatchEight.watchkitextension</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>com.your-company.Watch8BallExtension</string>
+	<string>Watch8BallEx</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
@@ -25,7 +25,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.conceptdevelopment.watch8ball.watchkitapp</string>
+			<string>co.conceptdev.WatchEight.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
