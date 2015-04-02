@@ -5,9 +5,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>WatchCalc</string>
 	<key>CFBundleName</key>
-	<string>WatchCalc1</string>
+	<string>WatchCalc</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.WatchCalc</string>
+	<string>co.conceptdev.WatchCalc.app</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -15,7 +15,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>8.2</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

@@ -110,16 +110,26 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Resources\bg%402x.png" />
+    <BundleResource Include="Resources\24x24%402x.png" />
+    <BundleResource Include="Resources\27.5x27.5%402x.png" />
+    <BundleResource Include="Resources\29x29%402x.png" />
+    <BundleResource Include="Resources\29x29%403x.png" />
+    <BundleResource Include="Resources\40x40%402x.png" />
+    <BundleResource Include="Resources\44x44%402x.png" />
+    <BundleResource Include="Resources\86x86%402x.png" />
+    <BundleResource Include="Resources\98x98%402x.png" />
+    <BundleResource Include="Resources\AppIcons29x29%403x.png" />
+    <BundleResource Include="Resources\AppIcons44x44%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-24%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-27.5%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-29%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-29%403x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-44%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-86%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-98%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%403x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\44x44%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\24x24%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\27.5x27.5%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\40x40%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\86x86%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\98x98%402x.png" />
   </ItemGroup>
 </Project>
