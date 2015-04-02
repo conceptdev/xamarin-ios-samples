@@ -114,18 +114,14 @@
     <BundleResource Include="Resources\8ball.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-114.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-120.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-180.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ball-57.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-172.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-196.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-48.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-55.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-58.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-80.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\8ballw-88.png" />
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Icon-44%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\24x24%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\44x44%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\40x40%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\27.5x27.5%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\86x86%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\98x98%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%403x.png" />
   </ItemGroup>
 </Project>

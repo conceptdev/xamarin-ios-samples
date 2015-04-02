@@ -1,103 +1,8 @@
 {
   "images": [
     {
-      "size": "29x29",
-      "scale": "1x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "29x29",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "29x29",
-      "scale": "3x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "40x40",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "40x40",
-      "scale": "3x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "57x57",
-      "scale": "1x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "57x57",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "60x60",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "60x60",
-      "scale": "3x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "29x29",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "29x29",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "40x40",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "40x40",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "50x50",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "50x50",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "72x72",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "72x72",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "76x76",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "76x76",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
       "role": "notificationCenter",
-      "filename": "8ballw-48.png",
+      "filename": "24x24@2x.png",
       "size": "24x24",
       "subtype": "38mm",
       "scale": "2x",
@@ -105,7 +10,7 @@
     },
     {
       "role": "notificationCenter",
-      "filename": "8ballw-55.png",
+      "filename": "27.5x27.5@2x.png",
       "size": "27.5x27.5",
       "subtype": "42mm",
       "scale": "2x",
@@ -113,21 +18,37 @@
     },
     {
       "role": "companionSettings",
-      "filename": "8ballw-58.png",
+      "filename": "29x29@2x.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "watch"
     },
     {
       "role": "companionSettings",
-      "filename": "8ballw-88.png",
-      "size": "29.3x29.3",
+      "filename": "29x29@3x.png",
+      "size": "29x29",
       "scale": "3x",
       "idiom": "watch"
     },
     {
       "role": "appLauncher",
-      "filename": "8ballw-80.png",
+      "filename": "40x40@2x.png",
+      "size": "40x40",
+      "subtype": "38mm",
+      "scale": "2x",
+      "idiom": "watch"
+    },
+    {
+      "role": "appLauncher",
+      "filename": "44x44@2x.png",
+      "size": "44x44",
+      "subtype": "42mm",
+      "scale": "2x",
+      "idiom": "watch"
+    },
+    {
+      "role": "longLook",
+      "filename": "40x40@2x.png",
       "size": "40x40",
       "subtype": "38mm",
       "scale": "2x",
@@ -135,14 +56,15 @@
     },
     {
       "role": "longLook",
-      "filename": "8ballw-88.png",
+      "filename": "44x44@2x.png",
       "size": "44x44",
+      "subtype": "42mm",
       "scale": "2x",
       "idiom": "watch"
     },
     {
       "role": "quickLook",
-      "filename": "8ballw-172.png",
+      "filename": "86x86@2x.png",
       "size": "86x86",
       "subtype": "38mm",
       "scale": "2x",
@@ -150,7 +72,7 @@
     },
     {
       "role": "quickLook",
-      "filename": "8ballw-196.png",
+      "filename": "98x98@2x.png",
       "size": "98x98",
       "subtype": "42mm",
       "scale": "2x",
