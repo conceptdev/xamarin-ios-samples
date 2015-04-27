@@ -45,7 +45,7 @@ namespace WatchTodoExtension
 			if (Database == null) 
 			{
 				var FileManager = new NSFileManager ();
-				var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+				var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
 				var appGroupContainerPath = appGroupContainer.Path;
 				Console.WriteLine ("agcpath: " + appGroupContainerPath);
 

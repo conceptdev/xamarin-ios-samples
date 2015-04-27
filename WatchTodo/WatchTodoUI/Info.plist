@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.WatchTodo.watchkitapp</string>
+	<string>co.conceptdev.WatchTodo.watchkitapp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>com.your-company.WatchTodoUI</string>
+	<string>watchapp</string>
 	<key>CFBundlePackageType</key>
-	<string>XPC!</string>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
@@ -24,7 +24,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.your-company.WatchTodoUI</string>
+	<string>co.conceptdev.WatchTodo</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>MinimumOSVersion</key>

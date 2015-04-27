@@ -26,7 +26,7 @@ namespace WatchTodo
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			NSUserDefaults shared = new NSUserDefaults(
-				"group.com.conceptdevelopment.WatchTodo", NSUserDefaultsType.SuiteName);
+				"group.co.conceptdev.WatchTodo", NSUserDefaultsType.SuiteName);
 			var isEnabled = shared.BoolForKey ("enabled_preference");
 			var name = shared.StringForKey ("name_preference");
 			Console.WriteLine ("Enabled: " + isEnabled);

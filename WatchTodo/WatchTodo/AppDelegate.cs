@@ -32,10 +32,10 @@ namespace WatchTodo
 		{
 			Current = this;
 
-			wormHole = new Wormhole ("group.com.conceptdevelopment.WatchTodo", "messageDir");
+			wormHole = new Wormhole ("group.co.conceptdev.WatchTodo", "messageDir");
 
 			var FileManager = new NSFileManager ();
-			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+			var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
 			var appGroupContainerPath = appGroupContainer.Path;
 			Console.WriteLine ("agcpath: " + appGroupContainerPath);
 

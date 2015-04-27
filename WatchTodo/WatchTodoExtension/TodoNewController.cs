@@ -20,8 +20,22 @@ namespace WatchTodoExtension
 		{
 			if (entryMode) {
 				Console.WriteLine("EntryMode=true");
-				var suggest = new string[]{"Get groceries", "Buy gas", "Post letter"};
 
+				// Straight to dictation (no suggestions)
+//				PresentTextInputController(new string[0], WatchKit.WKTextInputMode.Plain, (a) => {
+//					Console.WriteLine("Dictation was accepted");
+//					if (a != null && a.Count > 0) {
+//						enteredText = a.GetItem<NSObject>(0).ToString();
+//						Console.WriteLine("   " + a.GetItem<NSObject>(0));
+//						Name.SetText (a.GetItem<NSObject>(0).ToString());
+//						entryMode = false;
+//						EnterText.SetTitle ("Save");
+//					} else {
+//						Console.WriteLine("Error");
+//					}
+//				});
+
+				var suggest = new string[]{"Get groceries", "Buy gas", "Post letter"};
 				PresentTextInputController( suggest, WatchKit.WKTextInputMode.AllowEmoji, (a) => {
 					Console.WriteLine("Text was selected");
 					if (a != null && a.Count > 0) {
@@ -44,7 +58,7 @@ namespace WatchTodoExtension
 				if (Database == null) 
 				{
 					var FileManager = new NSFileManager ();
-					var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+					var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
 					var appGroupContainerPath = appGroupContainer.Path;
 					Console.WriteLine ("agcpath: " + appGroupContainerPath);
 

@@ -67,6 +67,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodesignProvision>1417fcd8-a78f-4bf9-88fe-9256ab6d3280</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>

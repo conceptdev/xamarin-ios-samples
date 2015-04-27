@@ -15,7 +15,7 @@ namespace WatchTodoExtension
 		Wormhole wormHole;
 		public InterfaceController (IntPtr handle) : base (handle)
 		{
-			wormHole = new Wormhole ("group.com.conceptdevelopment.WatchTodo", "messageDir");
+			wormHole = new Wormhole ("group.co.conceptdev.WatchTodo", "messageDir");
 
 		}
 
@@ -30,7 +30,7 @@ namespace WatchTodoExtension
 			Console.WriteLine ("{0} awake with context", this);
 
 			var FileManager = new NSFileManager ();
-			var appGroupContainer = FileManager.GetContainerUrl ("group.com.conceptdevelopment.WatchTodo");
+			var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
 			var appGroupContainerPath = appGroupContainer.Path;
 			Console.WriteLine ("agcpath: " + appGroupContainerPath);
 
@@ -58,7 +58,7 @@ namespace WatchTodoExtension
 			Console.WriteLine ("{0} will activate", this);
 
 			NSUserDefaults shared = new NSUserDefaults(
-				"group.com.conceptdevelopment.WatchTodo", NSUserDefaultsType.SuiteName);
+				"group.co.conceptdev.WatchTodo", NSUserDefaultsType.SuiteName);
 			var isEnabled = shared.BoolForKey ("enabled_preference");
 			var name = shared.StringForKey ("name_preference");
 			Console.WriteLine ("Enabled: " + isEnabled);
