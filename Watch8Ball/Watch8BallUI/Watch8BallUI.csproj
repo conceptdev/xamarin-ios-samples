@@ -63,6 +63,10 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision>3b32e47f-0a66-47e8-878d-4c5b33af3006</CodesignProvision>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -87,11 +91,10 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>1645f800-c4d1-46bb-bbc4-d4155d84406d</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -101,18 +104,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Images.xcassets\8ball.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="Resources\8ball.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Interface.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
-  <ItemGroup>
-    <BundleResource Include="Resources\8ball.png" />
-  </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\24x24%402x.png" />
@@ -123,5 +125,7 @@
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\98x98%402x.png" />
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%402x.png" />
     <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%403x.png" />
+    <ImageAsset Include="Images.xcassets\8ball.imageset\8ball%402x.png" />
+    <ImageAsset Include="Images.xcassets\8ball.imageset\Contents.json" />
   </ItemGroup>
 </Project>
