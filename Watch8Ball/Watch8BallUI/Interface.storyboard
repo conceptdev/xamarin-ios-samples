@@ -65,7 +65,9 @@
                     <items>
                         <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
                     </items>
-                    <notificationCategory key="notificationCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" id="JfB-70-Muf" wantsSashBlur="YES">
+                        <color key="sashColor" colorSpace="calibratedRGB" red="0" green="1" blue="0" alpha="1"/>
+                    </notificationCategory>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
                         <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
@@ -82,4 +84,7 @@
             <point key="canvasLocation" x="553" y="1001"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="8ball" width="340" height="272"/>
+    </resources>
 </document>

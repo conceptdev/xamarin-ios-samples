@@ -11,6 +11,22 @@ namespace Watch8BallExtension
 		{
 		}
 
+
+		public override void DidReceiveLocalNotification (UIKit.UILocalNotification localNotification, Action<WKUserNotificationInterfaceType> completionHandler)
+		{
+			base.DidReceiveLocalNotification (localNotification, completionHandler);
+
+			Console.WriteLine ("DidReceiveLocalNotification alertbody:" + localNotification.AlertBody);
+		}
+
+		public override void DidReceiveRemoteNotification (NSDictionary remoteNotification, Action<WKUserNotificationInterfaceType> completionHandler)
+		{
+			base.DidReceiveRemoteNotification (remoteNotification, completionHandler);
+
+			Console.WriteLine ("DidReceiveLocalNotification count:" + remoteNotification.Count);
+		}
+
+
 		public override void Awake (NSObject context)
 		{
 			base.Awake (context);

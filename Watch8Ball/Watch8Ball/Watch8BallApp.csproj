@@ -27,7 +27,6 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>8e9d44a2-badb-435e-919d-4d7b7aac0cb8</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -55,7 +54,6 @@
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignProvision>6d54850e-2a89-4e8a-961e-9d63ab3b9b45</CodesignProvision>
     <IpaPackageName>
     </IpaPackageName>
   </PropertyGroup>

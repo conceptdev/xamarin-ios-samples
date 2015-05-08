@@ -76,6 +76,23 @@ namespace Watch8BallExtension
 			, "Outlook not so good"
 			, "Very doubtful"
 		};
+
+
+
+
+		public override void HandleLocalNotificationAction (string identifier, UIKit.UILocalNotification localNotification)
+		{
+			base.HandleLocalNotificationAction (identifier, localNotification);
+
+			Console.WriteLine ("HandleLocalNotificationAction alertbody:" + localNotification.AlertBody);
+		}
+
+		public override void HandleRemoteNotificationAction (string identifier, NSDictionary remoteNotification)
+		{
+			base.HandleRemoteNotificationAction (identifier, remoteNotification);
+
+			Console.WriteLine ("HandleRemoteNotificationAction count:"  + remoteNotification.Count);
+		}
 	}
 }
 

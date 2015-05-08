@@ -48,8 +48,33 @@ namespace Watch8Ball
 		{
 			base.ViewDidDisappear (animated);
 		}
-
 		#endregion
+
+		partial void shakeButton_TouchUpInside (UIButton sender)
+		{
+			// create the notification
+			var notification = new UILocalNotification();
+
+			// set the fire date (the date time in which it will fire)
+			notification.FireDate = NSDate.Now.AddSeconds(10); //DateTime.Now.AddSeconds(10));
+			notification.TimeZone = NSTimeZone.DefaultTimeZone;
+			// configure the alert stuff
+			notification.AlertTitle = "8Ball";
+			notification.AlertAction = "View Alert";
+			notification.AlertBody = "Your 10 sec alert has fired!";
+
+			notification.UserInfo = NSDictionary.FromObjectAndKey (new NSString("8Ball Local Notification"), new NSString("Notification"));
+
+			// modify the badge
+			notification.ApplicationIconBadgeNumber = 1;
+
+			// set the sound to be the default sound
+			notification.SoundName = UILocalNotification.DefaultSoundName;
+
+			// schedule it
+			UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+		}
+
 	}
 }
 
