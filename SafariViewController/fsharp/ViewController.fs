@@ -1,42 +1,4 @@
-SafariViewController (iOS 9)
-====================
-
-It's relatively simple to get the new iOS 9 `SFSafariViewController` working with Xamarin. Sample in both C# and F#.
-
-C#
---
-
-```
-using SafariServices;
-using Foundation;
-```
-
-```
-openButton.TouchUpInside += (sender, e) => {
-	var sfvc = new SFSafariViewController (new NSUrl("http://xamarin.com"),true);
-	PresentViewController(sfvc, true, null);
-};
-```
-
-and
-
-```
-[Foundation.Export ("safariViewControllerDidFinish:")]
-public void DidFinish (SFSafariViewController controller)
-{
-	DismissViewController (true, null);
-}
-```
-
-![](Screenshots/safariviewcontroller.png)
-
-F#
---
-
-**WARNING:** no idea if this is "good" F# or not.
-
-```
-namespace SafariViewDemoFS
+﻿namespace SafariViewDemoFS
 
 open System
 open CoreGraphics
@@ -53,10 +15,13 @@ type ViewController () as x =
         x.PresentViewController (sfvc, true, null)
 
     override x.DidReceiveMemoryWarning () =
+        // Releases the view if it doesn't have a superview.
         base.DidReceiveMemoryWarning ()
+        // Release any cached data, images, etc that aren't in use.
 
     override x.ViewDidLoad () =
         base.ViewDidLoad ()
+        // Perform any additional setup after loading the view, typically from a nib.
         let b = UIButton.FromType(UIButtonType.System)
         b.Frame <- new CGRect (nfloat 10.0f, nfloat 40.0f, nfloat 150.0f, nfloat 40.0f) 
         b.SetTitle("Safari View Controller", UIControlState.Normal)
@@ -64,8 +29,14 @@ type ViewController () as x =
         x.View.Add b
 
     override x.ShouldAutorotateToInterfaceOrientation (toInterfaceOrientation) =
+        // Return true for supported orientations
         if UIDevice.CurrentDevice.UserInterfaceIdiom = UIUserInterfaceIdiom.Phone then
            toInterfaceOrientation <> UIInterfaceOrientation.PortraitUpsideDown
         else
            true
-```
+    
+//    interface ISFSafariViewControllerDelegate 
+
+//    [<Export("safariViewControllerDidFinish:")>]
+//    DidFinish (SFSafariViewController: controller) =
+//        DismissViewController (true, null)
