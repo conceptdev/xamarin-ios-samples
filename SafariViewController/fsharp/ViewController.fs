@@ -14,6 +14,13 @@ type ViewController () as x =
         let sfvc = new SFSafariViewController (new NSUrl("http://xamarin.com"), true)
         x.PresentViewController (sfvc, true, null)
 
+    // still trying to figure this bit out...
+    [<Export("safariViewControllerDidFinish:")>]
+    let DidFinish (controller: SFSafariViewController) =
+        x.DismissViewController (true, null)
+
+    interface ISFSafariViewControllerDelegate 
+
     override x.DidReceiveMemoryWarning () =
         // Releases the view if it doesn't have a superview.
         base.DidReceiveMemoryWarning ()
@@ -35,8 +42,3 @@ type ViewController () as x =
         else
            true
     
-//    interface ISFSafariViewControllerDelegate 
-
-//    [<Export("safariViewControllerDidFinish:")>]
-//    DidFinish (SFSafariViewController: controller) =
-//        DismissViewController (true, null)

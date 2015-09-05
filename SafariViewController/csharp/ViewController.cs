@@ -19,21 +19,24 @@ namespace SafariViewDemo
 
 			openButton.TouchUpInside += (sender, e) => {
 				var sfvc = new SFSafariViewController (new NSUrl("http://xamarin.com"),true);
-
 				PresentViewController(sfvc, true, null);
 			};
 				
 		}
 
+		// API suggests this is required - but the dismiss seems to work without it
+		// (ie. this isn't even getting called)
 		[Foundation.Export ("safariViewControllerDidFinish:")]
 		public void DidFinish (SFSafariViewController controller)
 		{
 			DismissViewController (true, null);
 		}
+
+
+
 		public override void DidReceiveMemoryWarning ()
 		{
 			base.DidReceiveMemoryWarning ();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }
