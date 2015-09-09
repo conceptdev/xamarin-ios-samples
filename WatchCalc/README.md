@@ -1,14 +1,14 @@
-WatchCalc (WatchOS 2)
+WatchCalc 
 ========
 
 Apple Watch version of an old calculator watch :-) on watchOS 2 everything runs locally! 
 
-## TODO
+There are two versions:
 
-1. update for 42mm screen
-2. pretty up the background
+* WatchKit on iOS 8 (watchOS 1)
+* watchOS 2 
 
-![screenshot](Screenshots/calc1.png "watch")
+![screenshot](WatchOS1/Screenshots/calc1.png "watch")
 
 There are also Xamarin [docs for Watch Kit](http://developer.xamarin.com/guides/ios/watch/).
 

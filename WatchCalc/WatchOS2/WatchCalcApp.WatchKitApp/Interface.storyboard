@@ -12,15 +12,14 @@
                     <items>
                         <group width="240" height="59" alignment="left" layout="vertical" id="B4h-O7-h7U">
                             <items>
-                                <label alignment="right" text="-" id="dCU-9r-wxY" width="1">
+                                <label alignment="right" text="-" id="dCU-9r-wxY" width="1" textAlignment="right">
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
-                                <label alignment="right" text="0" id="gJi-XQ-mLo" width="1">
+                                <label alignment="right" text="0" id="gJi-XQ-mLo" width="1" textAlignment="right">
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                            <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="0" alpha="1"/>
+                            <edgeInsets key="margins" left="0.0" right="25" top="8" bottom="0.0"/>
                         </group>
                         <group width="135" height="89" alignment="left" layout="vertical" spacing="0.0" id="3O6-m9-DaR">
                             <items>
@@ -116,7 +115,6 @@
                     <connections>
                         <outlet property="display" destination="gJi-XQ-mLo" id="ob5-fD-tfD"/>
                         <outlet property="displayResult" destination="dCU-9r-wxY" id="kSX-Tx-J7Y"/>
-                        <outlet property="displayGroup" destination="B4h-O7-h7U" id="name-outlet-B4h-O7-h7U"/>
                     </connections>
                 </controller>
             </objects>

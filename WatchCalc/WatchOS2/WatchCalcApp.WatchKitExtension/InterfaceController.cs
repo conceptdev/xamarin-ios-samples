@@ -20,7 +20,6 @@ namespace WatchCalcExtension
 
 			// Configure interface objects here.
 			Console.WriteLine ("{0} awake with context", this);
-			display.SetText ("TEST");
 		}
 
 		public override void WillActivate ()
