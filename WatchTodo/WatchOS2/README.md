@@ -1,11 +1,11 @@
-WatchTodo (WatchKit)
+WatchTodo (watchOS 2)
 ========
 
-Apple Watch version of [Todo](https://github.com/conceptdev/xamarin-forms-samples/tree/master/Todo).
+Apple watchOS 2 version of [Todo](https://github.com/conceptdev/xamarin-forms-samples/tree/master/Todo).
 
-Uses SQLite database in shared App Group container to sync list between watch and iPhone. Still some bugs to iron out when re-populating the Row Controllers...
+## WARNING: still a work in progress - watchOS 2 is in PREVIEW
 
-![screenshot](Screenshots/watchtodo.png "watch")
+![screenshot](Screenshots/home.png "watch") ![screenshot](Screenshots/todo2.png "watch")
 
 There are also Xamarin [docs for the Watch Kit preview](http://developer.xamarin.com/guides/ios/watch/).
 
