@@ -4,7 +4,7 @@ using Foundation;
 using System.IO;
 using SQLite;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	public partial class TodoDetailController : WKInterfaceController
 	{
@@ -44,9 +44,12 @@ namespace WatchTodoApp.WatchKitExtension
 		{
 			if (Database == null) 
 			{
-				var FileManager = new NSFileManager ();
-				var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
-				var appGroupContainerPath = appGroupContainer.Path;
+//				var FileManager = new NSFileManager ();
+//				var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
+//				var appGroupContainerPath = appGroupContainer.Path;
+//				Console.WriteLine ("agcpath: " + appGroupContainerPath);
+
+				var appGroupContainerPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments); 
 				Console.WriteLine ("agcpath: " + appGroupContainerPath);
 
 				var sqliteFilename = "TodoSQLite.db3";

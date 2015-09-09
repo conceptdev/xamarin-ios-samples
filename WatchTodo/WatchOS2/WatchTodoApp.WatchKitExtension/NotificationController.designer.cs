@@ -6,7 +6,7 @@
 
 using Foundation;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	[Register ("NotificationController")]
 	partial class NotificationController

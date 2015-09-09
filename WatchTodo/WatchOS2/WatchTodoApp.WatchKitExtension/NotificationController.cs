@@ -3,7 +3,7 @@
 using WatchKit;
 using Foundation;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	public partial class NotificationController : WKUserNotificationInterfaceController
 	{

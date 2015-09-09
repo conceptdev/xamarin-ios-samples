@@ -6,13 +6,23 @@
 
 using Foundation;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	[Register ("InterfaceController")]
 	partial class InterfaceController
 	{
+		[Outlet]
+		WatchKit.WKInterfaceTable TodoTable { get; set; }
+
+		[Action ("New")]
+		partial void New ();
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (TodoTable != null) {
+				TodoTable.Dispose ();
+				TodoTable = null;
+			}
 		}
 	}
 }

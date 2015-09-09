@@ -3,7 +3,7 @@
 using Foundation;
 using SQLite;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	public class NSTodoItem : NSObject
 	{

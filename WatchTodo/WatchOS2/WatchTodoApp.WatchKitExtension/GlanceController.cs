@@ -3,7 +3,7 @@
 using Foundation;
 using WatchKit;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	public partial class GlanceController : WKInterfaceController
 	{

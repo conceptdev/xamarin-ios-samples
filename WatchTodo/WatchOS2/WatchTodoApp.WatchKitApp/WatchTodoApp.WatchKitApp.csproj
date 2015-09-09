@@ -100,4 +100,8 @@
       <IsAppExtension>True</IsAppExtension>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\done%402x.png" />
+    <BundleResource Include="Resources\notdone%402x.png" />
+  </ItemGroup>
 </Project>

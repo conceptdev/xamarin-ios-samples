@@ -6,7 +6,7 @@
 
 using Foundation;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	[Register ("GlanceController")]
 	partial class GlanceController

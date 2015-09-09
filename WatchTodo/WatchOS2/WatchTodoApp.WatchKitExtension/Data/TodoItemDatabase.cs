@@ -3,7 +3,7 @@ using SQLite;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	public class TodoItemDatabase 
 	{

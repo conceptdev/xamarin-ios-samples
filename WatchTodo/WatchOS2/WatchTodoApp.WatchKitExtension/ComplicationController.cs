@@ -5,7 +5,7 @@ using WatchKit;
 using ClockKit;
 using UIKit;
 
-namespace WatchTodoApp.WatchKitExtension
+namespace WatchTodoExtension
 {
 	[Register ("ComplicationController")]
 	public class ComplicationController : CLKComplicationDataSource
