@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>WatchTodoApp.WatchKitApp</string>
+	<string>Todo2</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.conceptdev.WatchTodo.watchkitapp</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -25,5 +25,7 @@
 	<true/>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleDisplayName</key>
+	<string>Todo2</string>
 </dict>
 </plist>
