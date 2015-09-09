@@ -44,17 +44,10 @@ namespace WatchTodoExtension
 		{
 			if (Database == null) 
 			{
-//				var FileManager = new NSFileManager ();
-//				var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
-//				var appGroupContainerPath = appGroupContainer.Path;
-//				Console.WriteLine ("agcpath: " + appGroupContainerPath);
-
 				var appGroupContainerPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments); 
 				Console.WriteLine ("agcpath: " + appGroupContainerPath);
 
 				var sqliteFilename = "TodoSQLite.db3";
-				//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
-				//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
 				var path = Path.Combine(appGroupContainerPath, sqliteFilename);
 				var conn = new SQLiteConnection (path);
 

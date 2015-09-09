@@ -28,14 +28,9 @@ namespace WatchTodoExtension
 			// Configure interface objects here.
 			Console.WriteLine ("{0} awake with context", this);
 
-//			var FileManager = new NSFileManager ();
-//			var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
-//			var appGroupContainerPath = appGroupContainer.Path;
-
 			//HACK: no app group
 			var appGroupContainerPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments); 
 			Console.WriteLine ("agcpath: " + appGroupContainerPath);
-
 
 			var sqliteFilename = "TodoSQLite.db3";
 			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
@@ -44,8 +39,10 @@ namespace WatchTodoExtension
 			Database = new TodoItemDatabase(conn);
 
 			if (Database.GetItems ().Count() == 0) {
-				Database.SaveItem (new TodoItem { Name = "Buy Pineapple", Notes = "Not rough" });
+				Database.SaveItem (new TodoItem { Name = "Buy Pineapple" });
 				Database.SaveItem (new TodoItem { Name = "Buy Plum", Done = true });
+				Database.SaveItem (new TodoItem { Name = "Buy Kiwi" });
+				Database.SaveItem (new TodoItem { Name = "Buy Apple", Notes="iPhone6s" });
 			}
 		}
 
@@ -65,7 +62,6 @@ namespace WatchTodoExtension
 			Console.WriteLine ("{0} will activate", this);
 
 			NSUserDefaults shared = new NSUserDefaults ();
-//				"group.co.conceptdev.WatchTodo", NSUserDefaultsType.SuiteName);
 			var isEnabled = shared.BoolForKey ("enabled_preference");
 			var name = shared.StringForKey ("name_preference");
 			Console.WriteLine ("Enabled: " + isEnabled);
@@ -82,26 +78,10 @@ namespace WatchTodoExtension
 				var elementRow = (TodoRowController)TodoTable.GetRowController (i);
 				elementRow.Set(data [i].Name, data [i].Done);
 			}
-
-//			wormHole.ListenForMessage<string> (WormholeMessage.MessageType, (message) => {
-//				// reload each view - duplicate of code above
-//				var data1 = Database.GetItems ().ToList();
-//
-//				TodoTable.SetNumberOfRows ((nint)data1.Count, "todoRow");
-//
-//				for (var i = 0; i < data1.Count; i++) {
-//
-//					var elementRow = (TodoRowController)TodoTable.GetRowController (i);
-//
-//					elementRow.Set(data1 [i].Name, data1 [i].Done);
-//				}
-//			});
 		}
 
 		public override void DidDeactivate ()
 		{
-//			wormHole.StopListeningForMessageWithIdentifier (WormholeMessage.MessageType);
-
 			// This method is called when the watch view controller is no longer visible to the user.
 			Console.WriteLine ("{0} did deactivate", this);
 		}
