@@ -101,7 +101,7 @@ namespace WatchTodoExtension
 
 		partial void New()
 		{
-			PushController ("todoAdd", null);
+			PushController ("todoAdd", (string)null);
 		}
 	}
 }
