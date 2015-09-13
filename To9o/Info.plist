@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UIMainStoryboardFile</key>
+	<string>MainStoryboard</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>de</string>
+		<string>es</string>
+		<string>ja</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>MinimumOSVersion</key>
+	<string>9.0</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.conceptdevelopment.To9o</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1</string>
+	<key>CFBundleDisplayName</key>
+	<string>To9o</string>
+</dict>
+</plist>
