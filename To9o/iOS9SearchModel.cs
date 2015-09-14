@@ -99,8 +99,9 @@ namespace StoryboardTables
 			activity.EligibleForHandoff = false;
 
 			activity.Title = "To9o View Detail !!";
-			activity.UserInfo = NSDictionary.FromObjectAndKey (new NSString (userInfo.Id.ToString()), new NSString ("id"));
-//			activity.AddUserInfoEntries(NSDictionary.FromObjectAndKey(new NSString("Add Empty Task"), new NSString("Name")));
+
+//			activity.UserInfo = NSDictionary.FromObjectAndKey (new NSString (userInfo.Id.ToString()), new NSString ("id"));
+			activity.AddUserInfoEntries(NSDictionary.FromObjectAndKey(new NSString("Add Empty Task"), new NSString("Name")));
 //			var keywords = new NSString[] {new NSString("Add"), new NSString("Todo"), new NSString("Empty"), new NSString("Task") };
 //			activity.Keywords = new NSSet<NSString>(keywords);
 
@@ -125,6 +126,7 @@ namespace StoryboardTables
 				attributeSet.ContentDescription = userInfo.Notes + "!!";
 			}
 			activity.ContentAttributeSet = attributeSet;
+
 
 			activity.BecomeCurrent ();
 

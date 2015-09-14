@@ -16,6 +16,18 @@ namespace StoryboardTables
 		{
 			
 		}
+		// this gets called periodically after activity.BecomeCurrent() is called
+		// //http://www.raywenderlich.com/84174/ios-8-handoff-tutorial
+		public override void UpdateUserActivityState (NSUserActivity activity)
+		{
+			Console.WriteLine ("UpdateUserActivityState for " + activity.Title);
+			// update activity 
+			if (currentTask != null) {
+				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (currentTask.Name), new NSString ("name")));
+				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (currentTask.Id.ToString ()), new NSString ("id")));
+			}
+			base.UpdateUserActivityState (activity);
+		}
 		public override void RestoreUserActivityState (NSUserActivity activity)
 		{
 			base.RestoreUserActivityState (activity);
