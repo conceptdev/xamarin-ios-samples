@@ -65,6 +65,8 @@ namespace StoryboardTables
 
 			AppDelegate.Current.TaskMgr.SaveTask(task);
 
+			iOS9SearchModel.Index (task);
+
 			NavigationController.PopViewController(true);
 		}
 		public void DeleteTask (Task task) {
@@ -72,9 +74,10 @@ namespace StoryboardTables
 //			var oldTask = tasks.Find(t => t.Id == task.Id);
 //			tasks.Remove (oldTask);
 
-			if (task.Id >= 0)
+			if (task.Id >= 0) {
 				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
-			
+				iOS9SearchModel.Delete (task);
+			}
 			NavigationController.PopViewController(true);
 		}
 

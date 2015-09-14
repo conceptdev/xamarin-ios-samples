@@ -39,6 +39,10 @@ namespace StoryboardTables
 
 			TitleText.TextAlignment = UITextAlignment.Natural;
 			NotesText.TextAlignment = UITextAlignment.Natural;
+
+			if (currentTask == null || currentTask.Id < 0) {
+				UserActivity = iOS9SearchModel.CreateActivity ();
+			}
 		}
 
 		// this will be called before the view is displayed 

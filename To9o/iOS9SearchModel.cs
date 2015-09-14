@@ -27,7 +27,31 @@ namespace StoryboardTables
 				return "";
 			}
 		}
+		public static void Index (Task t) {
+			var attributeSet = new CSSearchableItemAttributeSet (UTType.Text);
+			attributeSet.Title = t.Name;
+			attributeSet.ContentDescription = t.Notes;
+			attributeSet.TextContent = t.Notes;
 
+			var dataItem = new CSSearchableItem (t.Id.ToString(), "com.conceptdevelopment.to9o", attributeSet);
+
+			CSSearchableIndex.DefaultSearchableIndex.Index (new CSSearchableItem[] {dataItem}, err => {
+				if (err != null) {
+					Console.WriteLine (err);
+				} else {
+					Console.WriteLine ("Indexed inividual item successfully");
+				}
+			});
+		}
+		public static void Delete (Task t) {
+			CSSearchableIndex.DefaultSearchableIndex.Delete (new string[] {t.Id.ToString()}, err => {
+				if (err != null) {
+					Console.WriteLine (err);
+				} else {
+					Console.WriteLine ("Deleted inividual item from CS index");
+				}
+			});
+		}
 		// HACK: index each task as it is entered or updated
 		public iOS9SearchModel (List<Task> tasks)
 		{
@@ -50,7 +74,7 @@ namespace StoryboardTables
 			});
 
 			// HACK: index should be 'managed' rather than deleted/created each time
-			CSSearchableIndex.DefaultSearchableIndex.DeleteAll(null);
+			//CSSearchableIndex.DefaultSearchableIndex.DeleteAll(null);
 
 			CSSearchableIndex.DefaultSearchableIndex.Index (dataItems.ToArray<CSSearchableItem> (), err => {
 				if (err != null) {
@@ -64,15 +88,14 @@ namespace StoryboardTables
 
 
 		const string activityName = "com.conceptdevelopment.to9o.add";
-		NSUserActivity CreateActivity()
+		public static NSUserActivity CreateActivity()
 		{
-
 			var activity = new NSUserActivity(activityName);
 			activity.EligibleForSearch = true;
 			activity.EligibleForPublicIndexing = true;
 			activity.EligibleForHandoff = false;
 
-			activity.Title = "Add Task";
+			activity.Title = "Add Empty Task";
 
 
 			var nsd = new NSMutableDictionary();
@@ -85,15 +108,15 @@ namespace StoryboardTables
 			nsd.Add(new NSString("he"),new NSString("להוסיף todo"));
 			var csls = new CSLocalizedString (nsd);
 
-			var attributeSet = new CSSearchableItemAttributeSet (UTType.Text);
+			var attributeSet = new CoreSpotlight.CSSearchableItemAttributeSet("Add Empty Task");
 			attributeSet.DisplayName = csls;
 
 
-//			activity.AddUserInfoEntries(NSDictionary.FromObjectAndKey(new NSString("Add Todo"), new NSString("Name")));
+			activity.AddUserInfoEntries(NSDictionary.FromObjectAndKey(new NSString("Add Empty Task"), new NSString("Name")));
 
-//			var keywords = new string[] { "Add Todo" };
-//			activity.Keywords = new NSSet(keywords);
-			activity.ContentAttributeSet = new CoreSpotlight.CSSearchableItemAttributeSet("Add Todo");
+			var keywords = new NSString[] {new NSString("Add"), new NSString("Todo"), new NSString("Empty"), new NSString("Task") };
+			activity.Keywords = new NSSet<NSString>(keywords);
+
 			activity.ContentAttributeSet = attributeSet;
 
 			return activity;
