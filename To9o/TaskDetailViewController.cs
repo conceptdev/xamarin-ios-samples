@@ -15,7 +15,12 @@ namespace StoryboardTables
 		{
 
 		}
-		
+		public override void RestoreUserActivityState (NSUserActivity activity)
+		{
+			base.RestoreUserActivityState (activity);
+			var guid = activity.UserInfo [CoreSpotlight.CSSearchableItem.ActivityIdentifier];
+			Console.WriteLine ("eeeeeeee RestoreUserActivityState " + guid);
+		}
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();

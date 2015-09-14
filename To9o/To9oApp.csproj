@@ -107,6 +107,7 @@
     <Compile Include="Data\BusinessEntityBase.cs" />
     <Compile Include="Data\IBusinessEntity.cs" />
     <Compile Include="Data\Task.cs" />
+    <Compile Include="iOS9SearchModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

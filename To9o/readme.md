@@ -1,5 +1,23 @@
-Tasky (localized storyboard)
+To9o (todo list for iOS 9)
 ============================
+
+# BETA INCOMPLETE
+
+This project is still under construction - the following are just some
+of the tasks still to be done:
+
+* Search indexing happens in bulk, not when each item is added/updated
+* NSUserActivity type of search hasn't been added yet
+* ContinueUserActivity does not push the detail screen 
+* Peek and Push have not been added
+* More translations are required
+* Properly use size-classes so we can live in mutlitasking panels on iPad
+
+
+
+---------------------------
+
+
 
 ## Updated for iOS 9 RTL support
 

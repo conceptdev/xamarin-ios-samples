@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using System.IO;
 using SQLite;
+using CoreSpotlight;
 
 namespace StoryboardTables
 {
@@ -38,6 +39,43 @@ namespace StoryboardTables
 			var path = Path.Combine(libraryPath, sqliteFilename);
 			conn = new SQLite.SQLiteConnection(path);
 			TaskMgr = new TaskManager(conn);
+
+			SearchModel = new iOS9SearchModel (TaskMgr.GetTasks().ToList());
+
+			Console.WriteLine ("aaaaaaaaa FinishedLaunching");
+		}
+
+		public iOS9SearchModel SearchModel {
+			get;
+			private set;
+		}
+
+		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
+		{
+			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
+				var uuid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier);
+
+				System.Console.WriteLine ("Show the page for " + uuid);
+
+				var restaurantName = SearchModel.Lookup (new Guid (uuid.ToString()));
+
+				System.Console.WriteLine ("which is " + restaurantName);
+
+				var sb = UIStoryboard.FromName ("MainStoryboard", null);
+				var tvc = sb.InstantiateViewController("detail") as TaskDetailViewController;
+//				var source = tvc.TableView.Source as RootTableSource;
+
+				var item = TaskMgr.GetTasks ().ToList () [0];
+				tvc.SetTask(Window.RootViewController as RootViewController, item);
+				Console.WriteLine ("xxxxxxxxxx ContinueUserActivity");
+
+
+				//HACK: need to open detailviewcontroller here
+				completionHandler(new NSObject[] {tvc});
+//				var rvc = application.KeyWindow.RootViewController as RootViewController;
+//				rvc.NavigationController.PushViewController(tvc, false);
+			}
+			return true;
 		}
 
 		//
