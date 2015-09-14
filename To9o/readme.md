@@ -6,8 +6,6 @@ To9o (todo list for iOS 9)
 This project is still under construction - the following are just some
 of the tasks still to be done:
 
-* Search indexing happens in bulk, not when each item is added/updated
-* NSUserActivity type of search hasn't been added yet
 * Peek and Push have not been added
 * More translations are required
 * Properly use size-classes so we can live in mutlitasking panels on iPad
@@ -15,6 +13,17 @@ of the tasks still to be done:
 
 
 ---------------------------
+
+## Search APIs
+
+Implements two [search APIs](https://developer.xamarin.com/guides/ios/platform_features/introduction_to_ios9/search/)
+
+* NSUserActivity
+* CoreSpotlight
+
+(although - warning - the code is a bit of a mess right now and needs to be cleaned up)
+
+![](Screenshots/search1-sml.png) ![](Screenshots/search2-sml.png) ![](Screenshots/search3-sml.png)
 
 
 
@@ -28,7 +37,7 @@ of the tasks still to be done:
 ![](Screenshots/ar-RTL-detail-sml.png) ![](Screenshots/he-RTL-detail-sml.png)
 
 
-## Spanish and other LTR languages
+### Spanish and other LTR languages
 
 ![](Screenshots/es-sml.png)
 
@@ -65,7 +74,7 @@ Don't forget these entries in the `Info.plist` (for the languages you wish to su
 <string>en</string>
 ```
 
-## WARNING: Using Size Classes (Universal Storyboards)
+### WARNING: Using Size Classes (Universal Storyboards)
 
 This sample does *not* use Size Classes, but rather is specifically
 targeting iPhone in the storyboard.

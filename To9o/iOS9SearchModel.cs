@@ -87,17 +87,24 @@ namespace StoryboardTables
 
 
 
-		const string activityName = "com.conceptdevelopment.to9o.add";
-		public static NSUserActivity CreateActivity()
+		const string activityType = "com.conceptdevelopment.to9o.detail";
+		//
+		// https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/Activities.html#//apple_ref/doc/uid/TP40016308-CH6-SW1
+		// HACK: not working yet... ?
+		public static NSUserActivity CreateNSUserActivity(Task userInfo)
 		{
-			var activity = new NSUserActivity(activityName);
+			var activity = new NSUserActivity(activityType);
 			activity.EligibleForSearch = true;
-			activity.EligibleForPublicIndexing = true;
+			activity.EligibleForPublicIndexing = false;
 			activity.EligibleForHandoff = false;
 
-			activity.Title = "Add Empty Task";
+			activity.Title = "To9o View Detail !!";
+			activity.UserInfo = NSDictionary.FromObjectAndKey (new NSString (userInfo.Id.ToString()), new NSString ("id"));
+//			activity.AddUserInfoEntries(NSDictionary.FromObjectAndKey(new NSString("Add Empty Task"), new NSString("Name")));
+//			var keywords = new NSString[] {new NSString("Add"), new NSString("Todo"), new NSString("Empty"), new NSString("Task") };
+//			activity.Keywords = new NSSet<NSString>(keywords);
 
-
+			// Attributes
 			var nsd = new NSMutableDictionary();
 			nsd.Add(new NSString("en"),new NSString("Add Todo"));
 			nsd.Add(new NSString("fr"),new NSString("ajouter todo"));
@@ -108,16 +115,18 @@ namespace StoryboardTables
 			nsd.Add(new NSString("he"),new NSString("להוסיף todo"));
 			var csls = new CSLocalizedString (nsd);
 
-			var attributeSet = new CoreSpotlight.CSSearchableItemAttributeSet("Add Empty Task");
-			attributeSet.DisplayName = csls;
+			var attributeSet = new CoreSpotlight.CSSearchableItemAttributeSet ();//"com.conceptdevelopment.to9o.detail");
 
-
-			activity.AddUserInfoEntries(NSDictionary.FromObjectAndKey(new NSString("Add Empty Task"), new NSString("Name")));
-
-			var keywords = new NSString[] {new NSString("Add"), new NSString("Todo"), new NSString("Empty"), new NSString("Task") };
-			activity.Keywords = new NSSet<NSString>(keywords);
-
+			if (userInfo.Id <= 0) {
+				attributeSet.ContentDescription = "New Item!!";
+				attributeSet.DisplayName = csls ;
+			} else {
+				attributeSet.DisplayName = userInfo.Name + "!!";
+				attributeSet.ContentDescription = userInfo.Notes + "!!";
+			}
 			activity.ContentAttributeSet = attributeSet;
+
+			activity.BecomeCurrent ();
 
 			return activity;
 

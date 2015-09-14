@@ -3,6 +3,7 @@
 using System;
 using Foundation;
 using UIKit;
+using CoreSpotlight;
 
 namespace StoryboardTables
 {
@@ -18,11 +19,30 @@ namespace StoryboardTables
 		public override void RestoreUserActivityState (NSUserActivity activity)
 		{
 			base.RestoreUserActivityState (activity);
-			var uid = activity.UserInfo [CoreSpotlight.CSSearchableItem.ActivityIdentifier];
+			Console.Write ("RestoreUserActivityState ");
+			if (activity.ActivityType == "com.conceptdevelopment.to9o.detail") {
+				Console.WriteLine ("NSUserActivity=com.conceptdevelopment.to9o.detail");
+				if (activity.UserInfo == null || activity.UserInfo.Count == 0) {
+					// new task Activity
+					currentTask = new Task();
+				} else {
 
-			currentTask = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (uid.Description));
+					var id = activity.UserInfo.ObjectForKey ((NSString)"id").ToString ();
 
-			Console.WriteLine ("eeeeeeee RestoreUserActivityState " + uid);
+					if (id == "0")
+						currentTask = new Task ();
+					else
+						currentTask = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (id));
+				}
+			} 
+			if (activity.ActivityType == CSSearchableItem.ActionType) {
+				Console.WriteLine ("CSSearchableItem.ActionType");
+				var uid = activity.UserInfo [CoreSpotlight.CSSearchableItem.ActivityIdentifier];
+
+				currentTask = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (uid.Description));
+
+				Console.WriteLine ("eeeeeeee RestoreUserActivityState " + uid);
+			}
 		}
 		public override void ViewDidLoad ()
 		{
@@ -40,9 +60,9 @@ namespace StoryboardTables
 			TitleText.TextAlignment = UITextAlignment.Natural;
 			NotesText.TextAlignment = UITextAlignment.Natural;
 
-			if (currentTask == null || currentTask.Id < 0) {
-				UserActivity = iOS9SearchModel.CreateActivity ();
-			}
+
+			UserActivity = iOS9SearchModel.CreateNSUserActivity (currentTask?? new Task());
+
 		}
 
 		// this will be called before the view is displayed 

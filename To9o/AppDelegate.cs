@@ -53,6 +53,22 @@ namespace StoryboardTables
 		// http://www.raywenderlich.com/84174/ios-8-handoff-tutorial
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
+			UIViewController tvc = null;
+			if (userActivity.ActivityType == "com.conceptdevelopment.to9o.detail"){
+				if (userActivity.UserInfo.Count == 0) {
+					// new item
+
+				} else {
+					var uid = userActivity.UserInfo.ObjectForKey ((NSString)"id").ToString ();
+					if (uid == "0") {
+						Console.WriteLine ("No userinfo found for com.conceptdevelopment.to9o.detail");
+					} else {
+						Console.WriteLine ("Should display id " + uid);
+						// handled in TaskDetailViewController.RestoreUserActivityState
+					}
+				}
+				tvc = ContinueNavigation ();
+			}
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
 				var uid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier).ToString();
 
@@ -62,29 +78,36 @@ namespace StoryboardTables
 
 				System.Console.WriteLine ("which is " + restaurantName);
 
-				var sb = UIStoryboard.FromName ("MainStoryboard", null);
-				var tvc = sb.InstantiateViewController("detail") as TaskDetailViewController;
-//				var source = tvc.TableView.Source as RootTableSource;
-
-				var item = TaskMgr.GetTasks ().ToList () [0];
-				tvc.SetTask(Window.RootViewController as RootViewController, item);
-				Console.WriteLine ("xxxxxxxxxx ContinueUserActivity");
-
-
-				//HACK: need to open detailviewcontroller here
-				completionHandler(new NSObject[] {tvc});
-
-				var r = Window.RootViewController as UINavigationController;
-				r.PopToRootViewController (false);
-				r.PushViewController (tvc, false);
-
-//				var r = Window.RootViewController.ChildViewControllers [0];
-//				r.NavigationController.PopToRootViewController (false);
-//				r.NavigationController.PushViewController (tvc, false);
-//				var rvc = application.KeyWindow.RootViewController as RootViewController;
-//				rvc.NavigationController.PushViewController(tvc, false);
+				tvc = ContinueNavigation ();
 			}
+			completionHandler(new NSObject[] {tvc});
+
 			return true;
+		}
+
+		UIViewController ContinueNavigation (){
+			var sb = UIStoryboard.FromName ("MainStoryboard", null);
+			var tvc = sb.InstantiateViewController("detail") as TaskDetailViewController;
+			//				var source = tvc.TableView.Source as RootTableSource;
+
+			//var item = TaskMgr.GetTasks ().ToList () [0];
+			//tvc.SetTask(Window.RootViewController as RootViewController, item);
+			Console.WriteLine ("xxxxxxxxxx ContinueUserActivity");
+
+
+			//HACK: need to open detailviewcontroller here
+
+
+			var r = Window.RootViewController as UINavigationController;
+			r.PopToRootViewController (false);
+			r.PushViewController (tvc, false);
+
+			//				var r = Window.RootViewController.ChildViewControllers [0];
+			//				r.NavigationController.PopToRootViewController (false);
+			//				r.NavigationController.PushViewController (tvc, false);
+			//				var rvc = application.KeyWindow.RootViewController as RootViewController;
+			//				rvc.NavigationController.PushViewController(tvc, false);
+			return tvc;
 		}
 
 		//
