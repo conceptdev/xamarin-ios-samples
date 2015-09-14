@@ -13,13 +13,16 @@ namespace StoryboardTables
 
 		public TaskDetailViewController (IntPtr handle) : base (handle)
 		{
-
+			
 		}
 		public override void RestoreUserActivityState (NSUserActivity activity)
 		{
 			base.RestoreUserActivityState (activity);
-			var guid = activity.UserInfo [CoreSpotlight.CSSearchableItem.ActivityIdentifier];
-			Console.WriteLine ("eeeeeeee RestoreUserActivityState " + guid);
+			var uid = activity.UserInfo [CoreSpotlight.CSSearchableItem.ActivityIdentifier];
+
+			currentTask = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (uid.Description));
+
+			Console.WriteLine ("eeeeeeee RestoreUserActivityState " + uid);
 		}
 		public override void ViewDidLoad ()
 		{

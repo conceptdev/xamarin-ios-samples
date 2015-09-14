@@ -54,11 +54,11 @@ namespace StoryboardTables
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
-				var uuid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier);
+				var uid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier).ToString();
 
-				System.Console.WriteLine ("Show the page for " + uuid);
+				System.Console.WriteLine ("Show the page for " + uid);
 
-				var restaurantName = SearchModel.Lookup (new Guid (uuid.ToString()));
+				var restaurantName = SearchModel.Lookup (uid);
 
 				System.Console.WriteLine ("which is " + restaurantName);
 
@@ -72,10 +72,15 @@ namespace StoryboardTables
 
 
 				//HACK: need to open detailviewcontroller here
-//				completionHandler(new NSObject[] {tvc});
+				completionHandler(new NSObject[] {tvc});
 
-				var r = Window.RootViewController.ChildViewControllers [0];
-				r.NavigationController.PushViewController (tvc, false);
+				var r = Window.RootViewController as UINavigationController;
+				r.PopToRootViewController (false);
+				r.PushViewController (tvc, false);
+
+//				var r = Window.RootViewController.ChildViewControllers [0];
+//				r.NavigationController.PopToRootViewController (false);
+//				r.NavigationController.PushViewController (tvc, false);
 //				var rvc = application.KeyWindow.RootViewController as RootViewController;
 //				rvc.NavigationController.PushViewController(tvc, false);
 			}
