@@ -50,6 +50,7 @@ namespace StoryboardTables
 			private set;
 		}
 
+		// http://www.raywenderlich.com/84174/ios-8-handoff-tutorial
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
@@ -71,7 +72,10 @@ namespace StoryboardTables
 
 
 				//HACK: need to open detailviewcontroller here
-				completionHandler(new NSObject[] {tvc});
+//				completionHandler(new NSObject[] {tvc});
+
+				var r = Window.RootViewController.ChildViewControllers [0];
+				r.NavigationController.PushViewController (tvc, false);
 //				var rvc = application.KeyWindow.RootViewController as RootViewController;
 //				rvc.NavigationController.PushViewController(tvc, false);
 			}
