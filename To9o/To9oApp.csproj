@@ -108,6 +108,10 @@
     <Compile Include="Data\IBusinessEntity.cs" />
     <Compile Include="Data\Task.cs" />
     <Compile Include="iOS9SearchModel.cs" />
+    <Compile Include="Base.lproj\DetailViewController.cs" />
+    <Compile Include="Base.lproj\DetailViewController.designer.cs">
+      <DependentUpon>DetailViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

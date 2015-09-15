@@ -19,7 +19,7 @@ namespace StoryboardTables
 
 			if (NSLocale.PreferredLanguages.Length > 0) {
 				var pref = NSLocale.PreferredLanguages [0];
-				Console.WriteLine ("preferred-language:" + pref);
+				Console.WriteLine ("preferred-language:" + pref + " of " + NSLocale.PreferredLanguages.Count());
 			}
 
 		}
@@ -46,13 +46,15 @@ namespace StoryboardTables
 		}
 
 		public void CreateTask () {
-			// first, add the task to the underlying data
-			//var newId = tasks[tasks.Count - 1].Id + 1;
-			var newTask = new Task();
-			//tasks.Add (newTask);
-			// then open the detail view to edit it
-			var detail = Storyboard.InstantiateViewController("detail") as TaskDetailViewController;
-			detail.SetTask (this, newTask);
+			
+			// TableView
+			//var detail = Storyboard.InstantiateViewController("detail") as TaskDetailViewController;
+			//detail.SetTask (this, newTask);
+
+			// StackView
+			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
+			detail.Delegate = this;
+			detail.SetTodo (new Task());
 			NavigationController.PushViewController (detail, true);
 
 			// Could to this instead of the above, but need to create 'new Task()' in PrepareForSegue()
