@@ -26,9 +26,14 @@ namespace StoryboardTables
 				current.Notes = NotesText.Text;
 				current.Done = DoneSwitch.On;
 				Delegate.SaveTask(current);
+				NavigationController.PopViewController(true);
 			};
 			CancelButton.TouchUpInside += (sender, e) => {
-				Delegate.DeleteTask(current);
+				if (Delegate != null)
+					Delegate.DeleteTask(current);
+				else 
+					Console.WriteLine("Delegate not set - HACK");
+				NavigationController.PopViewController(true);
 			};
 
 			NameText.TextAlignment = UITextAlignment.Natural;
@@ -70,8 +75,10 @@ namespace StoryboardTables
 		{
 			base.RestoreUserActivityState (activity);
 			Console.Write ("RestoreUserActivityState ");
-			if (activity.ActivityType == "com.conceptdevelopment.to9o.detail") {
-				Console.WriteLine ("NSUserActivity=com.conceptdevelopment.to9o.detail");
+			if ((activity.ActivityType == "com.conceptdevelopment.to9o.detail") 
+				|| (activity.ActivityType == "com.conceptdevelopment.to9o.new"))
+			{
+				Console.WriteLine ("NSUserActivity " + activity.ActivityType);
 				if (activity.UserInfo == null || activity.UserInfo.Count == 0) {
 					// new task Activity
 					current = new Task();

@@ -62,25 +62,18 @@ namespace StoryboardTables
 		}
 		public void SaveTask (Task task) {
 			Console.WriteLine("Save "+task.Name);
-//			var oldTask = tasks.Find(t => t.Id == task.Id);
-//			oldTask = task;
 
 			AppDelegate.Current.TaskMgr.SaveTask(task);
 
 			iOS9SearchModel.Index (task);
 
-			NavigationController.PopViewController(true);
 		}
 		public void DeleteTask (Task task) {
 			Console.WriteLine("Delete "+task.Name);
-//			var oldTask = tasks.Find(t => t.Id == task.Id);
-//			tasks.Remove (oldTask);
-
 			if (task.Id >= 0) {
 				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
 				iOS9SearchModel.Delete (task);
 			}
-			NavigationController.PopViewController(true);
 		}
 
 

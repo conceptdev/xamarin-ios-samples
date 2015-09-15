@@ -31,6 +31,7 @@ namespace StoryboardTables
 		{
 			Current = this;
 
+			#region Database set-up
 			var sqliteFilename = "TaskDB.db3";
 			// we need to put in /Library/ on iOS5.1 to meet Apple's iCloud terms
 			// (they don't want non-user-generated data in Documents)
@@ -39,22 +40,25 @@ namespace StoryboardTables
 			var path = Path.Combine(libraryPath, sqliteFilename);
 			conn = new SQLite.SQLiteConnection(path);
 			TaskMgr = new TaskManager(conn);
+			#endregion
 
-			SearchModel = new iOS9SearchModel (TaskMgr.GetTasks().ToList());
+			//SearchModel = new iOS9SearchModel (TaskMgr.GetTasks().ToList());
 
 			Console.WriteLine ("aaaaaaaaa FinishedLaunching");
 		}
 
-		public iOS9SearchModel SearchModel {
-			get;
-			private set;
-		}
+//		public iOS9SearchModel SearchModel {
+//			get;
+//			private set;
+//		}
 
 		// http://www.raywenderlich.com/84174/ios-8-handoff-tutorial
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
 			UIViewController tvc = null;
-			if (userActivity.ActivityType == "com.conceptdevelopment.to9o.detail"){
+			if ((userActivity.ActivityType == "com.conceptdevelopment.to9o.detail") 
+				|| (userActivity.ActivityType == "com.conceptdevelopment.to9o.new"))
+			{
 				if (userActivity.UserInfo.Count == 0) {
 					// new item
 
@@ -64,7 +68,7 @@ namespace StoryboardTables
 						Console.WriteLine ("No userinfo found for com.conceptdevelopment.to9o.detail");
 					} else {
 						Console.WriteLine ("Should display id " + uid);
-						// handled in TaskDetailViewController.RestoreUserActivityState
+						// handled in DetailViewController.RestoreUserActivityState
 					}
 				}
 				tvc = ContinueNavigation ();
@@ -72,11 +76,7 @@ namespace StoryboardTables
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
 				var uid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier).ToString();
 
-				System.Console.WriteLine ("Show the page for " + uid);
-
-				var restaurantName = SearchModel.Lookup (uid);
-
-				System.Console.WriteLine ("which is " + restaurantName);
+				System.Console.WriteLine ("Show the detail for id:" + uid);
 
 				tvc = ContinueNavigation ();
 			}
@@ -86,30 +86,19 @@ namespace StoryboardTables
 		}
 
 		UIViewController ContinueNavigation (){
+			Console.WriteLine ("xxxxxxxxxx ContinueNavigation");
+
 			var sb = UIStoryboard.FromName ("MainStoryboard", null);
-			var tvc = sb.InstantiateViewController("detail") as TaskDetailViewController;
-			//				var source = tvc.TableView.Source as RootTableSource;
-
-			//var item = TaskMgr.GetTasks ().ToList () [0];
-			//tvc.SetTask(Window.RootViewController as RootViewController, item);
-			Console.WriteLine ("xxxxxxxxxx ContinueUserActivity");
-
-
-			//HACK: need to open detailviewcontroller here
-
+//			var tvc = sb.InstantiateViewController("detail") as TaskDetailViewController;
+			var tvc = sb.InstantiateViewController("detailvc") as DetailViewController;
 
 			var r = Window.RootViewController as UINavigationController;
 			r.PopToRootViewController (false);
 			r.PushViewController (tvc, false);
-
-			//				var r = Window.RootViewController.ChildViewControllers [0];
-			//				r.NavigationController.PopToRootViewController (false);
-			//				r.NavigationController.PushViewController (tvc, false);
-			//				var rvc = application.KeyWindow.RootViewController as RootViewController;
-			//				rvc.NavigationController.PushViewController(tvc, false);
 			return tvc;
 		}
 
+		#region Lifecycle
 		//
 		// This method is invoked when the application is about to move from active to inactive state.
 		//
@@ -135,6 +124,7 @@ namespace StoryboardTables
 		public override void WillTerminate (UIApplication application)
 		{
 		}
+		#endregion
 	}
 }
 
