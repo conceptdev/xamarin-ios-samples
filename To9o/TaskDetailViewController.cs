@@ -22,7 +22,7 @@ namespace StoryboardTables
 		{
 			Console.WriteLine ("UpdateUserActivityState for " + activity.Title);
 			// update activity 
-			if (currentTask != null) {
+			if (currentTask != null && currentTask.Name != null && currentTask.Notes != null) {
 				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (currentTask.Name), new NSString ("name")));
 				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (currentTask.Id.ToString ()), new NSString ("id")));
 			}

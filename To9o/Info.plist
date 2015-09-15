@@ -7,6 +7,7 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
+		<integer>2</integer>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
@@ -30,5 +31,18 @@
 	<string>1</string>
 	<key>CFBundleDisplayName</key>
 	<string>To9o</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>Base.lproj/MainStoryboard</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Images.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>

@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base.lproj\" />
@@ -118,6 +119,7 @@
     <Folder Include="Resources\ar.lproj\" />
     <Folder Include="Resources\he.lproj\" />
     <Folder Include="Data\" />
+    <Folder Include="Resources\Images.xcassets\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\en.lproj\Localizable.strings" />
@@ -135,4 +137,57 @@
     <BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Icon-app-60%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-60%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-72.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-72%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-76%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spp-57%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\Icon-app-60%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-60%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-72.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-72%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-76%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-carplay-120.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-40.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-50.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-50%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spp-57%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-172.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-196.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-44%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-48.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-55.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\splash-xamagon.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\splash-xamagon%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\splash-xamagon%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon.png" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%403x.png" />
+  </ItemGroup>
 </Project>
