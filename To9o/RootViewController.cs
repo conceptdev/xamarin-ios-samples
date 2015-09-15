@@ -34,23 +34,20 @@ namespace StoryboardTables
 		/// </remarks>
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
-			if (segue.Identifier == "TaskSegue") { // set in Storyboard
-				var navctlr = segue.DestinationViewController as TaskDetailViewController;
-				if (navctlr != null) {
+			if (segue.Identifier == "detailsegue") { // set in Storyboard
+				var tvc = segue.DestinationViewController as DetailViewController;
+				if (tvc != null) {
 					var source = TableView.Source as RootTableSource;
 					var rowPath = TableView.IndexPathForSelectedRow;
 					var item = source.GetItem(rowPath.Row);
-					navctlr.SetTask(this, item);
+					tvc.Delegate = this;
+					tvc.SetTodo(item);
 				}
 			}
 		}
 
-		public void CreateTask () {
-			
-			// TableView
-			//var detail = Storyboard.InstantiateViewController("detail") as TaskDetailViewController;
-			//detail.SetTask (this, newTask);
-
+		public void CreateTask ()
+		{
 			// StackView
 			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
 			detail.Delegate = this;

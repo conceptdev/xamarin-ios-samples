@@ -86,9 +86,9 @@ namespace StoryboardTables
 
 					var id = activity.UserInfo.ObjectForKey ((NSString)"id").ToString ();
 
-					if (id == "0")
-						current = new Task ();
-					else
+//					if (id == "0")
+//						current = new Task ();
+//					else
 						current = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (id));
 				}
 			} 
@@ -100,6 +100,10 @@ namespace StoryboardTables
 
 				Console.WriteLine ("eeeeeeee RestoreUserActivityState " + uid);
 			}
+
+			// CoreSpotlight index can get out-of-date, show 'empty' task if the requested id is invalid
+			if (current == null)
+				current = new Task {Name="(not found)"};
 		}
 		#endregion
 
