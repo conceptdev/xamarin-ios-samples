@@ -79,6 +79,14 @@ namespace StoryboardTables
 
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+			if (UserActivity != null) {
+				UserActivity.ResignCurrent ();
+			}
+		}
+
 		// this will be called before the view is displayed 
 		public void SetTask (RootViewController d, Task task) {
 			Delegate = d;

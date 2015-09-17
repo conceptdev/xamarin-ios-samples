@@ -44,5 +44,10 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcon.appiconset</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.conceptdevelopment.to9o.add</string>
+		<string>com.conceptdevelopment.to9o.detail</string>
+	</array>
 </dict>
 </plist>
