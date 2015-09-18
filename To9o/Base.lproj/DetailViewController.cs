@@ -11,7 +11,8 @@ namespace StoryboardTables
 	public partial class DetailViewController : UIViewController
 	{
 		Task current {get;set;}
-		public RootViewController Delegate {get;set;}
+//		public RootViewController Delegate {get;set;}
+		public CollectionController Delegate {get;set;}
 
 		public DetailViewController (IntPtr handle) : base (handle)
 		{

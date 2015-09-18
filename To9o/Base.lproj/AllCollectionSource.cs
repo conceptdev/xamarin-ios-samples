@@ -43,6 +43,23 @@ namespace StoryboardTables
 		{
 			return 1;
 		}
+		public override bool ShouldHighlightItem (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
+		{
+//			var cell = collectionView.CellForItem (indexPath);
+//			cell.ContentView.BackgroundColor = UIColor.LightGray;
+			return true;
+		}
+
+		public override void ItemHighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
+		{
+			var cell = collectionView.CellForItem (indexPath);
+			cell.ContentView.BackgroundColor = UIColor.LightGray;
+		}
+		public override void ItemUnhighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
+		{
+			var cell = collectionView.CellForItem (indexPath);
+			cell.ContentView.BackgroundColor = UIColor.White;
+		}
 
 		public Task GetItem(int id) {
 			return tableItems[id];

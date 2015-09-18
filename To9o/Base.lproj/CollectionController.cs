@@ -22,6 +22,59 @@ namespace StoryboardTables
 
 			// bind every time, to reflect deletion in the Detail view
 			Collection.Source = new AllCollectionSource(tasks.ToArray ());
+			Collection.AllowsSelection = true;
+			Collection.DelaysContentTouches = false;
+		}
+
+
+
+		/// <summary>
+		/// Prepares for segue.
+		/// </summary>
+		/// <remarks>
+		/// The prepareForSegue method is invoked whenever a segue is about to take place. 
+		/// The new view controller has been loaded from the storyboard at this point but 
+		/// it’s not visible yet, and we can use this opportunity to send data to it.
+		/// </remarks>
+		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+		{
+			if (segue.Identifier == "todosegue") { // set in Storyboard
+				var tvc = segue.DestinationViewController as DetailViewController;
+				if (tvc != null) {
+					var source = Collection.Source as AllCollectionSource;
+					var rowPath = Collection.IndexPathForCell (sender as UICollectionViewCell);
+					var item = source.GetItem(rowPath.Row);
+					tvc.Delegate = this;
+					tvc.SetTodo(item);
+				}
+			}
+		}
+
+		public void CreateTask ()
+		{
+			// StackView
+			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
+			detail.Delegate = this;
+			detail.SetTodo (new Task());
+			NavigationController.PushViewController (detail, true);
+
+			// Could to this instead of the above, but need to create 'new Task()' in PrepareForSegue()
+			//this.PerformSegue ("TaskSegue", this);
+		}
+		public void SaveTask (Task task) {
+			Console.WriteLine("Save "+task.Name);
+
+			AppDelegate.Current.TaskMgr.SaveTask(task);
+
+			iOS9SearchModel.Index (task);
+
+		}
+		public void DeleteTask (Task task) {
+			Console.WriteLine("Delete "+task.Name);
+			if (task.Id >= 0) {
+				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
+				iOS9SearchModel.Delete (task);
+			}
 		}
 	}
 }

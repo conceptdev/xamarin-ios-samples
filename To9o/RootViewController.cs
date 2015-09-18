@@ -32,46 +32,46 @@ namespace StoryboardTables
 		/// The new view controller has been loaded from the storyboard at this point but 
         /// it’s not visible yet, and we can use this opportunity to send data to it.
 		/// </remarks>
-		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
-		{
-			if (segue.Identifier == "detailsegue") { // set in Storyboard
-				var tvc = segue.DestinationViewController as DetailViewController;
-				if (tvc != null) {
-					var source = TableView.Source as RootTableSource;
-					var rowPath = TableView.IndexPathForSelectedRow;
-					var item = source.GetItem(rowPath.Row);
-					tvc.Delegate = this;
-					tvc.SetTodo(item);
-				}
-			}
-		}
-
-		public void CreateTask ()
-		{
-			// StackView
-			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
-			detail.Delegate = this;
-			detail.SetTodo (new Task());
-			NavigationController.PushViewController (detail, true);
-
-			// Could to this instead of the above, but need to create 'new Task()' in PrepareForSegue()
-			//this.PerformSegue ("TaskSegue", this);
-		}
-		public void SaveTask (Task task) {
-			Console.WriteLine("Save "+task.Name);
-
-			AppDelegate.Current.TaskMgr.SaveTask(task);
-
-			iOS9SearchModel.Index (task);
-
-		}
-		public void DeleteTask (Task task) {
-			Console.WriteLine("Delete "+task.Name);
-			if (task.Id >= 0) {
-				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
-				iOS9SearchModel.Delete (task);
-			}
-		}
+//		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+//		{
+//			if (segue.Identifier == "detailsegue") { // set in Storyboard
+//				var tvc = segue.DestinationViewController as DetailViewController;
+//				if (tvc != null) {
+//					var source = TableView.Source as RootTableSource;
+//					var rowPath = TableView.IndexPathForSelectedRow;
+//					var item = source.GetItem(rowPath.Row);
+//					tvc.Delegate = this;
+//					tvc.SetTodo(item);
+//				}
+//			}
+//		}
+//
+//		public void CreateTask ()
+//		{
+//			// StackView
+//			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
+//			detail.Delegate = this;
+//			detail.SetTodo (new Task());
+//			NavigationController.PushViewController (detail, true);
+//
+//			// Could to this instead of the above, but need to create 'new Task()' in PrepareForSegue()
+//			//this.PerformSegue ("TaskSegue", this);
+//		}
+//		public void SaveTask (Task task) {
+//			Console.WriteLine("Save "+task.Name);
+//
+//			AppDelegate.Current.TaskMgr.SaveTask(task);
+//
+//			iOS9SearchModel.Index (task);
+//
+//		}
+//		public void DeleteTask (Task task) {
+//			Console.WriteLine("Delete "+task.Name);
+//			if (task.Id >= 0) {
+//				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
+//				iOS9SearchModel.Delete (task);
+//			}
+//		}
 
 
 
@@ -100,7 +100,7 @@ namespace StoryboardTables
 			
 			// Perform any additional setup after loading the view, typically from a nib.
 			AddButton.Clicked += (sender, e) => {
-				CreateTask ();
+//				CreateTask ();
 			};
 		}
 		

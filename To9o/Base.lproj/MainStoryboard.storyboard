@@ -253,6 +253,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="TodoName" destination="IAl-BB-Fmx" id="VwV-AT-F9A"/>
+                                    <segue destination="IPl-96-jog" kind="push" identifier="todosegue" id="Dit-of-BAh"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -279,7 +280,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9qo-sR-lnJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lEQ-Yr-elf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Bg-L9-wEJ">
@@ -366,4 +367,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dit-of-BAh"/>
+    </inferredMetricsTieBreakers>
 </document>

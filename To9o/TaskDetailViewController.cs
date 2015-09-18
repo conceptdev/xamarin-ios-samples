@@ -63,11 +63,11 @@ namespace StoryboardTables
 				currentTask.Name = TitleText.Text;
 				currentTask.Notes = NotesText.Text;
 				currentTask.Done = DoneSwitch.On;
-				Delegate.SaveTask(currentTask);
+	//			Delegate.SaveTask(currentTask);
 				NavigationController.PopViewController(true);
 			};
 			DeleteButton.TouchUpInside += (sender, e) => {
-				Delegate.DeleteTask(currentTask);
+	//			Delegate.DeleteTask(currentTask);
 				NavigationController.PopViewController(true);
 			};
 
