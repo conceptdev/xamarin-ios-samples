@@ -13,6 +13,14 @@ namespace StoryboardTables
 	{
 		public CollectionController (IntPtr handle) : base (handle)
 		{
+			Title = NSBundle.MainBundle.LocalizedString ("Todo", "");
+		}
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			AddButton.Clicked += (sender, e) => {
+				CreateTask ();
+			};
 		}
 		List<Task> tasks;
 		public override void ViewWillAppear (bool animated)

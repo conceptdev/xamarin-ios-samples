@@ -10,7 +10,7 @@
 		<integer>2</integer>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard</string>
+	<string>Base.lproj/MainStoryboard</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -25,8 +25,6 @@
 	<string>en</string>
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.to9o</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1</string>
 	<key>CFBundleDisplayName</key>

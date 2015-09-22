@@ -220,7 +220,7 @@
             </objects>
             <point key="canvasLocation" x="919" y="64"/>
         </scene>
-        <!--Collection Controller-->
+        <!--To9o-->
         <scene sceneID="Kdb-3c-okd">
             <objects>
                 <collectionViewController id="IdJ-ZA-4yB" customClass="CollectionController" sceneMemberID="viewController">
@@ -262,8 +262,11 @@
                             <outlet property="delegate" destination="IdJ-ZA-4yB" id="Srg-1q-p1D"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="2nv-DK-Zqk"/>
+                    <navigationItem key="navigationItem" title="To9o" id="2nv-DK-Zqk">
+                        <barButtonItem key="rightBarButtonItem" title="+" id="1Be-KG-xf4"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="AddButton" destination="1Be-KG-xf4" id="SUK-TH-7Z6"/>
                         <outlet property="Collection" destination="J3N-tz-lzV" id="epm-aY-XtB"/>
                     </connections>
                 </collectionViewController>

@@ -13,6 +13,9 @@ namespace StoryboardTables
 	partial class CollectionController
 	{
 		[Outlet]
+		UIKit.UIBarButtonItem AddButton { get; set; }
+
+		[Outlet]
 		StoryboardTables.AllViewController Collection { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -20,6 +23,11 @@ namespace StoryboardTables
 			if (Collection != null) {
 				Collection.Dispose ();
 				Collection = null;
+			}
+
+			if (AddButton != null) {
+				AddButton.Dispose ();
+				AddButton = null;
 			}
 		}
 	}
