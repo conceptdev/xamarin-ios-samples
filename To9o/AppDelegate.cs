@@ -23,11 +23,14 @@ namespace StoryboardTables
 			set;
 		}
 
+		#region Database set-up
 		public static AppDelegate Current { get; private set; }
 		public TaskManager TaskMgr { get; set; }
 		SQLite.SQLiteConnection conn;
+		#endregion
 
-		public override void FinishedLaunching (UIApplication application)
+
+		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			Current = this;
 
@@ -36,28 +39,84 @@ namespace StoryboardTables
 			// we need to put in /Library/ on iOS5.1 to meet Apple's iCloud terms
 			// (they don't want non-user-generated data in Documents)
 			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
-			string libraryPath = Path.Combine (documentsPath, "..","Library/"); // Library folder
+			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
 			var path = Path.Combine(libraryPath, sqliteFilename);
 			conn = new SQLite.SQLiteConnection(path);
 			TaskMgr = new TaskManager(conn);
 			#endregion
 
-			//SearchModel = new iOS9SearchModel (TaskMgr.GetTasks().ToList());
+			Console.WriteLine ("bbbbbbbbbb FinishedLaunching");
 
-			Console.WriteLine ("aaaaaaaaa FinishedLaunching");
+			#region Quick Action
+			var shouldPerformAdditionalDelegateHandling = true;
+
+			// Get possible shortcut item
+			if (launchOptions != null) {
+				LaunchedShortcutItem = launchOptions [UIApplication.LaunchOptionsShortcutItemKey] as UIApplicationShortcutItem;
+				shouldPerformAdditionalDelegateHandling = (LaunchedShortcutItem == null);
+			}
+			#endregion
+
+			return shouldPerformAdditionalDelegateHandling;
 		}
 
-//		public iOS9SearchModel SearchModel {
-//			get;
-//			private set;
-//		}
+		#region Quick Action
+		public UIApplicationShortcutItem LaunchedShortcutItem { get; set; }
+		public override void OnActivated (UIApplication application)
+		{
+			Console.WriteLine ("ccccccc OnActivated");
 
+			// Handle any shortcut item being selected
+			HandleShortcutItem(LaunchedShortcutItem);
+
+			// Clear shortcut after it's been handled
+			LaunchedShortcutItem = null;
+		}
+		// if app is already running
+		public override void PerformActionForShortcutItem (UIApplication application, UIApplicationShortcutItem shortcutItem, UIOperationHandler completionHandler)
+		{
+			Console.WriteLine ("dddddddd PerformActionForShortcutItem");
+			// Perform action
+			var handled = HandleShortcutItem(shortcutItem);
+			completionHandler(handled);
+		}
+		public bool HandleShortcutItem(UIApplicationShortcutItem shortcutItem) {
+			Console.WriteLine ("eeeeeeeeeee HandleShortcutItem ");
+			var handled = false;
+
+			// Anything to process?
+			if (shortcutItem == null) return false;
+
+			// Take action based on the shortcut type
+			switch (shortcutItem.Type) {
+			case ShortcutIdentifiers.Add:
+				Console.WriteLine ("QUICKACTION: Add new item");
+				handled = true;
+				break;
+			case ShortcutIdentifiers.Share:
+				Console.WriteLine ("QUICKACTION: Share summary of items");
+				handled = true;
+				break;
+			}
+
+			//HACK: show the detail viewcontroller
+			ContinueNavigation ();
+
+			Console.Write (handled);
+			// Return results
+			return handled;
+		}
+		#endregion
+
+		#region NSUserActivity
 		// http://www.raywenderlich.com/84174/ios-8-handoff-tutorial
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
+			Console.WriteLine ("ffffffff ContinueUserActivity");
+
 			UIViewController tvc = null;
-			if ((userActivity.ActivityType == "com.conceptdevelopment.to9o.detail") 
-				|| (userActivity.ActivityType == "com.conceptdevelopment.to9o.new"))
+			if ((userActivity.ActivityType == ActivityTypes.Add) 
+				|| (userActivity.ActivityType == ActivityTypes.Detail))
 			{
 				if (userActivity.UserInfo.Count == 0) {
 					// new item
@@ -65,7 +124,7 @@ namespace StoryboardTables
 				} else {
 					var uid = userActivity.UserInfo.ObjectForKey ((NSString)"id").ToString ();
 					if (uid == "0") {
-						Console.WriteLine ("No userinfo found for com.conceptdevelopment.to9o.detail");
+						Console.WriteLine ("No userinfo found for " + ActivityTypes.Detail);
 					} else {
 						Console.WriteLine ("Should display id " + uid);
 						// handled in DetailViewController.RestoreUserActivityState
@@ -84,12 +143,12 @@ namespace StoryboardTables
 
 			return true;
 		}
+		#endregion
 
 		UIViewController ContinueNavigation (){
-			Console.WriteLine ("xxxxxxxxxx ContinueNavigation");
+			Console.WriteLine ("gggggggggg ContinueNavigation");
 
 			var sb = UIStoryboard.FromName ("MainStoryboard", null);
-//			var tvc = sb.InstantiateViewController("detail") as TaskDetailViewController;
 			var tvc = sb.InstantiateViewController("detailvc") as DetailViewController;
 
 			var r = Window.RootViewController as UINavigationController;

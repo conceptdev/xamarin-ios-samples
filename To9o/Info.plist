@@ -44,8 +44,33 @@
 	<string>Resources/Images.xcassets/AppIcon.appiconset</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>com.conceptdevelopment.to9o.add</string>
-		<string>com.conceptdevelopment.to9o.detail</string>
+		<string>co.conceptdev.todo.activity.add</string>
+		<string>co.conceptdev.todo.activity.detail</string>
+	</array>
+	<key>CFBundleIdentifier</key>
+	<string>co.conceptdev.todo</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Create a new item</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Todo</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>co.conceptdev.todo.shortcut.add</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeShare</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Share a list summary</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Share</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>co.conceptdev.todo.shortcut.share</string>
+		</dict>
 	</array>
 </dict>
 </plist>

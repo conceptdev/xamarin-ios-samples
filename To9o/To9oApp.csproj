@@ -128,6 +128,8 @@
     <Compile Include="Base.lproj\CollectionController.designer.cs">
       <DependentUpon>CollectionController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShortcutIdentifiers.cs" />
+    <Compile Include="ActivityTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

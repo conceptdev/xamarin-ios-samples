@@ -67,8 +67,8 @@ namespace StoryboardTables
 			Console.WriteLine ("UpdateUserActivityState for " + activity.Title);
 			// update activity 
 			if (current != null && current.Name != null && current.Notes != null) {
-				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (current.Name), new NSString ("name")));
-				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (current.Id.ToString ()), new NSString ("id")));
+				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (current.Name), ActivityKeys.Name));
+				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (current.Id.ToString ()), ActivityKeys.Id));
 			}
 			base.UpdateUserActivityState (activity);
 		}
@@ -85,7 +85,7 @@ namespace StoryboardTables
 					current = new Task();
 				} else {
 
-					var id = activity.UserInfo.ObjectForKey ((NSString)"id").ToString ();
+					var id = activity.UserInfo.ObjectForKey (ActivityKeys.Id).ToString ();
 
 //					if (id == "0")
 //						current = new Task ();
