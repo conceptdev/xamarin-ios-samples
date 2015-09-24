@@ -122,6 +122,7 @@
     <Compile Include="Constants\Spotlight.cs" />
     <Compile Include="Constants\ShortcutIdentifiers.cs" />
     <Compile Include="SpotlightHelper.cs" />
+    <Compile Include="UserActivityHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

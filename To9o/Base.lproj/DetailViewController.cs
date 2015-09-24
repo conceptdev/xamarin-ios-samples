@@ -40,9 +40,14 @@ namespace StoryboardTables
 			NotesText.TextAlignment = UITextAlignment.Natural;
 
 
-			UserActivity = SpotlightHelper.CreateNSUserActivity (current?? new Task());
+			UserActivity = UserActivityHelper.CreateNSUserActivity (current?? new Task());
 		}
+		public override void ViewWillDisappear (bool animated)
+		{
+			UserActivity?.ResignCurrent ();
 
+			base.ViewWillDisappear (animated);
+		}
 		// when displaying, set-up the properties
 		public override void ViewWillAppear (bool animated)
 		{
