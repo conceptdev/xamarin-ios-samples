@@ -9,10 +9,6 @@ namespace StoryboardTables
 		{
 		}
 
-		// ##
-		// there is NO database or storage of Tasks in this example, just an in-memory List<>
-		// refer to the other Tasky samples on github for an implementation using SQLite-NET
-		// ##
 		Task[] tableItems;
 		string cellIdentifier = "todocell";
 
@@ -22,7 +18,7 @@ namespace StoryboardTables
 		}
 		public override UICollectionViewCell GetCell (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{
-			// in a Storyboard, Dequeue will ALWAYS return a cell, 
+			// in a Storyboard, Dequeue will ALWAYS return a cell
 			var cell = collectionView.DequeueReusableCell (cellIdentifier, indexPath) as AllViewCell;
 
 			cell.Name.Text = tableItems[indexPath.Row].Name;

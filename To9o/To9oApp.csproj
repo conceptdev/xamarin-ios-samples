@@ -110,7 +110,6 @@
     <Compile Include="Data\BusinessEntityBase.cs" />
     <Compile Include="Data\IBusinessEntity.cs" />
     <Compile Include="Data\Task.cs" />
-    <Compile Include="iOS9SearchModel.cs" />
     <Compile Include="Base.lproj\DetailViewController.cs" />
     <Compile Include="Base.lproj\DetailViewController.designer.cs">
       <DependentUpon>DetailViewController.cs</DependentUpon>
@@ -128,8 +127,10 @@
     <Compile Include="Base.lproj\CollectionController.designer.cs">
       <DependentUpon>CollectionController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShortcutIdentifiers.cs" />
-    <Compile Include="ActivityTypes.cs" />
+    <Compile Include="Constants\ActivityTypes.cs" />
+    <Compile Include="Constants\Spotlight.cs" />
+    <Compile Include="Constants\ShortcutIdentifiers.cs" />
+    <Compile Include="SpotlightHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
@@ -142,6 +143,7 @@
     <Folder Include="Resources\he.lproj\" />
     <Folder Include="Data\" />
     <Folder Include="Resources\Images.xcassets\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\en.lproj\Localizable.strings" />

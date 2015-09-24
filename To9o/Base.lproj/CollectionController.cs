@@ -74,14 +74,14 @@ namespace StoryboardTables
 
 			AppDelegate.Current.TaskMgr.SaveTask(task);
 
-			iOS9SearchModel.Index (task);
+			SpotlightHelper.Index (task);
 
 		}
 		public void DeleteTask (Task task) {
 			Console.WriteLine("Delete "+task.Name);
 			if (task.Id >= 0) {
 				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
-				iOS9SearchModel.Delete (task);
+				SpotlightHelper.Delete (task);
 			}
 		}
 	}

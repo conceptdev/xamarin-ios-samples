@@ -2,6 +2,9 @@
 
 namespace StoryboardTables
 {
+	/// <summary>
+	/// CoreSpotlight constants
+	/// </summary>
 	public static class ShortcutIdentifiers
 	{
 		public const string Add = "co.conceptdev.todo.shortcut.add";

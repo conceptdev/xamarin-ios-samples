@@ -11,7 +11,6 @@ namespace StoryboardTables
 	public partial class DetailViewController : UIViewController
 	{
 		Task current {get;set;}
-//		public RootViewController Delegate {get;set;}
 		public CollectionController Delegate {get;set;}
 
 		public DetailViewController (IntPtr handle) : base (handle)
@@ -41,7 +40,7 @@ namespace StoryboardTables
 			NotesText.TextAlignment = UITextAlignment.Natural;
 
 
-			UserActivity = iOS9SearchModel.CreateNSUserActivity (current?? new Task());
+			UserActivity = SpotlightHelper.CreateNSUserActivity (current?? new Task());
 		}
 
 		// when displaying, set-up the properties
@@ -51,6 +50,17 @@ namespace StoryboardTables
 			NameText.Text = current.Name;
 			NotesText.Text = current.Notes;
 			DoneSwitch.On = current.Done;
+
+			// button is cancel or delete
+			if (current.Id > 0) {
+				CancelButton.SetTitle (NSBundle.MainBundle.LocalizedString ("Delete", "")
+					, UIControlState.Normal);
+				CancelButton.SetTitleColor (UIColor.DarkTextColor, UIControlState.Normal);
+			} else {
+				CancelButton.SetTitle(NSBundle.MainBundle.LocalizedString ("Cancel", "")
+					,UIControlState.Normal);
+				CancelButton.SetTitleColor (UIColor.DarkTextColor, UIControlState.Normal);
+			}
 		}
 
 
@@ -66,9 +76,9 @@ namespace StoryboardTables
 		{
 			Console.WriteLine ("UpdateUserActivityState for " + activity.Title);
 			// update activity 
-			if (current != null && current.Name != null && current.Notes != null) {
-				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (current.Name), ActivityKeys.Name));
-				activity.AddUserInfoEntries (NSDictionary.FromObjectAndKey (new NSString (current.Id.ToString ()), ActivityKeys.Id));
+			if (current.IsIndexable()) {
+				activity.AddUserInfoEntries (current.IdToDictionary());
+				activity.AddUserInfoEntries (current.NameToDictionary());
 			}
 			base.UpdateUserActivityState (activity);
 		}
@@ -76,8 +86,8 @@ namespace StoryboardTables
 		{
 			base.RestoreUserActivityState (activity);
 			Console.Write ("RestoreUserActivityState ");
-			if ((activity.ActivityType == "com.conceptdevelopment.to9o.detail") 
-				|| (activity.ActivityType == "com.conceptdevelopment.to9o.new"))
+			if ((activity.ActivityType == ActivityTypes.Detail) 
+				|| (activity.ActivityType == ActivityTypes.Add))
 			{
 				Console.WriteLine ("NSUserActivity " + activity.ActivityType);
 				if (activity.UserInfo == null || activity.UserInfo.Count == 0) {
@@ -107,7 +117,5 @@ namespace StoryboardTables
 				current = new Task {Name="(not found)"};
 		}
 		#endregion
-
-
 	}
 }

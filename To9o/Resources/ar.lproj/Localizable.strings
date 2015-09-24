@@ -1,4 +1,7 @@
+"(new)" = "(إضافة مهمة)";
 "Todo"="oboT";
 "<new task>" = "إضافة مهمة";
 "task name" = "اسم";
 "other task info"= "معلومات مهمة أخرى";
+"Delete" = "حذف";
+"Cancel" = "إلغاء";
