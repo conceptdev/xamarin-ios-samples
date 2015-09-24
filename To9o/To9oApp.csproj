@@ -95,15 +95,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="RootViewController.cs" />
-    <Compile Include="RootViewController.designer.cs">
-      <DependentUpon>RootViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TaskDetailViewController.cs" />
-    <Compile Include="TaskDetailViewController.designer.cs">
-      <DependentUpon>TaskDetailViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RootTableSource.cs" />
     <Compile Include="Data\TaskRepository.cs" />
     <Compile Include="Data\TaskDatabase.cs" />
     <Compile Include="Data\TaskManager.cs" />
