@@ -1,3 +1,9 @@
-"<new task>" = "<new task>";
-"task name" = "task name";
-"other task info"= "other task info";
+/* MACHINE TRANSLATION : apologies for any mistakes */
+
+"Todo" = "oboT";
+"(new)" = "(חדש)";
+"<new task>" = "<משימה חדשה>";
+"task name" = "שם משימה";
+"other task info"= "מידע משימה אחר";
+"Delete" = "להסיר";
+"Cancel" = "לבטל";

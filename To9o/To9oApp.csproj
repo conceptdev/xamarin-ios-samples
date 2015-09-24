@@ -151,6 +151,8 @@
     <BundleResource Include="Resources\he.lproj\MainStoryboard.strings" />
     <BundleResource Include="Resources\he.lproj\InfoPlist.strings" />
     <BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\ja.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\es.lproj\InfoPlist.strings" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
