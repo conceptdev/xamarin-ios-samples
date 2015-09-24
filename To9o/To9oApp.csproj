@@ -177,7 +177,6 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spp-57%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Image.imageset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\Icon-app-60%403x.png" />
@@ -211,5 +210,13 @@
     <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon.png" />
     <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\box.png" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\box%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\box%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox.png" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%403x.png" />
   </ItemGroup>
 </Project>

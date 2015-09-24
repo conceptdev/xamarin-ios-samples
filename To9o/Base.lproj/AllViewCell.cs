@@ -13,6 +13,8 @@ namespace StoryboardTables
 		{
 		}
 
+		public UIKit.UIImageView Done { get { return DoneImage; } }
+
 		public UIKit.UILabel Name { get{ return TodoName; } }
 	}
 }

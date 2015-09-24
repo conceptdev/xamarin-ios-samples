@@ -27,10 +27,10 @@ namespace StoryboardTables
 
 			cell.Name.Text = tableItems[indexPath.Row].Name;
 
-//			if (tableItems[indexPath.Row].Done) 
-//				cell.Accessory = UITableViewCellAccessory.Checkmark;
-//			else
-//				cell.Accessory = UITableViewCellAccessory.None;
+			if (tableItems [indexPath.Row].Done)
+				cell.Done.Image = UIImage.FromBundle ("checkbox");
+			else
+				cell.Done.Image = UIImage.FromBundle ("box");
 
 			return cell;
 		}

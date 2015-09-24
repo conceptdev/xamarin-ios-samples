@@ -13,6 +13,9 @@ namespace StoryboardTables
 	partial class AllViewCell
 	{
 		[Outlet]
+		UIKit.UIImageView DoneImage { get; set; }
+
+		[Outlet]
 		UIKit.UILabel TodoName { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -20,6 +23,11 @@ namespace StoryboardTables
 			if (TodoName != null) {
 				TodoName.Dispose ();
 				TodoName = null;
+			}
+
+			if (DoneImage != null) {
+				DoneImage.Dispose ();
+				DoneImage = null;
 			}
 		}
 	}
