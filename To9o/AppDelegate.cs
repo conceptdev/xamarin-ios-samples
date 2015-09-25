@@ -153,6 +153,8 @@ namespace StoryboardTables
 
 			var r = Window.RootViewController as UINavigationController;
 			r.PopToRootViewController (false);
+
+			tvc.SetTodo (new Task {Name="(new action)"}); // from 3D Touch menu
 			r.PushViewController (tvc, false);
 			return tvc;
 		}
