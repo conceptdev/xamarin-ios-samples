@@ -6,10 +6,11 @@ using Foundation;
 using UIKit;
 using System.Collections.Generic;
 using System.Linq;
+using CoreGraphics;
 
 namespace StoryboardTables
 {
-	public partial class CollectionController : UICollectionViewController
+	public partial class CollectionController : UICollectionViewController, IUIViewControllerPreviewingDelegate
 	{
 		public CollectionController (IntPtr handle) : base (handle)
 		{
@@ -21,6 +22,10 @@ namespace StoryboardTables
 			AddButton.Clicked += (sender, e) => {
 				CreateTask ();
 			};
+			// 3D Touch
+			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available) {
+				RegisterForPreviewingWithDelegate (this, CollectionView);
+			}
 		}
 		List<Task> tasks;
 		public override void ViewWillAppear (bool animated)
@@ -84,5 +89,42 @@ namespace StoryboardTables
 				SpotlightHelper.Delete (task);
 			}
 		}
+
+		#region 3DTouch Peek
+		public UIViewController GetViewControllerForPreview (IUIViewControllerPreviewing previewingContext, CGPoint location)
+		{
+			// Obtain the index path and the cell that was pressed.
+			var indexPath = CollectionView.IndexPathForItemAtPoint (location);
+
+			Console.WriteLine ("ForPreview " + location.ToString() + " " + indexPath);
+
+			if (indexPath == null)
+				return null;
+
+			var cell = CollectionView.CellForItem (indexPath);
+
+			if (cell == null)
+				return null;
+
+
+
+			// Create a detail view controller and set its properties.
+			var detailViewController = (DetailViewController)Storyboard.InstantiateViewController ("detailvc");
+			if (detailViewController == null)
+				return null;
+
+			var previewDetail = tasks [indexPath.Row];
+			detailViewController.SetTodo (previewDetail);
+			detailViewController.PreferredContentSize = new CGSize (0, 160);
+			previewingContext.SourceRect = cell.Frame;
+			return detailViewController;
+		}
+
+		public void CommitViewController (IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
+		{
+			Console.WriteLine ("CommitViewContoller");
+			ShowViewController (viewControllerToCommit, this);
+		}
+		#endregion
 	}
 }
