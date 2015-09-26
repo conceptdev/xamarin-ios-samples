@@ -130,22 +130,23 @@ namespace StoryboardTables
 		}
 		#endregion
 
-		/// <summary>
-		/// HACK: just a bit of fun
-		/// </summary>
-		public override void TouchesMoved (NSSet touches, UIEvent evt)
-		{
-			base.TouchesMoved (touches, evt);
-			UITouch touch = touches.AnyObject as UITouch;
-			if (touch != null)
-			{
-				var force = touch.Force;
-				var maxForce = touch.MaximumPossibleForce;
-				var alpha = force / maxForce;
-				alpha = (nfloat)0.5 + (alpha / 2);
-				View.BackgroundColor = UIColor.FromHSBA (1, 1, 1, alpha);
-//				View.BackgroundColor = UIColor.Red.ColorWithAlpha (alpha);
-			}
+
+//		/// <summary>
+//		/// HACK: just a bit of fun
+//		/// </summary>
+//		public override void TouchesMoved (NSSet touches, UIEvent evt)
+//		{
+//			base.TouchesMoved (touches, evt);
+//			UITouch touch = touches.AnyObject as UITouch;
+//			if (touch != null)
+//			{
+//				var force = touch.Force;
+//				var maxForce = touch.MaximumPossibleForce;
+//				var alpha = force / maxForce;
+//				alpha = (nfloat)0.5 + (alpha / 2);
+//				View.BackgroundColor = UIColor.FromHSBA (1, 1, 1, alpha);
+////				View.BackgroundColor = UIColor.Red.ColorWithAlpha (alpha);
+//			}
 		}
 	}
 }

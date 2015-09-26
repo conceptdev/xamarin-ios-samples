@@ -40,12 +40,17 @@ namespace StoryboardTables {
 		{
 			return db.DeleteItem<Task>(id);
 		}
+		/// <summary>
+		/// Brute-force Order column update
+		/// </summary>
+		/// <param name="orderedTasks">Ordered tasks.</param>
 		public void Reorder (List<Task> orderedTasks){
 			var i = 0;
 			foreach (var t in orderedTasks) {
 				db.UpdateOrder (t, ++i);
 			}
 		}
+		[Obsolete("not used")]
 		public void Reorder (int oldOrder, int newOrder) {
 			db.Reorder<Task> (oldOrder, newOrder);
 		}

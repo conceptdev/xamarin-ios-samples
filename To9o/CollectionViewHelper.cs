@@ -82,11 +82,9 @@ namespace StoryboardTables
 			var item = tableItems [(int)sourceIndexPath.Item];
 			// set the listorder
 			Console.WriteLine("move item " + item.Name + $" from {sourceIndexPath.Row} to {destinationIndexPath.Row}");
-//			AppDelegate.Current.TaskMgr.Reorder (sourceIndexPath.Row, destinationIndexPath.Row);
-
 			tableItems.RemoveAt ((int)sourceIndexPath.Item);
 			tableItems.Insert ((int)destinationIndexPath.Item, item);
-
+			// update the database to match (brute force method)
 			AppDelegate.Current.TaskMgr.Reorder (tableItems);
 		}
 		#endregion

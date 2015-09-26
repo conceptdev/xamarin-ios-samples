@@ -75,6 +75,9 @@ namespace StoryboardTables
 				return database.Query<T> (sql).ToList ();
 			}
 		}
+		/// <summary>
+		/// Row-by-row Order update
+		/// </summary>
 		public void UpdateOrder<T> (T item, int newOrder) where T : IBusinessEntity, new ()
 		{
 			var sql1 = $"UPDATE [Task] SET [Order] = ? WHERE [Id] = ?";
@@ -83,6 +86,7 @@ namespace StoryboardTables
 			}
 			
 		}
+		[Obsolete("note used")]
 		public void Reorder<T> (int oldOrder, int newOrder) where T : IBusinessEntity, new ()
 		{
 //			var table = nameof (T);

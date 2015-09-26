@@ -41,6 +41,7 @@ namespace StoryboardTables
 		public void Reorder (List<Task> orderedTasks) {
 			repository.Reorder(orderedTasks);
 		}
+		[Obsolete("not used")]
 		public void Reorder (int oldOrder, int newOrder) {
 			repository.Reorder (oldOrder, newOrder);
 		}
