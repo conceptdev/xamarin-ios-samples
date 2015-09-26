@@ -11,6 +11,7 @@ namespace StoryboardTables
 	public partial class DetailViewController : UIViewController
 	{
 		Task current {get;set;}
+		ContactHelper contacts;
 		public CollectionController Delegate {get;set;}
 
 		public DetailViewController (IntPtr handle) : base (handle)
@@ -25,6 +26,8 @@ namespace StoryboardTables
 				current.Name = NameText.Text;
 				current.Notes = NotesText.Text;
 				current.Done = DoneSwitch.On;
+				current.For = ForText.Text;
+
 				Delegate.SaveTask(current);
 				NavigationController.PopViewController(true);
 			};
@@ -35,6 +38,12 @@ namespace StoryboardTables
 					Console.WriteLine("Delegate not set - HACK");
 				NavigationController.PopViewController(true);
 			};
+			contacts = new ContactHelper (current);
+			UITapGestureRecognizer forTextTap = new UITapGestureRecognizer(() => {
+				PresentViewController(contacts.GetPicker(),true, null);
+			});
+			ForText.AddGestureRecognizer(forTextTap);
+			ForText.UserInteractionEnabled = true;
 
 			NameText.TextAlignment = UITextAlignment.Natural;
 			NotesText.TextAlignment = UITextAlignment.Natural;
@@ -55,6 +64,7 @@ namespace StoryboardTables
 			NameText.Text = current.Name;
 			NotesText.Text = current.Notes;
 			DoneSwitch.On = current.Done;
+			ForText.Text = current.For;
 
 			// button is cancel or delete
 			if (current.Id > 0) {
@@ -96,16 +106,12 @@ namespace StoryboardTables
 			{
 				Console.WriteLine ("NSUserActivity " + activity.ActivityType);
 				if (activity.UserInfo == null || activity.UserInfo.Count == 0) {
-					// new task Activity
+					// new todo 
 					current = new Task();
 				} else {
-
+					// load existing todo
 					var id = activity.UserInfo.ObjectForKey (ActivityKeys.Id).ToString ();
-
-//					if (id == "0")
-//						current = new Task ();
-//					else
-						current = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (id));
+					current = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (id));
 				}
 			} 
 			if (activity.ActivityType == CSSearchableItem.ActionType) {
@@ -124,6 +130,9 @@ namespace StoryboardTables
 		}
 		#endregion
 
+		/// <summary>
+		/// HACK: just a bit of fun
+		/// </summary>
 		public override void TouchesMoved (NSSet touches, UIEvent evt)
 		{
 			base.TouchesMoved (touches, evt);

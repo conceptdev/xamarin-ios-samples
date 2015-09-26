@@ -22,7 +22,12 @@ namespace StoryboardTables
 		{
             return new List<Task>(repository.GetTasks());
 		}
-		
+
+		public IList<Task> GetOrderedTasks ()
+		{
+			return new List<Task>(repository.GetOrderedTasks());
+		}
+
 		public int SaveTask (Task item)
 		{
             return repository.SaveTask(item);
@@ -31,6 +36,10 @@ namespace StoryboardTables
 		public int DeleteTask(int id)
 		{
             return repository.DeleteTask(id);
+		}
+
+		public void Reorder (int oldOrder, int newOrder) {
+			repository.Reorder (oldOrder, newOrder);
 		}
 		
 	}

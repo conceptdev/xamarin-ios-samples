@@ -118,11 +118,12 @@
     <Compile Include="Base.lproj\PeekViewController.designer.cs">
       <DependentUpon>PeekViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base.lproj\TodoCollectionSource.cs" />
     <Compile Include="Base.lproj\TodoCell.cs" />
     <Compile Include="Base.lproj\TodoCell.designer.cs">
       <DependentUpon>TodoCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContactHelper.cs" />
+    <Compile Include="CollectionViewHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

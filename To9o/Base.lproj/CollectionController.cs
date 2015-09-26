@@ -44,7 +44,7 @@ namespace StoryboardTables
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			tasks = AppDelegate.Current.TaskMgr.GetTasks ().ToList ();
+			tasks = AppDelegate.Current.TaskMgr.GetOrderedTasks ().ToList (); //ordered for CollectionView
 
 
 			// bind every time, to reflect deletion in the Detail view

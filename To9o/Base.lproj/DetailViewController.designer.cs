@@ -19,6 +19,9 @@ namespace StoryboardTables
 		UIKit.UISwitch DoneSwitch { get; set; }
 
 		[Outlet]
+		UIKit.UILabel ForText { get; set; }
+
+		[Outlet]
 		UIKit.UITextField NameText { get; set; }
 
 		[Outlet]
@@ -29,6 +32,16 @@ namespace StoryboardTables
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (CancelButton != null) {
+				CancelButton.Dispose ();
+				CancelButton = null;
+			}
+
+			if (DoneSwitch != null) {
+				DoneSwitch.Dispose ();
+				DoneSwitch = null;
+			}
+
 			if (NameText != null) {
 				NameText.Dispose ();
 				NameText = null;
@@ -39,19 +52,14 @@ namespace StoryboardTables
 				NotesText = null;
 			}
 
-			if (DoneSwitch != null) {
-				DoneSwitch.Dispose ();
-				DoneSwitch = null;
-			}
-
 			if (SaveButton != null) {
 				SaveButton.Dispose ();
 				SaveButton = null;
 			}
 
-			if (CancelButton != null) {
-				CancelButton.Dispose ();
-				CancelButton = null;
+			if (ForText != null) {
+				ForText.Dispose ();
+				ForText = null;
 			}
 		}
 	}

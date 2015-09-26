@@ -1,19 +1,21 @@
 ﻿using System;
 using UIKit;
 using Foundation;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StoryboardTables
 {
-	public class CollectionLayout : UICollectionViewDelegateFlowLayout {
-		public override UIEdgeInsets GetInsetForSection (UICollectionView collectionView, UICollectionViewLayout layout, nint section)
-		{
-			return new UIEdgeInsets (0, 0, 0, 0);
-		}
-		public override CoreGraphics.CGSize GetSizeForItem (UICollectionView collectionView, UICollectionViewLayout layout, Foundation.NSIndexPath indexPath)
-		{
-			return new CoreGraphics.CGSize (collectionView.Bounds.Width, 44);
-		}
-	}
+//	public class CollectionLayout : UICollectionViewDelegateFlowLayout {
+//		public override UIEdgeInsets GetInsetForSection (UICollectionView collectionView, UICollectionViewLayout layout, nint section)
+//		{
+//			return new UIEdgeInsets (0, 0, 0, 0);
+//		}
+//		public override CoreGraphics.CGSize GetSizeForItem (UICollectionView collectionView, UICollectionViewLayout layout, Foundation.NSIndexPath indexPath)
+//		{
+//			return new CoreGraphics.CGSize (collectionView.Bounds.Width, 44);
+//		}
+//	}
 
 
 
@@ -23,12 +25,12 @@ namespace StoryboardTables
 		{
 		}
 
-		Task[] tableItems;
+		List<Task> tableItems;
 		string cellIdentifier = "todocell";
 
 		public TodoCollectionSource (Task[] items)
 		{
-			tableItems = items; 
+			tableItems = items.ToList(); 
 		}
 		public override UICollectionViewCell GetCell (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{
@@ -42,12 +44,17 @@ namespace StoryboardTables
 			else
 				cell.Done.Image = UIImage.FromBundle ("box");
 
+			Console.WriteLine (" *** " + indexPath.Row);
+			Console.WriteLine (" --- " + tableItems [indexPath.Row].Order);
+			tableItems [indexPath.Row].Order = indexPath.Row;
+			Console.WriteLine (" --- " + tableItems [indexPath.Row].Order);
+
 			return cell;
 		}
 
 		public override nint GetItemsCount (UICollectionView collectionView, nint section)
 		{
-			return tableItems.Length;
+			return tableItems.Count;
 		}
 
 		public override void ItemHighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
@@ -75,6 +82,12 @@ namespace StoryboardTables
 			var item = tableItems [(int)sourceIndexPath.Item];
 			// set the listorder
 			Console.WriteLine("move item " + item.Name + $" from {sourceIndexPath.Row} to {destinationIndexPath.Row}");
+//			AppDelegate.Current.TaskMgr.Reorder (sourceIndexPath.Row, destinationIndexPath.Row);
+
+			tableItems.RemoveAt ((int)sourceIndexPath.Item);
+			tableItems.Insert ((int)destinationIndexPath.Item, item);
+
+			AppDelegate.Current.TaskMgr.Reorder (tableItems);
 		}
 		#endregion
 	}

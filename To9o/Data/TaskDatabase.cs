@@ -32,7 +32,7 @@ namespace StoryboardTables
 		
 		public IEnumerable<T> GetItems<T> () where T : IBusinessEntity, new ()
 		{
-            lock (locker) {
+			lock (locker) {
                 return (from i in database.Table<T>() select i).ToList();
             }
 		}
@@ -65,6 +65,25 @@ namespace StoryboardTables
             lock (locker) {
                 return database.Delete<T>(id);
             }
+		}
+
+		public IEnumerable<T> GetOrderedItems<T> () where T : IBusinessEntity, new ()
+		{
+//			var table = nameof (T);
+			var sql = $"SELECT * FROM [Task] ORDER BY [Order]";
+			lock (locker) {
+				return database.Query<T> (sql).ToList ();
+			}
+		}
+		public void Reorder<T> (int oldOrder, int newOrder) where T : IBusinessEntity, new ()
+		{
+//			var table = nameof (T);
+			var sql1 = $"UPDATE [Task] SET [Order] = [Order] + 1 WHERE [Order] > ? AND [Order] < ?";
+			var sql2 = $"UPDATE [Task] SET [Order] = ? WHERE [Order] = ?";
+			lock (locker) {
+				database.Query<T> (sql1, oldOrder, newOrder);
+				database.Query<T> (sql2, newOrder, oldOrder);
+			}
 		}
 	}
 }
