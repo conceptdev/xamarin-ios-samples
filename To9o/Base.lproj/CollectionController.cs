@@ -7,6 +7,7 @@ using UIKit;
 using System.Collections.Generic;
 using System.Linq;
 using CoreGraphics;
+using SafariServices;
 
 namespace StoryboardTables
 {
@@ -27,6 +28,10 @@ namespace StoryboardTables
 			base.ViewDidLoad ();
 			AddButton.Clicked += (sender, e) => {
 				CreateTask ();
+			};
+			AboutButton.Clicked += (sender, e) => {
+				var sfvc = new SFSafariViewController (new NSUrl("https://github.com/conceptdev/xamarin-ios-samples/blob/master/To9o/readme.md"),true);
+				PresentViewController(sfvc, true, null);
 			};
 			// 3D Touch
 			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available) {
