@@ -11,7 +11,10 @@ namespace StoryboardTables
 	{
 		public PeekViewController (IntPtr handle) : base (handle)
 		{
-			View.BackgroundColor = UIColor.White;
+		}
+		[Export ("initWithCoder:")]
+		public PeekViewController (NSCoder coder) : base (coder)
+		{
 		}
 
 		Task current {get;set;}
@@ -24,6 +27,8 @@ namespace StoryboardTables
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
+			View.BackgroundColor = UIColor.White;
+
 			Name.Text = current.Name;
 			Notes.Text = current.Notes;
 			if (current.Done)
