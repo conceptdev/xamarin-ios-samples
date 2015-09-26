@@ -105,10 +105,6 @@
     <Compile Include="Base.lproj\DetailViewController.designer.cs">
       <DependentUpon>DetailViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base.lproj\AllViewController.cs" />
-    <Compile Include="Base.lproj\AllViewController.designer.cs">
-      <DependentUpon>AllViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Base.lproj\AllViewCell.cs" />
     <Compile Include="Base.lproj\AllViewCell.designer.cs">
       <DependentUpon>AllViewCell.cs</DependentUpon>

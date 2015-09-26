@@ -35,10 +35,7 @@ namespace StoryboardTables
 		{
 			return tableItems.Length;
 		}
-		public override nint NumberOfSections (UICollectionView collectionView)
-		{
-			return 1;
-		}
+
 		public override bool ShouldHighlightItem (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{
 //			var cell = collectionView.CellForItem (indexPath);
@@ -49,7 +46,7 @@ namespace StoryboardTables
 		public override void ItemHighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{
 			var cell = collectionView.CellForItem (indexPath);
-			cell.ContentView.BackgroundColor = UIColor.LightGray;
+			cell.ContentView.BackgroundColor = UIColor.FromRGB(0x34,0x98,0xDB).ColorWithAlpha(0x88);
 		}
 		public override void ItemUnhighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{

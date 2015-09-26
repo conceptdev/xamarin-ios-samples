@@ -12,10 +12,16 @@ namespace StoryboardTables
 {
 	public partial class CollectionController : UICollectionViewController, IUIViewControllerPreviewingDelegate
 	{
+		/// <summary>
+		/// List of items
+		/// </summary>
+		List<Task> tasks;
+
 		public CollectionController (IntPtr handle) : base (handle)
 		{
 			Title = NSBundle.MainBundle.LocalizedString ("Todo", "");
 		}
+		#region Lifecycle
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -27,7 +33,7 @@ namespace StoryboardTables
 				RegisterForPreviewingWithDelegate (this, CollectionView);
 			}
 		}
-		List<Task> tasks;
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -38,8 +44,6 @@ namespace StoryboardTables
 			Collection.AllowsSelection = true;
 			Collection.DelaysContentTouches = false;
 		}
-
-
 
 		/// <summary>
 		/// Prepares for segue.
@@ -62,7 +66,9 @@ namespace StoryboardTables
 				}
 			}
 		}
+		#endregion
 
+		#region CRUD
 		public void CreateTask ()
 		{
 			// StackView
@@ -75,10 +81,7 @@ namespace StoryboardTables
 			//this.PerformSegue ("TaskSegue", this);
 		}
 		public void SaveTask (Task task) {
-			Console.WriteLine("Save "+task.Name);
-
 			AppDelegate.Current.TaskMgr.SaveTask(task);
-
 			SpotlightHelper.Index (task);
 
 		}
@@ -89,6 +92,7 @@ namespace StoryboardTables
 				SpotlightHelper.Delete (task);
 			}
 		}
+		#endregion
 
 		#region 3DTouch Peek
 		public UIViewController GetViewControllerForPreview (IUIViewControllerPreviewing previewingContext, CGPoint location)

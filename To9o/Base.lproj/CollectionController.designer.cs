@@ -16,7 +16,7 @@ namespace StoryboardTables
 		UIKit.UIBarButtonItem AddButton { get; set; }
 
 		[Outlet]
-		StoryboardTables.AllViewController Collection { get; set; }
+		UIKit.UICollectionView Collection { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
