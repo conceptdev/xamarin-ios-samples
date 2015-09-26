@@ -75,6 +75,14 @@ namespace StoryboardTables
 				return database.Query<T> (sql).ToList ();
 			}
 		}
+		public void UpdateOrder<T> (T item, int newOrder) where T : IBusinessEntity, new ()
+		{
+			var sql1 = $"UPDATE [Task] SET [Order] = ? WHERE [Id] = ?";
+			lock (locker) {
+				database.Query<T> (sql1, newOrder, item.Id);
+			}
+			
+		}
 		public void Reorder<T> (int oldOrder, int newOrder) where T : IBusinessEntity, new ()
 		{
 //			var table = nameof (T);

@@ -38,6 +38,9 @@ namespace StoryboardTables
             return repository.DeleteTask(id);
 		}
 
+		public void Reorder (List<Task> orderedTasks) {
+			repository.Reorder(orderedTasks);
+		}
 		public void Reorder (int oldOrder, int newOrder) {
 			repository.Reorder (oldOrder, newOrder);
 		}

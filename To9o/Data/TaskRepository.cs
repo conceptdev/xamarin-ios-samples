@@ -40,7 +40,12 @@ namespace StoryboardTables {
 		{
 			return db.DeleteItem<Task>(id);
 		}
-
+		public void Reorder (List<Task> orderedTasks){
+			var i = 0;
+			foreach (var t in orderedTasks) {
+				db.UpdateOrder (t, ++i);
+			}
+		}
 		public void Reorder (int oldOrder, int newOrder) {
 			db.Reorder<Task> (oldOrder, newOrder);
 		}
