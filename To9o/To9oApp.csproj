@@ -123,6 +123,10 @@
     <Compile Include="Constants\ShortcutIdentifiers.cs" />
     <Compile Include="SpotlightHelper.cs" />
     <Compile Include="UserActivityHelper.cs" />
+    <Compile Include="Base.lproj\PeekViewController.cs" />
+    <Compile Include="Base.lproj\PeekViewController.designer.cs">
+      <DependentUpon>PeekViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

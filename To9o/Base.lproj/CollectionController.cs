@@ -107,23 +107,40 @@ namespace StoryboardTables
 				return null;
 
 
-
 			// Create a detail view controller and set its properties.
-			var detailViewController = (DetailViewController)Storyboard.InstantiateViewController ("detailvc");
-			if (detailViewController == null)
+			var peekViewController = (PeekViewController)Storyboard.InstantiateViewController ("peekvc");
+			if (peekViewController == null)
 				return null;
 
-			var previewDetail = tasks [indexPath.Row];
-			detailViewController.SetTodo (previewDetail);
-			detailViewController.PreferredContentSize = new CGSize (0, 160);
+			var peekAt = tasks [indexPath.Row];
+			peekViewController.SetTodo (peekAt);
+			peekViewController.PreferredContentSize = new CGSize (0, 160);
 			previewingContext.SourceRect = cell.Frame;
-			return detailViewController;
+			return peekViewController;
 		}
 
 		public void CommitViewController (IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
 		{
 			Console.WriteLine ("CommitViewContoller");
-			ShowViewController (viewControllerToCommit, this);
+
+			var sv = (UICollectionView)previewingContext.SourceView;
+			var si = sv.GetIndexPathsForSelectedItems ();
+
+			var x = previewingContext.SourceRect.X + (previewingContext.SourceRect.Width / 2);
+			var y = previewingContext.SourceRect.Y + (previewingContext.SourceRect.Height / 2);
+
+			var indexPath = CollectionView.IndexPathForItemAtPoint (new CGPoint(x,y));
+			var popAt = tasks [indexPath.Row];
+
+
+			var detailViewController = (DetailViewController)Storyboard.InstantiateViewController ("detailvc");
+			if (detailViewController == null)
+				return;
+
+			detailViewController.SetTodo (popAt);
+
+			//viewControllerToCommit = peekViewController;
+			ShowViewController (detailViewController, this);
 		}
 		#endregion
 	}

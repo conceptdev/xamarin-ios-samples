@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -77,6 +77,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zp-Wj-3Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="407" y="64"/>
+        </scene>
+        <!--Peek View Controller-->
+        <scene sceneID="GGS-9B-oZK">
+            <objects>
+                <viewController storyboardIdentifier="peekvc" modalPresentationStyle="currentContext" id="dPL-w7-Bjf" customClass="PeekViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bRW-Lh-6MZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rjD-Uv-ff2"/>
+                    </layoutGuides>
+                    <stackView key="view" opaque="NO" contentMode="top" axis="vertical" distribution="equalSpacing" id="BLn-WI-ZfY">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-zI-zY0">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppB-7Z-6lq">
+                                <rect key="frame" x="0.0" y="53" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-EB-cKc">
+                                <rect key="frame" x="0.0" y="106" width="300" height="54"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="160"/>
+                    <connections>
+                        <outlet property="Done" destination="Arj-EB-cKc" id="0w5-dU-Mfb"/>
+                        <outlet property="Name" destination="9eW-zI-zY0" id="d1E-gC-wZi"/>
+                        <outlet property="Notes" destination="ppB-7Z-6lq" id="UBg-1o-B4f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DV6-09-Ae5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1244" y="64"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="mp0-yI-BAy">
