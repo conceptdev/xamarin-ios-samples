@@ -32,6 +32,7 @@ namespace StoryboardTables
 			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available) {
 				RegisterForPreviewingWithDelegate (this, CollectionView);
 			}
+
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -39,8 +40,9 @@ namespace StoryboardTables
 			base.ViewWillAppear (animated);
 			tasks = AppDelegate.Current.TaskMgr.GetTasks ().ToList ();
 
+
 			// bind every time, to reflect deletion in the Detail view
-			Collection.Source = new AllCollectionSource(tasks.ToArray ());
+			Collection.Source = new TodoCollectionSource(tasks.ToArray ());
 			Collection.AllowsSelection = true;
 			Collection.DelaysContentTouches = false;
 		}
@@ -58,7 +60,7 @@ namespace StoryboardTables
 			if (segue.Identifier == "todosegue") { // set in Storyboard
 				var tvc = segue.DestinationViewController as DetailViewController;
 				if (tvc != null) {
-					var source = Collection.Source as AllCollectionSource;
+					var source = Collection.Source as TodoCollectionSource;
 					var rowPath = Collection.IndexPathForCell (sender as UICollectionViewCell);
 					var item = source.GetItem(rowPath.Row);
 					tvc.Delegate = this;

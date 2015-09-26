@@ -9,15 +9,15 @@ using System.CodeDom.Compiler;
 
 namespace StoryboardTables
 {
-	[Register ("AllViewCell")]
-	partial class AllViewCell
+	[Register ("TodoCell")]
+	partial class TodoCell
 	{
 		[Outlet]
 		UIKit.UIImageView DoneImage { get; set; }
 
 		[Outlet]
 		UIKit.UILabel TodoName { get; set; }
-		
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (TodoName != null) {

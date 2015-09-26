@@ -105,11 +105,6 @@
     <Compile Include="Base.lproj\DetailViewController.designer.cs">
       <DependentUpon>DetailViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base.lproj\AllViewCell.cs" />
-    <Compile Include="Base.lproj\AllViewCell.designer.cs">
-      <DependentUpon>AllViewCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Base.lproj\AllCollectionSource.cs" />
     <Compile Include="Base.lproj\CollectionController.cs" />
     <Compile Include="Base.lproj\CollectionController.designer.cs">
       <DependentUpon>CollectionController.cs</DependentUpon>
@@ -122,6 +117,11 @@
     <Compile Include="Base.lproj\PeekViewController.cs" />
     <Compile Include="Base.lproj\PeekViewController.designer.cs">
       <DependentUpon>PeekViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base.lproj\TodoCollectionSource.cs" />
+    <Compile Include="Base.lproj\TodoCell.cs" />
+    <Compile Include="Base.lproj\TodoCell.designer.cs">
+      <DependentUpon>TodoCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -3,23 +3,36 @@ using UIKit;
 
 namespace StoryboardTables
 {
-	public class AllCollectionSource : UICollectionViewSource
-	{
-		public AllCollectionSource ()
+	public class CollectionLayout : UICollectionViewDelegateFlowLayout {
+		public override UIEdgeInsets GetInsetForSection (UICollectionView collectionView, UICollectionViewLayout layout, nint section)
+		{
+			return new UIEdgeInsets (0, 0, 0, 0);
+		}
+		public override CoreGraphics.CGSize GetSizeForItem (UICollectionView collectionView, UICollectionViewLayout layout, Foundation.NSIndexPath indexPath)
+		{
+			return new CoreGraphics.CGSize (collectionView.Bounds.Width, 44);
+		}
+	}
+
+
+
+	public class TodoCollectionSource : UICollectionViewSource
+	{ 
+		public TodoCollectionSource ()
 		{
 		}
 
 		Task[] tableItems;
 		string cellIdentifier = "todocell";
 
-		public AllCollectionSource (Task[] items)
+		public TodoCollectionSource (Task[] items)
 		{
 			tableItems = items; 
 		}
 		public override UICollectionViewCell GetCell (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{
 			// in a Storyboard, Dequeue will ALWAYS return a cell
-			var cell = collectionView.DequeueReusableCell (cellIdentifier, indexPath) as AllViewCell;
+			var cell = collectionView.DequeueReusableCell (cellIdentifier, indexPath) as TodoCell;
 
 			cell.Name.Text = tableItems[indexPath.Row].Name;
 
@@ -36,17 +49,10 @@ namespace StoryboardTables
 			return tableItems.Length;
 		}
 
-		public override bool ShouldHighlightItem (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
-		{
-//			var cell = collectionView.CellForItem (indexPath);
-//			cell.ContentView.BackgroundColor = UIColor.LightGray;
-			return true;
-		}
-
 		public override void ItemHighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{
 			var cell = collectionView.CellForItem (indexPath);
-			cell.ContentView.BackgroundColor = UIColor.FromRGB(0x34,0x98,0xDB).ColorWithAlpha(0x88);
+			cell.ContentView.BackgroundColor = UIColor.FromRGB(0x34,0x98,0xDB).ColorWithAlpha(0xcc);
 		}
 		public override void ItemUnhighlighted (UICollectionView collectionView, Foundation.NSIndexPath indexPath)
 		{

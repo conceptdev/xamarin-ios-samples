@@ -7,9 +7,9 @@ using UIKit;
 
 namespace StoryboardTables
 {
-	public partial class AllViewCell : UICollectionViewCell
+	public partial class TodoCell : UICollectionViewCell
 	{
-		public AllViewCell (IntPtr handle) : base (handle)
+		public TodoCell (IntPtr handle) : base (handle)
 		{
 		}
 
