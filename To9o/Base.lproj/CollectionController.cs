@@ -115,7 +115,9 @@ namespace StoryboardTables
 			var peekAt = tasks [indexPath.Row];
 			peekViewController.SetTodo (peekAt);
 			peekViewController.PreferredContentSize = new CGSize (0, 160);
+
 			previewingContext.SourceRect = cell.Frame;
+
 			return peekViewController;
 		}
 
@@ -124,7 +126,6 @@ namespace StoryboardTables
 			Console.WriteLine ("CommitViewContoller");
 
 			var sv = (UICollectionView)previewingContext.SourceView;
-			var si = sv.GetIndexPathsForSelectedItems ();
 
 			var x = previewingContext.SourceRect.X + (previewingContext.SourceRect.Width / 2);
 			var y = previewingContext.SourceRect.Y + (previewingContext.SourceRect.Height / 2);

@@ -32,5 +32,34 @@ namespace StoryboardTables
 				Done.Image = UIImage.FromBundle ("box");
 			
 		}
+
+		public override IUIPreviewActionItem[] PreviewActionItems {
+			get {
+				return PreviewActions;
+			}
+		}
+		IUIPreviewActionItem[] PreviewActions {
+			get {
+				var action1 = PreviewActionForTitle ("View");
+				var action2 = PreviewActionForTitle ("Delete", UIPreviewActionStyle.Destructive);
+
+				return new IUIPreviewActionItem [] { action1, action2};
+			}
+		}
+		static UIPreviewAction PreviewActionForTitle (string title, UIPreviewActionStyle style = UIPreviewActionStyle.Default)
+		{
+			return UIPreviewAction.Create (title, style, (action, previewViewController) => {
+				var peekViewController  = (PeekViewController)previewViewController;
+				if (style == UIPreviewActionStyle.Destructive) {
+					// delete
+					Console.WriteLine ("#### Delete PA {0} ", action.Title);
+				} else {
+					//view
+					Console.WriteLine ("---- View PA {0} ", action.Title);
+				}
+					
+
+			});
+		}
 	}
 }
