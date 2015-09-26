@@ -1,5 +1,6 @@
 ﻿using System;
 using UIKit;
+using Foundation;
 
 namespace StoryboardTables
 {
@@ -63,6 +64,19 @@ namespace StoryboardTables
 		public Task GetItem(int id) {
 			return tableItems[id];
 		}
+
+		#region iOS 9 Collection View improvements
+		public override bool CanMoveItem (UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			return true;
+		}
+		public override void MoveItem (UICollectionView collectionView, NSIndexPath sourceIndexPath, Foundation.NSIndexPath destinationIndexPath)
+		{
+			var item = tableItems [(int)sourceIndexPath.Item];
+			// set the listorder
+			Console.WriteLine("move item " + item.Name + $" from {sourceIndexPath.Row} to {destinationIndexPath.Row}");
+		}
+		#endregion
 	}
 }
 

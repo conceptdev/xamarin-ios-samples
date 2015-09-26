@@ -30,6 +30,7 @@ namespace StoryboardTables
 				CreateTask ();
 			};
 			AboutButton.Clicked += (sender, e) => {
+				// Safari View Controller
 				var sfvc = new SFSafariViewController (new NSUrl("https://github.com/conceptdev/xamarin-ios-samples/blob/master/To9o/readme.md"),true);
 				PresentViewController(sfvc, true, null);
 			};

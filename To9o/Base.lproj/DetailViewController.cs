@@ -60,7 +60,7 @@ namespace StoryboardTables
 			if (current.Id > 0) {
 				CancelButton.SetTitle (NSBundle.MainBundle.LocalizedString ("Delete", "")
 					, UIControlState.Normal);
-				CancelButton.SetTitleColor (UIColor.DarkTextColor, UIControlState.Normal);
+				CancelButton.SetTitleColor (UIColor.Red, UIControlState.Normal);
 			} else {
 				CancelButton.SetTitle(NSBundle.MainBundle.LocalizedString ("Cancel", "")
 					,UIControlState.Normal);
