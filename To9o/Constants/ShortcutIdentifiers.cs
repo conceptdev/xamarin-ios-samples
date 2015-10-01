@@ -3,7 +3,7 @@
 namespace StoryboardTables
 {
 	/// <summary>
-	/// CoreSpotlight constants
+	/// https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/#//apple_ref/c/tdef/UIApplicationShortcutIconType
 	/// </summary>
 	public static class ShortcutIdentifiers
 	{

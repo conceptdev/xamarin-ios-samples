@@ -4,7 +4,7 @@ using Foundation;
 namespace StoryboardTables
 {
 	/// <summary>
-	/// Constants for the NSUserActivity
+	/// Constants for the NSUserActivity, also embedded in Info.plist
 	/// </summary>
 	public static class ActivityTypes
 	{

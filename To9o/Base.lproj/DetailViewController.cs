@@ -147,6 +147,6 @@ namespace StoryboardTables
 //				View.BackgroundColor = UIColor.FromHSBA (1, 1, 1, alpha);
 ////				View.BackgroundColor = UIColor.Red.ColorWithAlpha (alpha);
 //			}
-		}
+//		}
 	}
 }

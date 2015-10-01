@@ -63,18 +63,11 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>co.conceptdev.todo.shortcut.add</string>
 		</dict>
-		<!--
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeShare</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Share a list summary</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Share</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>co.conceptdev.todo.shortcut.share</string>
-		</dict>
-		-->
+	</array>
+	<key>Custom Property</key>
+	<array>
+		<string>co.conceptdev.todo.activity.add</string>
+		<string>co.conceptdev.todo.activity.detail</string>
 	</array>
 </dict>
 </plist>

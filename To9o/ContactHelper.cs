@@ -17,19 +17,13 @@ namespace StoryboardTables
 		}
 
 		public CNContactPickerViewController GetPicker (){
-			// Create a new picker
 			var picker = new CNContactPickerViewController();
 
-			// Select property to pick
 			picker.DisplayedPropertyKeys = new NSString[] {CNContactKey.GivenName, CNContactKey.FamilyName};
 			picker.PredicateForEnablingContact = NSPredicate.FromFormat("emailAddresses.@count > 0");
-//			picker.PredicateForSelectionOfContact = NSPredicate.FromFormat("emailAddresses.@count == 1");
 
 			// Respond to selection
 			picker.Delegate = new ContactPickerDelegate(this);
-
-			// Display picker
-//			PresentViewController(picker,true,null);
 			return picker;
 		}
 	}
