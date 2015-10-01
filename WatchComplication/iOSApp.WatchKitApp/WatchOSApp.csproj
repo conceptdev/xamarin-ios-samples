@@ -97,7 +97,7 @@
   <ItemGroup>
     <InterfaceDefinition Include="Interface.storyboard" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.WatchOS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\iOSApp.WatchKitExtension\WatchOSExtension.csproj">
       <Project>{D1298E0D-7F01-4DAA-8043-D3ED4874FCE2}</Project>

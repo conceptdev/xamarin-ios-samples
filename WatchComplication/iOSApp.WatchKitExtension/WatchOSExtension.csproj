@@ -101,5 +101,19 @@
       <DependentUpon>InterfaceController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.WatchOS.AppExtension.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.AppExtension.CSharp.targets" />
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Circular.imageset\310-alarm-clock%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Circular.imageset\310-alarm-clock%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Circular.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Modular.imageset\310-alarm-clock%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Modular.imageset\310-alarm-clock%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Modular.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Utilitarian.imageset\310-alarm-clock%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Utilitarian.imageset\310-alarm-clock%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Utilitarian.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImages.launchimage\Contents.json" />
+  </ItemGroup>
 </Project>

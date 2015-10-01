@@ -2,11 +2,13 @@
   "images" : [
     {
       "idiom" : "watch",
+      "filename" : "310-alarm-clock@2x.png",
       "screenWidth" : "{130,145}",
       "scale" : "2x"
     },
     {
       "idiom" : "watch",
+      "filename" : "310-alarm-clock@2x-1.png",
       "screenWidth" : "{146,165}",
       "scale" : "2x"
     }
