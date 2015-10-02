@@ -35,10 +35,10 @@ namespace WatchComplication
 
 		partial void UpdateClicked()
 		{
-			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
-			foreach (var complication in complicationServer.ActiveComplications) {
-				complicationServer.ReloadTimeline(complication);
-			}
+//			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
+//			foreach (var complication in complicationServer.ActiveComplications) {
+//				complicationServer.ReloadTimeline(complication);
+//			}
 		}
 	}
 }

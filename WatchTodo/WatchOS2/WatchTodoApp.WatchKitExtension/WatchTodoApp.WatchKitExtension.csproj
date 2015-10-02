@@ -127,5 +127,5 @@
   <ItemGroup>
     <BundleResource Include="PushNotificationPayload.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.WatchOS.AppExtension.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\watchOS\Xamarin.WatchOS.AppExtension.CSharp.targets" />
 </Project>

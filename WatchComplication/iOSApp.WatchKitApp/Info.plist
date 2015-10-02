@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>Complication</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.watchcomplication.watchkitapp</string>
+	<string>co.conceptdev.watchcomplication.watchkitapp</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleShortVersionString</key>
@@ -20,7 +20,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.companyname.watchcomplication</string>
+	<string>co.conceptdev.watchcomplication</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>XSAppIconAssets</key>

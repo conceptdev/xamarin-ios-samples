@@ -2,6 +2,7 @@
 
 using Foundation;
 using WatchKit;
+using ClockKit;
 
 namespace WatchComplication
 {
@@ -20,6 +21,11 @@ namespace WatchComplication
 		public override void ApplicationDidFinishLaunching ()
 		{
 			Console.WriteLine ("{0} ApplicationDidFinishLaunching", this);
+
+//			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
+//			foreach (var complication in complicationServer.ActiveComplications) {
+//				complicationServer.ReloadTimeline(complication);
+//			}
 		}
 		public override void ApplicationWillResignActive ()
 		{

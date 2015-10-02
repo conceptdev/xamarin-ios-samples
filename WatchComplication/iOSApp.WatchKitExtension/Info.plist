@@ -7,7 +7,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>WatchComplication</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.watchcomplication.watchkitapp.watchkitextension</string>
+	<string>co.conceptdev.watchcomplication.watchkitapp.watchkitextension</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleShortVersionString</key>
@@ -21,7 +21,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.companyname.watchcomplication.watchkitapp</string>
+			<string>co.conceptdev.watchcomplication.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
