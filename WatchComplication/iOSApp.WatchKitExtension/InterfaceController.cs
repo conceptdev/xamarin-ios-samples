@@ -2,6 +2,7 @@
 
 using WatchKit;
 using Foundation;
+using ClockKit;
 
 namespace WatchComplication
 {
@@ -29,6 +30,15 @@ namespace WatchComplication
 		{
 			// This method is called when the watch view controller is no longer visible to the user.
 			Console.WriteLine ("{0} did deactivate", this);
+		}
+
+
+		partial void UpdateClicked()
+		{
+			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
+			foreach (var complication in complicationServer.ActiveComplications) {
+				complicationServer.ReloadTimeline(complication);
+			}
 		}
 	}
 }

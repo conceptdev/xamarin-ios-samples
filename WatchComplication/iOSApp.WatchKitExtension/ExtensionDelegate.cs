@@ -8,7 +8,8 @@ namespace WatchComplication
 	[Register ("ExtensionDelegate")]
 	public class ExtensionDelegate : WKExtensionDelegate
 	{
-		public ExtensionDelegate ()
+		public ExtensionDelegate() {}
+		public ExtensionDelegate (IntPtr p) : base (p) 
 		{
 		}
 
