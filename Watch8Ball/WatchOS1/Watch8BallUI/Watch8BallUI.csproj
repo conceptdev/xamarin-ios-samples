@@ -21,10 +21,12 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchProfiling>true</MtouchProfiling>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -105,6 +107,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Images.xcassets\8ball.imageset\" />
+    <Folder Include="Images.xcassets\AppIcons.appiconset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -116,16 +119,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.WatchApp.CSharp.targets" />
   <ItemGroup>
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\24x24%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\44x44%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\40x40%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\27.5x27.5%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\86x86%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\98x98%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%402x.png" />
-    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%403x.png" />
     <ImageAsset Include="Images.xcassets\8ball.imageset\8ball%402x.png" />
     <ImageAsset Include="Images.xcassets\8ball.imageset\Contents.json" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\24x24%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\27.5x27.5%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\29x29%403x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\40x40%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\44x44%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\86x86%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\98x98%402x.png" />
+    <ImageAsset Include="Images.xcassets\AppIcons.appiconset\Contents.json" />
   </ItemGroup>
 </Project>
