@@ -28,13 +28,13 @@ namespace StoryboardTables
 				current.Done = DoneSwitch.On;
 				current.For = ForText.Text;
 
-				Delegate.SaveTask(current);
+				Delegate.SaveTask(current); // also CoreSpotlight
 				NavigationController.PopViewController(true);
 			};
 			CancelButton.TouchUpInside += (sender, e) => {
 				if (Delegate != null)
-					Delegate.DeleteTask(current);
-				else 
+					Delegate.DeleteTask(current); // also CoreSpotlight
+				else // HACK: TODO: 
 					Console.WriteLine("Delegate not set - HACK");
 				NavigationController.PopViewController(true);
 			};

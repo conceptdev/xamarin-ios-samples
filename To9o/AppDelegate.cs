@@ -62,6 +62,7 @@ namespace StoryboardTables
 
 		#region Quick Action
 		public UIApplicationShortcutItem LaunchedShortcutItem { get; set; }
+
 		public override void OnActivated (UIApplication application)
 		{
 			Console.WriteLine ("ccccccc OnActivated");
@@ -72,7 +73,7 @@ namespace StoryboardTables
 			// Clear shortcut after it's been handled
 			LaunchedShortcutItem = null;
 		}
-		// if app is already running
+		// if app is already running (otherwise went through FinishedLaunching)
 		public override void PerformActionForShortcutItem (UIApplication application, UIApplicationShortcutItem shortcutItem, UIOperationHandler completionHandler)
 		{
 			Console.WriteLine ("dddddddd PerformActionForShortcutItem");
@@ -80,6 +81,7 @@ namespace StoryboardTables
 			var handled = HandleShortcutItem(shortcutItem);
 			completionHandler(handled);
 		}
+
 		public bool HandleShortcutItem(UIApplicationShortcutItem shortcutItem) {
 			Console.WriteLine ("eeeeeeeeeee HandleShortcutItem ");
 			var handled = false;

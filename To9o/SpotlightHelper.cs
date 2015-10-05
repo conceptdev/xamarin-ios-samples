@@ -42,10 +42,12 @@ namespace StoryboardTables
 		[Obsolete("This sample indexes content as created or deleted; but this method could be used to bulk-index")]
 		public static void BulkIndex (List<Task> tasks)
 		{
+			// HACK: generating fake GUID keys
 			var searchIndexMap2 = new Dictionary<string, Task> ();
 			foreach (var r in tasks) {
 				searchIndexMap2.Add (Guid.NewGuid ().ToString(), r);
 			}
+			// mapping keys to objects
 			var dataItems = searchIndexMap2.Select (keyValuePair => {
 				var guid = keyValuePair.Key;
 				var t = keyValuePair.Value;
@@ -63,6 +65,7 @@ namespace StoryboardTables
 			// Delete everything before doing bulk index
 			CSSearchableIndex.DefaultSearchableIndex.DeleteAll(null);
 
+			// Bulk index
 			CSSearchableIndex.DefaultSearchableIndex.Index (dataItems.ToArray<CSSearchableItem> (), err => {
 				if (err != null) {
 					Console.WriteLine (err);
