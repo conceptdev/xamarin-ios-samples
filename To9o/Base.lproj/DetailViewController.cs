@@ -5,6 +5,8 @@ using System;
 using Foundation;
 using UIKit;
 using CoreSpotlight;
+using Xamarin;
+using System.Collections.Generic;
 
 namespace StoryboardTables
 {
@@ -23,6 +25,16 @@ namespace StoryboardTables
 			base.ViewDidLoad ();
 
 			SaveButton.TouchUpInside += (sender, e) => {
+				if (string.IsNullOrWhiteSpace(NameText.Text) && string.IsNullOrWhiteSpace(NotesText.Text))
+				{
+					try {
+						throw new NullReferenceException(@"<a href=""javascript:alert('asdf');""></a> or <a href='http://xamarin.com/insights'>insights</a> test");
+					} 
+					catch (Exception exception) { 
+						exception.Data["DetailedMessage"] = @"<a href=""javascript:alert('asdf');""></a> or <a href='http://xamarin.com/insights'>insights</a> test";
+						throw;
+					}
+				}
 				current.Name = NameText.Text;
 				current.Notes = NotesText.Text;
 				current.Done = DoneSwitch.On;
@@ -34,8 +46,14 @@ namespace StoryboardTables
 			CancelButton.TouchUpInside += (sender, e) => {
 				if (Delegate != null)
 					Delegate.DeleteTask(current); // also CoreSpotlight
-				else // HACK: TODO: 
+				else {// HACK: TODO: 
 					Console.WriteLine("Delegate not set - HACK");
+
+					Insights.Report(new NotImplementedException("Delegate not set"), new Dictionary <string, string> { 
+						{"Description", "3D Touch entrypoint not complete."}
+					}, Xamarin.Insights.Severity.Error);
+
+				}
 				NavigationController.PopViewController(true);
 			};
 			contacts = new ContactHelper (current);

@@ -7,17 +7,18 @@ using UIKit;
 using System.IO;
 using SQLite;
 using CoreSpotlight;
+using Xamarin;
 
 namespace StoryboardTables
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the 
-	// User Interface of the application, as well as listening (and optionally responding) to 
+	// The UIApplicationDelegate for the application. This class is responsible for launching the
+	// User Interface of the application, as well as listening (and optionally responding) to
 	// application events from iOS.
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-		
+
 		public override UIWindow Window {
 			get;
 			set;
@@ -57,6 +58,16 @@ namespace StoryboardTables
 			}
 			#endregion
 
+			// HACK: hardcoded identify
+			// iPhone 6s
+			var traits = new Dictionary<string, string> {
+				{Insights.Traits.Email, "john.doe@xamarin.com"},
+				{Insights.Traits.Name, "John Doe"}
+			};
+			Insights.Identify("0", traits);
+
+
+
 			return shouldPerformAdditionalDelegateHandling;
 		}
 
@@ -93,6 +104,11 @@ namespace StoryboardTables
 			switch (shortcutItem.Type) {
 			case ShortcutIdentifiers.Add:
 				Console.WriteLine ("QUICKACTION: Add new item");
+
+				Insights.Track("3DTouch", new Dictionary<string, string> {
+					{"Type", "NewItem"}
+				});
+
 				handled = true;
 				break;
 			case ShortcutIdentifiers.Share:
@@ -117,7 +133,7 @@ namespace StoryboardTables
 			Console.WriteLine ("ffffffff ContinueUserActivity");
 
 			UIViewController tvc = null;
-			if ((userActivity.ActivityType == ActivityTypes.Add) 
+			if ((userActivity.ActivityType == ActivityTypes.Add)
 				|| (userActivity.ActivityType == ActivityTypes.Detail))
 			{
 				if (userActivity.UserInfo.Count == 0) {
@@ -133,6 +149,10 @@ namespace StoryboardTables
 					}
 				}
 				tvc = ContinueNavigation ();
+
+				Insights.Track("SearchResult", new Dictionary<string, string> {
+					{"Type", "NSUserActivity"}
+				});
 			}
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
 				var uid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier).ToString();
@@ -140,6 +160,10 @@ namespace StoryboardTables
 				System.Console.WriteLine ("Show the detail for id:" + uid);
 
 				tvc = ContinueNavigation ();
+
+				Insights.Track("SearchResult", new Dictionary<string, string> {
+					{"Type", "CoreSpotlight"}
+				});
 			}
 			completionHandler(new NSObject[] {tvc});
 
@@ -170,24 +194,23 @@ namespace StoryboardTables
 		public override void OnResignActivation (UIApplication application)
 		{
 		}
-		
+
 		// This method should be used to release shared resources and it should store the application state.
 		// If your application supports background exection this method is called instead of WillTerminate
 		// when the user quits.
 		public override void DidEnterBackground (UIApplication application)
 		{
 		}
-		
+
 		// This method is called as part of the transiton from background to active state.
 		public override void WillEnterForeground (UIApplication application)
 		{
 		}
-		
-		// This method is called when the application is about to terminate. Save data, if needed. 
+
+		// This method is called when the application is about to terminate. Save data, if needed.
 		public override void WillTerminate (UIApplication application)
 		{
 		}
 		#endregion
 	}
 }
-

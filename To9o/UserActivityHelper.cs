@@ -18,7 +18,7 @@ namespace StoryboardTables
 			var activity = new NSUserActivity(activityType);
 			activity.EligibleForSearch = true;
 			activity.EligibleForPublicIndexing = false;
-			activity.EligibleForHandoff = false;
+			activity.EligibleForHandoff = true;
 
 			activity.Title = NSBundle.MainBundle.LocalizedString ("Todo Detail", "");
 
