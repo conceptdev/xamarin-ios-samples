@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>Watch8BallApp.WatchKitApp</string>
+	<string>w8ball</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.conceptdev.WatchEight.watchkitapp</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -25,5 +25,7 @@
 	<true/>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleDisplayName</key>
+	<string>w8ball2</string>
 </dict>
 </plist>

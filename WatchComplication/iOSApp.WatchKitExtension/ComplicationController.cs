@@ -19,6 +19,12 @@ namespace WatchComplication
 	[Register ("ComplicationController")]
 	public class ComplicationController : CLKComplicationDataSource
 	{
+		// when this ctor isn't supplied, "Extension received request to wake up for complication support" never happens :(
+		public ComplicationController () 
+		{
+			Console.WriteLine ("Complication ctor");
+		}
+		// expected this to be called (because `Register`) but it does not ever get called :(
 		public ComplicationController (IntPtr p) : base (p) 
 		{
 			Console.WriteLine ("Complication ctor IntPtr");
