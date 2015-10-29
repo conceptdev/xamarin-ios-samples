@@ -9,11 +9,9 @@ namespace WatchComplication
 	[Register ("ExtensionDelegate")]
 	public class ExtensionDelegate : WKExtensionDelegate
 	{
-		public ExtensionDelegate() {}
 		public ExtensionDelegate (IntPtr p) : base (p) 
 		{
 		}
-
 		public override void ApplicationDidBecomeActive ()
 		{
 			Console.WriteLine ("{0} ApplicationDidBecomeActive", this);
@@ -22,10 +20,14 @@ namespace WatchComplication
 		{
 			Console.WriteLine ("{0} ApplicationDidFinishLaunching", this);
 
-//			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
-//			foreach (var complication in complicationServer.ActiveComplications) {
-//				complicationServer.ReloadTimeline(complication);
-//			}
+			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
+			if (complicationServer.ActiveComplications != null) {
+				foreach (var complication in complicationServer.ActiveComplications) {
+					complicationServer.ReloadTimeline (complication);
+				}
+			} else {
+				Console.WriteLine ("No active complications");
+			}
 		}
 		public override void ApplicationWillResignActive ()
 		{

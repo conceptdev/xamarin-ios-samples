@@ -19,9 +19,9 @@ namespace WatchComplication
 	[Register ("ComplicationController")]
 	public class ComplicationController : CLKComplicationDataSource
 	{
-		public ComplicationController ()
+		public ComplicationController (IntPtr p) : base (p) 
 		{
-			Console.WriteLine ("Complication ctor");
+			Console.WriteLine ("Complication ctor IntPtr");
 		}
 		public override void GetNextRequestedUpdateDate (Action<NSDate> handler)
 		{

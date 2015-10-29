@@ -40,5 +40,7 @@
 	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>ExtensionDelegate</string>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>co.conceptdev.watchcomplication</string>
 </dict>
 </plist>

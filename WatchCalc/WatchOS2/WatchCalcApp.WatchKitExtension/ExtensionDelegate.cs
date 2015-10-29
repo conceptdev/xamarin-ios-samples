@@ -8,11 +8,9 @@ namespace WatchCalcExtension
 	[Register ("ExtensionDelegate")]
 	public class ExtensionDelegate : WKExtensionDelegate
 	{
-		public ExtensionDelegate() {}
 		public ExtensionDelegate (IntPtr p) : base (p) 
 		{
 		}
-
 		public override void ApplicationDidBecomeActive ()
 		{
 			Console.WriteLine ("{0} ApplicationDidBecomeActive", this);

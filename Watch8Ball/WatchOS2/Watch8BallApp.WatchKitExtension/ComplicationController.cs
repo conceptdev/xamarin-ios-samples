@@ -65,10 +65,10 @@ namespace Watch8BallExtension
 			handler (entry);
 		}
 
-		public override void GetSupportedTimeTravelDirections (CLKComplication complication, Action<CLKComplicationTimeTravelDirections> Handler)
+		public override void GetSupportedTimeTravelDirections (CLKComplication complication, Action<CLKComplicationTimeTravelDirections> handler)
 		{
 			Console.WriteLine ("GetSupportedTimeTravelDirections");
-			Handler (CLKComplicationTimeTravelDirections.None);
+			handler (CLKComplicationTimeTravelDirections.None);
 			//			Handler (CLKComplicationTimeTravelDirections.Forward | CLKComplicationTimeTravelDirections.Backward);
 		}
 
