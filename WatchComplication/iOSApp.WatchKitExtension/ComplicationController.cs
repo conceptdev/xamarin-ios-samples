@@ -121,32 +121,34 @@ namespace WatchComplication
 			Console.WriteLine ("GetSupportedTimeTravelDirections");
 			Handler (CLKComplicationTimeTravelDirections.None);
 		}
-//
-//		public override void GetTimelineStartDate (CLKComplication complication, Action<NSDate> handler)
-//		{
-//			handler (null);
-//		}
-//
-//		public override void GetTimelineEndDate (CLKComplication complication, Action<NSDate> handler)
-//		{
-//			handler (null);
-//		}
-//
-//		public override void GetPrivacyBehavior (CLKComplication complication, Action<CLKComplicationPrivacyBehavior> handler)
-//		{
-//			handler (CLKComplicationPrivacyBehavior.ShowOnLockScreen);
-//		}
-//
-//		public override void GetTimelineEntriesBeforeDate (CLKComplication complication, NSDate beforeDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
-//		{
-//			entries (null);
-//		}
-//		public override void GetTimelineEntriesAfterDate (CLKComplication complication, NSDate afterDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
-//		{
-//			entries (null);
-//		}
 
+		public override void GetTimelineStartDate (CLKComplication complication, Action<NSDate> handler)
+		{
+			Console.WriteLine ("GetTimelineStartDate");
+			handler (null);
+		}
+
+		public override void GetTimelineEndDate (CLKComplication complication, Action<NSDate> handler)
+		{
+			Console.WriteLine ("GetTimelineEndDate");
+			handler (null);
+		}
+
+		public override void GetPrivacyBehavior (CLKComplication complication, Action<CLKComplicationPrivacyBehavior> handler)
+		{
+			Console.WriteLine ("GetPrivacyBehavior");
+			handler (CLKComplicationPrivacyBehavior.ShowOnLockScreen);
+		}
+
+		public override void GetTimelineEntriesBeforeDate (CLKComplication complication, NSDate beforeDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
+		{
+			Console.WriteLine ("GetTimelineEntriesBeforeDate");
+			entries (null);
+		}
+		public override void GetTimelineEntriesAfterDate (CLKComplication complication, NSDate afterDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
+		{
+			Console.WriteLine ("GetTimelineEntriesAfterDate");
+			entries (null);
+		}
 	}
 }
-
-
