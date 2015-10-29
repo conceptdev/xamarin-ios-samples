@@ -25,12 +25,16 @@ namespace WatchComplication
 		}
 		public override void GetNextRequestedUpdateDate (Action<NSDate> handler)
 		{
+			Console.WriteLine ("GetNextRequestedUpdateDate");
+
 			var nextUpdateDate = new NSDate ();
 			nextUpdateDate.AddSeconds (10);
 			handler (nextUpdateDate);
 		}
 		public override void GetCurrentTimelineEntry (CLKComplication complication, Action<CLKComplicationTimelineEntry> handler)
 		{
+			Console.WriteLine ("GetCurrentTimelineEntry");
+
 			CLKComplicationTimelineEntry entry = null;
 
 			// default
@@ -74,6 +78,7 @@ namespace WatchComplication
 		public override void GetPlaceholderTemplate (CLKComplication complication, Action<CLKComplicationTemplate> handler)
 		{
 			Console.WriteLine ("GetPlaceholderTemplate");
+
 			CLKComplicationTemplate template = null;
 			if (complication.Family == CLKComplicationFamily.ModularSmall) {
 				var textTemplate = new CLKComplicationTemplateModularSmallRingText ();

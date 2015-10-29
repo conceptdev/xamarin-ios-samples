@@ -11,6 +11,7 @@ namespace WatchComplication
 	{
 		public ExtensionDelegate (IntPtr p) : base (p) 
 		{
+			Console.WriteLine ("ExtensionDelegate ctor IntPtr");
 		}
 		public override void ApplicationDidBecomeActive ()
 		{
@@ -22,6 +23,7 @@ namespace WatchComplication
 
 			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
 			if (complicationServer.ActiveComplications != null) {
+				Console.WriteLine ("Active complications!");
 				foreach (var complication in complicationServer.ActiveComplications) {
 					complicationServer.ReloadTimeline (complication);
 				}
