@@ -80,10 +80,12 @@ namespace StoryboardTables
 		public override void MoveItem (UICollectionView collectionView, NSIndexPath sourceIndexPath, Foundation.NSIndexPath destinationIndexPath)
 		{
 			var item = tableItems [(int)sourceIndexPath.Item];
-			// set the listorder
 			Console.WriteLine("move item " + item.Name + $" from {sourceIndexPath.Row} to {destinationIndexPath.Row}");
+
+			// set the listorder
 			tableItems.RemoveAt ((int)sourceIndexPath.Item);
 			tableItems.Insert ((int)destinationIndexPath.Item, item);
+
 			// update the database to match (brute force method)
 			AppDelegate.Current.TaskMgr.Reorder (tableItems);
 		}

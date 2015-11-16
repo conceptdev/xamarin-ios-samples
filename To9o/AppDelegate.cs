@@ -17,8 +17,6 @@ namespace StoryboardTables
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		// class-level declarations
-
 		public override UIWindow Window {
 			get;
 			set;
@@ -58,6 +56,8 @@ namespace StoryboardTables
 			}
 			#endregion
 
+
+			#region Xamarin.Insights
 			// HACK: hardcoded identify
 			// iPhone 6s
 			var traits = new Dictionary<string, string> {
@@ -65,15 +65,24 @@ namespace StoryboardTables
 				{Insights.Traits.Name, "John Doe"}
 			};
 			Insights.Identify("0", traits);
-
+			#endregion
 
 
 			return shouldPerformAdditionalDelegateHandling;
 		}
 
 		#region Quick Action
-		public UIApplicationShortcutItem LaunchedShortcutItem { get; set; }
+		//
+		// if app is already running (otherwise went through FinishedLaunching)
+		public override void PerformActionForShortcutItem (UIApplication application, UIApplicationShortcutItem shortcutItem, UIOperationHandler completionHandler)
+		{
+			Console.WriteLine ("dddddddd PerformActionForShortcutItem");
+			// Perform action
+			var handled = HandleShortcutItem(shortcutItem);
+			completionHandler(handled);
+		}
 
+		public UIApplicationShortcutItem LaunchedShortcutItem { get; set; }
 		public override void OnActivated (UIApplication application)
 		{
 			Console.WriteLine ("ccccccc OnActivated");
@@ -84,14 +93,7 @@ namespace StoryboardTables
 			// Clear shortcut after it's been handled
 			LaunchedShortcutItem = null;
 		}
-		// if app is already running (otherwise went through FinishedLaunching)
-		public override void PerformActionForShortcutItem (UIApplication application, UIApplicationShortcutItem shortcutItem, UIOperationHandler completionHandler)
-		{
-			Console.WriteLine ("dddddddd PerformActionForShortcutItem");
-			// Perform action
-			var handled = HandleShortcutItem(shortcutItem);
-			completionHandler(handled);
-		}
+
 
 		public bool HandleShortcutItem(UIApplicationShortcutItem shortcutItem) {
 			Console.WriteLine ("eeeeeeeeeee HandleShortcutItem ");
@@ -126,13 +128,15 @@ namespace StoryboardTables
 		}
 		#endregion
 
-		#region NSUserActivity
+		#region NSUserActivity AND CoreSpotlight
 		// http://www.raywenderlich.com/84174/ios-8-handoff-tutorial
 		public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 		{
 			Console.WriteLine ("ffffffff ContinueUserActivity");
 
 			UIViewController tvc = null;
+
+			// NSUserActivity
 			if ((userActivity.ActivityType == ActivityTypes.Add)
 				|| (userActivity.ActivityType == ActivityTypes.Detail))
 			{
@@ -154,8 +158,10 @@ namespace StoryboardTables
 					{"Type", "NSUserActivity"}
 				});
 			}
+			// CoreSpotlight
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
-				var uid = userActivity.UserInfo.ObjectForKey (CSSearchableItem.ActivityIdentifier).ToString();
+				var uid = userActivity.UserInfo.ObjectForKey 
+							(CSSearchableItem.ActivityIdentifier).ToString();
 
 				System.Console.WriteLine ("Show the detail for id:" + uid);
 
@@ -171,46 +177,23 @@ namespace StoryboardTables
 		}
 		#endregion
 
+		//
+		// called for Quick Action AND NSUserActivity
 		UIViewController ContinueNavigation (){
 			Console.WriteLine ("gggggggggg ContinueNavigation");
 
+			// 1. load screen
 			var sb = UIStoryboard.FromName ("MainStoryboard", null);
 			var tvc = sb.InstantiateViewController("detailvc") as DetailViewController;
 
+			// 2. set initial state
 			var r = Window.RootViewController as UINavigationController;
 			r.PopToRootViewController (false);
 
+			// 3. populate and display screen
 			tvc.SetTodo (new Task {Name="(new action)"}); // from 3D Touch menu
 			r.PushViewController (tvc, false);
 			return tvc;
 		}
-
-		#region Lifecycle
-		//
-		// This method is invoked when the application is about to move from active to inactive state.
-		//
-		// OpenGL applications should use this method to pause.
-		//
-		public override void OnResignActivation (UIApplication application)
-		{
-		}
-
-		// This method should be used to release shared resources and it should store the application state.
-		// If your application supports background exection this method is called instead of WillTerminate
-		// when the user quits.
-		public override void DidEnterBackground (UIApplication application)
-		{
-		}
-
-		// This method is called as part of the transiton from background to active state.
-		public override void WillEnterForeground (UIApplication application)
-		{
-		}
-
-		// This method is called when the application is about to terminate. Save data, if needed.
-		public override void WillTerminate (UIApplication application)
-		{
-		}
-		#endregion
 	}
 }

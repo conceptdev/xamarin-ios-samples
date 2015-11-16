@@ -40,7 +40,9 @@ namespace StoryboardTables
 				current.Done = DoneSwitch.On;
 				current.For = ForText.Text;
 
-				Delegate.SaveTask(current); // also CoreSpotlight
+				// includes CoreSpotlight indexing!
+				Delegate.SaveTask(current); 
+
 				NavigationController.PopViewController(true);
 			};
 			CancelButton.TouchUpInside += (sender, e) => {
