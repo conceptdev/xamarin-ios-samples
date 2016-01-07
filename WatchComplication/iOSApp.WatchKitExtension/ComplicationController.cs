@@ -29,54 +29,70 @@ namespace WatchComplication
 		{
 			Console.WriteLine ("Complication ctor IntPtr");
 		}
-		//public override void GetNextRequestedUpdateDate (Action<NSDate> handler)
-		//{
-		//	Console.WriteLine ("GetNextRequestedUpdateDate");
+		public override void GetNextRequestedUpdateDate (Action<NSDate> handler)
+		{
+			Console.WriteLine ("GetNextRequestedUpdateDate");
 
-		//	var nextUpdateDate = new NSDate ();
-		//	nextUpdateDate.AddSeconds (10);
-		//	handler (nextUpdateDate);
-		//}
+			var nextUpdateDate = new NSDate ();
+			nextUpdateDate = nextUpdateDate.AddSeconds (30);
+			handler (nextUpdateDate);
+		}
 		public override void GetCurrentTimelineEntry (CLKComplication complication, Action<CLKComplicationTimelineEntry> handler)
 		{
 			Console.WriteLine ("GetCurrentTimelineEntry");
 
 			CLKComplicationTimelineEntry entry = null;
-
-			if (complication.Family == CLKComplicationFamily.ModularSmall) {
-				var textTemplate1 = new CLKComplicationTemplateModularSmallSimpleText ();
-				textTemplate1.TextProvider = CLKSimpleTextProvider.FromText ("#");
-				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate1);
-
-			} else if (complication.Family == CLKComplicationFamily.ModularLarge) {
-				var textTemplate = new CLKComplicationTemplateModularLargeStandardBody ();
-				textTemplate.HeaderTextProvider = CLKSimpleTextProvider.FromText ("HeaderX", "XH", "```");
-
-				textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText ("Body1x", "X1", "~~~");
-				textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText ("Body 2x", "X2", "---");
-
-				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate);
-
-			}  else if (complication.Family == CLKComplicationFamily.UtilitarianSmall) {
-				var textTemplate = new CLKComplicationTemplateUtilitarianSmallFlat ();
-				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("2Xamarin2");
-				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate);
-
-			} else if (complication.Family == CLKComplicationFamily.UtilitarianLarge) {
-				var textTemplate = new CLKComplicationTemplateUtilitarianLargeFlat ();
-				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("3Xamarin3");
-				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate);
-
-			} else if (complication.Family == CLKComplicationFamily.CircularSmall) {
-				var imgTemplate = new CLKComplicationTemplateCircularSmallRingImage ();
-				imgTemplate.ImageProvider = CLKImageProvider.Create (UIImage.FromBundle ("Circular"));
-				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, imgTemplate);
-			}
-			else	 
+			try
 			{
-				Console.WriteLine ("GetCurrentTimelineEntry: Complication not supported (" + complication.Family + ")");
-			}
+				var txt = DateTime.Now.Minute.ToString();
 
+				if (complication.Family == CLKComplicationFamily.ModularSmall)
+				{
+					var textTemplate1 = new CLKComplicationTemplateModularSmallSimpleText();
+					textTemplate1.TextProvider = CLKSimpleTextProvider.FromText(txt);
+					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate1);
+
+				}
+				else if (complication.Family == CLKComplicationFamily.ModularLarge)
+				{
+					var textTemplate = new CLKComplicationTemplateModularLargeStandardBody();
+					textTemplate.HeaderTextProvider = CLKSimpleTextProvider.FromText("Header" + txt, "XH", "```");
+
+					textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText("B1 " + txt, "X1", "~~~");
+					textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText("Body 2x", "X2", "---");
+
+					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate);
+
+				}
+				else if (complication.Family == CLKComplicationFamily.UtilitarianSmall)
+				{
+					var textTemplate = new CLKComplicationTemplateUtilitarianSmallFlat();
+					textTemplate.TextProvider = CLKSimpleTextProvider.FromText("2Xam");
+					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate);
+
+				}
+				else if (complication.Family == CLKComplicationFamily.UtilitarianLarge)
+				{
+					var textTemplate = new CLKComplicationTemplateUtilitarianLargeFlat();
+					textTemplate.TextProvider = CLKSimpleTextProvider.FromText("3Xam");
+					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate);
+
+				}
+				else if (complication.Family == CLKComplicationFamily.CircularSmall)
+				{
+					var imgTemplate = new CLKComplicationTemplateCircularSmallRingImage();
+					imgTemplate.ImageProvider = CLKImageProvider.Create(UIImage.FromBundle("Circular"));
+					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, imgTemplate);
+				}
+				else
+				{
+					Console.WriteLine("GetCurrentTimelineEntry: Complication not supported (" + complication.Family + ")");
+				}
+			}
+			catch (Exception x)
+			{
+				Console.WriteLine("Exception " + x);
+			}
 			handler (entry);
 		}
 
