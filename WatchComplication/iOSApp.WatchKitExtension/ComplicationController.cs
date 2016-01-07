@@ -29,53 +29,52 @@ namespace WatchComplication
 		{
 			Console.WriteLine ("Complication ctor IntPtr");
 		}
-		public override void GetNextRequestedUpdateDate (Action<NSDate> handler)
-		{
-			Console.WriteLine ("GetNextRequestedUpdateDate");
+		//public override void GetNextRequestedUpdateDate (Action<NSDate> handler)
+		//{
+		//	Console.WriteLine ("GetNextRequestedUpdateDate");
 
-			var nextUpdateDate = new NSDate ();
-			nextUpdateDate.AddSeconds (10);
-			handler (nextUpdateDate);
-		}
+		//	var nextUpdateDate = new NSDate ();
+		//	nextUpdateDate.AddSeconds (10);
+		//	handler (nextUpdateDate);
+		//}
 		public override void GetCurrentTimelineEntry (CLKComplication complication, Action<CLKComplicationTimelineEntry> handler)
 		{
 			Console.WriteLine ("GetCurrentTimelineEntry");
 
 			CLKComplicationTimelineEntry entry = null;
 
-			// default
-			var textTemplate1 = new CLKComplicationTemplateModularSmallSimpleText ();
-			textTemplate1.TextProvider = CLKSimpleTextProvider.FromText ("Xamarin1");
-			entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate1);
+			if (complication.Family == CLKComplicationFamily.ModularSmall) {
+				var textTemplate1 = new CLKComplicationTemplateModularSmallSimpleText ();
+				textTemplate1.TextProvider = CLKSimpleTextProvider.FromText ("#");
+				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate1);
 
-			// may be overwritten
-			if (complication.Family == CLKComplicationFamily.ModularLarge) {
+			} else if (complication.Family == CLKComplicationFamily.ModularLarge) {
 				var textTemplate = new CLKComplicationTemplateModularLargeStandardBody ();
-				textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText ("Body1x", "X1", "~~~");
-				textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText ("Body 2x", "X2", "---");
 				textTemplate.HeaderTextProvider = CLKSimpleTextProvider.FromText ("HeaderX", "XH", "```");
 
+				textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText ("Body1x", "X1", "~~~");
+				textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText ("Body 2x", "X2", "---");
+
 				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate);
+
 			}  else if (complication.Family == CLKComplicationFamily.UtilitarianSmall) {
 				var textTemplate = new CLKComplicationTemplateUtilitarianSmallFlat ();
-				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("Xamarin2");
-
+				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("2Xamarin2");
 				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate);
+
 			} else if (complication.Family == CLKComplicationFamily.UtilitarianLarge) {
 				var textTemplate = new CLKComplicationTemplateUtilitarianLargeFlat ();
-				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("Xamarin3");
-
+				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("3Xamarin3");
 				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, textTemplate);
+
 			} else if (complication.Family == CLKComplicationFamily.CircularSmall) {
 				var imgTemplate = new CLKComplicationTemplateCircularSmallRingImage ();
-
 				imgTemplate.ImageProvider = CLKImageProvider.Create (UIImage.FromBundle ("Circular"));
-
 				entry = CLKComplicationTimelineEntry.Create (NSDate.Now, imgTemplate);
 			}
 			else	 
 			{
-				Console.WriteLine ("GetCurrentTimelineEntry: Complication not supported");
+				Console.WriteLine ("GetCurrentTimelineEntry: Complication not supported (" + complication.Family + ")");
 			}
 
 			handler (entry);
@@ -83,72 +82,78 @@ namespace WatchComplication
 
 		public override void GetPlaceholderTemplate (CLKComplication complication, Action<CLKComplicationTemplate> handler)
 		{
-			Console.WriteLine ("GetPlaceholderTemplate");
+			Console.WriteLine ("GetPlaceholderTemplate for " + complication);
 
 			CLKComplicationTemplate template = null;
+
 			if (complication.Family == CLKComplicationFamily.ModularSmall) {
 				var textTemplate = new CLKComplicationTemplateModularSmallRingText ();
 				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("XAM1");
 				template = textTemplate;
-			} else if (complication.Family == CLKComplicationFamily.ModularSmall) {
+
+			} else if (complication.Family == CLKComplicationFamily.ModularLarge) {
 				var textTemplate = new CLKComplicationTemplateModularLargeStandardBody ();
 				textTemplate.HeaderTextProvider = CLKSimpleTextProvider.FromText ("Header A", "A 2", "~~~");
 				textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText ("Body B", "B 2", "~~~");
+				template = textTemplate;
+
 			} else if (complication.Family == CLKComplicationFamily.UtilitarianSmall) {
 				var textTemplate = new CLKComplicationTemplateUtilitarianSmallFlat ();
 				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("XAM2");
 				template = textTemplate;
+
 			} else if (complication.Family == CLKComplicationFamily.UtilitarianLarge) {
 				var textTemplate = new CLKComplicationTemplateUtilitarianLargeFlat ();
 				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("XAM3");
 				template = textTemplate;
+
 			} else if (complication.Family == CLKComplicationFamily.CircularSmall) {
 				var textTemplate = new CLKComplicationTemplateCircularSmallRingText ();
-				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("XS");
+				textTemplate.TextProvider = CLKSimpleTextProvider.FromText ("s");
 				template = textTemplate;
 			}
 			else	 
 			{
-				Console.WriteLine ("GetPlaceholderTemplate: Complication not supported");
+				Console.WriteLine ("GetPlaceholderTemplate: Complication not supported (" + complication + ")");
 			}
 
 			handler (template);
 		}
 
 
-		public override void GetSupportedTimeTravelDirections (CLKComplication complication, Action<CLKComplicationTimeTravelDirections> Handler)
+		public override void GetSupportedTimeTravelDirections (CLKComplication complication, Action<CLKComplicationTimeTravelDirections> handler)
 		{
 			Console.WriteLine ("GetSupportedTimeTravelDirections");
-			Handler (CLKComplicationTimeTravelDirections.None);
+			handler (CLKComplicationTimeTravelDirections.Forward);
 		}
 
-		public override void GetTimelineStartDate (CLKComplication complication, Action<NSDate> handler)
-		{
-			Console.WriteLine ("GetTimelineStartDate");
-			handler (null);
-		}
+		//public override void GetTimelineStartDate (CLKComplication complication, Action<NSDate> handler)
+		//{
+		//	Console.WriteLine ("GetTimelineStartDate");
+		//	handler (null);
+		//}
 
-		public override void GetTimelineEndDate (CLKComplication complication, Action<NSDate> handler)
-		{
-			Console.WriteLine ("GetTimelineEndDate");
-			handler (null);
-		}
+		//public override void GetTimelineEndDate (CLKComplication complication, Action<NSDate> handler)
+		//{
+		//	Console.WriteLine ("GetTimelineEndDate");
+		//	handler (null);
+		//}
 
-		public override void GetPrivacyBehavior (CLKComplication complication, Action<CLKComplicationPrivacyBehavior> handler)
-		{
-			Console.WriteLine ("GetPrivacyBehavior");
-			handler (CLKComplicationPrivacyBehavior.ShowOnLockScreen);
-		}
+		//public override void GetPrivacyBehavior (CLKComplication complication, Action<CLKComplicationPrivacyBehavior> handler)
+		//{
+		//	Console.WriteLine ("GetPrivacyBehavior");
+		//	handler (CLKComplicationPrivacyBehavior.ShowOnLockScreen);
+		//}
 
-		public override void GetTimelineEntriesBeforeDate (CLKComplication complication, NSDate beforeDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
-		{
-			Console.WriteLine ("GetTimelineEntriesBeforeDate");
-			entries (null);
-		}
-		public override void GetTimelineEntriesAfterDate (CLKComplication complication, NSDate afterDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
-		{
-			Console.WriteLine ("GetTimelineEntriesAfterDate");
-			entries (null);
-		}
+		//public override void GetTimelineEntriesBeforeDate (CLKComplication complication, NSDate beforeDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
+		//{
+		//	Console.WriteLine ("GetTimelineEntriesBeforeDate");
+		//	entries (null);
+		//}
+		//public override void GetTimelineEntriesAfterDate (CLKComplication complication, NSDate afterDate, nuint limit, Action<CLKComplicationTimelineEntry[]> entries)
+		//{
+		//	Console.WriteLine ("GetTimelineEntriesAfterDate");
+		//	entries (null);
+		//}
 	}
 }

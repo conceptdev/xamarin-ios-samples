@@ -23,9 +23,10 @@ namespace WatchComplication
 
 			var complicationServer = CLKComplicationServer.SharedInstance; // is null :-(
 			if (complicationServer.ActiveComplications != null) {
-				Console.WriteLine ("Active complications!");
+				Console.WriteLine ("Active complications!!!!!!!!!!");
 				foreach (var complication in complicationServer.ActiveComplications) {
-					complicationServer.ReloadTimeline (complication);
+					Console.WriteLine ("Active " + complication.Description);
+					//complicationServer.ReloadTimeline (complication);
 				}
 			} else {
 				Console.WriteLine ("No active complications");
