@@ -25,8 +25,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchI18n>
-    </MtouchI18n>
+    <MtouchI18n></MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -54,8 +53,7 @@
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <IpaPackageName>
-    </IpaPackageName>
+    <IpaPackageName></IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -94,11 +92,9 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>f69d4efe-e2e5-4717-9f8a-a7d398feaafe</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <IpaPackageName>
-    </IpaPackageName>
+    <IpaPackageName></IpaPackageName>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchI18n>
-    </MtouchI18n>
+    <MtouchI18n></MtouchI18n>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -140,9 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Watch8BallApp.WatchKitApp\Watch8BallApp.WatchKitApp.csproj">
+      <IsWatchApp>true</IsWatchApp>
       <Project>{2315FB78-FCCD-4078-A447-350ED32126AC}</Project>
       <Name>Watch8BallApp.WatchKitApp</Name>
-      <IsWatchApp>True</IsWatchApp>
     </ProjectReference>
   </ItemGroup>
 </Project>

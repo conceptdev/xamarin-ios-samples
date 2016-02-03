@@ -7,7 +7,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>8Ball2</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.conceptdev.WatchEight.watchkitapp.watchkitextension</string>
+	<string>co.conceptdev.WatchEight.watchkitextension</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleShortVersionString</key>
