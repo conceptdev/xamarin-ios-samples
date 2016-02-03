@@ -192,6 +192,7 @@ namespace StoryboardTables
 
 			// 3. populate and display screen
 			tvc.SetTodo (new Task {Name="(new action)"}); // from 3D Touch menu
+			tvc.Delegate = CollectionController.Current;
 			r.PushViewController (tvc, false);
 			return tvc;
 		}

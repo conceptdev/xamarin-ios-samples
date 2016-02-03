@@ -18,13 +18,17 @@ namespace StoryboardTables
 	public static class ActivityKeys {
 		public static NSString Id = new NSString ("id");
 		public static NSString Name = new NSString ("name");
+		public static NSString Notes = new NSString ("notes");
 
 
 		public static bool IsIndexable (this Task current){
 			return (current != null && current.Name != null && current.Notes != null);
 		}
+		public static NSDictionary NotesToDictionary (this Task current){
+			return NSDictionary.FromObjectAndKey (new NSString (current.Notes??""), ActivityKeys.Notes);
+		}
 		public static NSDictionary NameToDictionary (this Task current){
-			return NSDictionary.FromObjectAndKey (new NSString (current.Name), ActivityKeys.Name);
+			return NSDictionary.FromObjectAndKey (new NSString (current.Name??""), ActivityKeys.Name);
 		}
 		public static NSDictionary IdToDictionary (this Task current){
 			return NSDictionary.FromObjectAndKey (new NSString (current.Id.ToString ()), ActivityKeys.Id);

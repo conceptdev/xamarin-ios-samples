@@ -13,6 +13,7 @@ namespace StoryboardTables
 {
 	public partial class CollectionController : UICollectionViewController, IUIViewControllerPreviewingDelegate
 	{
+		public static CollectionController Current;
 		/// <summary>
 		/// List of items
 		/// </summary>
@@ -21,6 +22,7 @@ namespace StoryboardTables
 		public CollectionController (IntPtr handle) : base (handle)
 		{
 			Title = NSBundle.MainBundle.LocalizedString ("Todo", "");
+			Current = this;
 		}
 		#region Lifecycle
 		public override void ViewDidLoad ()

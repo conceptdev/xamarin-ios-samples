@@ -113,8 +113,11 @@ namespace StoryboardTables
 			// update activity 
 			if (current.IsIndexable()) {
 				activity.AddUserInfoEntries (current.IdToDictionary());
-				activity.AddUserInfoEntries (current.NameToDictionary());
 			}
+			// persist partly-entered data for Handoff
+			activity.AddUserInfoEntries (current.NameToDictionary());
+			activity.AddUserInfoEntries (current.NotesToDictionary());
+
 			base.UpdateUserActivityState (activity);
 		}
 		public override void RestoreUserActivityState (NSUserActivity activity)
@@ -132,6 +135,11 @@ namespace StoryboardTables
 					// load existing todo
 					var id = activity.UserInfo.ObjectForKey (ActivityKeys.Id).ToString ();
 					current = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (id));
+
+					if (current == null) current = new Task();
+					// extract information from UserActivity to override local data -- "maybe" a good idea, maybe not...
+					current.Name = activity.UserInfo.ObjectForKey (ActivityKeys.Name).ToString ();
+					current.Notes = activity.UserInfo.ObjectForKey (ActivityKeys.Notes).ToString ();
 				}
 			} 
 			if (activity.ActivityType == CSSearchableItem.ActionType) {
@@ -147,6 +155,20 @@ namespace StoryboardTables
 			if (current == null) {
 				current = new Task { Name = "(not found)" };
 			}
+		}
+
+
+		//[Export ("textFieldShouldReturn:")]
+		//public bool ShouldReturn (UITextField textField)
+		//{
+		//	textField.ResignFirstResponder ();
+		//	return true;
+		//}
+
+		[Export ("textFieldDidEndEditing:")]
+		public void EditingEnded (UITextField textField)
+		{
+			this.UserActivity.NeedsSave = true; // push partially entered data into UserInfo for Handoff
 		}
 		#endregion
 
