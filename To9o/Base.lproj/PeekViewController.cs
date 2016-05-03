@@ -17,10 +17,10 @@ namespace StoryboardTables
 		{
 		}
 
-		Task current {get;set;}
+		TodoItem current {get;set;}
 
 		// this will be called before the view is displayed 
-		public void SetTodo (Task todo) {
+		public void SetTodo (TodoItem todo) {
 			current = todo;
 		}
 

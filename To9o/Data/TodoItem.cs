@@ -5,8 +5,8 @@ namespace StoryboardTables {
 	/// <summary>
 	/// Todo item
 	/// </summary>
-	public class Task : IBusinessEntity{
-		public Task ()
+	public class TodoItem : IBusinessEntity{
+		public TodoItem ()
 		{
 		}
 

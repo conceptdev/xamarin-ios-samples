@@ -25,10 +25,10 @@ namespace StoryboardTables
 		{
 		}
 
-		List<Task> tableItems;
+		List<TodoItem> tableItems;
 		string cellIdentifier = "todocell";
 
-		public TodoCollectionSource (Task[] items)
+		public TodoCollectionSource (TodoItem[] items)
 		{
 			tableItems = items.ToList(); 
 		}
@@ -68,7 +68,7 @@ namespace StoryboardTables
 			cell.ContentView.BackgroundColor = UIColor.White;
 		}
 
-		public Task GetItem(int id) {
+		public TodoItem GetItem(int id) {
 			return tableItems[id];
 		}
 
@@ -87,7 +87,7 @@ namespace StoryboardTables
 			tableItems.Insert ((int)destinationIndexPath.Item, item);
 
 			// update the database to match (brute force method)
-			AppDelegate.Current.TaskMgr.Reorder (tableItems);
+			AppDelegate.Current.TodoMgr.Reorder (tableItems);
 		}
 		#endregion
 	}

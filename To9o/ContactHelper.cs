@@ -8,11 +8,11 @@ namespace StoryboardTables
 {
 	public class ContactHelper 
 	{
-		Task current;
+		TodoItem current;
 		public void SetSelectedName (string text) { 
 			current.For = text;
 		}
-		public ContactHelper(Task todo) {
+		public ContactHelper(TodoItem todo) {
 			current = todo;
 		}
 

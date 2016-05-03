@@ -13,7 +13,7 @@ namespace StoryboardTables
 	/// </summary>
 	public class SpotlightHelper
 	{
-		public static void Index (Task t) {
+		public static void Index (TodoItem t) {
 			var attributeSet = new CSSearchableItemAttributeSet (UTType.Text);
 			attributeSet.Title = t.Name;
 			attributeSet.ContentDescription = t.Notes;
@@ -35,7 +35,7 @@ namespace StoryboardTables
 				}
 			});
 		}
-		public static void Delete (Task t) {
+		public static void Delete (TodoItem t) {
 			CSSearchableIndex.DefaultSearchableIndex.Delete (new string[] {t.Id.ToString()}, err => {
 				if (err != null) {
 					Console.WriteLine (err);
@@ -50,11 +50,11 @@ namespace StoryboardTables
 
 
 		[Obsolete("This sample indexes content as created or deleted; but this method could be used to bulk-index")]
-		public static void BulkIndex (List<Task> tasks)
+		public static void BulkIndex (List<TodoItem> todoItems)
 		{
 			// HACK: generating fake GUID keys
-			var searchIndexMap2 = new Dictionary<string, Task> ();
-			foreach (var r in tasks) {
+			var searchIndexMap2 = new Dictionary<string, TodoItem> ();
+			foreach (var r in todoItems) {
 				searchIndexMap2.Add (Guid.NewGuid ().ToString(), r);
 			}
 			// mapping keys to objects

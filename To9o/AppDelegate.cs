@@ -24,7 +24,7 @@ namespace StoryboardTables
 
 		#region Database set-up
 		public static AppDelegate Current { get; private set; }
-		public TaskManager TaskMgr { get; set; }
+		public TodoManager TodoMgr { get; set; }
 		SQLite.SQLiteConnection conn;
 		#endregion
 
@@ -34,14 +34,14 @@ namespace StoryboardTables
 			Current = this;
 
 			#region Database set-up
-			var sqliteFilename = "TaskDB.db3";
+			var sqliteFilename = "TodoDB.db3";
 			// we need to put in /Library/ on iOS5.1 to meet Apple's iCloud terms
 			// (they don't want non-user-generated data in Documents)
 			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
 			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
 			var path = Path.Combine(libraryPath, sqliteFilename);
 			conn = new SQLite.SQLiteConnection(path);
-			TaskMgr = new TaskManager(conn);
+			TodoMgr = new TodoManager(conn);
 			#endregion
 
 			Console.WriteLine ("bbbbbbbbbb FinishedLaunching");
@@ -191,7 +191,7 @@ namespace StoryboardTables
 			r.PopToRootViewController (false);
 
 			// 3. populate and display screen
-			tvc.SetTodo (new Task {Name="(new action)"}); // from 3D Touch menu
+			tvc.SetTodo (new TodoItem {Name="(new action)"}); // from 3D Touch menu
 			tvc.Delegate = CollectionController.Current;
 			r.PushViewController (tvc, false);
 			return tvc;

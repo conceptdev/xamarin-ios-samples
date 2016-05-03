@@ -17,7 +17,7 @@ namespace StoryboardTables
 		/// <summary>
 		/// List of items
 		/// </summary>
-		List<Task> tasks;
+		List<TodoItem> todoItems;
 
 		public CollectionController (IntPtr handle) : base (handle)
 		{
@@ -29,7 +29,7 @@ namespace StoryboardTables
 		{
 			base.ViewDidLoad ();
 			AddButton.Clicked += (sender, e) => {
-				CreateTask ();
+				CreateTodo ();
 			};
 			AboutButton.Clicked += (sender, e) => {
 				// Safari View Controller
@@ -46,11 +46,11 @@ namespace StoryboardTables
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			tasks = AppDelegate.Current.TaskMgr.GetOrderedTasks ().ToList (); //ordered for CollectionView
+			todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos ().ToList (); //ordered for CollectionView
 
 
 			// bind every time, to reflect deletion in the Detail view
-			Collection.Source = new TodoCollectionSource(tasks.ToArray ());
+			Collection.Source = new TodoCollectionSource(todoItems.ToArray ());
 			Collection.AllowsSelection = true;
 			Collection.DelaysContentTouches = false;
 		}
@@ -79,27 +79,27 @@ namespace StoryboardTables
 		#endregion
 
 		#region CRUD
-		public void CreateTask ()
+		public void CreateTodo ()
 		{
 			// StackView
 			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
 			detail.Delegate = this;
-			detail.SetTodo (new Task());
+			detail.SetTodo (new TodoItem());
 			NavigationController.PushViewController (detail, true);
 
-			// Could to this instead of the above, but need to create 'new Task()' in PrepareForSegue()
-			//this.PerformSegue ("TaskSegue", this);
+			// Could to this instead of the above, but need to create 'new TodoItem()' in PrepareForSegue()
+			//this.PerformSegue ("TodoSegue", this);
 		}
-		public void SaveTask (Task task) {
-			AppDelegate.Current.TaskMgr.SaveTask(task);
-			SpotlightHelper.Index (task);
+		public void SaveTodo (TodoItem todo) {
+			AppDelegate.Current.TodoMgr.SaveTodo(todo);
+			SpotlightHelper.Index (todo);
 
 		}
-		public void DeleteTask (Task task) {
-			Console.WriteLine("Delete "+task.Name);
-			if (task.Id >= 0) {
-				AppDelegate.Current.TaskMgr.DeleteTask (task.Id);
-				SpotlightHelper.Delete (task);
+		public void DeleteTodo (TodoItem todo) {
+			Console.WriteLine("Delete "+todo.Name);
+			if (todo.Id >= 0) {
+				AppDelegate.Current.TodoMgr.DeleteTodo (todo.Id);
+				SpotlightHelper.Delete (todo);
 			}
 		}
 		#endregion
@@ -126,7 +126,7 @@ namespace StoryboardTables
 			if (peekViewController == null)
 				return null;
 
-			var peekAt = tasks [indexPath.Row];
+			var peekAt = todoItems [indexPath.Row];
 			peekViewController.SetTodo (peekAt);
 			peekViewController.PreferredContentSize = new CGSize (0, 160);
 
@@ -145,7 +145,7 @@ namespace StoryboardTables
 			var y = previewingContext.SourceRect.Y + (previewingContext.SourceRect.Height / 2);
 
 			var indexPath = CollectionView.IndexPathForItemAtPoint (new CGPoint(x,y));
-			var popAt = tasks [indexPath.Row];
+			var popAt = todoItems [indexPath.Row];
 
 
 			var detailViewController = (DetailViewController)Storyboard.InstantiateViewController ("detailvc");

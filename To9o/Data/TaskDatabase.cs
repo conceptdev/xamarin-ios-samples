@@ -6,28 +6,28 @@ using SQLite;
 namespace StoryboardTables
 {
 	/// <summary>
-	/// TaskDatabase builds on SQLite.Net and represents a specific database, in our case, the Task DB.
+	/// TodoDatabase builds on SQLite.Net and represents a specific database, in our case, the Todo DB.
 	/// It contains methods for retrieval and persistance as well as db creation, all based on the 
 	/// underlying ORM.
 	/// </summary>
-	public class TaskDatabase 
+	public class TodoDatabase 
 	{
 		static object locker = new object ();
 
         SQLiteConnection database;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Tasky.DL.TaskDatabase"/> TaskDatabase. 
+		/// Initializes a new instance of the <see cref="StoryboardTables.DL.TaskDatabase"/> TodoDatabase. 
 		/// if the database doesn't exist, it will create the database and all the tables.
 		/// </summary>
 		/// <param name='path'>
 		/// Path.
 		/// </param>
-        public TaskDatabase(SQLiteConnection conn, string path)
+		public TodoDatabase(SQLiteConnection conn, string path)
 		{
             database = conn;
 			// create the tables
-            database.CreateTable<Task>();
+			database.CreateTable<TodoItem>();
 		}
 		
 		public IEnumerable<T> GetItems<T> () where T : IBusinessEntity, new ()
@@ -70,7 +70,7 @@ namespace StoryboardTables
 		public IEnumerable<T> GetOrderedItems<T> () where T : IBusinessEntity, new ()
 		{
 //			var table = nameof (T);
-			var sql = $"SELECT * FROM [Task] ORDER BY [Order]";
+			var sql = $"SELECT * FROM [TodoItem] ORDER BY [Order]";
 			lock (locker) {
 				return database.Query<T> (sql).ToList ();
 			}
@@ -80,7 +80,7 @@ namespace StoryboardTables
 		/// </summary>
 		public void UpdateOrder<T> (T item, int newOrder) where T : IBusinessEntity, new ()
 		{
-			var sql1 = $"UPDATE [Task] SET [Order] = ? WHERE [Id] = ?";
+			var sql1 = $"UPDATE [TodoItem] SET [Order] = ? WHERE [Id] = ?";
 			lock (locker) {
 				database.Query<T> (sql1, newOrder, item.Id);
 			}
@@ -90,8 +90,8 @@ namespace StoryboardTables
 		public void Reorder<T> (int oldOrder, int newOrder) where T : IBusinessEntity, new ()
 		{
 //			var table = nameof (T);
-			var sql1 = $"UPDATE [Task] SET [Order] = [Order] + 1 WHERE [Order] > ? AND [Order] < ?";
-			var sql2 = $"UPDATE [Task] SET [Order] = ? WHERE [Order] = ?";
+			var sql1 = $"UPDATE [TodoItem] SET [Order] = [Order] + 1 WHERE [Order] > ? AND [Order] < ?";
+			var sql2 = $"UPDATE [TodoItem] SET [Order] = ? WHERE [Order] = ?";
 			lock (locker) {
 				database.Query<T> (sql1, oldOrder, newOrder);
 				database.Query<T> (sql2, newOrder, oldOrder);

@@ -8,7 +8,7 @@
     <ProjectGuid>{08A1E777-C427-42A1-9DB4-F7C9105E389B}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StoryboardTables</RootNamespace>
+    <RootNamespace>To9oApp</RootNamespace>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <XamarinInsightsApiKey>xxxxxxxxxxxxxxxxxxx</XamarinInsightsApiKey>
@@ -25,13 +25,10 @@
     <MtouchDebug>True</MtouchDebug>
     <MtouchProfiling>True</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <AssemblyName>L10nStoryboard</AssemblyName>
-    <MtouchI18n>
-    </MtouchI18n>
+    <AssemblyName>To9oApp</AssemblyName>
     <MtouchArch>i386, x86_64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchSdkVersion>9.0</MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -41,7 +38,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchLink>None</MtouchLink>
-    <AssemblyName>L10nStoryboard</AssemblyName>
+    <AssemblyName>To9oApp</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>True</DebugSymbols>
@@ -60,8 +57,6 @@
     </IpaPackageName>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchI18n>
-    </MtouchI18n>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -102,12 +97,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Data\TaskRepository.cs" />
     <Compile Include="Data\TaskDatabase.cs" />
-    <Compile Include="Data\TaskManager.cs" />
     <Compile Include="Data\BusinessEntityBase.cs" />
     <Compile Include="Data\IBusinessEntity.cs" />
-    <Compile Include="Data\Task.cs" />
     <Compile Include="Base.lproj\DetailViewController.cs" />
     <Compile Include="Base.lproj\DetailViewController.designer.cs">
       <DependentUpon>DetailViewController.cs</DependentUpon>
@@ -131,6 +123,9 @@
     </Compile>
     <Compile Include="ContactHelper.cs" />
     <Compile Include="CollectionViewHelper.cs" />
+    <Compile Include="Data\TodoItem.cs" />
+    <Compile Include="Data\TodoRepository.cs" />
+    <Compile Include="Data\TodoManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

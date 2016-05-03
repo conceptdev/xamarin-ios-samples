@@ -12,7 +12,7 @@ namespace StoryboardTables
 {
 	public partial class DetailViewController : UIViewController
 	{
-		Task current {get;set;}
+		TodoItem current {get;set;}
 		ContactHelper contacts;
 		public CollectionController Delegate {get;set;}
 
@@ -41,13 +41,13 @@ namespace StoryboardTables
 				current.For = ForText.Text;
 
 				// includes CoreSpotlight indexing!
-				Delegate.SaveTask(current); 
+				Delegate.SaveTodo(current); 
 
 				NavigationController.PopViewController(true);
 			};
 			CancelButton.TouchUpInside += (sender, e) => {
 				if (Delegate != null)
-					Delegate.DeleteTask(current); // also CoreSpotlight
+					Delegate.DeleteTodo(current); // also CoreSpotlight
 				else {// HACK: TODO: 
 					Console.WriteLine("Delegate not set - HACK");
 
@@ -69,7 +69,7 @@ namespace StoryboardTables
 			NotesText.TextAlignment = UITextAlignment.Natural;
 
 
-			UserActivity = UserActivityHelper.CreateNSUserActivity (current?? new Task());
+			UserActivity = UserActivityHelper.CreateNSUserActivity (current?? new TodoItem());
 		}
 		public override void ViewWillDisappear (bool animated)
 		{
@@ -100,7 +100,7 @@ namespace StoryboardTables
 
 
 		// this will be called before the view is displayed 
-		public void SetTodo (Task todo) {
+		public void SetTodo (TodoItem todo) {
 			current = todo;
 		}
 
@@ -130,13 +130,13 @@ namespace StoryboardTables
 				Console.WriteLine ("NSUserActivity " + activity.ActivityType);
 				if (activity.UserInfo == null || activity.UserInfo.Count == 0) {
 					// new todo 
-					current = new Task();
+					current = new TodoItem();
 				} else {
 					// load existing todo
 					var id = activity.UserInfo.ObjectForKey (ActivityKeys.Id).ToString ();
-					current = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (id));
+					current = AppDelegate.Current.TodoMgr.GetTodo (Convert.ToInt32 (id));
 
-					if (current == null) current = new Task();
+					if (current == null) current = new TodoItem();
 					// extract information from UserActivity to override local data -- "maybe" a good idea, maybe not...
 					current.Name = activity.UserInfo.ObjectForKey (ActivityKeys.Name).ToString ();
 					current.Notes = activity.UserInfo.ObjectForKey (ActivityKeys.Notes).ToString ();
@@ -146,14 +146,14 @@ namespace StoryboardTables
 				Console.WriteLine ("CSSearchableItem.ActionType");
 				var uid = activity.UserInfo [CoreSpotlight.CSSearchableItem.ActivityIdentifier];
 
-				current = AppDelegate.Current.TaskMgr.GetTask (Convert.ToInt32 (uid.Description));
+				current = AppDelegate.Current.TodoMgr.GetTodo (Convert.ToInt32 (uid.Description));
 
 				Console.WriteLine ("eeeeeeee RestoreUserActivityState " + uid);
 			}
 
 			// CoreSpotlight index can get out-of-date, show 'empty' task if the requested id is invalid
 			if (current == null) {
-				current = new Task { Name = "(not found)" };
+				current = new TodoItem { Name = "(not found)" };
 			}
 		}
 

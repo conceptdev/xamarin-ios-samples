@@ -1,7 +1,7 @@
 "Todo" = "To9o";
 "(new)" = "(new)";
-"<new task>" = "<new task>";
-"task name" = "task name";
-"other task info"= "other task info";
+"<new task>" = "<new todo>";
+"task name" = "todo name";
+"other task info"= "other todo info";
 "Delete" = "Delete";
 "Cancel" = "Cancel";

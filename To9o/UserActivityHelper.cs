@@ -9,7 +9,7 @@ namespace StoryboardTables
 		//
 		// https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/Activities.html#//apple_ref/doc/uid/TP40016308-CH6-SW1
 		// 
-		public static NSUserActivity CreateNSUserActivity(Task userInfo)
+		public static NSUserActivity CreateNSUserActivity(TodoItem userInfo)
 		{
 			var activityType = ActivityTypes.Detail;
 			if (userInfo.Id <= 0) {
@@ -21,9 +21,6 @@ namespace StoryboardTables
 			activity.EligibleForHandoff = true;
 
 			activity.Title = NSBundle.MainBundle.LocalizedString ("Todo Detail", "");
-
-			//			var keywords = new NSString[] {new NSString("Add"), new NSString("Todo"), new NSString("Empty"), new NSString("Task") };
-			//			activity.Keywords = new NSSet<NSString>(keywords);
 
 			// Attributes
 			var nsd = new NSMutableDictionary();
