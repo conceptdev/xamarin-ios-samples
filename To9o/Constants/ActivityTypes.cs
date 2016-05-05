@@ -1,7 +1,7 @@
 ﻿using System;
 using Foundation;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	/// <summary>
 	/// Constants for the NSUserActivity, also embedded in Info.plist

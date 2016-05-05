@@ -1,7 +1,7 @@
 using System;
 using SQLite;
 
-namespace StoryboardTables {
+namespace To9oApp {
 	/// <summary>
 	/// Todo item
 	/// </summary>

@@ -5,10 +5,9 @@ using System;
 using Foundation;
 using UIKit;
 using CoreSpotlight;
-using Xamarin;
 using System.Collections.Generic;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public partial class DetailViewController : UIViewController
 	{
@@ -25,16 +24,7 @@ namespace StoryboardTables
 			base.ViewDidLoad ();
 
 			SaveButton.TouchUpInside += (sender, e) => {
-				if (string.IsNullOrWhiteSpace(NameText.Text) && string.IsNullOrWhiteSpace(NotesText.Text))
-				{
-					try {
-						throw new NullReferenceException(@"<a href=""javascript:alert('asdf');""></a> or <a href='http://xamarin.com/insights'>insights</a> test");
-					} 
-					catch (Exception exception) { 
-						exception.Data["DetailedMessage"] = @"<a href=""javascript:alert('asdf');""></a> or <a href='http://xamarin.com/insights'>insights</a> test";
-						throw;
-					}
-				}
+				
 				current.Name = NameText.Text;
 				current.Notes = NotesText.Text;
 				current.Done = DoneSwitch.On;
@@ -43,31 +33,35 @@ namespace StoryboardTables
 				// includes CoreSpotlight indexing!
 				Delegate.SaveTodo(current); 
 
+				UIAccessibility.PostNotification (UIAccessibilityPostNotification.Announcement, new NSString(@"Item was saved"));
+
 				NavigationController.PopViewController(true);
 			};
 			CancelButton.TouchUpInside += (sender, e) => {
-				if (Delegate != null)
+				if (Delegate != null) 
+				{
 					Delegate.DeleteTodo(current); // also CoreSpotlight
+
+					UIAccessibility.PostNotification (UIAccessibilityPostNotification.Announcement,new NSString(@"Item was deleted"));
+				}
 				else {// HACK: TODO: 
 					Console.WriteLine("Delegate not set - HACK");
-
-					Insights.Report(new NotImplementedException("Delegate not set"), new Dictionary <string, string> { 
-						{"Description", "3D Touch entrypoint not complete."}
-					}, Xamarin.Insights.Severity.Error);
-
 				}
+
 				NavigationController.PopViewController(true);
 			};
+
+			#region iOS 9 Contacts
 			contacts = new ContactHelper (current);
 			UITapGestureRecognizer forTextTap = new UITapGestureRecognizer(() => {
 				PresentViewController(contacts.GetPicker(),true, null);
 			});
 			ForText.AddGestureRecognizer(forTextTap);
 			ForText.UserInteractionEnabled = true;
+			#endregion
 
 			NameText.TextAlignment = UITextAlignment.Natural;
 			NotesText.TextAlignment = UITextAlignment.Natural;
-
 
 			UserActivity = UserActivityHelper.CreateNSUserActivity (current?? new TodoItem());
 		}

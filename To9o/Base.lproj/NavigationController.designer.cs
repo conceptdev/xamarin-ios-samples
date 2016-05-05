@@ -11,25 +11,11 @@ using UIKit;
 
 namespace To9oApp
 {
-	[Register ("TodoCell")]
-	partial class TodoCell
+	[Register ("NavigationController")]
+	partial class NavigationController
 	{
-		[Outlet]
-		UIKit.UIImageView DoneImage { get; set; }
-
-		[Outlet]
-		UIKit.UILabel TodoName { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (DoneImage != null) {
-				DoneImage.Dispose ();
-				DoneImage = null;
-			}
-			if (TodoName != null) {
-				TodoName.Dispose ();
-				TodoName = null;
-			}
 		}
 	}
 }

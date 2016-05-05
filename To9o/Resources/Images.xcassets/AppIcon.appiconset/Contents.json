@@ -37,7 +37,7 @@
       "idiom": "iphone"
     },
     {
-      "filename": "icon-spp-57@2x.png",
+      "filename": "icon-app-57@2x.png",
       "size": "57x57",
       "scale": "2x",
       "idiom": "iphone"
@@ -91,6 +91,12 @@
       "idiom": "ipad"
     },
     {
+      "filename": "icon-app-84@2x.png",
+      "size": "83.5x83.5",
+      "scale": "2x",
+      "idiom": "ipad"
+    },
+    {
       "filename": "icon-app-72.png",
       "size": "72x72",
       "scale": "1x",
@@ -113,6 +119,16 @@
       "size": "76x76",
       "scale": "2x",
       "idiom": "ipad"
+    },
+    {
+      "size": "60x60",
+      "scale": "2x",
+      "idiom": "car"
+    },
+    {
+      "size": "60x60",
+      "scale": "3x",
+      "idiom": "car"
     },
     {
       "role": "notificationCenter",
@@ -169,9 +185,54 @@
       "idiom": "watch"
     },
     {
-      "size": "120x120",
+      "size": "16x16",
       "scale": "1x",
-      "idiom": "car"
+      "idiom": "mac"
+    },
+    {
+      "size": "16x16",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "32x32",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "32x32",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "128x128",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "128x128",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "256x256",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "256x256",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "512x512",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "512x512",
+      "scale": "2x",
+      "idiom": "mac"
     }
   ],
   "info": {

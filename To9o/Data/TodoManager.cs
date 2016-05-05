@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using SQLite;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public class TodoManager
 	{

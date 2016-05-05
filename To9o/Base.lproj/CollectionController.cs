@@ -9,7 +9,7 @@ using System.Linq;
 using CoreGraphics;
 using SafariServices;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public partial class CollectionController : UICollectionViewController, IUIViewControllerPreviewingDelegate
 	{

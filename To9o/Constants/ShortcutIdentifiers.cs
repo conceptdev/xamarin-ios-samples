@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	/// <summary>
 	/// https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/#//apple_ref/c/tdef/UIApplicationShortcutIconType

@@ -4,7 +4,7 @@ using Foundation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 //	public class CollectionLayout : UICollectionViewDelegateFlowLayout {
 //		public override UIEdgeInsets GetInsetForSection (UICollectionView collectionView, UICollectionViewLayout layout, nint section)
@@ -37,12 +37,7 @@ namespace StoryboardTables
 			// in a Storyboard, Dequeue will ALWAYS return a cell
 			var cell = collectionView.DequeueReusableCell (cellIdentifier, indexPath) as TodoCell;
 
-			cell.Name.Text = tableItems[indexPath.Row].Name;
-
-			if (tableItems [indexPath.Row].Done)
-				cell.Done.Image = UIImage.FromBundle ("checkbox");
-			else
-				cell.Done.Image = UIImage.FromBundle ("box");
+			cell.SetData (tableItems [indexPath.Row]);
 
 			Console.WriteLine (" *** " + indexPath.Row);
 			Console.WriteLine (" --- " + tableItems [indexPath.Row].Order);

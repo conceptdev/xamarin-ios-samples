@@ -1,7 +1,7 @@
 using System;
 using SQLite;
 
-namespace StoryboardTables {
+namespace To9oApp {
 	/// <summary>
 	/// Business entity base class. Provides the ID property.
 	/// </summary>

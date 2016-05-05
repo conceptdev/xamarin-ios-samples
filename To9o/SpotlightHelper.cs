@@ -4,9 +4,8 @@ using System.Linq;
 using CoreSpotlight;
 using MobileCoreServices;
 using Foundation;
-using Xamarin;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	/// <summary>
 	/// courtesy of Larry O'Brien
@@ -24,14 +23,10 @@ namespace StoryboardTables
 			CSSearchableIndex.DefaultSearchableIndex.Index (new CSSearchableItem[] {dataItem}, err => {
 				if (err != null) {
 					Console.WriteLine (err);
-					Insights.Report(new Exception("CoreSpotlight Index Failed"), new Dictionary <string, string> { 
-						{"Message", err.ToString()}
-					}, Xamarin.Insights.Severity.Error);
+
 				} else {
 					Console.WriteLine ("Indexed inividual item successfully");
-					Insights.Track("CoreSpotlight", new Dictionary<string, string> {
-						{"Type", "Indexed successfully"}
-					});
+			
 				}
 			});
 		}
@@ -39,9 +34,7 @@ namespace StoryboardTables
 			CSSearchableIndex.DefaultSearchableIndex.Delete (new string[] {t.Id.ToString()}, err => {
 				if (err != null) {
 					Console.WriteLine (err);
-					Insights.Report(new Exception("CoreSpotlight Delete Failed"), new Dictionary <string, string> { 
-						{"Message", err.ToString()}
-					}, Xamarin.Insights.Severity.Error);
+
 				} else {
 					Console.WriteLine ("Deleted inividual item from CS index");
 				}

@@ -69,5 +69,17 @@
 		<string>co.conceptdev.todo.activity.add</string>
 		<string>co.conceptdev.todo.activity.detail</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+		<string>UIStatusBarStyleLightContent</string>
+		<key>UIStatusBarTintParameters</key>
+		<dict>
+			<key>UINavigationBar</key>
+			<dict>
+				<key>Style</key>
+				<string>UIBarStyleDefault</string>
+				<key>Translucent</key>
+				<false/>
+			</dict>
+		</dict>
 </dict>
 </plist>

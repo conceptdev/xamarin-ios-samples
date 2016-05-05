@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public static class Spotlight
 	{

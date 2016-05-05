@@ -5,7 +5,7 @@ using System;
 using Foundation;
 using UIKit;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public partial class PeekViewController : UIViewController
 	{

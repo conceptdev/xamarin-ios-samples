@@ -7,9 +7,8 @@ using UIKit;
 using System.IO;
 using SQLite;
 using CoreSpotlight;
-using Xamarin;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to
@@ -44,6 +43,16 @@ namespace StoryboardTables
 			TodoMgr = new TodoManager(conn);
 			#endregion
 
+			#region Theme
+			UINavigationBar.Appearance.TintColor = UIColor.FromRGB (0x61, 0x4C, 0xA0); // 614CA0 dark-purple
+			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB (0xCE, 0xC0, 0xEC); // CEC0EC light-purple
+
+			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes() {
+				TextColor = UIColor.FromRGB (0x61, 0x4C, 0xA0), // 614CA0 dark-purple
+				TextShadowColor = UIColor.Clear
+			}); 
+			#endregion
+
 			Console.WriteLine ("bbbbbbbbbb FinishedLaunching");
 
 			#region Quick Action
@@ -55,18 +64,6 @@ namespace StoryboardTables
 				shouldPerformAdditionalDelegateHandling = (LaunchedShortcutItem == null);
 			}
 			#endregion
-
-
-			#region Xamarin.Insights
-			// HACK: hardcoded identify
-			// iPhone 6s
-			var traits = new Dictionary<string, string> {
-				{Insights.Traits.Email, "john.doe@xamarin.com"},
-				{Insights.Traits.Name, "John Doe"}
-			};
-			Insights.Identify("0", traits);
-			#endregion
-
 
 			return shouldPerformAdditionalDelegateHandling;
 		}
@@ -106,10 +103,6 @@ namespace StoryboardTables
 			switch (shortcutItem.Type) {
 			case ShortcutIdentifiers.Add:
 				Console.WriteLine ("QUICKACTION: Add new item");
-
-				Insights.Track("3DTouch", new Dictionary<string, string> {
-					{"Type", "NewItem"}
-				});
 
 				handled = true;
 				break;
@@ -154,9 +147,6 @@ namespace StoryboardTables
 				}
 				tvc = ContinueNavigation ();
 
-				Insights.Track("SearchResult", new Dictionary<string, string> {
-					{"Type", "NSUserActivity"}
-				});
 			}
 			// CoreSpotlight
 			if (userActivity.ActivityType == CSSearchableItem.ActionType) {
@@ -167,9 +157,6 @@ namespace StoryboardTables
 
 				tvc = ContinueNavigation ();
 
-				Insights.Track("SearchResult", new Dictionary<string, string> {
-					{"Type", "CoreSpotlight"}
-				});
 			}
 			completionHandler(new NSObject[] {tvc});
 

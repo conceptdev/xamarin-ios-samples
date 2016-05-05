@@ -76,23 +76,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="SQLitePCL.raw">
-      <HintPath>packages\SQLitePCL.raw_basic.0.7.1\lib\Xamarin.iOS10\SQLitePCL.raw.dll</HintPath>
-    </Reference>
     <Reference Include="SQLite-net">
-      <HintPath>packages\sqlite-net-pcl.1.0.11\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Insights">
-      <HintPath>packages\Xamarin.Insights.1.10.6\lib\Xamarin.iOS10\Xamarin.Insights.dll</HintPath>
-    </Reference>
-    <Reference Include="PLCrashReporterUnifiedBinding">
-      <HintPath>packages\Xamarin.Insights.1.10.6\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
+      <HintPath>packages\sqlite-net-pcl.1.1.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="packages.config" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -126,6 +117,10 @@
     <Compile Include="Data\TodoItem.cs" />
     <Compile Include="Data\TodoRepository.cs" />
     <Compile Include="Data\TodoManager.cs" />
+    <Compile Include="Base.lproj\NavigationController.cs" />
+    <Compile Include="Base.lproj\NavigationController.designer.cs">
+      <DependentUpon>NavigationController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
@@ -158,7 +153,7 @@
     <BundleResource Include="Resources\es.lproj\InfoPlist.strings" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="packages\Xamarin.Insights.1.10.6\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('packages\Xamarin.Insights.1.10.6\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
+  <Import Project="packages\SQLitePCL.raw.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw.targets" Condition="Exists('packages\SQLitePCL.raw.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw.targets')" />
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Icon-app-60%403x.png" />
@@ -176,36 +171,6 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spp-57%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\Icon-app-60%403x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-57.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-60%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-72.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-72%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-76.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-app-76%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-carplay-120.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-29.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%403x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-40.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-50.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spotlight-50%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-spp-57%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-172.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-196.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-40%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-44%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-48.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\AppIcon.appiconset\icon-watch-55.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\splash-xamagon.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\splash-xamagon%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\Images.xcassets\splash-xamagon.imageset\splash-xamagon%403x.png" />
     <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon.png" />
     <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%402x.png" />
@@ -218,5 +183,7 @@
     <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox.png" />
     <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-57%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-84%402x.png" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ using System.IO;
 using SQLite;
 
 
-namespace StoryboardTables {
+namespace To9oApp {
 	public class TodoRepository {
 		TodoDatabase db = null;
 		protected static string dbLocation;		

@@ -2,7 +2,7 @@
 using Foundation;
 using CoreSpotlight;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public class UserActivityHelper
 	{

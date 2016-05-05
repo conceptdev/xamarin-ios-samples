@@ -4,7 +4,7 @@ using Contacts;
 using Foundation;
 using UIKit;
 
-namespace StoryboardTables
+namespace To9oApp
 {
 	public class ContactHelper 
 	{
