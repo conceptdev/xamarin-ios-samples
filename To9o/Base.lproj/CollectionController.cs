@@ -22,6 +22,17 @@ namespace To9oApp
 		public CollectionController (IntPtr handle) : base (handle)
 		{
 			Title = NSBundle.MainBundle.LocalizedString ("Todo", "");
+
+			// TODO: make title use plural translated string
+
+			// http://crunchybagel.com/localizing-plurals-in-ios-development/
+			// https://bugzilla.xamarin.com/show_bug.cgi?id=41292
+			// https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/StringsdictFileFormat/StringsdictFileFormat.html
+
+			// crashes - https://bugzilla.xamarin.com/show_bug.cgi?id=41292
+			// var format = NSBundle.MainBundle.LocalizedString ("tasks_left", "");
+			// Title = NSString.LocalizedFormat (format, 3); // HACK: hardcoded count
+
 			Current = this;
 		}
 		#region Lifecycle
@@ -40,7 +51,6 @@ namespace To9oApp
 			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available) {
 				RegisterForPreviewingWithDelegate (this, CollectionView);
 			}
-
 		}
 
 		public override void ViewWillAppear (bool animated)
