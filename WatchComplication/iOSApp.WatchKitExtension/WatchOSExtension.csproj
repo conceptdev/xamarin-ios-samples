@@ -116,5 +116,5 @@
     <ImageAsset Include="Resources\Images.xcassets\Complication.complicationset\Utilitarian.imageset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImages.launchimage\Contents.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.App.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.AppExtension.CSharp.targets" />
 </Project>
