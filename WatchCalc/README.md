@@ -1,12 +1,13 @@
 WatchCalc 
 ========
 
-Apple Watch version of an old calculator watch :-) on watchOS 2 everything runs locally! 
+Apple Watch version of an old calculator watch :-) on watchOS 2 (and later) everything runs locally! 
 
 There are two versions:
 
 * WatchKit on iOS 8 (watchOS 1)
 * watchOS 2 
+* watchOS 3
 
 ![screenshot](WatchOS1/Screenshots/calc1.png "watch")
 
