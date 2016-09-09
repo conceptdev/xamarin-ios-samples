@@ -177,6 +177,11 @@
       <Name>WatchTodoApp.WatchKitApp</Name>
       <IsWatchApp>True</IsWatchApp>
     </ProjectReference>
+    <ProjectReference Include="..\WatchTodoApp.WatchTodoWatchApp\WatchTodoApp.WatchTodoWatchApp.csproj">
+      <IsWatchApp>true</IsWatchApp>
+      <Project>{51E5047B-07FE-4414-8689-662075490C37}</Project>
+      <Name>WatchTodoApp.WatchTodoWatchApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />
 </Project>
