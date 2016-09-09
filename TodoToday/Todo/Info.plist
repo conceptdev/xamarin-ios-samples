@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>TodoToday</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.TodoToday</string>
+	<string>co.conceptdev.TodoToday</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -45,5 +45,7 @@
 			<string>Viewer</string>
 		</dict>
 	</array>
+	<key>CFBundleName</key>
+	<string>TodoToday</string>
 </dict>
 </plist>

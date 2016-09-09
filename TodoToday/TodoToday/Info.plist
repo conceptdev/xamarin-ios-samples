@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>TodoToday</string>
+	<string>co.conceptdev.TodoToday</string>
 	<key>CFBundleExecutable</key>
 	<string>TodoToday</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.TodoToday.TodoToday</string>
+	<string>co.conceptdev.TodoToday.TodoToday</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>com.your-company.TodoToday</string>
+	<string>co.conceptdev.TodoToday</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
@@ -31,6 +31,5 @@
 	</dict>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
-
 </dict>
 </plist>
