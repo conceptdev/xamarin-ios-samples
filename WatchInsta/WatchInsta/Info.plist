@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>WatchInsta</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.watchinsta</string>
+	<string>co.conceptdev.watchinsta</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

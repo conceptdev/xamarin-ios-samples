@@ -66,7 +66,7 @@ namespace WatchInsta
 
 				var request = new OAuth2Request (
 					"GET", 
-					new Uri ("https://api.instagram.com/v1/users/self/feed?access_token=" + token)
+					new Uri ("https://api.instagram.com/v1/users/self/media/recent/?access_token=" + token)
 					, null
 					, acct);//eventArgs.Account);
 
@@ -76,7 +76,7 @@ namespace WatchInsta
 						Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
 					else {
 						string json = t.Result.GetResponseText ();
-						Console.WriteLine (json);
+						Console.WriteLine ("json: " + json);
 
 						var root = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject> (json);
 
@@ -114,7 +114,7 @@ namespace WatchInsta
 								 inst = root.data[i];
 								 thumb = inst.images.thumbnail;
 								 url = new Uri(thumb.url);
-								Console.WriteLine(inst.caption.text);
+								Console.WriteLine(inst.caption?.text);
 								Console.WriteLine(inst.images.thumbnail.url);
 
 								webClient.DownloadDataAsync(url);
@@ -140,10 +140,10 @@ namespace WatchInsta
 				// http://instagram.com/developer/clients/manage/
 				//
 				var auth = new OAuth2Authenticator (
-					          clientId: "YOU_NEED_YOUR_INSTAGRAM_DEV_CLIENTID_HERE",
+					clientId: InstagramConstants.ClientId,
 					          scope: "basic",
 					          authorizeUrl: new Uri ("https://api.instagram.com/oauth/authorize/"),
-					          redirectUrl: new Uri ("http://your-redirect-url.net/"));
+					redirectUrl: new Uri (InstagramConstants.RedirectUrl));
 
 				auth.Completed += (sender, eventArgs) => {
 					// We presented the UI, so it's up to us to dimiss it on iOS.
@@ -161,17 +161,15 @@ namespace WatchInsta
 
 
 
-
-
 						var request = new OAuth2Request ("GET", 
-							             new Uri ("https://api.instagram.com/v1/users/self/feed?access_token=" + token)
+							             new Uri ("https://api.instagram.com/v1/users/self/media/recent/?access_token=" + token)
 						, null, acct);//eventArgs.Account);
 						request.GetResponseAsync ().ContinueWith (t => {
 							if (t.IsFaulted)
 								Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
 							else {
 								string json = t.Result.GetResponseText ();
-								Console.WriteLine (json);
+								Console.WriteLine ("auth'd json: " + json);
 							}
 						});
 					} else {

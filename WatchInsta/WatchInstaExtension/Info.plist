@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>WatchInstaExtension</string>
+	<string>co.conceptdev.WatchInstaExtension</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.conceptdevelopment.watchinsta.watchkitextension</string>
+	<string>co.conceptdev.watchinsta.watchkitextension</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>com.your-company.WatchInstaExtension</string>
+	<string>co.conceptdev.WatchInstaExtension</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
@@ -25,7 +25,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.conceptdevelopment.watchinsta.watchkitapp</string>
+			<string>co.conceptdev.watchinsta.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>

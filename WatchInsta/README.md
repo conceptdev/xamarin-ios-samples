@@ -1,5 +1,7 @@
-WatchInsta (WatchKit)
+WatchInsta (watchOS 1-style app)
 ==========
+
+**Requires ClientID and RedirectUrl from [instagram.com/developer](https://www.instagram.com/developer/) added to the `Constants.cs` file.**
 
 A simple Apple Watch Kit demo that:
 
@@ -12,7 +14,7 @@ A simple Apple Watch Kit demo that:
 
 This sample requires the following:
 
-* [Xamarin Watch Kit preview](http://developer.xamarin.com/guides/ios/watch/).
+* [Xamarin watchOS Support](http://developer.xamarin.com/guides/ios/watch/).
 
 * [Xamarin.Auth component](http://components.xamarin.com/view/xamarin.auth) for OAuth support.
 
@@ -28,5 +30,11 @@ Using **App Groups** requires configuration in the [Apple iOS Provisioning site]
 
 This is just a demonstration... a fully fledged Instagram integration would no doubt require more
 	robust image updating code, and a better first-run experience :)
+
+##UPDATED watchOS 3
+
+Updated to run on latest Instagram API and watchOS 3. Nnote that it is still build as a watchOS 1-style app with the Extension running on the iPhone.
+
+![screenshot](Screenshots/watchinsta-OS3.png "watchOS 3")
 
 *watch screenshots use [Bezel](http://infinitapps.com/bezel/) courtesy of [infinitapps](http://infinitapps.com/)* :)

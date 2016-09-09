@@ -45,7 +45,7 @@ namespace WatchInstaExtension
 				image1.SetImage (image);
 			}
 
-			Console.WriteLine ("image should be loaded by now, attmept cache");
+			Console.WriteLine ("'" +lastImageFilename+"' image should be loaded by now, attmept cache");
 
 
 			var device = WKInterfaceDevice.CurrentDevice;
