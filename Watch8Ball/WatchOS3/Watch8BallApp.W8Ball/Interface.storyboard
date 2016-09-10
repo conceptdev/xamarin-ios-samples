@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--8Ball-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="8Ball3" backgroundImage="8ball.png" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="Label" numberOfLines="3" id="qC4-3z-evu">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                    </items>
+                    <menu key="menu" id="Fzl-0i-4yI">
+                        <items>
+                            <menuItem title="Shake" icon="repeat" id="hWD-CN-PjO">
+                                <connections>
+                                    <action selector="shake" destination="AgC-eL-Hgc" id="E0e-Op-RoQ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Back" icon="decline" id="nP7-vy-G3P"/>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="result" destination="qC4-3z-evu" id="XGL-9o-TBl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="214" y="334"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" id="JfB-70-Muf" wantsSashBlur="YES">
+                        <color key="sashColor" colorSpace="calibratedRGB" red="0" green="1" blue="0" alpha="1"/>
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                    </notificationCategory>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="219" y="584"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="607"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="8ball.png" width="340" height="272"/>
+        <image name="Ball-8-icon 2.png" width="256" height="256"/>
+        <image name="Ball-8-icon.png" width="256" height="256"/>
+    </resources>
+</document>
