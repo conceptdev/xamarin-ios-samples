@@ -38,6 +38,15 @@ namespace iOSApp.WatchAppExtension
 					textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText("B1 " + txt, "X1", "~~~");
 					textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText("Body 2x", "X2", "---");
 
+					// if the user typed something in the app, show that in complication
+					var c = NSUserDefaults.StandardUserDefaults["complication"];
+					if (c != null) 
+					{ 
+						textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText("You typed:", "You:", "~~~");
+						textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText(c.ToString(), c.ToString(), "---");
+					}
+
+
 					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate);
 
 				}

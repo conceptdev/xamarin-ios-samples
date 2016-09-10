@@ -10,13 +10,25 @@
             <objects>
                 <controller identifier="interfaceController" title="It's" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <label alignment="left" text="Complicated" id="0"/>
+                        <label alignment="left" text="Complicated" id="0">
+                            <color key="textColor" colorSpace="calibratedRGB" red="0.49803921568627452" green="0" blue="0.49803921568627452" alpha="1"/>
+                        </label>
+                        <label alignment="left" text="-" id="3"/>
+                        <button width="1" alignment="left" title="Set Message" id="2">
+                            <connections>
+                                <action selector="SetMessageClicked" destination="AgC-eL-Hgc" id="4"/>
+                            </connections>
+                        </button>
                         <button width="1" alignment="left" title="Update" id="1">
                             <connections>
                                 <action selector="UpdateClicked" destination="AgC-eL-Hgc" id="FFZ-FF-Abo"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="SetMessageButton" destination="2" id="name-outlet-2"/>
+                        <outlet property="MessageText" destination="3" id="name-outlet-3"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
