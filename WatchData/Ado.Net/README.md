@@ -1,4 +1,4 @@
-WatchOS 3 Ado.Net
+watchOS 3 Ado.Net
 =======================
 
 watchOS 3 version of the [Ado.Net doc](https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_4_using_adonet/) using SQL commands to store and retrieve data on the watch.

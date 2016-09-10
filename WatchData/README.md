@@ -1,4 +1,4 @@
-WatchOS 3 Data Access
+watchOS 3 Data Access
 =======================
 
 Examples of storing and accessing data with watchOS 3.
