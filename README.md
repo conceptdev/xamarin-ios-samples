@@ -1,10 +1,10 @@
-Xamarin iOS & watchOS samples (64-bit)
+Xamarin iOS & watchOS samples
 ============================
 
-Apps using Xamarin.iOS with the 64-bit API and targeting iOS 8 and newer. [watchOS docs](http://developer.xamarin.com/guides/ios/watch/).
+Apps using Xamarin.iOS, targeting iOS 8 and newer; plus some [watchOS](http://developer.xamarin.com/guides/ios/watch/) demos.
 
 
-HeartRateMonitor
+HeartRateMonitor (iOS 8)
 ----------------
 Uses Bluetooth LE APIs to communicate with a heart rate monitor and display the value on the screen. Stores data in iOS 8's Health app via HealthKit.
 
@@ -12,33 +12,33 @@ To9o (iOS 9)
 ----
 Demo iOS 9 features like Force Touch, simpler Collection Views, and localization (including RTL).
 
-TodoToday
+TodoToday (iOS 8)
 ---------
 Todo list application with an iOS 8 Today Extension for the notification screen (showing how many items left to-do). Uses ADO.NET for the data access.
 
 
 ![](Screenshots/watchOS3.png)
 
-Watch8Ball
+Watch8Ball (watchOS 3)
 ---------
 *Your first WatchKit app*
 
-WatchCalc
+WatchCalc (watchOS 3)
 ---------
 Remember the old Casio...
 
-WatchComplication
+WatchComplication (watchOS 3)
 -----------------
-*in progress*
+Set face complication text with Scribble!
 
 WatchData (watchOS 3)
 ---------
 Storing and accessing data in Sqlite stored locally with watchOS 3
 
-WatchInsta
+WatchInsta (watchOS 1)
 ----------
-watchOS 1 demo of accessing files (Instagram photos) on the connected iPhone's filesystem
+watchOS 1 demo of accessing files (Instagram photos) on the connected iPhone's filesystem (you have to authenticate on the iPhone first, using OAuth)
 
-WatchTodo
+WatchTodo (watchOS 1)
 ---------
-Tiny version of the *Todo* sample that runs on the Apple Watch (in progress).
+Tiny version of the *Todo* sample that runs on the Apple Watch (works in watchOS 1; in progress for watchOS 3).
