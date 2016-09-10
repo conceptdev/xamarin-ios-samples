@@ -103,10 +103,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\iOSApp.WatchKitApp\WatchOSApp.csproj">
-      <Project>{0F0B9C3B-9159-4575-8090-BED7063D367B}</Project>
-      <Name>WatchOSApp</Name>
-      <IsWatchApp>True</IsWatchApp>
+    <ProjectReference Include="..\iOSApp.WatchApp\iOSApp.WatchApp.csproj">
+      <IsWatchApp>true</IsWatchApp>
+      <Project>{7DDEDC2C-E0E0-4499-9EF9-3C88530D6133}</Project>
+      <Name>iOSApp.WatchApp</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

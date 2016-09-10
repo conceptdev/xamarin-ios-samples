@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleName</key>
-	<string>WatchComplication</string>
 	<key>CFBundleDisplayName</key>
-	<string>WatchComplication</string>
+	<string>iOSApp.WatchAppExtension</string>
+	<key>CFBundleName</key>
+	<string>iOSApp.WatchAppExtension</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.conceptdev.watchcomplication.watchkitapp.watchkitextension</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -15,7 +15,17 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>MinimumOSVersion</key>
-	<string>2.0</string>
+	<string>3.0</string>
+	<key>CLKComplicationPrincipalClass</key>
+	<string>ComplicationController</string>
+	<key>CLKComplicationSupportedFamilies</key>
+	<array>
+		<string>CLKComplicationFamilyModularSmall</string>
+		<string>CLKComplicationFamilyModularLarge</string>
+		<string>CLKComplicationFamilyUtilitarianSmall</string>
+		<string>CLKComplicationFamilyUtilitarianLarge</string>
+		<string>CLKComplicationFamilyCircularSmall</string>
+	</array>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
@@ -28,19 +38,7 @@
 	</dict>
 	<key>RemoteInterfacePrincipleClass</key>
 	<string>InterfaceController</string>
-	<key>CLKComplicationPrincipalClass</key>
-	<string>ComplicationController</string>
-	<key>CLKComplicationSupportedFamilies</key>
-	<array>
-		<string>CLKComplicationFamilyModularSmall</string>
-		<string>CLKComplicationFamilyModularLarge</string>
-		<string>CLKComplicationFamilyUtilitarianSmall</string>
-		<string>CLKComplicationFamilyUtilitarianLarge</string>
-		<string>CLKComplicationFamilyCircularSmall</string>
-	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>ExtensionDelegate</string>
-	<key>WKCompanionAppBundleIdentifier</key>
-	<string>co.conceptdev.watchcomplication</string>
 </dict>
 </plist>

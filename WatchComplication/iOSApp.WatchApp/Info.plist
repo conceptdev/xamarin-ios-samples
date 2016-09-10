@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleName</key>
-	<string>Complication</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.conceptdev.watchcomplication.watchkitapp</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -13,7 +11,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>MinimumOSVersion</key>
-	<string>2.0</string>
+	<string>3.0</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -24,6 +22,8 @@
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>XSAppIconAssets</key>
-	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleName</key>
+	<string>Complicated</string>
 </dict>
 </plist>

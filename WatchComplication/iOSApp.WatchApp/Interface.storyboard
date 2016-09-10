@@ -8,9 +8,9 @@
         <!--Complicate-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="interfaceController" title="Complicate" id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="interfaceController" title="It's" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <label alignment="left" text="Complication Test" id="0"/>
+                        <label alignment="left" text="Complicated" id="0"/>
                         <button width="1" alignment="left" title="Update" id="1">
                             <connections>
                                 <action selector="UpdateClicked" destination="AgC-eL-Hgc" id="FFZ-FF-Abo"/>
@@ -22,4 +22,8 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="glyphish_13_target.png" width="28" height="28"/>
+    </resources>
+    <color key="tintColor" colorSpace="calibratedRGB" red="0.49803921568627452" green="0" blue="0.49803921568627452" alpha="1"/>
 </document>
