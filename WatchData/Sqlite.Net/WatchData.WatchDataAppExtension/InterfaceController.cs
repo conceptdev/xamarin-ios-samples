@@ -38,12 +38,15 @@ namespace WatchData.WatchDataAppExtension
 			{
 				// only insert the data if it doesn't already exist
 				var newStock = new Stock();
+				newStock.Id = "1";
 				newStock.Name = "Apple";
 				db.Insert(newStock);
 				newStock = new Stock();
+				newStock.Id = "2";
 				newStock.Name = "Google";
 				db.Insert(newStock);
 				newStock = new Stock();
+				newStock.Id = "3";
 				newStock.Name = "Microsoft";
 				db.Insert(newStock);
 			}

@@ -1,12 +1,12 @@
 ﻿using System;
 using SQLite;
 
-namespace WatchData.WatchDataAppExtension
+namespace WatchData
 {
 	public class Stock
 	{
-		[PrimaryKey, Column("_id")]
-		public string Id { get; set; }
+		[PrimaryKey, AutoIncrement, Column("_id")]
+		public int Id { get; set; }
 
 		[MaxLength(8)]
 		public string Symbol { get; set; }
