@@ -39,6 +39,8 @@ WatchInsta (watchOS 1)
 ----------
 watchOS 1 demo of accessing files (Instagram photos) on the connected iPhone's filesystem (you have to authenticate on the iPhone first, using OAuth)
 
-WatchTodo (watchOS 1)
+WatchTodo (watchOS 1, watchOS 3)
 ---------
 Tiny version of the *Todo* sample that runs on the Apple Watch (works in watchOS 1; in progress for watchOS 3).
+
+![](Screenshots/watchOS3-2.png)
