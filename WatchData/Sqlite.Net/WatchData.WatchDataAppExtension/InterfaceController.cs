@@ -26,11 +26,6 @@ namespace WatchData.WatchDataAppExtension
 
 			// https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_3_using_sqlite_orm/
 
-			//HACK: watchOS not starting up SQLite.NET-PCL :-(
-			//SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_internal())
-			//SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3);
-			//SQLitePCL.Batteries.Init();
-
 			string dbPath = Path.Combine(
 				Environment.GetFolderPath(Environment.SpecialFolder.Personal),
 				"ormdemo.db3");
@@ -50,6 +45,10 @@ namespace WatchData.WatchDataAppExtension
 				newStock = new Stock();
 				newStock.Id = "3";
 				newStock.Name = "Microsoft";
+				db.Insert(newStock);
+				newStock = new Stock();
+				newStock.Id = "4";
+				newStock.Name = "IBM";
 				db.Insert(newStock);
 			}
 
