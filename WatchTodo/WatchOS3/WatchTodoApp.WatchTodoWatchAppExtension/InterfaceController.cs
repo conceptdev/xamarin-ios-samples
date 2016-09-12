@@ -4,18 +4,15 @@ using WatchKit;
 using Foundation;
 using System.Collections.Generic;
 using System.IO;
-//using SQLite;
+using SQLite;
 using System.Linq;
 
 namespace WatchTodoExtension
 {
 	public partial class InterfaceController : WKInterfaceController
 	{
-//		Wormhole wormHole;
 		public InterfaceController (IntPtr handle) : base (handle)
 		{
-//			wormHole = new Wormhole ("group.co.conceptdev.WatchTodo", "messageDir");
-
 		}
 
 		List<TodoItem> data = new List<TodoItem>();
@@ -34,16 +31,16 @@ namespace WatchTodoExtension
 
 			var sqliteFilename = "TodoSQLite.db3";
 			var path = Path.Combine(appGroupContainerPath, sqliteFilename);
-			//var conn = new SQLiteConnection (path);
+			var conn = new SQLiteConnection (path);
 
-			//Database = new TodoItemDatabase(conn);
+			Database = new TodoItemDatabase(conn);
 
-			//if (Database.GetItems ().Count() == 0) {
-			//	Database.SaveItem (new TodoItem { Name = "Buy Pineapple" });
-			//	Database.SaveItem (new TodoItem { Name = "Buy Plum", Done = true });
-			//	Database.SaveItem (new TodoItem { Name = "Buy Kiwi" });
-			//	Database.SaveItem (new TodoItem { Name = "Buy Apple", Notes="iPhone6s" });
-			//}
+			if (Database.GetItems ().Count() == 0) {
+				Database.SaveItem (new TodoItem { Name = "Buy Pineapple" });
+				Database.SaveItem (new TodoItem { Name = "Buy Plum", Done = true });
+				Database.SaveItem (new TodoItem { Name = "Buy Kiwi" });
+				Database.SaveItem (new TodoItem { Name = "Buy Apple", Notes="iPhone6s" });
+			}
 
 			data.Add(new TodoItem { Name = "Buy Pineapple" });
 			data.Add(new TodoItem { Name = "Buy Plum", Done = true });
@@ -73,7 +70,7 @@ namespace WatchTodoExtension
 			Console.WriteLine ("Name: " + name);
 
 			// reload each view
-//			data = Database.GetItems ().ToList();
+			data = Database.GetItems ().ToList();
 
 
 			// HACK: the recommendation is to use Insert and Remove rows

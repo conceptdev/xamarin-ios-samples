@@ -3,7 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 using System.IO;
-//using SQLite;
+using SQLite;
 
 namespace WatchTodoExtension
 {
@@ -50,25 +50,22 @@ namespace WatchTodoExtension
 
 				});
 			} else {
-				Console.WriteLine("EntryMode=false  must save");
+				Console.WriteLine("EntryMode=false  must save " + enteredText + ".");
 				// TODO: save!
 				TodoItemDatabase Database = null;
-				var todo = new TodoItem{Name = enteredText, Done = false};
+				var todo = new TodoItem {Name = enteredText, Done = false};
 
 				if (Database == null) 
 				{
-					var FileManager = new NSFileManager ();
-					var appGroupContainer = FileManager.GetContainerUrl ("group.co.conceptdev.WatchTodo");
-					var appGroupContainerPath = appGroupContainer.Path;
-					Console.WriteLine ("agcpath: " + appGroupContainerPath);
+					//HACK: no app group
+					var appGroupContainerPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					Console.WriteLine("agcpath: " + appGroupContainerPath);
 
 					var sqliteFilename = "TodoSQLite.db3";
-					//			string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
-					//			string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
 					var path = Path.Combine(appGroupContainerPath, sqliteFilename);
-					//var conn = new SQLiteConnection (path);
+					var conn = new SQLiteConnection(path);
 
-					//Database = new TodoItemDatabase(conn);
+					Database = new TodoItemDatabase(conn);
 				}
 				Database.SaveItem(todo);
 				Database.Close();

@@ -1,5 +1,5 @@
 ﻿using System;
-//using SQLite;
+using SQLite;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +9,7 @@ namespace WatchTodoExtension
 	{
 		static object locker = new object ();
 
-		//SQLiteConnection database;
+		SQLiteConnection database;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Tasky.DL.TaskDatabase"/> TaskDatabase. 
@@ -18,48 +18,48 @@ namespace WatchTodoExtension
 		/// <param name='path'>
 		/// Path.
 		/// </param>
-		public TodoItemDatabase(object conn) //SQLiteConnection conn)
+		public TodoItemDatabase(SQLiteConnection conn)
 		{
-			//database = conn;
+			database = conn;
 
-			//database.CreateTable<TodoItem>();
+			database.CreateTable<TodoItem>();
 		}
 
 		public void Close()
 		{
-			//database.Close ();
+			database.Close ();
 		}
 
 		public IEnumerable<TodoItem> GetItems ()
 		{
 			lock (locker) {
-				return null;//(from i in database.Table<TodoItem>() select i).ToList();
+				return (from i in database.Table<TodoItem>() select i).ToList();
 			}
 		}
 
 		public IEnumerable<TodoItem> GetItemsNotDone ()
 		{
 			lock (locker) {
-				return null;//database.Query<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
+				return database.Query<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
 			}
 		}
 
 		public TodoItem GetItem (int id) 
 		{
 			lock (locker) {
-				return null;//database.Table<TodoItem>().FirstOrDefault(x => x.ID == id);
+				return database.Table<TodoItem>().FirstOrDefault(x => x.ID == id);
 			}
 		}
 
 		public int SaveItem (TodoItem item) 
 		{
 			lock (locker) {
-				//if (item.ID != 0) {
-				//	database.Update(item);
-				//	return item.ID;
-				//} else {
-				//	return database.Insert(item);
-				//}
+				if (item.ID != 0) {
+					database.Update(item);
+					return item.ID;
+				} else {
+					return database.Insert(item);
+				}
 				return -1;
 			}
 		}
@@ -67,7 +67,7 @@ namespace WatchTodoExtension
 		public int DeleteItem(int id)
 		{
 			lock (locker) {
-				return -1;//database.Delete<TodoItem>(id);
+				return database.Delete<TodoItem>(id);
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 using WatchKit;
 using Foundation;
 using System.IO;
-//using SQLite;
+using SQLite;
 
 namespace WatchTodoExtension
 {
@@ -49,12 +49,12 @@ namespace WatchTodoExtension
 
 				var sqliteFilename = "TodoSQLite.db3";
 				var path = Path.Combine(appGroupContainerPath, sqliteFilename);
-				//var conn = new SQLiteConnection (path);
+				var conn = new SQLiteConnection (path);
 
-				//Database = new TodoItemDatabase(conn);
+				Database = new TodoItemDatabase(conn);
 			}
 			Console.WriteLine ("Save the todo " + todo.Name);
-			//Database.SaveItem(todo.As());
+			Database.SaveItem(todo.As());
 
 			PopController();
 		}
