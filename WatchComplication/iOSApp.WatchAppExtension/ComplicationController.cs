@@ -21,22 +21,22 @@ namespace iOSApp.WatchAppExtension
 			CLKComplicationTimelineEntry entry = null;
 			try
 			{
-				var txt = DateTime.Now.Minute.ToString();
+				var minutesPastHour = DateTime.Now.Minute.ToString();
 
 				if (complication.Family == CLKComplicationFamily.ModularSmall)
 				{
 					var textTemplate1 = new CLKComplicationTemplateModularSmallSimpleText();
-					textTemplate1.TextProvider = CLKSimpleTextProvider.FromText(txt);
+					textTemplate1.TextProvider = CLKSimpleTextProvider.FromText(minutesPastHour);
 					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate1);
 
 				}
 				else if (complication.Family == CLKComplicationFamily.ModularLarge)
 				{
 					var textTemplate = new CLKComplicationTemplateModularLargeStandardBody();
-					textTemplate.HeaderTextProvider = CLKSimpleTextProvider.FromText("Header" + txt, "XH", "```");
+					textTemplate.HeaderTextProvider = CLKSimpleTextProvider.FromText("Set " + minutesPastHour + " mins past", "XH", "```");
 
-					textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText("B1 " + txt, "X1", "~~~");
-					textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText("Body 2x", "X2", "---");
+					textTemplate.Body1TextProvider = CLKSimpleTextProvider.FromText("Body text", "X1", "~~~");
+					textTemplate.Body2TextProvider = CLKSimpleTextProvider.FromText("Body 2", "X2", "---");
 
 					// if the user typed something in the app, show that in complication
 					var c = NSUserDefaults.StandardUserDefaults["complication"];
@@ -53,22 +53,23 @@ namespace iOSApp.WatchAppExtension
 				else if (complication.Family == CLKComplicationFamily.UtilitarianSmall)
 				{
 					var textTemplate = new CLKComplicationTemplateUtilitarianSmallFlat();
-					textTemplate.TextProvider = CLKSimpleTextProvider.FromText("2Xam");
+					textTemplate.TextProvider = CLKSimpleTextProvider.FromText(minutesPastHour + "m");
 					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate);
 
 				}
 				else if (complication.Family == CLKComplicationFamily.UtilitarianLarge)
 				{
 					var textTemplate = new CLKComplicationTemplateUtilitarianLargeFlat();
-					textTemplate.TextProvider = CLKSimpleTextProvider.FromText("3Xam");
+					textTemplate.TextProvider = CLKSimpleTextProvider.FromText(minutesPastHour + " past hour");
 					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, textTemplate);
 
 				}
 				else if (complication.Family == CLKComplicationFamily.CircularSmall)
 				{
-					var imgTemplate = new CLKComplicationTemplateCircularSmallRingImage();
-					imgTemplate.ImageProvider = CLKImageProvider.Create(UIImage.FromBundle("Circular"));
-					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, imgTemplate);
+					var ringTemplate = new CLKComplicationTemplateCircularSmallRingText();
+					ringTemplate.TextProvider = CLKSimpleTextProvider.FromText(minutesPastHour);
+					ringTemplate.FillFraction = DateTime.Now.Minute / 60f;
+					entry = CLKComplicationTimelineEntry.Create(NSDate.Now, ringTemplate);
 				}
 				else
 				{
@@ -91,8 +92,8 @@ namespace iOSApp.WatchAppExtension
 
 			if (complication.Family == CLKComplicationFamily.ModularSmall)
 			{
-				var textTemplate = new CLKComplicationTemplateModularSmallRingText();
-				textTemplate.TextProvider = CLKSimpleTextProvider.FromText("XAM1");
+				var textTemplate = new CLKComplicationTemplateModularSmallSimpleText();
+				textTemplate.TextProvider = CLKSimpleTextProvider.FromText("X1");
 				template = textTemplate;
 
 			}
@@ -136,7 +137,7 @@ namespace iOSApp.WatchAppExtension
 		{
 			// Retrieves the time travel directions supported by your complication
 			Console.WriteLine("GetSupportedTimeTravelDirections");
-			handler(CLKComplicationTimeTravelDirections.Forward);
+			handler(CLKComplicationTimeTravelDirections.None);
 		}
 	}
 }
