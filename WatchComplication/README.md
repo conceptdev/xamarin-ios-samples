@@ -1,8 +1,6 @@
 WatchOS 3 Complications
 =======================
 
-## WARNING: not 100% complete
-
 To configure complications in the simulator:
 
 1. *Command+Shift+H* until you see the watch face
@@ -15,3 +13,15 @@ To configure complications in the simulator:
 8. One of the complications should be the one in your app (use `CFBundleDisplayName` to set the text displayed)
 
 ![](Screenshots/configure-complications.png)
+
+
+[Add complications to gallery](https://developer.apple.com/library/prerelease/content/releasenotes/WatchKit/AddingComplications/)
+
+When the complication bundle has been added to the iOS App project, examples of the complication will appear in the **Face Gallery**:
+
+![](Screenshots/gallery2-sml.png)
+
+Previews of other faces with the complication can also be explored:
+
+![](Screenshots/gallery1-sml.png)
+

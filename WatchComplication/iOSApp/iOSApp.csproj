@@ -109,4 +109,12 @@
       <Name>iOSApp.WatchApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="ComplicationSample.ckcomplication\0834CABD-BC4F-4BFD-92F5-0E5E3C9CBE8F.json" />
+    <BundleResource Include="ComplicationSample.ckcomplication\54240BB9-5D79-4305-838A-BDD3FA8271A8.json" />
+    <BundleResource Include="ComplicationSample.ckcomplication\5CBA1C54-AC0A-422A-8B7F-2FA78289BCC2.json" />
+    <BundleResource Include="ComplicationSample.ckcomplication\924C6D24-C952-499D-A202-1627E0635059.json" />
+    <BundleResource Include="ComplicationSample.ckcomplication\DE25A806-EF73-4FAF-9950-DC630590FA68.json" />
+    <BundleResource Include="ComplicationSample.ckcomplication\complicationManifest.json" />
+  </ItemGroup>
 </Project>
