@@ -42,7 +42,7 @@ namespace TodoToday
 		{
 			base.ViewWillAppear (animated);
 
-			NSUserDefaults shared = new NSUserDefaults("group.com.conceptdevelopment.TodoToday", NSUserDefaultsType.SuiteName);
+			NSUserDefaults shared = new NSUserDefaults("group.co.conceptdev.TodoToday", NSUserDefaultsType.SuiteName);
 			var count = shared.IntForKey ("TodoCount");
 			Console.WriteLine ("Read NSUserDefaults TodoCount: " + count);
 

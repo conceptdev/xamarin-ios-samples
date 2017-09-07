@@ -105,7 +105,7 @@ namespace StoryboardTables
 			// bind every time, to reflect deletion in the Detail view
 			TableView.Source = new RootTableSource(tasks.ToArray ());
 
-			NSUserDefaults shared = new NSUserDefaults("group.com.conceptdevelopment.TodoToday", NSUserDefaultsType.SuiteName);
+			NSUserDefaults shared = new NSUserDefaults("group.co.conceptdev.TodoToday", NSUserDefaultsType.SuiteName);
 			shared.SetInt (tasks.Count, "TodoCount");
 			shared.Synchronize ();
 			Console.WriteLine ("Set NSUserDefaults TodoCount: " + tasks.Count);

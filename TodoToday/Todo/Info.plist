@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>TodoToday</string>
+	<string>TodoToday11</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.conceptdev.TodoToday</string>
 	<key>CFBundleShortVersionString</key>
@@ -13,7 +13,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>11.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -46,6 +46,6 @@
 		</dict>
 	</array>
 	<key>CFBundleName</key>
-	<string>TodoToday</string>
+	<string>TodoToday11</string>
 </dict>
 </plist>

@@ -48,7 +48,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignProvision>d12c4b85-65df-464b-b715-01e5d04966b5</CodesignProvision>
+    <CodesignProvision>TodoToday App Profile</CodesignProvision>
     <MtouchI18n>
     </MtouchI18n>
     <IpaPackageName>
