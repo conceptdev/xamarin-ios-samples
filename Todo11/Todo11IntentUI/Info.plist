@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>To11oIntentUI</string>
+	<string>Todo11IntentUI</string>
 	<key>CFBundleName</key>
-	<string>To11oIntentUI</string>
+	<string>Todo11IntentUI</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.conceptdev.todo.To11oIntentui</string>
+	<string>co.conceptdev.todo.intentui</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2</string>
+	<string>2.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>2.0</string>
 	<key>MinimumOSVersion</key>
 	<string>11.0</string>
 	<key>NSExtension</key>
@@ -26,7 +26,9 @@
 		<dict>
 			<key>IntentsSupported</key>
 			<array>
-				<string>INSendMessageIntent</string>
+				<string>INAddTasksIntent</string>
+				<string>INCreateTaskListIntent</string>
+				<string>INSetTaskAttributeIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	<key>UIMainStoryboardFile</key>
+	<string>Base.lproj/MainStoryboard</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>de</string>
+		<string>es</string>
+		<string>ja</string>
+		<string>he</string>
+		<string>ar</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>MinimumOSVersion</key>
+	<string>11.0</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>Base.lproj/MainStoryboard</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Images.xcassets/AppIcon.appiconset</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>co.conceptdev.todo.activity.add</string>
+		<string>co.conceptdev.todo.activity.detail</string>
+		<string>INAddTasksIntent</string>
+		<string>INCreateTaskListIntent</string>
+		<string>INSetTaskAttributeIntent</string>
+	</array>
+	<key>CFBundleIdentifier</key>
+	<string>co.conceptdev.todo</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Create a new item</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Todo</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>co.conceptdev.todo.shortcut.add</string>
+		</dict>
+	</array>
+	<key>Custom Property</key>
+	<array>
+		<string>co.conceptdev.todo.activity.add</string>
+		<string>co.conceptdev.todo.activity.detail</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>CFBundleVersion</key>
+	<string>2.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
+	<key>NSSiriUsageDescription</key>
+	<string>Siri&apos;s listening!</string>
+	<key>INAlternativeAppNames</key>
+	<array>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>MonkeyTodo</string>
+			<key>INAlternativeAppNamePronounciation</key>
+			<string>monkey to do</string>
+		</dict>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>MonkeyNotes</string>
+			<key>INAlternativeAppNamePronounciation</key>
+			<string>monkey notes</string>
+		</dict>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>Todo11</string>
+			<key>INAlternativeAppNamePronounciation</key>
+			<string>to do eleven</string>
+		</dict>
+	</array>
+	<key>CFBundleName</key>
+	<string>Todo11</string>
+</dict>
+</plist>
