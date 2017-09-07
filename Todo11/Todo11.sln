@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo11", "Todo11\Todo11.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo11Intent", "Todo11Intent\Todo11Intent.csproj", "{60E28139-F7B6-4BD8-8C77-2D8A0E062BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo11ntentUI", "Todo11IntentUI\Todo11ntentUI.csproj", "{74B7D001-16ED-4DD3-B1BB-2EDD79EE2829}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo11IntentUI", "Todo11IntentUI\Todo11IntentUI.csproj", "{74B7D001-16ED-4DD3-B1BB-2EDD79EE2829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

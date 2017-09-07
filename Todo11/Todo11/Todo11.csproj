@@ -198,7 +198,7 @@
     <ProjectReference Include="..\Todo11IntentUI\Todo11ntentUI.csproj">
       <IsAppExtension>true</IsAppExtension>
       <Project>{74B7D001-16ED-4DD3-B1BB-2EDD79EE2829}</Project>
-      <Name>Todo11ntentUI</Name>
+      <Name>Todo11IntentUI</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
