@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using SQLite;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public class TodoManager
 	{

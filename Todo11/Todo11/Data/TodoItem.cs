@@ -1,7 +1,7 @@
 using System;
 using SQLite;
 
-namespace To11oApp {
+namespace Todo11App {
 	/// <summary>
 	/// Todo item
 	/// </summary>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace To11oApp
+namespace Todo11App
 {
 	/// <summary>
 	/// https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/#//apple_ref/c/tdef/UIApplicationShortcutIconType

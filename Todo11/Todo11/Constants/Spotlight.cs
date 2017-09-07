@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public static class Spotlight
 	{

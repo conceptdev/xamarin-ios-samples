@@ -2,7 +2,7 @@
 using Foundation;
 using CoreSpotlight;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public class UserActivityHelper
 	{

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using SQLite;
 
-namespace To11oApp
+namespace Todo11App
 {
 	/// <summary>
 	/// TodoDatabase builds on SQLite.Net and represents a specific database, in our case, the Todo DB.

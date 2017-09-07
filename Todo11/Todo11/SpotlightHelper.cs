@@ -5,7 +5,7 @@ using CoreSpotlight;
 using MobileCoreServices;
 using Foundation;
 
-namespace To11oApp
+namespace Todo11App
 {
 	/// <summary>
 	/// courtesy of Larry O'Brien

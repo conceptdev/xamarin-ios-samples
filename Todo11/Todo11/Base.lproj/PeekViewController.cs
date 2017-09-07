@@ -5,7 +5,7 @@ using System;
 using Foundation;
 using UIKit;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public partial class PeekViewController : UIViewController
 	{

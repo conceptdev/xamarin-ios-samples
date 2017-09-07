@@ -187,17 +187,20 @@
     <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%403x.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-57%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-84%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-83.5%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-20.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-60.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\iTunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="To11oIntent\To11oIntent.csproj">
+    <ProjectReference Include="..\Todo11Intent\Todo11Intent.csproj">
       <IsAppExtension>true</IsAppExtension>
-      <Project>{60E28139-F7B6-4BD8-8C77-2D8A0E062BCC}</Project>
+      <Project>{20B1A30D-E06F-4E5C-B2EA-3BBB18E4D1E6}</Project>
       <Name>Todo11Intent</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Todo11IntentUI\Todo11ntentUI.csproj">
+    <ProjectReference Include="..\Todo11IntentUI\Todo11IntentUI.csproj">
       <IsAppExtension>true</IsAppExtension>
-      <Project>{74B7D001-16ED-4DD3-B1BB-2EDD79EE2829}</Project>
+      <Project>{D548F558-4872-4118-A092-D1CBF73F7C9A}</Project>
       <Name>Todo11IntentUI</Name>
     </ProjectReference>
   </ItemGroup>

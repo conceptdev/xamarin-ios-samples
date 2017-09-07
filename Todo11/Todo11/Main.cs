@@ -4,7 +4,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public class Application
 	{

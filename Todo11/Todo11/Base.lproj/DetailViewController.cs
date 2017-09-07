@@ -7,7 +7,7 @@ using UIKit;
 using CoreSpotlight;
 using System.Collections.Generic;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public partial class DetailViewController : UIViewController
 	{

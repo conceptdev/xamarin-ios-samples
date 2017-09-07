@@ -4,7 +4,7 @@ using System.IO;
 using SQLite;
 
 
-namespace To11oApp {
+namespace Todo11App {
 	public class TodoRepository {
 		TodoDatabase db = null;
 		protected static string dbLocation;		

@@ -9,7 +9,7 @@ using System.Linq;
 using CoreGraphics;
 using SafariServices;
 
-namespace To11oApp
+namespace Todo11App
 {
 	public partial class CollectionController : UICollectionViewController, IUIViewControllerPreviewingDelegate
 	{

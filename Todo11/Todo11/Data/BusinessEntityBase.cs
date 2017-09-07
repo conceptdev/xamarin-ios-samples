@@ -1,7 +1,7 @@
 using System;
 using SQLite;
 
-namespace To11oApp {
+namespace Todo11App {
 	/// <summary>
 	/// Business entity base class. Provides the ID property.
 	/// </summary>

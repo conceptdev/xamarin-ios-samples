@@ -1,7 +1,7 @@
 ﻿using System;
 using Foundation;
 
-namespace To11oApp
+namespace Todo11App
 {
 	/// <summary>
 	/// Constants for the NSUserActivity, also embedded in Info.plist

@@ -11,7 +11,7 @@ using CoreSpotlight;
 using Intents;
 using UserNotifications;
 
-namespace To11oApp
+namespace Todo11App
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to

@@ -4,7 +4,7 @@ using Foundation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace To11oApp
+namespace Todo11App
 {
 //	public class CollectionLayout : UICollectionViewDelegateFlowLayout {
 //		public override UIEdgeInsets GetInsetForSection (UICollectionView collectionView, UICollectionViewLayout layout, nint section)

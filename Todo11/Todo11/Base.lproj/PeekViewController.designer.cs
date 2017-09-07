@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace To11oApp
+namespace Todo11App
 {
 	[Register ("PeekViewController")]
 	partial class PeekViewController

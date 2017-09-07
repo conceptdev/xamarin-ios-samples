@@ -4,7 +4,7 @@ using System.CodeDom.Compiler;
 using UIKit;
 using Intents;
 
-namespace To11oApp
+namespace Todo11App
 {
 	partial class NavigationController : UINavigationController
 	{
