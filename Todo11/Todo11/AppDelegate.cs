@@ -51,12 +51,12 @@ namespace Todo11App
 			#endregion
 
 			#region Theme
-			UINavigationBar.Appearance.TintColor = UIColor.FromRGB (0x61, 0x4C, 0xA0); // 614CA0 dark-purple
-			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB (0xCE, 0xC0, 0xEC); // CEC0EC light-purple
+			UINavigationBar.Appearance.TintColor = UIColor.FromRGB (0x5A, 0x86, 0x22); // 5A8622 dark-green
+			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB (0xCF, 0xEF, 0xa7); // CFEFA7 light-green
 
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes() {
-				TextColor = UIColor.FromRGB (0x61, 0x4C, 0xA0), // 614CA0 dark-purple
-				TextShadowColor = UIColor.Clear
+				TextColor = UIColor.FromRGB (0x5A, 0x86, 0x22), // 5A8622 dark-green
+			    TextShadowColor = UIColor.Clear
 			}); 
 			#endregion
 

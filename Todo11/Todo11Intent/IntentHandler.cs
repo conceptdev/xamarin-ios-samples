@@ -125,7 +125,21 @@ namespace Todo11Intent
 		{
 			Console.WriteLine("Create a task list");
 			var userActivity = new NSUserActivity("INCreateTaskListIntent");
-			var response = new INCreateTaskListIntentResponse(INCreateTaskListIntentResponseCode.Success, userActivity);
+
+			var tasks = new List<INTask>();
+			if (intent.TaskTitles != null)
+			{
+				foreach (var t in intent.TaskTitles)
+				{
+                    var ta = new INTask(t, INTaskStatus.NotCompleted, INTaskType.Completable, null, null, null, null, "mytask");
+                    tasks.Add(ta);
+				}
+			}
+
+            var response = new INCreateTaskListIntentResponse(INCreateTaskListIntentResponseCode.Success, userActivity)
+            {
+                CreatedTaskList = new INTaskList(intent.Title, tasks.ToArray(), intent.GroupName, null, null, "mylist")
+			};
 			completion(response);
 		}
 
