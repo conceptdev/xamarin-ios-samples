@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace ARKitSample
+namespace ARKitEarth
 {
 	public class Application
 	{

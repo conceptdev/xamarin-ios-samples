@@ -2,7 +2,7 @@
 using SceneKit;
 using UIKit;
 using ARKit;
-namespace ARKitSample
+namespace ARKitEarth
 {
 	public class SessionDelegate : ARSessionDelegate
 	{

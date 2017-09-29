@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>ARKitSample</string>
+	<string>ARKitEarth</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.ARKitSample</string>
+	<string>com.xamarin.ARKitEarth</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

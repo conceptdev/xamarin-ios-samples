@@ -4,7 +4,7 @@ using UIKit;
 using ARKit;
 using CoreGraphics;
 
-namespace ARKitSample
+namespace ARKitEarth
 {
 	public partial class GameViewController : UIViewController, IARSCNViewDelegate
 	{
@@ -47,11 +47,7 @@ namespace ARKitSample
 			// Track changes to the session
 			SceneView.Session.Delegate = new SessionDelegate();
 
-			// Create a new scene
-			//var scene = SCNScene.FromFile("art.scnassets/ship");
-
-			// Set the scene to the view
-			//SceneView.Scene = scene;
+			// Create a new, empty scene
             SceneView.Scene = new SCNScene();
 
 			// Add a tap gesture recognizer
@@ -73,17 +69,19 @@ namespace ARKitSample
 			// Run the view's session
 			SceneView.Session.Run(configuration, ARSessionRunOptions.ResetTracking);
 
-            var pos = new SCNVector3(1f, 0f, 1f);
-
+            // randomly choose a point to place the Earth
+            var pos = new SCNVector3 (-2f, 0f, -2f);
 
 
 			// earth r=0.2 
 			var globe = SCNSphere.Create(0.2f);
 			var globeNode = new SCNNode { Position = pos, Geometry = globe };
 			globeNode.Geometry.Materials = LoadMaterials();
+			//globeNode.Transform = SCNMatrix4.CreateRotationX(0.4101524f); // 23.5 degrees
 			SceneView.Scene.RootNode.AddChildNode(globeNode);
 
 			globeNode.RunAction(SCNAction.RepeatActionForever(SCNAction.RotateBy(0, 1, 0, 3)));
+
 
 			//moon r=0.08, orbit=0.6
 			var pivotNode = new SCNNode { Position = new SCNVector3(0, 0, 0) };
@@ -98,36 +96,6 @@ namespace ARKitSample
 
 			globeNode.AddChildNode(pivotNode);
 
-
-
-
-
-
-
-
-
-
-
-
-			// Find the ship and position it just in front of the camera
-			//var ship = SceneView.Scene.RootNode.FindChildNode("ship", true);
-			
-
-            //ship.Position = new SCNVector3(2f, -2f, -9f);
-            //HACK: to see the jet move (circle around the viewer in a roll), comment out the ship.Position line above
-            // and uncomment the code below (courtesy @lobrien)
-
-			//var animation = SCNAction.RepeatActionForever(SCNAction.RotateBy(0, (float)Math.PI, (float)Math.PI, (float)1));
-			//var pivotNode = new SCNNode { Position = new SCNVector3(0.0f, 2.0f, 0.0f) };
-			//pivotNode.RunAction(SCNAction.RepeatActionForever(SCNAction.RotateBy(0, -2, 0, 10)));
-			//ship.RemoveFromParentNode();
-			//pivotNode.AddChildNode(ship);
-			//SceneView.Scene.RootNode.AddChildNode(pivotNode);
-			//ship.Scale = new SCNVector3(0.1f, 0.1f, 0.1f);
-			//ship.Position = new SCNVector3(2f, -2f, -3f);
-			//ship.RunAction(SCNAction.RepeatActionForever(SCNAction.RotateBy(0, 0, 2, 1)));
-
-            //ENDHACK
 		}
 
 

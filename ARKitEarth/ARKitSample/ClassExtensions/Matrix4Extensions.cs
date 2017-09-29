@@ -4,7 +4,7 @@ using SceneKit;
 using ARKit;
 using OpenTK;
 
-namespace ARKitSample
+namespace ARKitEarth
 {
 	public static class Matrix4Extensions
 	{

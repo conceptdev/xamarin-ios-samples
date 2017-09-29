@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using System.CodeDom.Compiler;
 
-namespace ARKitSample
+namespace ARKitEarth
 {
 	[Register("GameViewController")]
 	partial class GameViewController

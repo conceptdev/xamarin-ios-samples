@@ -1,20 +1,9 @@
-ARKit Sample
+ARKit Earth
 ============
 
-This sample is a simple ARKit augmented reality demo.
+This sample is a simple ARKit augmented reality demo, based on this [Xamarin ARKit sample](https://developer.xamarin.com/samples/monotouch/ios11/ARKitSample/)
 
-To test this sample you'll need to deploy it on a device running iOS 11 beta software.
+To test this sample you'll need to deploy it on a device running iOS 11 software (the iPhone must be a 6s or newer).
 
-![AR Jet](Screenshots/jet.png)
+![Earth and Moon](Screenshots/earth.png)
 
-By default, the sample presents a jet in a fixed location. To animate the jet around the viewer find the `HACK` in **GameViewController.cs**: comment out the line `ship.Position = new SCNVector3(2f, -2f, -9f);` and uncomment the code that creates an animation around a pivot node.
-
-License
--------
-
-Xamarin port changes are released under the MIT license
-
-Author
-------
-
-Ported to Xamarin.iOS by Kevin Mullins, Larry O'Brien
