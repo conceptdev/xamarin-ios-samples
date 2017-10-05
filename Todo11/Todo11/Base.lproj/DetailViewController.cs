@@ -23,6 +23,7 @@ namespace Todo11App
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+            NavigationItem.LargeTitleDisplayMode = UINavigationItemLargeTitleDisplayMode.Never;
 
 			SaveButton.TouchUpInside += (sender, e) => {
 				
