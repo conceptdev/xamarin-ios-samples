@@ -8,10 +8,11 @@
     <ProjectGuid>{08A1E777-C427-42A1-9DB4-F7C9105E389B}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>To11oApp</RootNamespace>
+    <RootNamespace>Todo11App</RootNamespace>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <XamarinInsightsApiKey>xxxxxxxxxxxxxxxxxxx</XamarinInsightsApiKey>
+    <AssemblyName>Todo11App</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>True</DebugSymbols>
@@ -25,7 +26,6 @@
     <MtouchDebug>True</MtouchDebug>
     <MtouchProfiling>false</MtouchProfiling>
     <MtouchLink>None</MtouchLink>
-    <AssemblyName>Todo11App</AssemblyName>
     <MtouchArch>x86_64</MtouchArch>
     <CodesignKey>iPhone Developer: Craig Dunn (6Q937X2U43)</CodesignKey>
     <CodesignProvision>To11o Dev Profile</CodesignProvision>
@@ -39,7 +39,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchLink>None</MtouchLink>
-    <AssemblyName>Todo11App</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>True</DebugSymbols>
@@ -53,7 +52,6 @@
     <CodesignKey>iPhone Developer: Craig Dunn (6Q937X2U43)</CodesignKey>
     <MtouchDebug>True</MtouchDebug>
     <MtouchProfiling>false</MtouchProfiling>
-    <AssemblyName>Todo11</AssemblyName>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchArch>ARM64</MtouchArch>
@@ -68,7 +66,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <AssemblyName>Todo11</AssemblyName>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
@@ -121,6 +118,10 @@
     <Compile Include="Base.lproj\NavigationController.cs" />
     <Compile Include="Base.lproj\NavigationController.designer.cs">
       <DependentUpon>NavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewController.cs" />
+    <Compile Include="TableViewController.designer.cs">
+      <DependentUpon>TableViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
