@@ -123,6 +123,7 @@
     <Compile Include="TableViewController.designer.cs">
       <DependentUpon>TableViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableViewController+DataDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

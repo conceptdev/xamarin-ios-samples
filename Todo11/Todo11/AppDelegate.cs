@@ -186,7 +186,7 @@ namespace Todo11App
 
 			// 3. populate and display screen
 			tvc.SetTodo (new TodoItem {Name="(new action)"}); // from 3D Touch menu
-			tvc.Delegate = CollectionController.Current;
+			tvc.Delegate = TableViewController.Current;
 			r.PushViewController (tvc, false);
 			return tvc;
 		}

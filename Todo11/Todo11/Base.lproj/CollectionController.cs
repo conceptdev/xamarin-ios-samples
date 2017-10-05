@@ -40,7 +40,7 @@ namespace Todo11App
 		{
 			base.ViewDidLoad ();
 			AddButton.Clicked += (sender, e) => {
-				CreateTodo ();
+				//CreateTodo ();
 			};
 			AboutButton.Clicked += (sender, e) => {
 				// Safari View Controller
@@ -65,54 +65,54 @@ namespace Todo11App
 			Collection.DelaysContentTouches = false;
 		}
 
-		/// <summary>
-		/// Prepares for segue.
-		/// </summary>
-		/// <remarks>
-		/// The prepareForSegue method is invoked whenever a segue is about to take place. 
-		/// The new view controller has been loaded from the storyboard at this point but 
-		/// it’s not visible yet, and we can use this opportunity to send data to it.
-		/// </remarks>
-		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
-		{
-			if (segue.Identifier == "todosegue") { // set in Storyboard
-				var tvc = segue.DestinationViewController as DetailViewController;
-				if (tvc != null) {
-					var source = Collection.Source as TodoCollectionSource;
-					var rowPath = Collection.IndexPathForCell (sender as UICollectionViewCell);
-					var item = source.GetItem(rowPath.Row);
-					tvc.Delegate = this;
-					tvc.SetTodo(item);
-				}
-			}
-		}
+		///// <summary>
+		///// Prepares for segue.
+		///// </summary>
+		///// <remarks>
+		///// The prepareForSegue method is invoked whenever a segue is about to take place. 
+		///// The new view controller has been loaded from the storyboard at this point but 
+		///// it’s not visible yet, and we can use this opportunity to send data to it.
+		///// </remarks>
+		//public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+		//{
+		//	if (segue.Identifier == "todosegue") { // set in Storyboard
+		//		var tvc = segue.DestinationViewController as DetailViewController;
+		//		if (tvc != null) {
+		//			var source = Collection.Source as TodoCollectionSource;
+		//			var rowPath = Collection.IndexPathForCell (sender as UICollectionViewCell);
+		//			var item = source.GetItem(rowPath.Row);
+		//			tvc.Delegate = this;
+		//			tvc.SetTodo(item);
+		//		}
+		//	}
+		//}
 		#endregion
 
-		#region CRUD
-		public void CreateTodo ()
-		{
-			// StackView
-			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
-			detail.Delegate = this;
-			detail.SetTodo (new TodoItem());
-			NavigationController.PushViewController (detail, true);
+		//#region CRUD
+		//public void CreateTodo ()
+		//{
+		//	// StackView
+		//	var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
+		//	detail.Delegate = this;
+		//	detail.SetTodo (new TodoItem());
+		//	NavigationController.PushViewController (detail, true);
 
-			// Could to this instead of the above, but need to create 'new TodoItem()' in PrepareForSegue()
-			//this.PerformSegue ("TodoSegue", this);
-		}
-		public void SaveTodo (TodoItem todo) {
-			AppDelegate.Current.TodoMgr.SaveTodo(todo);
-			SpotlightHelper.Index (todo);
+		//	// Could to this instead of the above, but need to create 'new TodoItem()' in PrepareForSegue()
+		//	//this.PerformSegue ("TodoSegue", this);
+		//}
+		//public void SaveTodo (TodoItem todo) {
+		//	AppDelegate.Current.TodoMgr.SaveTodo(todo);
+		//	SpotlightHelper.Index (todo);
 
-		}
-		public void DeleteTodo (TodoItem todo) {
-			Console.WriteLine("Delete "+todo.Name);
-			if (todo.Id >= 0) {
-				AppDelegate.Current.TodoMgr.DeleteTodo (todo.Id);
-				SpotlightHelper.Delete (todo);
-			}
-		}
-		#endregion
+		//}
+		//public void DeleteTodo (TodoItem todo) {
+		//	Console.WriteLine("Delete "+todo.Name);
+		//	if (todo.Id >= 0) {
+		//		AppDelegate.Current.TodoMgr.DeleteTodo (todo.Id);
+		//		SpotlightHelper.Delete (todo);
+		//	}
+		//}
+		//#endregion
 
 		#region 3DTouch Peek
 		public UIViewController GetViewControllerForPreview (IUIViewControllerPreviewing previewingContext, CGPoint location)

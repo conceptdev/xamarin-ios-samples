@@ -13,7 +13,8 @@ namespace Todo11App
 	{
 		TodoItem current {get;set;}
 		ContactHelper contacts;
-		public CollectionController Delegate {get;set;}
+		//public CollectionController Delegate {get;set;}
+        public TableViewController Delegate { get; set; }
 
 		public DetailViewController (IntPtr handle) : base (handle)
 		{

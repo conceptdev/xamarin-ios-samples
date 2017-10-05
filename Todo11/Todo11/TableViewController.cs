@@ -6,14 +6,16 @@ using System.Linq;
 
 namespace Todo11App
 {
-    public partial class TableViewController : UITableViewController, IUITableViewDataSource, IUITableViewDelegate
+    public partial class TableViewController : UITableViewController
     {
+        public static TableViewController Current;
 		/// <summary>List of items</summary>
 		List<TodoItem> todoItems;
 
         public TableViewController (IntPtr handle) : base (handle)
         {
             Title = NSBundle.MainBundle.LocalizedString("Todo 11", ""); 
+            Current = this;
         }
 
 		public override void ViewDidLoad()
@@ -56,7 +58,7 @@ namespace Todo11App
                     var source = TableView.DataSource as TableViewController;
                     var rowPath = TableView.IndexPathForCell(sender as UITableViewCell);
 					var item = source.GetItem(rowPath.Row);
-					//tvc.Delegate = this;
+					tvc.Delegate = this;
 					tvc.SetTodo(item);
 				}
 			}
@@ -67,30 +69,34 @@ namespace Todo11App
 			return todoItems[id];
 		}
 
-		// IUITableViewDataSource
-		public override nint RowsInSection(UIKit.UITableView tableView, nint section)
-		{
-			return todoItems.Count;
-		}
 
-		public override UIKit.UITableViewCell GetCell(UIKit.UITableView tableView, Foundation.NSIndexPath indexPath)
+		#region CRUD
+		public void CreateTodo()
 		{
-			var cell = tableView.DequeueReusableCell("todocell", indexPath);
-            cell.TextLabel.Text = todoItems[indexPath.Row].Name;
-            cell.DetailTextLabel.Text = "";
-            cell.Accessory = todoItems[indexPath.Row].Done ? UITableViewCellAccessory.Checkmark : UITableViewCellAccessory.None;
-			return cell;
-		}
+			// StackView
+			var detail = Storyboard.InstantiateViewController("detailvc") as DetailViewController;
+			detail.Delegate = this;
+			detail.SetTodo(new TodoItem());
+			NavigationController.PushViewController(detail, true);
 
-		// IUITableViewDelegate
-		public override bool CanMoveRow(UIKit.UITableView tableView, Foundation.NSIndexPath indexPath)
-		{
-			return true;
+			// Could to this instead of the above, but need to create 'new TodoItem()' in PrepareForSegue()
+			//this.PerformSegue ("TodoSegue", this);
 		}
+		public void SaveTodo(TodoItem todo)
+		{
+			AppDelegate.Current.TodoMgr.SaveTodo(todo);
+			SpotlightHelper.Index(todo);
 
-		public override void MoveRow(UIKit.UITableView tableView, Foundation.NSIndexPath sourceIndexPath, Foundation.NSIndexPath destinationIndexPath)
-		{
-            //HACK: todoItems.MoveItem(sourceIndexPath.Row, destinationIndexPath.Row);
 		}
+		public void DeleteTodo(TodoItem todo)
+		{
+			Console.WriteLine("Delete " + todo.Name);
+			if (todo.Id >= 0)
+			{
+				AppDelegate.Current.TodoMgr.DeleteTodo(todo.Id);
+				SpotlightHelper.Delete(todo);
+			}
+		}
+		#endregion
     }
 }
