@@ -14,7 +14,7 @@ namespace Todo11App
 
         public TableViewController (IntPtr handle) : base (handle)
         {
-            Title = NSBundle.MainBundle.LocalizedString("Todo 11", ""); 
+            Title = NSBundle.MainBundle.LocalizedString("Things To Do", ""); 
             Current = this;
         }
 

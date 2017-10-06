@@ -13,8 +13,8 @@
         <scene sceneID="11">
             <objects>
                 <navigationController id="3" customClass="NavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" largeTitles="YES" id="4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -23,70 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
-        </scene>
-        <!--To11o-->
-        <scene sceneID="Kdb-3c-okd">
-            <objects>
-                <collectionViewController id="IdJ-ZA-4yB" customClass="CollectionController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J3N-tz-lzV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="1" id="YID-qa-Mu7">
-                            <size key="itemSize" width="320" height="44"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="todocell" id="euZ-sS-roK" customClass="TodoCell">
-                                <rect key="frame" x="27.5" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAl-BB-Fmx">
-                                            <rect key="frame" x="19" y="11" width="238" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="box" translatesAutoresizingMaskIntoConstraints="NO" id="6EZ-F4-pKm">
-                                            <rect key="frame" x="267" y="4" width="36" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                                <connections>
-                                    <outlet property="DoneImage" destination="6EZ-F4-pKm" id="Xpe-2H-Cxf"/>
-                                    <outlet property="TodoName" destination="IAl-BB-Fmx" id="VwV-AT-F9A"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="IdJ-ZA-4yB" id="Ye7-pl-8WT"/>
-                            <outlet property="delegate" destination="IdJ-ZA-4yB" id="Srg-1q-p1D"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="To11o" id="2nv-DK-Zqk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="HgF-BJ-61i"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Be-KG-xf4"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="listHeading"/>
-                        </userDefinedRuntimeAttributes>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="AboutButton" destination="HgF-BJ-61i" id="6a3-C7-4VR"/>
-                        <outlet property="AddButton" destination="1Be-KG-xf4" id="SUK-TH-7Z6"/>
-                        <outlet property="Collection" destination="J3N-tz-lzV" id="epm-aY-XtB"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Zp-Wj-3Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="407" y="64"/>
+            <point key="canvasLocation" x="-158" y="64"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Dka-gd-E0o">
@@ -134,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojY-av-swd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="817"/>
+            <point key="canvasLocation" x="337" y="64"/>
         </scene>
         <!--Peek View Controller-->
         <scene sceneID="GGS-9B-oZK">
@@ -192,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DV6-09-Ae5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="64"/>
+            <point key="canvasLocation" x="1262" y="64"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="mp0-yI-BAy">
@@ -203,7 +140,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9qo-sR-lnJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lEQ-Yr-elf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Bg-L9-wEJ">
@@ -333,7 +270,4 @@
             <point key="canvasLocation" x="817" y="64"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="box" width="40" height="40"/>
-    </resources>
 </document>

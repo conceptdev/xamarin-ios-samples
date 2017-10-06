@@ -37,7 +37,7 @@ namespace Todo11App
 		{
 			Current = this;
 
-			
+
 
 			#region Database set-up
 			var sqliteFilename = "TodoDB.db3";
@@ -57,7 +57,15 @@ namespace Todo11App
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes() {
 				TextColor = UIColor.FromRGB (0x5A, 0x86, 0x22), // 5A8622 dark-green
 			    TextShadowColor = UIColor.Clear
-			}); 
+			});
+
+			UINavigationBar.Appearance.LargeTitleTextAttributes = new UIStringAttributes
+			{
+				ForegroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22), // 5A8622 dark-green
+			};
+
+            //UIButton.AppearanceWhenContainedIn(typeof(UITableView)).SetTitleColor(UIColor.FromRGB(0x5A, 0x86, 0x22), UIControlState.Normal);
+            UIButton.AppearanceWhenContainedIn(typeof(UITableView)).TintColor = UIColor.FromRGB(0x5A, 0x86, 0x22);
 			#endregion
 
 			Console.WriteLine ("bbbbbbbbbb FinishedLaunching");
