@@ -29,6 +29,10 @@ namespace Todo11App
 			// Impelement delegate and datasource for tableview to operate
 			TableView.DataSource = this;
 			TableView.Delegate = this;
+
+            AddButton.Clicked += (sender, e) => {
+                CreateTodo ();
+            };
 		}
 
 		public override void ViewWillAppear(bool animated)
