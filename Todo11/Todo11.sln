@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo11Intent", "Todo11Inten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo11IntentUI", "Todo11IntentUI\Todo11IntentUI.csproj", "{D548F558-4872-4118-A092-D1CBF73F7C9A}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TodoData", "TodoData\TodoData.shproj", "{8A3B3F52-8C8C-417B-995B-93BD784C3669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator

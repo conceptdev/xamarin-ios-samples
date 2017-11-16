@@ -11,6 +11,11 @@ namespace Todo11App
 		public TodoManager (SQLiteConnection conn) 
         {
             repository = new TodoRepository(conn, "");
+            SaveTodo(new TodoItem{Name="1"});
+            SaveTodo(new TodoItem { Name = "2" });
+            SaveTodo(new TodoItem { Name = "3" });
+            SaveTodo(new TodoItem { Name = "4" });
+            SaveTodo(new TodoItem{Name="5"});
         }
 
 		public TodoItem GetTodo(int id)
@@ -41,6 +46,7 @@ namespace Todo11App
 		public void Reorder (List<TodoItem> orderedTodos) {
 			repository.Reorder(orderedTodos);
 		}
+
 		[Obsolete("not used")]
 		public void Reorder (int oldOrder, int newOrder) {
 			repository.Reorder (oldOrder, newOrder);

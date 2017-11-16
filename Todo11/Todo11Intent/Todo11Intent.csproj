@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntentHandler.cs" />
+    <Compile Include="IntentHandler+Tasks.cs" />
+    <Compile Include="TaskHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.AppExtension.CSharp.targets" />
 </Project>

@@ -17,7 +17,7 @@ namespace Todo11App
         SQLiteConnection database;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="StoryboardTables.DL.TaskDatabase"/> TodoDatabase. 
+		/// Initializes a new instance of the Todo Database. 
 		/// if the database doesn't exist, it will create the database and all the tables.
 		/// </summary>
 		/// <param name='path'>

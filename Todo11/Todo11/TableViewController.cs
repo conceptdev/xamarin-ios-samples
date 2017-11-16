@@ -23,8 +23,8 @@ namespace Todo11App
 			base.ViewDidLoad();
 
 			// Specify the table as its own drag source and drop delegate
-			//this.TableView.DragDelegate = this;
-			//this.TableView.DropDelegate = this;
+			this.TableView.DragDelegate = this;
+			this.TableView.DropDelegate = this;
 
 			// Impelement delegate and datasource for tableview to operate
 			TableView.DataSource = this;
