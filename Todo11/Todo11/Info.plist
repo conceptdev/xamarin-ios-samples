@@ -110,5 +110,7 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>Todo11</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Need your face to unlock!</string>
 </dict>
 </plist>

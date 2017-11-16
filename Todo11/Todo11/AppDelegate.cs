@@ -30,10 +30,21 @@ namespace Todo11App
 		public static AppDelegate Current { get; private set; }
 		public TodoManager TodoMgr { get; set; }
 		SQLite.SQLiteConnection conn;
-		#endregion
+        #endregion
 
+        #region LocalAuthentication
+        public override void DidEnterBackground(UIApplication application)
+        {
+            (Window.RootViewController as NavigationController).Authenticated = false;
+        }
+        public override void WillEnterForeground(UIApplication application)
+        {
+            //TODO: somehow show the login screen
+            (Window.RootViewController as NavigationController).Authenticate();
+        }
+        #endregion
 
-		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+        public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			Current = this;
 

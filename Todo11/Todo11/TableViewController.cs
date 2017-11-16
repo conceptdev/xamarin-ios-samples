@@ -3,6 +3,7 @@ using System;
 using UIKit;
 using System.Collections.Generic;
 using System.Linq;
+using CoreGraphics;
 
 namespace Todo11App
 {
@@ -10,7 +11,7 @@ namespace Todo11App
     {
         public static TableViewController Current;
 		/// <summary>List of items</summary>
-		List<TodoItem> todoItems;
+        List<TodoItem> todoItems = new List<TodoItem>();
 
         public TableViewController (IntPtr handle) : base (handle)
         {
@@ -33,15 +34,29 @@ namespace Todo11App
             AddButton.Clicked += (sender, e) => {
                 CreateTodo ();
             };
+
+            // for 3DTouch
+            if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
+            {
+                RegisterForPreviewingWithDelegate(this, TableView);
+            }
 		}
 
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
-			todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); //ordered for CollectionView
 
-            // bind every time, to reflect deletion in the Detail view
-            TableView.ReloadData();
+            if ((NavigationController as NavigationController).Authenticated)
+            {
+                todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); //ordered for CollectionView
+
+                // bind every time, to reflect deletion in the Detail view
+                TableView.ReloadData();
+            }
+            else
+            {
+                Console.WriteLine("Should not be showing stuff (ie when app is first run)");
+            }
 		}
 
 		/// <summary>

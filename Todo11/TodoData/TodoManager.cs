@@ -11,11 +11,14 @@ namespace Todo11App
 		public TodoManager (SQLiteConnection conn) 
         {
             repository = new TodoRepository(conn, "");
-            SaveTodo(new TodoItem{Name="1"});
-            SaveTodo(new TodoItem { Name = "2" });
-            SaveTodo(new TodoItem { Name = "3" });
-            SaveTodo(new TodoItem { Name = "4" });
-            SaveTodo(new TodoItem{Name="5"});
+            if (GetTodos().Count == 0)
+            {
+                SaveTodo(new TodoItem { Name = "1" });
+                SaveTodo(new TodoItem { Name = "2" });
+                SaveTodo(new TodoItem { Name = "3" });
+                SaveTodo(new TodoItem { Name = "4" });
+                SaveTodo(new TodoItem { Name = "5" });
+            }
         }
 
 		public TodoItem GetTodo(int id)
