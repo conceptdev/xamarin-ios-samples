@@ -30,7 +30,7 @@ namespace Todo11App
                 CreateTodo();
             };
 
-
+            // Map button
             MapButton = UIButton.FromType(UIButtonType.Custom);
             MapButton.SetTitle("Map", UIControlState.Normal);
             MapButton.BackgroundColor = UIColor.Green;
@@ -39,7 +39,16 @@ namespace Todo11App
             MapButton.TouchUpInside += (sender, e) => {
                 Console.WriteLine("Show map");
                 var popover = Storyboard.InstantiateViewController("map");
-                //(popover as MapViewController).Nav = this;
+
+                if (NavigationController.VisibleViewController is DetailViewController)
+                {
+                    Console.WriteLine("pass todo item");
+                    (popover as MapViewController).Todo = (NavigationController.VisibleViewController as DetailViewController).Current;
+                }
+                else
+                {
+                    (popover as MapViewController).Todo = null; // show all items (clustered)
+                }
 
                 PresentViewController(popover, true, null);
 

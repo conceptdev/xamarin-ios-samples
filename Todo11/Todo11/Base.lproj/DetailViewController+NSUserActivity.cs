@@ -17,13 +17,13 @@ namespace Todo11App
         {
             Console.WriteLine("UpdateUserActivityState for " + activity.Title);
             // update activity 
-            if (current.IsIndexable())
+            if (Current.IsIndexable())
             {
-                activity.AddUserInfoEntries(current.IdToDictionary());
+                activity.AddUserInfoEntries(Current.IdToDictionary());
             }
             // persist partly-entered data for Handoff
-            activity.AddUserInfoEntries(current.NameToDictionary());
-            activity.AddUserInfoEntries(current.NotesToDictionary());
+            activity.AddUserInfoEntries(Current.NameToDictionary());
+            activity.AddUserInfoEntries(Current.NotesToDictionary());
 
             base.UpdateUserActivityState(activity);
         }
@@ -38,18 +38,18 @@ namespace Todo11App
                 if (activity.UserInfo == null || activity.UserInfo.Count == 0)
                 {
                     // new todo 
-                    current = new TodoItem();
+                    Current = new TodoItem();
                 }
                 else
                 {
                     // load existing todo
                     var id = activity.UserInfo.ObjectForKey(ActivityKeys.Id).ToString();
-                    current = AppDelegate.Current.TodoMgr.GetTodo(Convert.ToInt32(id));
+                    Current = AppDelegate.Current.TodoMgr.GetTodo(Convert.ToInt32(id));
 
-                    if (current == null) current = new TodoItem();
+                    if (Current == null) Current = new TodoItem();
                     // extract information from UserActivity to override local data -- "maybe" a good idea, maybe not...
-                    current.Name = activity.UserInfo.ObjectForKey(ActivityKeys.Name).ToString();
-                    current.Notes = activity.UserInfo.ObjectForKey(ActivityKeys.Notes).ToString();
+                    Current.Name = activity.UserInfo.ObjectForKey(ActivityKeys.Name).ToString();
+                    Current.Notes = activity.UserInfo.ObjectForKey(ActivityKeys.Notes).ToString();
                 }
             }
             if (activity.ActivityType == CSSearchableItem.ActionType)
@@ -57,15 +57,15 @@ namespace Todo11App
                 Console.WriteLine("CSSearchableItem.ActionType");
                 var uid = activity.UserInfo[CoreSpotlight.CSSearchableItem.ActivityIdentifier];
 
-                current = AppDelegate.Current.TodoMgr.GetTodo(Convert.ToInt32(uid.Description));
+                Current = AppDelegate.Current.TodoMgr.GetTodo(Convert.ToInt32(uid.Description));
 
                 Console.WriteLine("eeeeeeee RestoreUserActivityState " + uid);
             }
 
             // CoreSpotlight index can get out-of-date, show 'empty' task if the requested id is invalid
-            if (current == null)
+            if (Current == null)
             {
-                current = new TodoItem { Name = "(not found)" };
+                Current = new TodoItem { Name = "(not found)" };
             }
         }
 

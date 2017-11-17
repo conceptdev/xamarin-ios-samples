@@ -8,17 +8,23 @@ using UIKit;
 
 namespace Todo11App
 {
-	public partial class MapViewController : UIViewController
-	{
-		public MapViewController (IntPtr handle) : base (handle)
-		{
-		}
+    public partial class MapViewController : UIViewController
+    {
+        public MapViewController(IntPtr handle) : base(handle)
+        {
+        }
         UIButton CloseButton;
+        public TodoItem Todo { get; set; }
 
+        UIGestureRecognizer _longPressGestureRecognizer;
+        UIGestureRecognizer _tapGestureRecognizer;
+        UIGestureRecognizer _doubleTapGestureRecognizer;
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            SetUpAnnotations();
 
             CloseButton = UIButton.FromType(UIButtonType.Custom);
             CloseButton.SetTitle("X", UIControlState.Normal);
@@ -31,6 +37,18 @@ namespace Todo11App
             View.AddSubview(CloseButton);
 
             Map.ShowsUserLocation = true;
+            this.Map.AddGestureRecognizer((this._longPressGestureRecognizer = new UILongPressGestureRecognizer(this.OnMapLongPress)));
+            this._doubleTapGestureRecognizer = new UITapGestureRecognizer() { NumberOfTapsRequired = 2 };
+
+            this._tapGestureRecognizer = new UITapGestureRecognizer(this.OnMapClicked);
+            this._tapGestureRecognizer.RequireGestureRecognizerToFail(this._doubleTapGestureRecognizer);
+            this._tapGestureRecognizer.ShouldReceiveTouch = (recognizer, touch) => !(touch.View is MKAnnotationView);
+
+
+            this.Map.AddGestureRecognizer(this._tapGestureRecognizer);
+            this.Map.AddGestureRecognizer(this._doubleTapGestureRecognizer);
+
+
             Map.DidUpdateUserLocation += (sender, e) => {
                 if (Map.UserLocation != null)
                 {
@@ -45,6 +63,29 @@ namespace Todo11App
                 MKCoordinateSpan span = new MKCoordinateSpan(MilesToLatitudeDegrees(2), MilesToLongitudeDegrees(2, coords.Latitude));
                 Map.Region = new MKCoordinateRegion(coords, span);
             }
+        }
+        void OnMapClicked(UITapGestureRecognizer recognizer)
+        {
+            if (recognizer.State != UIGestureRecognizerState.Ended) return;
+
+            var pixelLocation = recognizer.LocationInView(this.Map);
+            var coordinate = this.Map.ConvertPoint(pixelLocation, this.Map);
+        }
+        //void OnMapDoubleTap (UITapGestureRecognizer recognizer)
+        //{
+        //    if (recognizer.State != UIGestureRecognizerState.Ended) return;
+
+        //    var pixelLocation = recognizer.LocationInView(this.Map);
+        //    var coordinate = this.Map.ConvertPoint(pixelLocation, this.Map);
+        //}
+        void OnMapLongPress(UILongPressGestureRecognizer recognizer)
+        {
+            if (recognizer.State != UIGestureRecognizerState.Began) return;
+
+            var pixelLocation = recognizer.LocationInView(this.Map);
+            var coordinate = this.Map.ConvertPoint(pixelLocation, this.Map);
+
+            //this.MapFunctions.RaiseMapLongPress(coordinate.ToPosition());
         }
         public override void ViewWillLayoutSubviews()
         {

@@ -11,8 +11,7 @@ namespace Todo11App
 {
 	public partial class DetailViewController : UIViewController
 	{
-		TodoItem current {get;set;}
-		ContactHelper contacts;
+		public TodoItem Current {get;set;}
 		
         public TableViewController Delegate { get; set; }
 
@@ -27,12 +26,12 @@ namespace Todo11App
 
 			SaveButton.TouchUpInside += (sender, e) => {
 				
-				current.Name = NameText.Text;
-				current.Notes = NotesText.Text;
-				current.Done = DoneSwitch.On;
+				Current.Name = NameText.Text;
+				Current.Notes = NotesText.Text;
+				Current.Done = DoneSwitch.On;
 
 				// includes CoreSpotlight indexing!
-				Delegate.SaveTodo(current); 
+				Delegate.SaveTodo(Current); 
 
 				UIAccessibility.PostNotification (UIAccessibilityPostNotification.Announcement, new NSString(@"Item was saved"));
 
@@ -41,7 +40,7 @@ namespace Todo11App
 			CancelButton.TouchUpInside += (sender, e) => {
 				if (Delegate != null) 
 				{
-					Delegate.DeleteTodo(current); // also CoreSpotlight
+					Delegate.DeleteTodo(Current); // also CoreSpotlight
 
 					UIAccessibility.PostNotification (UIAccessibilityPostNotification.Announcement,new NSString(@"Item was deleted"));
 				}
@@ -55,7 +54,7 @@ namespace Todo11App
 			NameText.TextAlignment = UITextAlignment.Natural;
 			NotesText.TextAlignment = UITextAlignment.Natural;
 
-			UserActivity = UserActivityHelper.CreateNSUserActivity (current?? new TodoItem());
+			UserActivity = UserActivityHelper.CreateNSUserActivity (Current?? new TodoItem());
 		}
 		public override void ViewWillDisappear (bool animated)
 		{
@@ -67,12 +66,12 @@ namespace Todo11App
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			NameText.Text = current.Name;
-			NotesText.Text = current.Notes;
-			DoneSwitch.On = current.Done;
+			NameText.Text = Current.Name;
+			NotesText.Text = Current.Notes;
+			DoneSwitch.On = Current.Done;
 			
 			// button is cancel or delete
-			if (current.Id > 0) {
+			if (Current.Id > 0) {
 				CancelButton.SetTitle (NSBundle.MainBundle.LocalizedString ("Delete", "")
 					, UIControlState.Normal);
 				CancelButton.SetTitleColor (UIColor.Red, UIControlState.Normal);
@@ -86,7 +85,7 @@ namespace Todo11App
 
 		// this will be called before the view is displayed 
 		public void SetTodo (TodoItem todo) {
-			current = todo;
+			Current = todo;
 		}
 	}
 }

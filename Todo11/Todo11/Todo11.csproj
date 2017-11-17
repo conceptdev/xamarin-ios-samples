@@ -138,6 +138,11 @@
     <Compile Include="AppDelegate+NSUserActivity.cs" />
     <Compile Include="AppDelegate+LocalAuth.cs" />
     <Compile Include="Base.lproj\NavigationController+LocalAuth.cs" />
+    <Compile Include="Base.lproj\MapViewController+Annotations.cs" />
+    <Compile Include="MapMarkers\TodoAnnotation.cs" />
+    <Compile Include="MapMarkers\BikeView.cs" />
+    <Compile Include="MapMarkers\ClusterView.cs" />
+    <Compile Include="MapMarkers\MKAnnotationWrapperExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
@@ -150,6 +155,7 @@
     <Folder Include="Resources\he.lproj\" />
     <Folder Include="Resources\Images.xcassets\" />
     <Folder Include="Constants\" />
+    <Folder Include="MapMarkers\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\en.lproj\Localizable.strings" />

@@ -19,7 +19,6 @@ namespace Todo11App
 			// https://medium.com/@PavelGnatyuk/large-title-and-search-in-ios-11-514d5e020cee
 			NavigationBar.PrefersLargeTitles = true;
 
-
 			// Request access to Siri
 			INPreferences.RequestSiriAuthorization((INSiriAuthorizationStatus status) => {
 				// Respond to returned status
