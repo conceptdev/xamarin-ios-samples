@@ -111,10 +111,6 @@
     <Compile Include="Base.lproj\PeekViewController.designer.cs">
       <DependentUpon>PeekViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base.lproj\TodoCell.cs" />
-    <Compile Include="Base.lproj\TodoCell.designer.cs">
-      <DependentUpon>TodoCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="ContactHelper.cs" />
     <Compile Include="Base.lproj\NavigationController.cs" />
     <Compile Include="Base.lproj\NavigationController.designer.cs">
@@ -134,6 +130,7 @@
     <Compile Include="TableViewController+3DTouch.cs" />
     <Compile Include="TableViewController+Search.cs" />
     <Compile Include="TableViewController+RowActions.cs" />
+    <Compile Include="Base.lproj\DetailViewController+NSUserActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

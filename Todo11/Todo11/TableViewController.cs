@@ -12,6 +12,7 @@ namespace Todo11App
         public static TableViewController Current;
 		/// <summary>List of items</summary>
         List<TodoItem> todoItems = new List<TodoItem>();
+        UIButton MapButton;
 
         public TableViewController (IntPtr handle) : base (handle)
         {
@@ -26,6 +27,31 @@ namespace Todo11App
             AddButton.Clicked += (sender, e) => {
                 CreateTodo();
             };
+
+
+            MapButton = UIButton.FromType(UIButtonType.Custom);
+            MapButton.SetTitle("Map", UIControlState.Normal);
+            MapButton.BackgroundColor = UIColor.Green;
+            //mapButton.Bounds = new CGRect(0, 0, 50, 50);
+            MapButton.SizeToFit();
+            MapButton.TouchUpInside += (sender, e) => {
+                Console.WriteLine("Show map");
+            };
+            NavigationController.View.AddSubview(MapButton);
+
+            //var safeGuide = NavigationController.View.SafeAreaLayoutGuide;
+            //var marginGuide = NavigationController.View.LayoutMarginsGuide;
+            ////mapButton.Bounds = new CGRect(0,0 , 50, 50);
+
+            //MapButton.LeftAnchor.ConstraintEqualTo(safeGuide.LeftAnchor, 10).Active = true;
+            //MapButton.WidthAnchor.ConstraintEqualTo(100).Active = true;
+            //MapButton.HeightAnchor.ConstraintEqualTo(50).Active = true;
+            //safeGuide.BottomAnchor.ConstraintEqualTo(MapButton.BottomAnchor, -10).Active = true;
+            //mapButton.LeadingAnchor.ConstraintEqualTo(safeGuide.LeadingAnchor).Active = true;
+            //mapButton.TrailingAnchor.ConstraintEqualTo(safeGuide.TrailingAnchor).Active = true;
+            //mapButton.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor).Active = true;
+
+
 
             // Impelement delegate and datasource for tableview to operate
             TableView.DataSource = this;
@@ -50,7 +76,23 @@ namespace Todo11App
             DefinesPresentationContext = true;
             NavigationItem.SearchController = search;
 		}
+        public override void ViewWillLayoutSubviews()
+        {
+            base.ViewWillLayoutSubviews();
+            MapButton.Layer.CornerRadius = MapButton.Layer.Frame.Size.Width / 2;
+            MapButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            MapButton.ClipsToBounds = true;
+            //MapButton.setImage(UIImage(named: "your-image"), for: .normal)
+            MapButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
+            var safeGuide = NavigationController.View.SafeAreaLayoutGuide;
+            NSLayoutConstraint.ActivateConstraints( new NSLayoutConstraint[] {
+                MapButton.TrailingAnchor.ConstraintEqualTo(safeGuide.TrailingAnchor, -23),
+                MapButton.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor, -13),
+                MapButton.WidthAnchor.ConstraintEqualTo(60),
+                MapButton.HeightAnchor.ConstraintEqualTo(60)
+            });
+        }
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +15,6 @@
         <scene sceneID="zSB-03-k8j">
             <objects>
                 <viewController storyboardIdentifier="localauth" id="UaG-Rl-gaH" customClass="LocalAuthViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Iga-B8-Kdr"/>
-                        <viewControllerLayoutGuide type="bottom" id="EWs-rK-9aU"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gWH-Mb-OWV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +33,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="wok-4j-KaM"/>
                     </view>
                     <connections>
                         <outlet property="LoginButton" destination="QbH-Se-v3B" id="M5z-Mz-wNP"/>
@@ -118,10 +117,6 @@
         <scene sceneID="GGS-9B-oZK">
             <objects>
                 <viewController storyboardIdentifier="peekvc" modalPresentationStyle="formSheet" id="dPL-w7-Bjf" customClass="PeekViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pdH-D4-lTd"/>
-                        <viewControllerLayoutGuide type="bottom" id="KwY-YU-qgn"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I2I-Sl-ahF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,11 +149,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sZK-I5-lO8" secondAttribute="trailing" constant="4" id="Lro-Co-kOR"/>
                             <constraint firstItem="zTJ-0v-yap" firstAttribute="leading" secondItem="I2I-Sl-ahF" secondAttribute="leadingMargin" id="eOW-xv-VAc"/>
                             <constraint firstItem="sZK-I5-lO8" firstAttribute="bottom" secondItem="zTJ-0v-yap" secondAttribute="bottom" id="mP2-CO-bsL"/>
-                            <constraint firstItem="edt-8H-ona" firstAttribute="top" secondItem="pdH-D4-lTd" secondAttribute="bottom" id="nHz-P8-zWP"/>
+                            <constraint firstItem="edt-8H-ona" firstAttribute="top" secondItem="YCE-rk-n5P" secondAttribute="top" id="nHz-P8-zWP"/>
                             <constraint firstItem="edt-8H-ona" firstAttribute="leading" secondItem="I2I-Sl-ahF" secondAttribute="leadingMargin" id="pJT-HJ-UTb"/>
-                            <constraint firstItem="sZK-I5-lO8" firstAttribute="top" secondItem="pdH-D4-lTd" secondAttribute="bottom" id="qs7-vz-nKk"/>
+                            <constraint firstItem="sZK-I5-lO8" firstAttribute="top" secondItem="YCE-rk-n5P" secondAttribute="top" id="qs7-vz-nKk"/>
                             <constraint firstItem="sZK-I5-lO8" firstAttribute="leading" secondItem="zTJ-0v-yap" secondAttribute="trailing" constant="8" symbolic="YES" id="thE-wO-Jfi"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="YCE-rk-n5P"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="120"/>
@@ -176,16 +172,12 @@
         <scene sceneID="mp0-yI-BAy">
             <objects>
                 <viewController storyboardIdentifier="detailvc" id="IPl-96-jog" customClass="DetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dxK-eb-9PK"/>
-                        <viewControllerLayoutGuide type="bottom" id="9qo-sR-lnJ"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lEQ-Yr-elf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Bg-L9-wEJ">
-                                <rect key="frame" x="16" y="0.0" width="343" height="211"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="175"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDZ-cK-Y57">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
@@ -223,28 +215,11 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="notesInput"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9c-fT-LjC">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-s8-QD9">
                                         <rect key="frame" x="0.0" y="144" width="343" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOs-ho-xir">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-bf-ZPg">
-                                                <rect key="frame" x="30" y="0.0" width="313" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-s8-QD9">
-                                        <rect key="frame" x="0.0" y="180" width="343" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l60-ld-o2U">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l60-ld-o2U">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -264,7 +239,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="top" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-bl-73x">
-                                <rect key="frame" x="16" y="240" width="343" height="30"/>
+                                <rect key="frame" x="16" y="204" width="343" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-yu-qr7">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
@@ -294,13 +269,13 @@
                             <constraint firstItem="eRk-bl-73x" firstAttribute="top" secondItem="7Bg-L9-wEJ" secondAttribute="bottom" constant="29" id="tch-lm-Nc7"/>
                             <constraint firstItem="eRk-bl-73x" firstAttribute="leading" secondItem="lEQ-Yr-elf" secondAttribute="leadingMargin" id="wuI-Et-Ztz"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="aDs-m0-JzQ"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="B4k-Ha-g1r"/>
                     <connections>
                         <outlet property="CancelButton" destination="Of5-cC-sLZ" id="egx-36-Usy"/>
                         <outlet property="DoneSwitch" destination="nEA-NJ-Lvb" id="lV0-SW-Tz2"/>
-                        <outlet property="ForText" destination="HTc-bf-ZPg" id="np2-Vo-Rn1"/>
                         <outlet property="NameText" destination="vK9-VF-8RD" id="PXf-u3-r4U"/>
                         <outlet property="NotesText" destination="ThA-34-ggX" id="KSB-sl-TG1"/>
                         <outlet property="SaveButton" destination="FEa-yu-qr7" id="x54-Vd-PV9"/>
