@@ -25,7 +25,7 @@
     <ConsolePause>False</ConsolePause>
     <MtouchDebug>True</MtouchDebug>
     <MtouchProfiling>false</MtouchProfiling>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <CodesignKey>iPhone Developer: Craig Dunn (6Q937X2U43)</CodesignKey>
     <CodesignProvision>To11o Dev Profile</CodesignProvision>
@@ -131,6 +131,13 @@
     <Compile Include="TableViewController+Search.cs" />
     <Compile Include="TableViewController+RowActions.cs" />
     <Compile Include="Base.lproj\DetailViewController+NSUserActivity.cs" />
+    <Compile Include="Base.lproj\MapViewController.cs" />
+    <Compile Include="Base.lproj\MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppDelegate+NSUserActivity.cs" />
+    <Compile Include="AppDelegate+LocalAuth.cs" />
+    <Compile Include="Base.lproj\NavigationController+LocalAuth.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />

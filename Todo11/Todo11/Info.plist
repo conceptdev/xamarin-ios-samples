@@ -112,5 +112,7 @@
 	<string>Todo11</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Need your face to unlock!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need maps for location!</string>
 </dict>
 </plist>

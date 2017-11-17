@@ -4,6 +4,7 @@ using UIKit;
 using System.Collections.Generic;
 using System.Linq;
 using CoreGraphics;
+using CoreLocation;
 
 namespace Todo11App
 {
@@ -13,6 +14,7 @@ namespace Todo11App
 		/// <summary>List of items</summary>
         List<TodoItem> todoItems = new List<TodoItem>();
         UIButton MapButton;
+        CLLocationManager LocMgr;
 
         public TableViewController (IntPtr handle) : base (handle)
         {
@@ -32,26 +34,25 @@ namespace Todo11App
             MapButton = UIButton.FromType(UIButtonType.Custom);
             MapButton.SetTitle("Map", UIControlState.Normal);
             MapButton.BackgroundColor = UIColor.Green;
-            //mapButton.Bounds = new CGRect(0, 0, 50, 50);
+
             MapButton.SizeToFit();
             MapButton.TouchUpInside += (sender, e) => {
                 Console.WriteLine("Show map");
+                var popover = Storyboard.InstantiateViewController("map");
+                //(popover as MapViewController).Nav = this;
+
+                PresentViewController(popover, true, null);
+
+                // Configure the popover for the iPad, the popover displays as a modal view on the iPhone
+                UIPopoverPresentationController presentationPopover = popover.PopoverPresentationController;
+                if (presentationPopover != null)
+                {
+                    presentationPopover.SourceView = this.View;
+                    presentationPopover.PermittedArrowDirections = UIPopoverArrowDirection.Up;
+                    presentationPopover.SourceRect = View.Frame;
+                }
             };
             NavigationController.View.AddSubview(MapButton);
-
-            //var safeGuide = NavigationController.View.SafeAreaLayoutGuide;
-            //var marginGuide = NavigationController.View.LayoutMarginsGuide;
-            ////mapButton.Bounds = new CGRect(0,0 , 50, 50);
-
-            //MapButton.LeftAnchor.ConstraintEqualTo(safeGuide.LeftAnchor, 10).Active = true;
-            //MapButton.WidthAnchor.ConstraintEqualTo(100).Active = true;
-            //MapButton.HeightAnchor.ConstraintEqualTo(50).Active = true;
-            //safeGuide.BottomAnchor.ConstraintEqualTo(MapButton.BottomAnchor, -10).Active = true;
-            //mapButton.LeadingAnchor.ConstraintEqualTo(safeGuide.LeadingAnchor).Active = true;
-            //mapButton.TrailingAnchor.ConstraintEqualTo(safeGuide.TrailingAnchor).Active = true;
-            //mapButton.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor).Active = true;
-
-
 
             // Impelement delegate and datasource for tableview to operate
             TableView.DataSource = this;
@@ -103,6 +104,9 @@ namespace Todo11App
 
                 // bind every time, to reflect deletion in the Detail view
                 TableView.ReloadData();
+
+                LocMgr = new CLLocationManager();
+                LocMgr.RequestWhenInUseAuthorization();
             }
             else
             {

@@ -44,6 +44,31 @@
             </objects>
             <point key="canvasLocation" x="-154.5" y="-675.5"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="pgY-bN-raO">
+            <objects>
+                <viewController storyboardIdentifier="map" id="ke6-Hl-rc3" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mO5-qb-QLQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bo6-Nj-yzZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <viewLayoutGuide key="safeArea" id="v2w-X3-z4W"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="yxw-Kz-u9K"/>
+                    </view>
+                    <connections>
+                        <outlet property="Map" destination="bo6-Nj-yzZ" id="z3V-qh-tzw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mA4-4V-j7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339.5" y="-677.5"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="11">
             <objects>

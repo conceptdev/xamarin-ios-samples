@@ -30,7 +30,6 @@ namespace Todo11App
 				current.Name = NameText.Text;
 				current.Notes = NotesText.Text;
 				current.Done = DoneSwitch.On;
-				current.For = ForText.Text;
 
 				// includes CoreSpotlight indexing!
 				Delegate.SaveTodo(current); 
