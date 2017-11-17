@@ -31,7 +31,7 @@ namespace Todo11App
 
 		public override void MoveRow(UIKit.UITableView tableView, Foundation.NSIndexPath sourceIndexPath, Foundation.NSIndexPath destinationIndexPath)
 		{
-			//HACK: todoItems.MoveItem(sourceIndexPath.Row, destinationIndexPath.Row);
+            MoveTodo(todoItems[sourceIndexPath.Row], sourceIndexPath.Row, destinationIndexPath.Row);
 		}
 	}
 }

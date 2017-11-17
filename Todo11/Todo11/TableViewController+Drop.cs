@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Foundation;
 using UIKit;
 
@@ -66,13 +67,15 @@ namespace Todo11App
             else
             {
                 // Get last index path of table view
-                var section = tableView.NumberOfSections() - 1;
-                var row = tableView.NumberOfRowsInSection(section);
-                destinationIndexPath = NSIndexPath.FromRowSection(row, section);
+                //var section = tableView.NumberOfSections() - 1;
+                var row = tableView.NumberOfRowsInSection(0);
+                destinationIndexPath = NSIndexPath.FromRowSection(row, 0); // HACK: hardcode section for debugging
             }
 
             coordinator.Session.LoadObjects<NSString>((items) =>
             {
+                if (items.Length <= 0) return;
+
                 // Consume drag items
                 List<string> stringItems = new List<string>();
                 foreach (var i in items)
@@ -81,16 +84,23 @@ namespace Todo11App
                     stringItems.Add(q.ToString());
                 }
                 var indexPaths = new List<NSIndexPath>();
+
+                tableView.BeginUpdates();
                 for (var j = 0; j < stringItems.Count; j++)
                 {
-                    var indexPath1 = NSIndexPath.FromRowSection(destinationIndexPath.Row + j, destinationIndexPath.Section);
+                    var indexPath1 = NSIndexPath.FromRowSection(destinationIndexPath.Row + j, 0);
 
-                    //model.AddItem(stringItems[j], indexPath1.Row);
-                    SaveTodo(new TodoItem {Name=stringItems[j]}); // TODO: insert in the right location
+                    InsertTodo(new TodoItem { Name = stringItems[j] }, destinationIndexPath.Row); 
+                    todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); 
 
                     indexPaths.Add(indexPath1);
                 }
-                tableView.InsertRows(indexPaths.ToArray(), UITableViewRowAnimation.Automatic);
+                if (indexPaths.Count > 0 && indexPaths.Count == stringItems.Count)
+                {
+                    tableView.InsertRows(indexPaths.ToArray(), UITableViewRowAnimation.Automatic);
+                }
+                tableView.EndUpdates();
+                tableView.ReloadData();
             });
         }
     }

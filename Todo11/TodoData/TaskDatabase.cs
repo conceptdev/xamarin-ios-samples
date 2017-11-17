@@ -69,7 +69,6 @@ namespace Todo11App
 
 		public IEnumerable<T> GetOrderedItems<T> () where T : IBusinessEntity, new ()
 		{
-//			var table = nameof (T);
 			var sql = $"SELECT * FROM [TodoItem] ORDER BY [Order]";
 			lock (locker) {
 				return database.Query<T> (sql).ToList ();
@@ -86,16 +85,15 @@ namespace Todo11App
 			}
 			
 		}
-		[Obsolete("note used")]
-		public void Reorder<T> (int oldOrder, int newOrder) where T : IBusinessEntity, new ()
-		{
-//			var table = nameof (T);
-			var sql1 = $"UPDATE [TodoItem] SET [Order] = [Order] + 1 WHERE [Order] > ? AND [Order] < ?";
-			var sql2 = $"UPDATE [TodoItem] SET [Order] = ? WHERE [Order] = ?";
-			lock (locker) {
-				database.Query<T> (sql1, oldOrder, newOrder);
-				database.Query<T> (sql2, newOrder, oldOrder);
-			}
-		}
+		//[Obsolete("note used")]
+		//public void Reorder<T> (int oldOrder, int newOrder) where T : IBusinessEntity, new ()
+		//{
+		//	var sql1 = $"UPDATE [TodoItem] SET [Order] = [Order] + 1 WHERE [Order] > ? AND [Order] < ?";
+		//	var sql2 = $"UPDATE [TodoItem] SET [Order] = ? WHERE [Order] = ?";
+		//	lock (locker) {
+		//		database.Query<T> (sql1, oldOrder, newOrder);
+		//		database.Query<T> (sql2, newOrder, oldOrder);
+		//	}
+		//}
 	}
 }

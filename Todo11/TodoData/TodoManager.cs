@@ -50,10 +50,10 @@ namespace Todo11App
 			repository.Reorder(orderedTodos);
 		}
 
-		[Obsolete("not used")]
-		public void Reorder (int oldOrder, int newOrder) {
-			repository.Reorder (oldOrder, newOrder);
-		}
+		//[Obsolete("not used")]
+		//public void Reorder (int oldOrder, int newOrder) {
+		//	repository.Reorder (oldOrder, newOrder);
+		//}
 		
 	}
 }

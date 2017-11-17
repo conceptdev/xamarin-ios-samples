@@ -17,7 +17,7 @@ namespace Todo11App {
 		public bool Done { get; set; }
 		// ContactsUI
 		public string For { get; set; }
-		// CollectionView sorting
+		// Sorting
 		public int Order { get; set; }
 	}
 }

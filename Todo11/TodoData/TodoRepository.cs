@@ -50,10 +50,10 @@ namespace Todo11App {
 				db.UpdateOrder (t, ++i);
 			}
 		}
-		[Obsolete("not used")]
-		public void Reorder (int oldOrder, int newOrder) {
-			db.Reorder<TodoItem> (oldOrder, newOrder);
-		}
+		//[Obsolete("not used")]
+		//public void Reorder (int oldOrder, int newOrder) {
+		//	db.Reorder<TodoItem> (oldOrder, newOrder);
+		//}
 	}
 }
 

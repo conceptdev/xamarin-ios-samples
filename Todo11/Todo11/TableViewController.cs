@@ -48,7 +48,7 @@ namespace Todo11App
 
             if ((NavigationController as NavigationController).Authenticated)
             {
-                todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); //ordered for CollectionView
+                todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); 
 
                 // bind every time, to reflect deletion in the Detail view
                 TableView.ReloadData();
@@ -101,12 +101,25 @@ namespace Todo11App
 			// Could to this instead of the above, but need to create 'new TodoItem()' in PrepareForSegue()
 			//this.PerformSegue ("TodoSegue", this);
 		}
+        public void InsertTodo(TodoItem todo, int at)
+        {
+            todoItems.Insert(0, todo);
+            AppDelegate.Current.TodoMgr.SaveTodo(todo);
+            SpotlightHelper.Index(todo);
+            MoveTodo(todo, 0, at);
+        }
 		public void SaveTodo(TodoItem todo)
 		{
 			AppDelegate.Current.TodoMgr.SaveTodo(todo);
 			SpotlightHelper.Index(todo);
 
 		}
+        public void MoveTodo (TodoItem todo, int from, int to)
+        {
+            todoItems.RemoveAt(from);
+            todoItems.Insert(to, todo);
+            AppDelegate.Current.TodoMgr.Reorder(todoItems); // HACK: brute force
+        }
 		public void DeleteTodo(TodoItem todo)
 		{
 			Console.WriteLine("Delete " + todo.Name);
