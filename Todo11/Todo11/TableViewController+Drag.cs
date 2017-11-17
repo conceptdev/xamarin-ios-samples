@@ -16,10 +16,13 @@ namespace Todo11App
         public UIDragItem[] GetItemsForBeginningDragSession(UITableView tableView, IUIDragSession session, NSIndexPath indexPath)
         {
             var todo = todoItems[indexPath.Row];
+            var stringToDrop = todo.Name;
+            if (todo.Done)
+                stringToDrop += " [" + NSBundle.MainBundle.LocalizedString("Done", "") + "]";
 
-            var data = NSData.FromString(todo.Name, NSStringEncoding.UTF8);
+            var data = NSData.FromString(stringToDrop, NSStringEncoding.UTF8);
+
             var itemProvider = new NSItemProvider();
-
             itemProvider.RegisterDataRepresentation(UTType.PlainText,
                                                     NSItemProviderRepresentationVisibility.All,
                                                     (completion) =>

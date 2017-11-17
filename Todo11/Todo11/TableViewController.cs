@@ -23,23 +23,32 @@ namespace Todo11App
 		{
 			base.ViewDidLoad();
 
-			// Specify the table as its own drag source and drop delegate
-			this.TableView.DragDelegate = this;
-			this.TableView.DropDelegate = this;
-
-			// Impelement delegate and datasource for tableview to operate
-			TableView.DataSource = this;
-			TableView.Delegate = this;
-
             AddButton.Clicked += (sender, e) => {
-                CreateTodo ();
+                CreateTodo();
             };
+
+            // Impelement delegate and datasource for tableview to operate
+            TableView.DataSource = this;
+            TableView.Delegate = this;
+
+			// for Drag and Drop
+			TableView.DragDelegate = this;
+			TableView.DropDelegate = this;
 
             // for 3DTouch
             if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
             {
                 RegisterForPreviewingWithDelegate(this, TableView);
             }
+
+            // for Search
+            var search = new UISearchController(searchResultsController: null)
+            {
+                DimsBackgroundDuringPresentation = false
+            };
+            search.SearchResultsUpdater = this;
+            DefinesPresentationContext = true;
+            NavigationItem.SearchController = search;
 		}
 
 		public override void ViewWillAppear(bool animated)
@@ -107,6 +116,12 @@ namespace Todo11App
             AppDelegate.Current.TodoMgr.SaveTodo(todo);
             SpotlightHelper.Index(todo);
             MoveTodo(todo, 0, at);
+        }
+        public void ToggleTodoDone(TodoItem todo)
+        {
+            todo.Done = !todo.Done;
+            AppDelegate.Current.TodoMgr.SaveTodo(todo);
+            SpotlightHelper.Index(todo);
         }
 		public void SaveTodo(TodoItem todo)
 		{

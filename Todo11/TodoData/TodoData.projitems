@@ -15,5 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)TodoItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TodoManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TodoRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TodoManager+InsertSampleData.cs" />
   </ItemGroup>
 </Project>

@@ -4,21 +4,14 @@ using SQLite;
 
 namespace Todo11App
 {
-	public class TodoManager
+	public partial class TodoManager
 	{
         TodoRepository repository;
 
 		public TodoManager (SQLiteConnection conn) 
         {
             repository = new TodoRepository(conn, "");
-            if (GetTodos().Count == 0)
-            {
-                SaveTodo(new TodoItem { Name = "1" });
-                SaveTodo(new TodoItem { Name = "2" });
-                SaveTodo(new TodoItem { Name = "3" });
-                SaveTodo(new TodoItem { Name = "4" });
-                SaveTodo(new TodoItem { Name = "5" });
-            }
+            InsertSampleData();
         }
 
 		public TodoItem GetTodo(int id)

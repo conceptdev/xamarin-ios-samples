@@ -124,7 +124,7 @@
     <Compile Include="TableViewController.designer.cs">
       <DependentUpon>TableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableViewController+DataDelegate.cs" />
+    <Compile Include="TableViewController+DataDelegates.cs" />
     <Compile Include="TableViewController+Drag.cs" />
     <Compile Include="TableViewController+Drop.cs" />
     <Compile Include="Base.lproj\LocalAuthViewController.cs" />
@@ -132,6 +132,8 @@
       <DependentUpon>LocalAuthViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="TableViewController+3DTouch.cs" />
+    <Compile Include="TableViewController+Search.cs" />
+    <Compile Include="TableViewController+RowActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
