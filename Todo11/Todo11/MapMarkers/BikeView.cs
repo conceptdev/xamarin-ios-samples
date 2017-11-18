@@ -10,8 +10,8 @@ namespace Todo11App
 	[Register("BikeView")]
 	public class BikeView : MKMarkerAnnotationView
 	{
-        public static UIColor NotDoneColor = UIColor.FromRGB(254, 122, 36);
-		public static UIColor DoneColor = UIColor.FromRGB(153, 180, 44);
+        public static UIColor NotDoneColor = UIColor.FromRGB(0xE2, 0x55, 0x3D); //F8C6BB light red; E2553D darkish red
+        public static UIColor DoneColor = UIColor.FromRGB(0x6F, 0xA2, 0x2E); // CFEFA7 light-green; 6FA22E darkish green
 	
 		public override IMKAnnotation Annotation
 		{

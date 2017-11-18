@@ -11,7 +11,7 @@ namespace Todo11App
 	[Register("ClusterView")]
 	public class ClusterView : MKAnnotationView
 	{
-		public static UIColor ClusterColor = UIColor.FromRGB(202, 150, 38);
+        public static UIColor ClusterColor = UIColor.White; //UIColor.FromRGB(202, 150, 38);
 	
 		public override IMKAnnotation Annotation
 		{
@@ -31,23 +31,23 @@ namespace Todo11App
 				{
 					var renderer = new UIGraphicsImageRenderer(new CGSize(40, 40));
 					var count = cluster.MemberAnnotations.Length;
-					var unicycleCount = CountBikeType(cluster.MemberAnnotations, MarkerType.NotDone);
+                    var notDoneCount = CountBikeType(cluster.MemberAnnotations, MarkerType.NotDone);
 
 					Image = renderer.CreateImage((context) => {
-						// Fill full circle with tricycle color
+						// Fill full circle with DONE color
 						BikeView.DoneColor.SetFill();
 						UIBezierPath.FromOval(new CGRect(0, 0, 40, 40)).Fill();
 
-						// Fill pie with unicycle color
-						BikeView.DoneColor.SetFill();
+						// Fill pie with NOT DONE color
+						BikeView.NotDoneColor.SetFill();
 						var piePath = new UIBezierPath();
-						piePath.AddArc(new CGPoint(20,20), 20, 0, (nfloat)(Math.PI * 2.0 * unicycleCount / count), true);
+						piePath.AddArc(new CGPoint(20,20), 20, 0, (nfloat)(Math.PI * 2.0 * notDoneCount / count), true);
 						piePath.AddLineTo(new CGPoint(20, 20));
 						piePath.ClosePath();
 						piePath.Fill();
 
-						// Fill inner circle with white color
-						UIColor.White.SetFill();
+						// Fill inner circle with color
+                        ClusterColor.SetFill();
 						UIBezierPath.FromOval(new CGRect(8, 8, 24, 24)).Fill();
 
 						// Finally draw count text vertically and horizontally centered

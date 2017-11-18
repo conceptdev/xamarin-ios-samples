@@ -13,6 +13,7 @@ namespace Todo11App
 		public LocalAuthViewController (IntPtr handle) : base (handle)
 		{
             View.BackgroundColor = UIColor.FromRGB(0xCF, 0xEF, 0xa7);
+            HeadingLabel.Text = NSBundle.MainBundle.LocalizedString("Things To Do", ""); 
 		}
 
         public NavigationController Nav { get; set; }

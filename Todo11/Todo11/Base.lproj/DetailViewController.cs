@@ -18,6 +18,7 @@ namespace Todo11App
 		public DetailViewController (IntPtr handle) : base (handle)
 		{
 		}
+        UIButton PhotoButton;
 
 		public override void ViewDidLoad ()
 		{
@@ -55,7 +56,50 @@ namespace Todo11App
 			NotesText.TextAlignment = UITextAlignment.Natural;
 
 			UserActivity = UserActivityHelper.CreateNSUserActivity (Current?? new TodoItem());
+
+            // Map button
+            PhotoButton = UIButton.FromType(UIButtonType.Custom);
+            PhotoButton.SetTitle("Photo", UIControlState.Normal);
+            PhotoButton.BackgroundColor = UIColor.Green;
+
+            PhotoButton.SizeToFit();
+            PhotoButton.TouchUpInside += (sender, e) => {
+                Console.WriteLine("take photo");
+                var popover = Storyboard.InstantiateViewController("photo");
+
+                Console.WriteLine("pass todo item");
+                (popover as PhotoViewController).Todo = (NavigationController.VisibleViewController as DetailViewController).Current;
+
+                PresentViewController(popover, true, null);
+
+                // Configure the popover for the iPad, the popover displays as a modal view on the iPhone
+                UIPopoverPresentationController presentationPopover = popover.PopoverPresentationController;
+                if (presentationPopover != null)
+                {
+                    presentationPopover.SourceView = this.View;
+                    presentationPopover.PermittedArrowDirections = UIPopoverArrowDirection.Up;
+                    presentationPopover.SourceRect = View.Frame;
+                }
+            };
+            View.AddSubview(PhotoButton);
 		}
+        public override void ViewWillLayoutSubviews()
+        {
+            base.ViewWillLayoutSubviews();
+            PhotoButton.Layer.CornerRadius = PhotoButton.Layer.Frame.Size.Width / 2;
+            PhotoButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            PhotoButton.ClipsToBounds = true;
+            //MapButton.setImage(UIImage(named: "your-image"), for: .normal)
+            PhotoButton.TranslatesAutoresizingMaskIntoConstraints = false;
+
+            var safeGuide = View.SafeAreaLayoutGuide;
+            NSLayoutConstraint.ActivateConstraints(new NSLayoutConstraint[] {
+                PhotoButton.TrailingAnchor.ConstraintEqualTo(safeGuide.TrailingAnchor, -23 - 60 - 23),
+                PhotoButton.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor, -13),
+                PhotoButton.WidthAnchor.ConstraintEqualTo(60),
+                PhotoButton.HeightAnchor.ConstraintEqualTo(60)
+            });
+        }
 		public override void ViewWillDisappear (bool animated)
 		{
 			UserActivity?.ResignCurrent ();

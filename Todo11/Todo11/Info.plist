@@ -114,5 +114,9 @@
 	<string>Need your face to unlock!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need maps for location!</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need to take photos of places!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Find photos to use.</string>
 </dict>
 </plist>

@@ -11,7 +11,7 @@ namespace Todo11App
             if (GetTodos().Count == 0)
             {
                 SaveTodo(new TodoItem { Name = "Space Needle", Latitude = 47.620422, Longitude = -122.349358 });
-                SaveTodo(new TodoItem { Name = "Seattle Aquaium", Latitude = 47.607445, Longitude = -122.3429996 });
+                SaveTodo(new TodoItem { Name = "Seattle Aquarium", Latitude = 47.607445, Longitude = -122.3429996 });
                 SaveTodo(new TodoItem { Name = "Seattle Great Wheel", Latitude = 47.6061064, Longitude = -122.3437136 });
                 SaveTodo(new TodoItem { Name = "Monorail", Latitude = 47.6212364, Longitude = -122.3587656 });
                 SaveTodo(new TodoItem { Name = "Chihuly", Latitude = 47.6212308, Longitude = -122.3849658 });

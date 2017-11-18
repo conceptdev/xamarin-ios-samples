@@ -143,6 +143,15 @@
     <Compile Include="MapMarkers\BikeView.cs" />
     <Compile Include="MapMarkers\ClusterView.cs" />
     <Compile Include="MapMarkers\MKAnnotationWrapperExtensions.cs" />
+    <Compile Include="Base.lproj\PhotoViewController.cs" />
+    <Compile Include="Base.lproj\PhotoViewController.designer.cs">
+      <DependentUpon>PhotoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoreML\MachineLearningModel.cs" />
+    <Compile Include="CoreML\EventArgsT.cs" />
+    <Compile Include="CoreML\UIImageExtensions.cs" />
+    <Compile Include="CoreML\UIImageOrientationExtensions.cs" />
+    <Compile Include="Base.lproj\PhotoViewController+CoreML.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
@@ -156,6 +165,7 @@
     <Folder Include="Resources\Images.xcassets\" />
     <Folder Include="Constants\" />
     <Folder Include="MapMarkers\" />
+    <Folder Include="CoreML\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\en.lproj\Localizable.strings" />

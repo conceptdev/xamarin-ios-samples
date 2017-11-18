@@ -13,6 +13,9 @@ namespace Todo11App
 	partial class LocalAuthViewController
 	{
 		[Outlet]
+		UIKit.UILabel HeadingLabel { get; set; }
+
+		[Outlet]
 		UIKit.UIButton LoginButton { get; set; }
 
 		[Outlet]
@@ -20,14 +23,19 @@ namespace Todo11App
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (LoginLabel != null) {
-				LoginLabel.Dispose ();
-				LoginLabel = null;
+			if (HeadingLabel != null) {
+				HeadingLabel.Dispose ();
+				HeadingLabel = null;
 			}
 
 			if (LoginButton != null) {
 				LoginButton.Dispose ();
 				LoginButton = null;
+			}
+
+			if (LoginLabel != null) {
+				LoginLabel.Dispose ();
+				LoginLabel = null;
 			}
 		}
 	}
