@@ -88,6 +88,7 @@ namespace Todo11App
             base.ViewWillLayoutSubviews();
             PhotoButton.Layer.CornerRadius = PhotoButton.Layer.Frame.Size.Width / 2;
             PhotoButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            PhotoButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             PhotoButton.ClipsToBounds = true;
             //MapButton.setImage(UIImage(named: "your-image"), for: .normal)
             PhotoButton.TranslatesAutoresizingMaskIntoConstraints = false;

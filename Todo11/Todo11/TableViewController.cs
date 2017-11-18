@@ -91,6 +91,7 @@ namespace Todo11App
             base.ViewWillLayoutSubviews();
             MapButton.Layer.CornerRadius = MapButton.Layer.Frame.Size.Width / 2;
             MapButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            MapButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             MapButton.ClipsToBounds = true;
             //MapButton.setImage(UIImage(named: "your-image"), for: .normal)
             MapButton.TranslatesAutoresizingMaskIntoConstraints = false;

@@ -40,11 +40,16 @@ namespace Todo11App
 		public T GetItem<T> (int id) where T : IBusinessEntity, new ()
 		{
             lock (locker) {
-                return database.Table<T>().FirstOrDefault(x => x.Id == id);
-                // Following throws NotSupportedException - thanks aliegeni
-                //return (from i in Table<T> ()
-                //        where i.ID == id
-                //        select i).FirstOrDefault ();
+                try
+                {
+                    var sql = $"SELECT * FROM [TodoItem] WHERE [Id] = ?";
+                    return database.Query<T>(sql, id).FirstOrDefault();
+
+                } catch (Exception ex)
+                {
+                    Console.WriteLine("Data error (primary key?) " + ex.Message);
+                    return database.Table<T>().First(); // HACK: return wrong result
+                }
             }
 		}
 

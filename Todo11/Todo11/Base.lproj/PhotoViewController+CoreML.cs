@@ -11,25 +11,33 @@ using CoreFoundation;
 
 namespace Todo11App
 {
+    /*
+        Needs CoreML model VGG16 downloaded from 
+        https://developer.apple.com/machine-learning/
+        (https://docs-assets.developer.apple.com/coreml/models/VGG16.mlmodel)
+
+        Then compile and add to Resources folder:
+        xcrun coremlcompiler compile {model.mlmodel} {outputFolder}
+
+        See this README for more info
+        https://github.com/xamarin/ios-samples/blob/master/ios11/CoreMLImageRecognition/CoreMLImageRecognition/README.md
+
+        eg
+        ```
+        cd Downloads
+        xcrun coremlcompiler compile VGG16.mlmodel vggout
+        ```
+    */
     public partial class PhotoViewController 
     {
         MachineLearningModel model;
 
-        private void ShowAlert(string title, string message)
+        void ConfigureCoreML()
         {
-            var okAlertController = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
-            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (_) => { }));
-            InvokeOnMainThread(() => PresentViewController(okAlertController, true, () => { }));
-        }
-
-        void ShowMessage(string msg)
-        {
-            InvokeOnMainThread(() => ClassificationLabel.Text = msg);
-        }
-
-        private void ShowImage(UIImage img)
-        {
-            InvokeOnMainThread(() => ImageView.Image = img);
+            model = new MachineLearningModel();
+            model.PredictionsUpdated += (s, e) => ShowPrediction(e.Value);
+            model.ErrorOccurred += (s, e) => ShowAlert("Processing Error", e.Value);
+            model.MessageUpdated += (s, e) => ShowMessage(e.Value);
         }
 
         void ClassifyImageAsync(UIImage img)
@@ -54,40 +62,17 @@ namespace Todo11App
                 ShowMessage(message);
             });
         }
-    }
 
-    class ImagePickerControllerDelegate : UIImagePickerControllerDelegate
-    {
-        public event EventHandler<EventArgsT<String>> MessageUpdated = delegate { };
-        public event EventHandler<EventArgsT<String>> ErrorOccurred = delegate { };
-        public event EventHandler<EventArgsT<CIImage>> ImagePicked = delegate { };
-
-        public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
+        private void ShowAlert(string title, string message)
         {
-            // Close the picker
-            picker.DismissViewController(true, null);
+            var okAlertController = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
+            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (_) => { }));
+            InvokeOnMainThread(() => PresentViewController(okAlertController, true, () => { }));
+        }
 
-            MessageUpdated(this, new EventArgsT<string>("Analyzing image..."));
-
-            // Read Image from returned data
-            var uiImage = info[UIImagePickerController.OriginalImage] as UIImage;
-            if (uiImage == null)
-            {
-                ErrorOccurred(this, new EventArgsT<string>("Unable to read image from picker."));
-                return;
-            }
-
-            // Convert to CIImage
-            var ciImage = new CIImage(uiImage);
-            if (ciImage == null)
-            {
-                ErrorOccurred(this, new EventArgsT<string>("Unable to create required CIImage from UIImage."));
-                return;
-            }
-            var inputImage = ciImage.CreateWithOrientation(uiImage.Orientation.ToCIImageOrientation());
-
-            ImagePicked(this, new EventArgsT<CIImage>(inputImage));
-
+        void ShowMessage(string msg)
+        {
+            InvokeOnMainThread(() => ClassificationLabel.Text = msg);
         }
     }
 }

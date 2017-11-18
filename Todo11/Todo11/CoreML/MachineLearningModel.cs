@@ -29,56 +29,10 @@ namespace Todo11App
             currentModel = LoadModel("VGG16");
             sizeForModel = new CGSize(224, 224);
         }
-        //Dictionary<string, MLModel> models = new Dictionary<string, MLModel>();
-        //Dictionary<MLModel, CGSize> sizeFor = new Dictionary<MLModel, CGSize>();
-
-        //string currentModel;
-        //string currentAuthors;
-
-        //internal MachineLearningModel()
-        //{
-
-        //    var modelData = new[] {
-        //        new Tuple<string,CGSize>("VGG16", new CGSize(224,224)),
-        //        new Tuple<string,CGSize>("SqueezeNet", new CGSize(227,227))
-        //    };
-
-        //    foreach (var m in modelData)
-        //    {
-        //        var modelName = m.Item1;
-        //        var modelInputImageSize = m.Item2;
-        //        models[modelName] = LoadModel(modelName);
-        //        if (models[modelName] != null)
-        //            sizeFor[models[modelName]] = modelInputImageSize;
-        //    }
-
-        //    SwitchToModel("SqueezeNet");
-        //}
-
-        //public IEnumerable<string> ModelNames => models.Keys;
-
-        //public MLModel Model(string name) => models[name];
-
-        //public MLModel SwitchToModel(string modelName)
-        //{
-        //    if (models[modelName] == null)
-        //    {
-        //        var errorSuffix = modelName == "VGG16" ? "(it probably hasn't been download, built, and added to the project's Resources. See the README for instructions). Touch again to switch back to the SqueezeNet model.not sur" : "";
-        //        ErrorOccurred(this, new EventArgsT<string>($"ML model '{modelName}' is null " + errorSuffix));
-        //    }
-        //    else
-        //    {
-        //        MessageUpdated(this, new EventArgsT<string>($"Switched to {modelName}"));
-        //        currentModel = modelName;
-        //        currentAuthors = models[modelName].ModelDescription.Metadata.Author;
-        //    }
-        //    return models[modelName];
-        //}
 
         MLModel LoadModel(string modelName)
         {
-            NSBundle bundle = NSBundle.MainBundle;
-            var assetPath = bundle.GetUrlForResource(modelName, "mlmodelc");
+            var assetPath = NSBundle.MainBundle.GetUrlForResource(modelName, "mlmodelc");
             MLModel mdl = null;
             try
             {
@@ -98,8 +52,6 @@ namespace Todo11App
 
         internal void Classify(UIImage source)
         {
-            var model = currentModel;
-
             var pixelBuffer = source.Scale(sizeForModel).ToCVPixelBuffer();
             var imageValue = MLFeatureValue.Create(pixelBuffer);
 
@@ -112,7 +64,7 @@ namespace Todo11App
                 ErrorOccurred(this, new EventArgsT<string>(error.ToString()));
                 return;
             }
-            var outFeatures = model.GetPrediction(inputFp, out error2);
+            var outFeatures = currentModel.GetPrediction(inputFp, out error2);
             if (error2 != null)
             {
                 ErrorOccurred(this, new EventArgsT<string>(error2.ToString()));

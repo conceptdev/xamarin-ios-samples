@@ -19,6 +19,7 @@ namespace Todo11App
 
 		public PhotoViewController (IntPtr handle) : base (handle)
 		{
+            View.BackgroundColor = UIColor.LightGray;
 		}
         public override void ViewDidLoad()
         {
@@ -36,53 +37,58 @@ namespace Todo11App
             imagePickerControllerDelegate.ImagePicked += (s, e) =>
             {
                 var img = UIImage.FromImage(e.Value);
-                ShowImage(img);
+                InvokeOnMainThread(() => ImageView.Image = img);
                 ClassifyImageAsync(img);
             };
 
             CameraButton.TouchUpInside += ShowCamera;
             GalleryButton.TouchUpInside += ShowGallery;
-            CloseButton.TouchUpInside += (sender, e) => {
+            CloseButton.TouchUpInside += (sender, e) =>
+            {
                 Console.WriteLine("Close photo");
                 DismissViewController(true, null);
             };
-            SaveButton.TouchUpInside += (sender, e) => {
+            SaveButton.TouchUpInside += (sender, e) =>
+            {
                 Console.WriteLine("Save photo");
                 DismissViewController(true, null);
             };
 
-            // Configure Model
-            model = new MachineLearningModel();
-            model.PredictionsUpdated += (s, e) => ShowPrediction(e.Value);
-            model.ErrorOccurred += (s, e) => ShowAlert("Processing Error", e.Value);
-            model.MessageUpdated += (s, e) => ShowMessage(e.Value);
+            ConfigureCoreML();
         }
+
         public override void ViewWillLayoutSubviews()
         {
             base.ViewWillLayoutSubviews();
             CameraButton.Layer.CornerRadius = CameraButton.Layer.Frame.Size.Width / 2;
             CameraButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            CameraButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             CameraButton.ClipsToBounds = true;
             //CameraButton.setImage(UIImage(named: "your-image"), for: .normal)
             CameraButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
             GalleryButton.Layer.CornerRadius = GalleryButton.Layer.Frame.Size.Width / 2;
             GalleryButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            GalleryButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             GalleryButton.ClipsToBounds = true;
             //GalleryButton.setImage(UIImage(named: "your-image"), for: .normal)
             GalleryButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
             CloseButton.Layer.CornerRadius = CloseButton.Layer.Frame.Size.Width / 2;
             CloseButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            CloseButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             CloseButton.ClipsToBounds = true;
             //CloseButton.setImage(UIImage(named: "your-image"), for: .normal)
             CloseButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
             SaveButton.Layer.CornerRadius = SaveButton.Layer.Frame.Size.Width / 2;
             SaveButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
+            SaveButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             SaveButton.ClipsToBounds = true;
             //SaveButton.setImage(UIImage(named: "your-image"), for: .normal)
             SaveButton.TranslatesAutoresizingMaskIntoConstraints = false;
+
+            ClassificationLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
             var safeGuide = View.SafeAreaLayoutGuide;
             NSLayoutConstraint.ActivateConstraints(new NSLayoutConstraint[] {
@@ -108,6 +114,14 @@ namespace Todo11App
                 SaveButton.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor, -13),
                 SaveButton.WidthAnchor.ConstraintEqualTo(60),
                 SaveButton.HeightAnchor.ConstraintEqualTo(60)
+            });
+
+            var marginGuide = View.LayoutMarginsGuide;
+            NSLayoutConstraint.ActivateConstraints(new NSLayoutConstraint[] {
+                ClassificationLabel.LeadingAnchor.ConstraintEqualTo(marginGuide.LeadingAnchor),
+                ClassificationLabel.TrailingAnchor.ConstraintEqualTo(marginGuide.TrailingAnchor),
+                ClassificationLabel.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor, -13 - 60 - 13),
+                ClassificationLabel.HeightAnchor.ConstraintEqualTo(120)
             });
         }
        
@@ -153,6 +167,40 @@ namespace Todo11App
 
             // Display the picker
             PresentViewController(picker, true, null);
+        }
+    }
+    class ImagePickerControllerDelegate : UIImagePickerControllerDelegate
+    {
+        public event EventHandler<EventArgsT<String>> MessageUpdated = delegate { };
+        public event EventHandler<EventArgsT<String>> ErrorOccurred = delegate { };
+        public event EventHandler<EventArgsT<CIImage>> ImagePicked = delegate { };
+
+        public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
+        {
+            // Close the picker
+            picker.DismissViewController(true, null);
+
+            MessageUpdated(this, new EventArgsT<string>("Analyzing image with CoreML..."));
+
+            // Read Image from returned data
+            var uiImage = info[UIImagePickerController.OriginalImage] as UIImage;
+            if (uiImage == null)
+            {
+                ErrorOccurred(this, new EventArgsT<string>("Unable to read image from picker."));
+                return;
+            }
+
+            // Convert to CIImage
+            var ciImage = new CIImage(uiImage);
+            if (ciImage == null)
+            {
+                ErrorOccurred(this, new EventArgsT<string>("Unable to create required CIImage from UIImage."));
+                return;
+            }
+            var inputImage = ciImage.CreateWithOrientation(uiImage.Orientation.ToCIImageOrientation());
+
+            ImagePicked(this, new EventArgsT<CIImage>(inputImage));
+
         }
     }
 }

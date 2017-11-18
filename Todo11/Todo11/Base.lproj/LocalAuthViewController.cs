@@ -14,6 +14,7 @@ namespace Todo11App
 		{
             View.BackgroundColor = UIColor.FromRGB(0xCF, 0xEF, 0xa7);
             HeadingLabel.Text = NSBundle.MainBundle.LocalizedString("Things To Do", ""); 
+            HeadingLabel.TextColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
 		}
 
         public NavigationController Nav { get; set; }
