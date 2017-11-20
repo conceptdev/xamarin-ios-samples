@@ -185,6 +185,11 @@
     <BundleResource Include="Resources\es.lproj\InfoPlist.strings" />
     <BundleResource Include="Resources\en.lproj\Localizable.stringsdict" />
     <BundleResource Include="Resources\es.lproj\Localizable.stringsdict" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\coremldata.bin" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model.espresso.net" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model.espresso.shape" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model.espresso.weights" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model\coremldata.bin" />
   </ItemGroup>
   <Import Project="..\TodoData\TodoData.projitems" Label="Shared" Condition="Exists('..\TodoData\TodoData.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

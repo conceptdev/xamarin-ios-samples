@@ -14,16 +14,16 @@ namespace Todo11App
                 SaveTodo(new TodoItem { Name = "Seattle Aquarium", Latitude = 47.607445, Longitude = -122.3429996 });
                 SaveTodo(new TodoItem { Name = "Seattle Great Wheel", Latitude = 47.6061064, Longitude = -122.3437136 });
                 SaveTodo(new TodoItem { Name = "Monorail", Latitude = 47.6212364, Longitude = -122.3587656 });
-                SaveTodo(new TodoItem { Name = "Chihuly", Latitude = 47.6212308, Longitude = -122.3849658 });
-                SaveTodo(new TodoItem { Name = "Olypmic Sculpture Park", Latitude = 47.6165958, Longitude = -122.3574934 });
+                SaveTodo(new TodoItem { Name = "Chihuly Garden and Glass", Latitude = 47.6212308, Longitude = -122.3849658 });
+                SaveTodo(new TodoItem { Name = "Olympic Sculpture Park", Latitude = 47.6165958, Longitude = -122.3574934 });
                 SaveTodo(new TodoItem { Name = "Pacific Science Center", Latitude = 47.6197393, Longitude = -122.3532757 });
                 SaveTodo(new TodoItem { Name = "Seattle Children's Museum", Latitude = 47.621394, Longitude = -122.3530673 });
                 SaveTodo(new TodoItem { Name = "Seattle Repertory Theatre", Latitude = 47.6239152, Longitude = -122.3558693 });
-                SaveTodo(new TodoItem { Name = "Key Arena", Latitude = 47.6221, Longitude = -122.3561713 });
+                SaveTodo(new TodoItem { Name = "KeyArena", Latitude = 47.6221, Longitude = -122.3561713 });
                 SaveTodo(new TodoItem { Name = "Memorial Stadium", Latitude = 47.6228051, Longitude = -122.3517047 });
                 SaveTodo(new TodoItem { Name = "Museum of Pop Culture", Latitude = 47.6214824, Longitude = -122.3503078 });
                 SaveTodo(new TodoItem { Name = "Pike Place Fish Market", Latitude = 47.6089551, Longitude = -122.3427362 });
-                SaveTodo(new TodoItem { Name = "Pike Place Starbucks", Latitude = 47.6100596, Longitude = -122.3447316 });
+                SaveTodo(new TodoItem { Name = "Pike Place Starbucks (coffee)", Latitude = 47.6100596, Longitude = -122.3447316 });
                 SaveTodo(new TodoItem { Name = "Seattle Art Museum", Latitude = 47.607309, Longitude = -122.3403164 });
                 SaveTodo(new TodoItem { Name = "Sky View Observatory", Latitude = 47.6047141, Longitude = -122.3326368 });
                 SaveTodo(new TodoItem { Name = "Smith Tower Observation Deck", Latitude = 47.6019201, Longitude = -122.3339053 });
@@ -39,10 +39,15 @@ namespace Todo11App
                 SaveTodo(new TodoItem { Name = "Occidental Square", Latitude = 47.600506, Longitude = -122.3354069 });
                 SaveTodo(new TodoItem { Name = "McCaw Hall", Latitude = 47.6239126, Longitude = -122.3519183 });
                 SaveTodo(new TodoItem { Name = "IMAX", Latitude = 47.6197697, Longitude = -122.3527042 });
-                //SaveTodo(new TodoItem { Name = "", Latitude = , Longitude =  });
-                //SaveTodo(new TodoItem { Name = "", Latitude = , Longitude =  });
-                //SaveTodo(new TodoItem { Name = "", Latitude = , Longitude =  });
-                //SaveTodo(new TodoItem { Name = "", Latitude = , Longitude =  });
+                SaveTodo(new TodoItem { Name = "Lake Union Park", Latitude = 47.6239706, Longitude = -122.3378493 });
+                SaveTodo(new TodoItem { Name = "Denny Park", Latitude = 47.6208322, Longitude = -122.3450376 });
+                SaveTodo(new TodoItem { Name = "Discovery Park", Latitude = 47.6521352, Longitude = -122.407175 });
+                SaveTodo(new TodoItem { Name = "Seward Park", Latitude = 47.552982, Longitude = -122.2625173 });
+                SaveTodo(new TodoItem { Name = "Monorail Espresso (coffee)", Latitude = 47.6111038, Longitude = -122.3371685 });
+                SaveTodo(new TodoItem { Name = "Moore Coffee Shop", Notes="known for latte art", Latitude = 47.6117873, Longitude = -122.3419348 });
+                SaveTodo(new TodoItem { Name = "Bedlam coffee", Latitude = 47.6136907, Longitude = -122.3459679 });
+                SaveTodo(new TodoItem { Name = "Bang Bang Cafe (coffee)", Latitude = 47.6139546, Longitude = -122.3495849 });
+
             }
         }
     }

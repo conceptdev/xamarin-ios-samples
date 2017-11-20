@@ -23,12 +23,14 @@ namespace Todo11App
 			return cell;
 		}
 
+       
 		// IUITableViewDelegate
+        [Export("tableView:canMoveRowAtIndexPath:")]
 		public override bool CanMoveRow(UIKit.UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			return true;
 		}
-
+        [Export("tableView:moveRowAtIndexPath:toIndexPath:")]
 		public override void MoveRow(UIKit.UITableView tableView, Foundation.NSIndexPath sourceIndexPath, Foundation.NSIndexPath destinationIndexPath)
 		{
             MoveTodo(todoItems[sourceIndexPath.Row], sourceIndexPath.Row, destinationIndexPath.Row);

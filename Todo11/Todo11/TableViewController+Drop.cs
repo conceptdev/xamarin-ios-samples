@@ -37,7 +37,7 @@ namespace Todo11App
                     return new UITableViewDropProposal(UIDropOperation.Cancel);
                 }
                 else
-                {
+                {   // allow reordering (doesn't call PerformDrop for single rows, instead calls MoveRow)
                     return new UITableViewDropProposal(UIDropOperation.Move, UITableViewDropIntent.InsertAtDestinationIndexPath);
                 }
             }
