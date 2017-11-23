@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Foundation;
-using UIKit;
-using MapKit;
-using CoreGraphics;
-using CoreLocation;
+﻿using MapKit;
 
 namespace Todo11App
 {
-	public static class MKAnnotationWrapperExtensions
+    public static class MKAnnotationWrapperExtensions
 	{
 		public static MKClusterAnnotation UnwrapClusterAnnotation(IMKAnnotation annotation) {
 			if (annotation == null) return null;

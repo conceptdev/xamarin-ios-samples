@@ -10,23 +10,21 @@ namespace Todo11App
 {
     public partial class MapViewController : UIViewController
     {
-
+        // called in ViewDidLoad
         void SetUpAnnotations()
-        {
-            RegisterAnnotationViewClasses();
-            LoadDataForMapRegionAndBikes();
-
-            Map.GetViewForAnnotation = HandleMKMapViewAnnotation;
-        }
-        void RegisterAnnotationViewClasses()
         {
             Map.Register(typeof(BikeView), MKMapViewDefault.AnnotationViewReuseIdentifier);
             Map.Register(typeof(ClusterView), MKMapViewDefault.ClusterAnnotationViewReuseIdentifier);
+
+            LoadData();
+
+            Map.GetViewForAnnotation = HandleMKMapViewAnnotation;
         }
 
-        void LoadDataForMapRegionAndBikes()
+        void LoadData()
         {
 #if DEBUG
+            // DEMO: in Seattle
             var coordinate = new CLLocationCoordinate2D(47.620422, -122.349358);
             var span = new MKCoordinateSpan(0.00978871051851371, 0.00816739331921212);
             Map.Region = new MKCoordinateRegion(coordinate, span);

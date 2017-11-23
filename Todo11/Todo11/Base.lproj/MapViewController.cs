@@ -6,6 +6,8 @@ using Foundation;
 using MapKit;
 using UIKit;
 
+// DEMO: 1. Location usage description
+
 namespace Todo11App
 {
     public partial class MapViewController : UIViewController

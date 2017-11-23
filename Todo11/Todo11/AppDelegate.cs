@@ -49,7 +49,9 @@ namespace Todo11App
 			TodoMgr = new TodoManager(conn);
 			#endregion
 
-			#region Theme
+
+			#region Theme Large Titles
+            // DEMO: set Large Titles colors
 			UINavigationBar.Appearance.TintColor = UIColor.FromRGB (0x5A, 0x86, 0x22); // 5A8622 dark-green
 			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB (0xCF, 0xEF, 0xa7); // CFEFA7 light-green
 
@@ -63,11 +65,9 @@ namespace Todo11App
 				ForegroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22), // 5A8622 dark-green
 			};
 
-            //UIButton.AppearanceWhenContainedIn(typeof(UITableView)).SetTitleColor(UIColor.FromRGB(0x5A, 0x86, 0x22), UIControlState.Normal);
-            UIButton.AppearanceWhenContainedIn(typeof(UITableView)).TintColor = UIColor.FromRGB(0x5A, 0x86, 0x22);
+            UIButton.AppearanceWhenContainedIn(typeof(UITableView)).TintColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
 			#endregion
 
-			Console.WriteLine ("bbbbbbbbbb FinishedLaunching");
 
 			#region Quick Action
 			var shouldPerformAdditionalDelegateHandling = true;

@@ -6,9 +6,14 @@ using Intents;
 
 namespace Todo11App
 {
-    public partial class NavigationController 
+    public partial class NavigationController
     {
-       public override void ViewDidAppear(bool animated)
+        /// <summary>
+        /// Central storage for whether the user has been authenticated
+        /// </summary>
+        public bool Authenticated { get; set; } = false;
+
+        public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 

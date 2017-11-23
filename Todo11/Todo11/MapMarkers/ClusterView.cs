@@ -1,18 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using Foundation;
-using UIKit;
-using MapKit;
 using CoreGraphics;
-using CoreLocation;
+using Foundation;
+using MapKit;
+using UIKit;
 
 namespace Todo11App
 {
-	[Register("ClusterView")]
+    [Register("ClusterView")]
 	public class ClusterView : MKAnnotationView
 	{
         public static UIColor ClusterColor = UIColor.White; //UIColor.FromRGB(202, 150, 38);
 	
+        public ClusterView(IMKAnnotation annotation, string reuseIdentifier) : base(annotation, reuseIdentifier)
+        {
+            // Initialize
+            DisplayPriority = MKFeatureDisplayPriority.DefaultHigh;
+            CollisionMode = MKAnnotationViewCollisionMode.Circle;
+
+            // Offset center point to animate better with marker annotations
+            CenterOffset = new CoreGraphics.CGPoint(0, -10);
+        }
+
 		public override IMKAnnotation Annotation
 		{
 			get
@@ -76,15 +84,7 @@ namespace Todo11App
 		{
 		}
 
-		public ClusterView(IMKAnnotation annotation, string reuseIdentifier) : base(annotation, reuseIdentifier)
-		{
-			// Initialize
-			DisplayPriority = MKFeatureDisplayPriority.DefaultHigh;
-			CollisionMode = MKAnnotationViewCollisionMode.Circle;
-
-			// Offset center point to animate better with marker annotations
-			CenterOffset = new CoreGraphics.CGPoint(0, -10);
-		}
+		
 		
 		private nuint CountBikeType(IMKAnnotation[] members, MarkerType type) {
 			nuint count = 0;

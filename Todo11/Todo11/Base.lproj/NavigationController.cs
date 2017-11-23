@@ -12,8 +12,6 @@ namespace Todo11App
 		{
 		}
 
-        public bool Authenticated { get; set; }= false;
-
         public override void ViewDidLoad()
         {
 			// https://medium.com/@PavelGnatyuk/large-title-and-search-in-ios-11-514d5e020cee

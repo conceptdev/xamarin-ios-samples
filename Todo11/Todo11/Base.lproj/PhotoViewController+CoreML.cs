@@ -9,6 +9,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoreFoundation;
 
+// DEMO: 1. Info.plist Photo and Camera usage description
+// DEMO: 2. Get the model (see below)
+// DEMO: 3. Add model to /Resources/
+// DEMO: 4. 
+
 namespace Todo11App
 {
     /*
@@ -35,6 +40,7 @@ namespace Todo11App
         void ConfigureCoreML()
         {
             model = new MachineLearningModel();
+
             model.PredictionsUpdated += (s, e) => ShowPrediction(e.Value);
             model.ErrorOccurred += (s, e) => ShowAlert("Processing Error", e.Value);
             model.MessageUpdated += (s, e) => ShowMessage(e.Value);

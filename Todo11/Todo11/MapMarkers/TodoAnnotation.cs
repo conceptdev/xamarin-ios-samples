@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Foundation;
-using UIKit;
-using MapKit;
+﻿using System.Collections.Generic;
 using CoreLocation;
+using Foundation;
+using MapKit;
 
 namespace Todo11App
 {

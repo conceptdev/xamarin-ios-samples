@@ -25,7 +25,7 @@ namespace Todo11App
 					Console.WriteLine (err);
 
 				} else {
-					Console.WriteLine ("Indexed inividual item successfully");
+					Console.WriteLine ("Indexed individual item successfully");
 			
 				}
 			});
@@ -36,7 +36,7 @@ namespace Todo11App
 					Console.WriteLine (err);
 
 				} else {
-					Console.WriteLine ("Deleted inividual item from CS index");
+					Console.WriteLine ("Deleted individual item from CS index");
 				}
 			});
 		}

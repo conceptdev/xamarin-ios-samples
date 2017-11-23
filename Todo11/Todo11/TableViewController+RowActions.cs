@@ -1,8 +1,6 @@
 ﻿using Foundation;
 using System;
 using UIKit;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Todo11App
 {
@@ -35,13 +33,6 @@ namespace Todo11App
         }
 
         // Swipe right
-        public override UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration(UITableView tableView, NSIndexPath indexPath)
-        {
-            var doneAction = ContextualDoneAction(indexPath.Row);
-            var leadingSwipe = UISwipeActionsConfiguration.FromActions(new UIContextualAction[] { doneAction });
-            leadingSwipe.PerformsFirstActionWithFullSwipe = true;
-            return leadingSwipe;
-        }
         public UIContextualAction ContextualDoneAction(int row)
         {
             var action = UIContextualAction.FromContextualActionStyle(UIContextualActionStyle.Normal,
@@ -51,12 +42,17 @@ namespace Todo11App
                                                                           TableView.ReloadData(); // otherwise ticks don't get updated
                                                                           success(true);
                                                                       });
-
             action.Image = todoItems[row].Done ? UIImage.FromBundle("box") : UIImage.FromBundle("checkbox");
             action.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // dark green
 
             return action;
         }
-
+        public override UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration(UITableView tableView, NSIndexPath indexPath)
+        {
+            var doneAction = ContextualDoneAction(indexPath.Row);
+            var leadingSwipe = UISwipeActionsConfiguration.FromActions(new UIContextualAction[] { doneAction });
+            leadingSwipe.PerformsFirstActionWithFullSwipe = true;
+            return leadingSwipe;
+        }
     }
 }

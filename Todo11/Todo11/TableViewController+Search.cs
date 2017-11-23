@@ -5,11 +5,19 @@ using UIKit;
 
 namespace Todo11App
 {
-    /*
-    remember to configure in ViewDidLoad
-    */
     public partial class TableViewController: IUISearchResultsUpdating
     {
+        // called in ViewDidLod
+        void ConfigureSearch()
+        {
+            var search = new UISearchController(searchResultsController: null)
+            {
+                DimsBackgroundDuringPresentation = false
+            };
+            search.SearchResultsUpdater = this; // implemented the interface above
+            DefinesPresentationContext = true;  // IMPORTANT: ensures segue works
+            NavigationItem.SearchController = search;
+        }
 
         public void UpdateSearchResultsForSearchController(UISearchController searchController)
         {

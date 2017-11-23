@@ -105,13 +105,10 @@
     <Compile Include="Constants\ActivityTypes.cs" />
     <Compile Include="Constants\Spotlight.cs" />
     <Compile Include="Constants\ShortcutIdentifiers.cs" />
-    <Compile Include="SpotlightHelper.cs" />
-    <Compile Include="UserActivityHelper.cs" />
     <Compile Include="Base.lproj\PeekViewController.cs" />
     <Compile Include="Base.lproj\PeekViewController.designer.cs">
       <DependentUpon>PeekViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContactHelper.cs" />
     <Compile Include="Base.lproj\NavigationController.cs" />
     <Compile Include="Base.lproj\NavigationController.designer.cs">
       <DependentUpon>NavigationController.cs</DependentUpon>
@@ -152,6 +149,8 @@
     <Compile Include="CoreML\UIImageExtensions.cs" />
     <Compile Include="CoreML\UIImageOrientationExtensions.cs" />
     <Compile Include="Base.lproj\PhotoViewController+CoreML.cs" />
+    <Compile Include="UserActivity\SpotlightHelper.cs" />
+    <Compile Include="UserActivity\UserActivityHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
@@ -166,6 +165,7 @@
     <Folder Include="Constants\" />
     <Folder Include="MapMarkers\" />
     <Folder Include="CoreML\" />
+    <Folder Include="UserActivity\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\en.lproj\Localizable.strings" />

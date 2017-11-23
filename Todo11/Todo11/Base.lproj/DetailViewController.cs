@@ -4,12 +4,10 @@ using System;
 
 using Foundation;
 using UIKit;
-using CoreSpotlight;
-using System.Collections.Generic;
 
 namespace Todo11App
 {
-	public partial class DetailViewController : UIViewController
+    public partial class DetailViewController : UIViewController
 	{
 		public TodoItem Current {get;set;}
 		
@@ -23,6 +21,7 @@ namespace Todo11App
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+            // DEMO: the second item in the stack disables large titles
             NavigationItem.LargeTitleDisplayMode = UINavigationItemLargeTitleDisplayMode.Never;
 
 			SaveButton.TouchUpInside += (sender, e) => {
@@ -90,7 +89,7 @@ namespace Todo11App
             PhotoButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
             PhotoButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
             PhotoButton.ClipsToBounds = true;
-            //MapButton.setImage(UIImage(named: "your-image"), for: .normal)
+            //PhotoButton.setImage(UIImage(named: "your-image"), for: .normal)
             PhotoButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
             var safeGuide = View.SafeAreaLayoutGuide;

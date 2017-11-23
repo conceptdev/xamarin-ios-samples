@@ -1,5 +1,4 @@
-﻿using System;
-using Foundation;
+﻿using Foundation;
 using MobileCoreServices;
 using UIKit;
 
@@ -18,8 +17,9 @@ namespace Todo11App
             var todo = todoItems[indexPath.Row];
             var stringToDrop = todo.Name;
             if (todo.Done)
+            {   // we can modify the data that is dragged
                 stringToDrop += " [" + NSBundle.MainBundle.LocalizedString("Done", "") + "]";
-
+            }
             var data = NSData.FromString(stringToDrop, NSStringEncoding.UTF8);
 
             var itemProvider = new NSItemProvider();
@@ -30,8 +30,9 @@ namespace Todo11App
                                                         completion(data, null);
                                                         return null;
                                                     });
-
-            return new UIDragItem[] { new UIDragItem(itemProvider) };
+            var dragItem = new UIDragItem(itemProvider);
+            //dragItem.LocalObject = if your object is a subclass of NSObject
+            return new UIDragItem[] { dragItem };
         }
     }
 }

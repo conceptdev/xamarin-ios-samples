@@ -6,6 +6,10 @@ using Foundation;
 using LocalAuthentication;
 using UIKit;
 
+// DEMO: 1. Info.plist NSFaceIDUsageDescription
+// DEMO: 2. AppDelegate to handle foreground/background switch
+// DEMO: 3. LocalAuthViewController shown and works
+
 namespace Todo11App
 {
 	public partial class LocalAuthViewController : UIViewController

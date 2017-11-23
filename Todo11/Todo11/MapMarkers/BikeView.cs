@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using Foundation;
-using UIKit;
 using MapKit;
-using CoreLocation;
+using UIKit;
 
 namespace Todo11App
 {
-	[Register("BikeView")]
+    [Register("BikeView")]
 	public class BikeView : MKMarkerAnnotationView
 	{
         public static UIColor NotDoneColor = UIColor.FromRGB(0xE2, 0x55, 0x3D); //F8C6BB light red; E2553D darkish red

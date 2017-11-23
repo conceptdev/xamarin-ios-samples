@@ -23,10 +23,11 @@ namespace Todo11App
         }
 
 		public override void ViewDidLoad()
-		{
-			base.ViewDidLoad();
+        {
+            base.ViewDidLoad();
 
-            AddButton.Clicked += (sender, e) => {
+            AddButton.Clicked += (sender, e) =>
+            {
                 CreateTodo();
             };
 
@@ -36,7 +37,8 @@ namespace Todo11App
             MapButton.BackgroundColor = UIColor.Green;
 
             MapButton.SizeToFit();
-            MapButton.TouchUpInside += (sender, e) => {
+            MapButton.TouchUpInside += (sender, e) =>
+            {
                 Console.WriteLine("Show map");
                 var popover = Storyboard.InstantiateViewController("map");
 
@@ -67,9 +69,9 @@ namespace Todo11App
             TableView.DataSource = this;
             TableView.Delegate = this;
 
-			// for Drag and Drop
-			TableView.DragDelegate = this;
-			TableView.DropDelegate = this;
+            // for Drag and Drop
+            TableView.DragDelegate = this;
+            TableView.DropDelegate = this;
 
             // for 3DTouch
             if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
@@ -78,14 +80,10 @@ namespace Todo11App
             }
 
             // for Search
-            var search = new UISearchController(searchResultsController: null)
-            {
-                DimsBackgroundDuringPresentation = false
-            };
-            search.SearchResultsUpdater = this;
-            DefinesPresentationContext = true;
-            NavigationItem.SearchController = search;
-		}
+            ConfigureSearch();
+        }
+
+
         public override void ViewWillLayoutSubviews()
         {
             base.ViewWillLayoutSubviews();
