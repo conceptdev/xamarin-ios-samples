@@ -352,6 +352,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-Ps-Bhq">
+                                <rect key="frame" x="0.0" y="242" width="375" height="309"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <viewLayoutGuide key="safeArea" id="DVW-cH-9yH"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -371,12 +376,13 @@
                         <outlet property="DoneSwitch" destination="nEA-NJ-Lvb" id="lV0-SW-Tz2"/>
                         <outlet property="NameText" destination="vK9-VF-8RD" id="PXf-u3-r4U"/>
                         <outlet property="NotesText" destination="ThA-34-ggX" id="KSB-sl-TG1"/>
+                        <outlet property="Photo" destination="WZz-Ps-Bhq" id="cpU-XO-RG6"/>
                         <outlet property="SaveButton" destination="FEa-yu-qr7" id="x54-Vd-PV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S57-6G-eTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="64"/>
+            <point key="canvasLocation" x="816.5" y="63.5"/>
         </scene>
     </scenes>
 </document>

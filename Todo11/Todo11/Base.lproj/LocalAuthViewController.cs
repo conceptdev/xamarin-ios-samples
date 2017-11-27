@@ -36,9 +36,11 @@ namespace Todo11App
             // bind every time, to reflect deletion in the Detail view
             LoginLabel.Text = "";
 
+            // NOTE: following error will occur if the Info.plist key isn't set
             //Could not create an native instance of the type 'LocalAuthentication.LAContext': the native class hasn't been loaded.
             //It is possible to ignore this condition by setting ObjCRuntime.Class.ThrowOnInitFailure to false.
             var context = new LAContext();
+
             var buttonText = "";
             if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out var authError1))
             { // has Biometrics (Touch or Face)

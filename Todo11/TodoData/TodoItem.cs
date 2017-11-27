@@ -22,6 +22,8 @@ namespace Todo11App
         // Location
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        // Image
+        public bool HasImage { get; set; }
 	}
 }
 

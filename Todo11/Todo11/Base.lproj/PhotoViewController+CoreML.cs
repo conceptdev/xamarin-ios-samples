@@ -36,6 +36,7 @@ namespace Todo11App
     public partial class PhotoViewController 
     {
         MachineLearningModel model;
+        string observations;
 
         void ConfigureCoreML()
         {
@@ -78,6 +79,7 @@ namespace Todo11App
 
         void ShowMessage(string msg)
         {
+            observations = msg;
             InvokeOnMainThread(() => ClassificationLabel.Text = msg);
         }
     }

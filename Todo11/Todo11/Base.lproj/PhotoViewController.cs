@@ -4,12 +4,14 @@ using System;
 using Foundation;
 using UIKit;
 using CoreImage;
+using CoreGraphics;
 
 namespace Todo11App
 {
     public partial class PhotoViewController : UIViewController
 	{
         public TodoItem Todo { get; set; }
+        UIImage photo;
 
         ImagePickerControllerDelegate imagePickerControllerDelegate;
 
@@ -32,9 +34,9 @@ namespace Todo11App
             imagePickerControllerDelegate.MessageUpdated += (s, e) => ShowMessage(e.Value);
             imagePickerControllerDelegate.ImagePicked += (s, e) =>
             {
-                var img = UIImage.FromImage(e.Value);
-                InvokeOnMainThread(() => ImageView.Image = img);
-                ClassifyImageAsync(img);
+                photo = UIImage.FromImage(e.Value);
+                InvokeOnMainThread(() => ImageView.Image = photo);
+                ClassifyImageAsync(photo);
             };
 
             CameraButton.TouchUpInside += ShowCamera;
@@ -48,10 +50,45 @@ namespace Todo11App
             {
                 Console.WriteLine("Save photo");
                 // TODO: save photo
+                Todo.Notes = String.IsNullOrWhiteSpace(observations) ? "" : observations;
+
+                var documentsDirectory = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+                string jpgFilename = System.IO.Path.Combine(documentsDirectory, Todo.Id + ".jpg");
+                var img = MaxResizeImage(photo, 600, 600);
+                NSData imgData = img.AsJPEG();
+                NSError err = null;
+                if (imgData.Save(jpgFilename, false, out err))
+                {
+                    Console.WriteLine("saved as " + jpgFilename);
+                    Todo.HasImage = true;
+                }
+                else
+                {
+                    Console.WriteLine("NOT saved as " + jpgFilename + " because" + err.LocalizedDescription);
+                }
+
+                AppDelegate.Current.TodoMgr.SaveTodo(Todo);
+
                 DismissViewController(true, null);
             };
 
             ConfigureCoreML();
+        }
+
+        // resize the image to be contained within a maximum width and height, keeping aspect ratio
+        public static UIImage MaxResizeImage(UIImage sourceImage, float maxWidth, float maxHeight)
+        {
+            var sourceSize = sourceImage.Size;
+            var maxResizeFactor = Math.Min(maxWidth / sourceSize.Width, maxHeight / sourceSize.Height);
+            if (maxResizeFactor > 1) return sourceImage;
+            var width = maxResizeFactor * sourceSize.Width;
+            var height = maxResizeFactor * sourceSize.Height;
+            UIGraphics.BeginImageContext(new CGSize((nfloat)width, (nfloat)height));
+            sourceImage.Draw(new CGRect(0, 0, (nfloat)width, (nfloat)height));
+            var resultImage = UIGraphics.GetImageFromCurrentImageContext();
+            UIGraphics.EndImageContext();
+
+            return resultImage;
         }
 
         public override void ViewWillLayoutSubviews()

@@ -85,6 +85,7 @@ namespace Todo11App
         public override void ViewWillLayoutSubviews()
         {
             base.ViewWillLayoutSubviews();
+
             PhotoButton.Layer.CornerRadius = PhotoButton.Layer.Frame.Size.Width / 2;
             PhotoButton.BackgroundColor = UIColor.FromRGB(0x5A, 0x86, 0x22); // 5A8622 dark-green
             PhotoButton.SetTitleColor(UIColor.FromRGB(0xCF, 0xEF, 0xa7), UIControlState.Normal); // CFEFA7 light-green
@@ -98,6 +99,14 @@ namespace Todo11App
                 PhotoButton.BottomAnchor.ConstraintEqualTo(safeGuide.BottomAnchor, -13),
                 PhotoButton.WidthAnchor.ConstraintEqualTo(60),
                 PhotoButton.HeightAnchor.ConstraintEqualTo(60)
+            });
+
+            var wideGuide = View.LayoutMarginsGuide;
+            NSLayoutConstraint.ActivateConstraints(new NSLayoutConstraint[] {
+                Photo.TopAnchor.ConstraintEqualTo(SaveButton.BottomAnchor, 23),
+                Photo.LeadingAnchor.ConstraintEqualTo(wideGuide.LeadingAnchor),
+                Photo.TrailingAnchor.ConstraintEqualTo(wideGuide.TrailingAnchor),
+                Photo.BottomAnchor.ConstraintEqualTo(wideGuide.BottomAnchor),
             });
         }
 		public override void ViewWillDisappear (bool animated)
@@ -113,7 +122,13 @@ namespace Todo11App
 			NameText.Text = Current.Name;
 			NotesText.Text = Current.Notes;
 			DoneSwitch.On = Current.Done;
-			
+
+            if (Current.HasImage)
+            {
+                var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                string jpgFilename = System.IO.Path.Combine(documentsDirectory, Current.Id + ".jpg");
+                Photo.Image = UIImage.FromFile(jpgFilename);
+            }
 			// button is cancel or delete
 			if (Current.Id > 0) {
 				CancelButton.SetTitle (NSBundle.MainBundle.LocalizedString ("Delete", "")
