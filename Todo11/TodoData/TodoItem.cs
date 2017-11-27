@@ -22,7 +22,7 @@ namespace Todo11App
         // Location
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        // Image
+        // Image - filename will be $"{Id}.jpg" (only one image supported per item)
         public bool HasImage { get; set; }
 	}
 }

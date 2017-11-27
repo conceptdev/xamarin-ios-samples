@@ -75,6 +75,7 @@ namespace Todo11App
             ConfigureCoreML();
         }
 
+        // https://forums.xamarin.com/discussion/47322/resize-images-with-same-aspect-ratio-and-quality
         // resize the image to be contained within a maximum width and height, keeping aspect ratio
         public static UIImage MaxResizeImage(UIImage sourceImage, float maxWidth, float maxHeight)
         {

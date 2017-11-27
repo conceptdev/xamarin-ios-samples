@@ -44,8 +44,9 @@ namespace Todo11App
 
 					UIAccessibility.PostNotification (UIAccessibilityPostNotification.Announcement,new NSString(@"Item was deleted"));
 				}
-				else {// HACK: TODO: 
-					Console.WriteLine("Delegate not set - HACK");
+				else 
+                {
+					Console.WriteLine("Delegate not set - this shouldn't happen");
 				}
 
 				NavigationController.PopViewController(true);
