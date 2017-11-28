@@ -39,15 +39,15 @@ namespace Todo11App
 				{
 					var renderer = new UIGraphicsImageRenderer(new CGSize(40, 40));
 					var count = cluster.MemberAnnotations.Length;
-                    var notDoneCount = CountBikeType(cluster.MemberAnnotations, MarkerType.NotDone);
+                    var notDoneCount = CountByType(cluster.MemberAnnotations, MarkerType.NotDone);
 
 					Image = renderer.CreateImage((context) => {
 						// Fill full circle with DONE color
-						BikeView.DoneColor.SetFill();
+						TodoView.DoneColor.SetFill();
 						UIBezierPath.FromOval(new CGRect(0, 0, 40, 40)).Fill();
 
 						// Fill pie with NOT DONE color
-						BikeView.NotDoneColor.SetFill();
+						TodoView.NotDoneColor.SetFill();
 						var piePath = new UIBezierPath();
 						piePath.AddArc(new CGPoint(20,20), 20, 0, (nfloat)(Math.PI * 2.0 * notDoneCount / count), true);
 						piePath.AddLineTo(new CGPoint(20, 20));
@@ -86,7 +86,7 @@ namespace Todo11App
 
 		
 		
-		private nuint CountBikeType(IMKAnnotation[] members, MarkerType type) {
+		private nuint CountByType(IMKAnnotation[] members, MarkerType type) {
 			nuint count = 0;
 
 			foreach(TodoAnnotation member in members){

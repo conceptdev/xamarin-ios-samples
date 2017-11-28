@@ -5,8 +5,8 @@ using UIKit;
 
 namespace Todo11App
 {
-    [Register("BikeView")]
-	public class BikeView : MKMarkerAnnotationView
+    [Register("TodoView")]
+	public class TodoView : MKMarkerAnnotationView
 	{
         public static UIColor NotDoneColor = UIColor.FromRGB(0xE2, 0x55, 0x3D); //F8C6BB light red; E2553D darkish red
         public static UIColor DoneColor = UIColor.FromRGB(0x6F, 0xA2, 0x2E); // CFEFA7 light-green; 6FA22E darkish green
@@ -21,10 +21,12 @@ namespace Todo11App
 			{
 				base.Annotation = value;
 
-				var bike = value as TodoAnnotation;
-				if (bike != null){
-					ClusteringIdentifier = "bike";
-					switch(bike.Type){
+                var todo = value as TodoAnnotation;
+				if (todo != null)
+                {
+					ClusteringIdentifier = "todo";
+					switch(todo.Type)
+                    {
 						case MarkerType.NotDone:
 							MarkerTintColor = NotDoneColor;
 							GlyphImage = UIImage.FromBundle("box");
@@ -40,19 +42,19 @@ namespace Todo11App
 			}
 		}
 
-		public BikeView()
+		public TodoView()
 		{
 		}
 
-		public BikeView(NSCoder coder) : base(coder)
+		public TodoView(NSCoder coder) : base(coder)
 		{
 		}
 
-		public BikeView(IntPtr handle) : base(handle)
+		public TodoView(IntPtr handle) : base(handle)
 		{
 		}
 
-        public BikeView(IMKAnnotation annotation, string identifier) : base(annotation, identifier)
+        public TodoView(IMKAnnotation annotation, string identifier) : base(annotation, identifier)
         {
 
         }

@@ -13,7 +13,7 @@ namespace Todo11App
         // called in ViewDidLoad
         void SetUpAnnotations()
         {
-            Map.Register(typeof(BikeView), MKMapViewDefault.AnnotationViewReuseIdentifier);
+            Map.Register(typeof(TodoView), MKMapViewDefault.AnnotationViewReuseIdentifier);
             Map.Register(typeof(ClusterView), MKMapViewDefault.ClusterAnnotationViewReuseIdentifier);
 
             LoadData();
@@ -29,10 +29,10 @@ namespace Todo11App
             var span = new MKCoordinateSpan(0.00978871051851371, 0.00816739331921212);
             Map.Region = new MKCoordinateRegion(coordinate, span);
 #endif
-            var bikes = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); 
-            if (bikes != null)
+            var todos = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); 
+            if (todos != null)
             {
-                Map.AddAnnotations(TodoAnnotation.FromList(bikes));
+                Map.AddAnnotations(TodoAnnotation.FromList(todos));
             }
         }
 
@@ -42,10 +42,10 @@ namespace Todo11App
             {
                 var marker = annotation as TodoAnnotation;
 
-                var view = mapView.DequeueReusableAnnotation(MKMapViewDefault.AnnotationViewReuseIdentifier) as BikeView;
+                var view = mapView.DequeueReusableAnnotation(MKMapViewDefault.AnnotationViewReuseIdentifier) as TodoView;
                 if (view == null)
                 {
-                    view = new BikeView(marker, MKMapViewDefault.AnnotationViewReuseIdentifier);
+                    view = new TodoView(marker, MKMapViewDefault.AnnotationViewReuseIdentifier);
                 }
                 return view;
             }

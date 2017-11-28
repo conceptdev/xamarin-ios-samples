@@ -17,20 +17,9 @@ namespace Todo11App
         {
         }
 
-		public static TodoAnnotation[] FromList(List<TodoItem> todoList) {
-			var todos = new List<TodoAnnotation>();
+        public MarkerType Type { get; set; } = MarkerType.Done;
 
-            for (int n = 0; n < todoList.Count; ++n){
-                todos.Add(new TodoAnnotation(todoList[n].Latitude, todoList[n].Longitude, todoList[n].Done));
-		    }
-
-			return todos.ToArray();
-		}
-		public MarkerType Type { get; set; } = MarkerType.Done;
-		
-		
-
-        public TodoAnnotation(double lat, double lng, bool done)
+		public TodoAnnotation(double lat, double lng, bool done)
 		{
 			// Initialize
             Coordinate = new CLLocationCoordinate2D(new NSNumber(lat).NFloatValue, new NSNumber(lng).NFloatValue);
@@ -40,5 +29,18 @@ namespace Todo11App
             else
                 Type = MarkerType.NotDone;
 		}
+
+        // Helper method
+        public static TodoAnnotation[] FromList(List<TodoItem> todoList)
+        {
+            var todos = new List<TodoAnnotation>();
+
+            for (int n = 0; n < todoList.Count; ++n)
+            {
+                todos.Add(new TodoAnnotation(todoList[n].Latitude, todoList[n].Longitude, todoList[n].Done));
+            }
+
+            return todos.ToArray();
+        }
 	}
 }

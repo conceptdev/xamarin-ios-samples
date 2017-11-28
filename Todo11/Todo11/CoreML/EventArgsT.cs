@@ -8,7 +8,7 @@ namespace Todo11App
 
         public EventArgsT(T val)
         {
-            this.Value = val;
+            Value = val;
         }
     }
 }

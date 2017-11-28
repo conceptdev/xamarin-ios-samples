@@ -97,7 +97,7 @@ namespace Todo11App
                 replyHandler = new LAContextReplyHandler((success, error) =>
                 {
                     //Make sure it runs on MainThread, not in Background
-                    this.InvokeOnMainThread(() =>
+                    InvokeOnMainThread(() =>
                     {
                         if (success)
                         {
@@ -126,7 +126,7 @@ namespace Todo11App
                 replyHandler = new LAContextReplyHandler((success, error) =>
                 {
                     //Make sure it runs on MainThread, not in Background
-                    this.InvokeOnMainThread(() =>
+                    InvokeOnMainThread(() =>
                     {
                         if (success)
                         {

@@ -18,9 +18,9 @@ namespace Todo11App
         UIButton CloseButton;
         public TodoItem Todo { get; set; }
 
-        UIGestureRecognizer _longPressGestureRecognizer;
-        UIGestureRecognizer _tapGestureRecognizer;
-        UIGestureRecognizer _doubleTapGestureRecognizer;
+        UIGestureRecognizer longPressGestureRecognizer;
+        UIGestureRecognizer tapGestureRecognizer;
+        UIGestureRecognizer doubleTapGestureRecognizer;
 
         public override void ViewDidLoad()
         {
@@ -39,16 +39,16 @@ namespace Todo11App
             View.AddSubview(CloseButton);
 
             Map.ShowsUserLocation = true;
-            this.Map.AddGestureRecognizer((this._longPressGestureRecognizer = new UILongPressGestureRecognizer(this.OnMapLongPress)));
-            this._doubleTapGestureRecognizer = new UITapGestureRecognizer() { NumberOfTapsRequired = 2 };
+            Map.AddGestureRecognizer((longPressGestureRecognizer = new UILongPressGestureRecognizer(OnMapLongPress)));
+            doubleTapGestureRecognizer = new UITapGestureRecognizer() { NumberOfTapsRequired = 2 };
 
-            this._tapGestureRecognizer = new UITapGestureRecognizer(this.OnMapClicked);
-            this._tapGestureRecognizer.RequireGestureRecognizerToFail(this._doubleTapGestureRecognizer);
-            this._tapGestureRecognizer.ShouldReceiveTouch = (recognizer, touch) => !(touch.View is MKAnnotationView);
+            tapGestureRecognizer = new UITapGestureRecognizer(OnMapClicked);
+            tapGestureRecognizer.RequireGestureRecognizerToFail(doubleTapGestureRecognizer);
+            tapGestureRecognizer.ShouldReceiveTouch = (recognizer, touch) => !(touch.View is MKAnnotationView);
 
 
-            this.Map.AddGestureRecognizer(this._tapGestureRecognizer);
-            this.Map.AddGestureRecognizer(this._doubleTapGestureRecognizer);
+            Map.AddGestureRecognizer(tapGestureRecognizer);
+            Map.AddGestureRecognizer(doubleTapGestureRecognizer);
 
 
             Map.DidUpdateUserLocation += (sender, e) => {
@@ -70,24 +70,24 @@ namespace Todo11App
         {
             if (recognizer.State != UIGestureRecognizerState.Ended) return;
 
-            var pixelLocation = recognizer.LocationInView(this.Map);
-            var coordinate = this.Map.ConvertPoint(pixelLocation, this.Map);
+            var pixelLocation = recognizer.LocationInView(Map);
+            var coordinate = Map.ConvertPoint(pixelLocation, Map);
         }
         //void OnMapDoubleTap (UITapGestureRecognizer recognizer)
         //{
         //    if (recognizer.State != UIGestureRecognizerState.Ended) return;
 
-        //    var pixelLocation = recognizer.LocationInView(this.Map);
-        //    var coordinate = this.Map.ConvertPoint(pixelLocation, this.Map);
+        //    var pixelLocation = recognizer.LocationInView(Map);
+        //    var coordinate = Map.ConvertPoint(pixelLocation, Map);
         //}
         void OnMapLongPress(UILongPressGestureRecognizer recognizer)
         {
             if (recognizer.State != UIGestureRecognizerState.Began) return;
 
-            var pixelLocation = recognizer.LocationInView(this.Map);
-            var coordinate = this.Map.ConvertPoint(pixelLocation, this.Map);
+            var pixelLocation = recognizer.LocationInView(Map);
+            var coordinate = Map.ConvertPoint(pixelLocation, Map);
 
-            //this.MapFunctions.RaiseMapLongPress(coordinate.ToPosition());
+            //MapFunctions.RaiseMapLongPress(coordinate.ToPosition());
         }
         public override void ViewWillLayoutSubviews()
         {
@@ -132,6 +132,4 @@ namespace Todo11App
         }
     
     }
-
-
 }

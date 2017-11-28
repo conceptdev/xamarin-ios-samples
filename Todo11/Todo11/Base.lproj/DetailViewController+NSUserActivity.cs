@@ -80,7 +80,7 @@ namespace Todo11App
         [Export("textFieldDidEndEditing:")]
         public void EditingEnded(UITextField textField)
         {
-            this.UserActivity.NeedsSave = true; // push partially entered data into UserInfo for Handoff
+            UserActivity.NeedsSave = true; // push partially entered data into UserInfo for Handoff
         }
     }
 }

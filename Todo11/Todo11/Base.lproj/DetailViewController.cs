@@ -76,7 +76,7 @@ namespace Todo11App
                 UIPopoverPresentationController presentationPopover = popover.PopoverPresentationController;
                 if (presentationPopover != null)
                 {
-                    presentationPopover.SourceView = this.View;
+                    presentationPopover.SourceView = View;
                     presentationPopover.PermittedArrowDirections = UIPopoverArrowDirection.Up;
                     presentationPopover.SourceRect = View.Frame;
                 }
