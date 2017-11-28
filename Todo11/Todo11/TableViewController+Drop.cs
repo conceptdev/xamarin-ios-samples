@@ -57,8 +57,6 @@ namespace Todo11App
         public void PerformDrop(UITableView tableView, IUITableViewDropCoordinator coordinator)
         {
             NSIndexPath indexPath, destinationIndexPath;
-
-            // TODO: confirm this port is accurate
             if (coordinator.DestinationIndexPath != null)
             {
                 indexPath = coordinator.DestinationIndexPath;
@@ -67,9 +65,9 @@ namespace Todo11App
             else
             {
                 // Get last index path of table view
-                //var section = tableView.NumberOfSections() - 1;
-                var row = tableView.NumberOfRowsInSection(0);
-                destinationIndexPath = NSIndexPath.FromRowSection(row, 0); // HACK: hardcode section for debugging
+                var section = tableView.NumberOfSections() - 1;
+                var row = tableView.NumberOfRowsInSection(section);
+                destinationIndexPath = NSIndexPath.FromRowSection(row, section);
             }
 
             coordinator.Session.LoadObjects<NSString>((items) =>
@@ -100,7 +98,6 @@ namespace Todo11App
                     tableView.InsertRows(indexPaths.ToArray(), UITableViewRowAnimation.Automatic);
                 }
                 tableView.EndUpdates();
-                tableView.ReloadData();
             });
         }
     }
