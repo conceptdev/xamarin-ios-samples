@@ -16,8 +16,6 @@ namespace Todo11App
             Map.Register(typeof(TodoView), MKMapViewDefault.AnnotationViewReuseIdentifier);
             Map.Register(typeof(ClusterView), MKMapViewDefault.ClusterAnnotationViewReuseIdentifier);
 
-            LoadData();
-
             Map.GetViewForAnnotation = HandleMKMapViewAnnotation;
         }
 
@@ -34,6 +32,11 @@ namespace Todo11App
             {
                 Map.AddAnnotations(TodoAnnotation.FromList(todos));
             }
+        }
+        void LoadData(TodoItem todo)
+        {
+            var list = new List<TodoItem> { Todo };
+            Map.AddAnnotations(TodoAnnotation.FromList(list));
         }
 
         MKAnnotationView HandleMKMapViewAnnotation(MKMapView mapView, IMKAnnotation annotation)

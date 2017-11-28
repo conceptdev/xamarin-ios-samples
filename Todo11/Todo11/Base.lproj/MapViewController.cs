@@ -66,6 +66,19 @@ namespace Todo11App
                 Map.Region = new MKCoordinateRegion(coords, span);
             }
         }
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            if (Todo == null)
+            {
+                LoadData();
+            }
+            else
+            {
+                LoadData(Todo); // just the one
+            }
+        }
         void OnMapClicked(UITapGestureRecognizer recognizer)
         {
             if (recognizer.State != UIGestureRecognizerState.Ended) return;
