@@ -98,21 +98,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Base.lproj\DetailViewController.cs" />
-    <Compile Include="Base.lproj\DetailViewController.designer.cs">
-      <DependentUpon>DetailViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Constants\ActivityTypes.cs" />
     <Compile Include="Constants\Spotlight.cs" />
     <Compile Include="Constants\ShortcutIdentifiers.cs" />
-    <Compile Include="Base.lproj\PeekViewController.cs" />
-    <Compile Include="Base.lproj\PeekViewController.designer.cs">
-      <DependentUpon>PeekViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Base.lproj\NavigationController.cs" />
-    <Compile Include="Base.lproj\NavigationController.designer.cs">
-      <DependentUpon>NavigationController.cs</DependentUpon>
-    </Compile>
     <Compile Include="TableViewController.cs" />
     <Compile Include="TableViewController.designer.cs">
       <DependentUpon>TableViewController.cs</DependentUpon>
@@ -120,37 +108,49 @@
     <Compile Include="TableViewController+DataDelegates.cs" />
     <Compile Include="TableViewController+Drag.cs" />
     <Compile Include="TableViewController+Drop.cs" />
-    <Compile Include="Base.lproj\LocalAuthViewController.cs" />
-    <Compile Include="Base.lproj\LocalAuthViewController.designer.cs">
-      <DependentUpon>LocalAuthViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="TableViewController+3DTouch.cs" />
     <Compile Include="TableViewController+Search.cs" />
     <Compile Include="TableViewController+RowActions.cs" />
-    <Compile Include="Base.lproj\DetailViewController+NSUserActivity.cs" />
-    <Compile Include="Base.lproj\MapViewController.cs" />
-    <Compile Include="Base.lproj\MapViewController.designer.cs">
-      <DependentUpon>MapViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="AppDelegate+NSUserActivity.cs" />
     <Compile Include="AppDelegate+LocalAuth.cs" />
-    <Compile Include="Base.lproj\NavigationController+LocalAuth.cs" />
-    <Compile Include="Base.lproj\MapViewController+Annotations.cs" />
     <Compile Include="MapMarkers\TodoAnnotation.cs" />
     <Compile Include="MapMarkers\TodoView.cs" />
     <Compile Include="MapMarkers\ClusterView.cs" />
     <Compile Include="MapMarkers\MKAnnotationWrapperExtensions.cs" />
-    <Compile Include="Base.lproj\PhotoViewController.cs" />
-    <Compile Include="Base.lproj\PhotoViewController.designer.cs">
-      <DependentUpon>PhotoViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="CoreML\MachineLearningModel.cs" />
     <Compile Include="CoreML\EventArgsT.cs" />
     <Compile Include="CoreML\UIImageExtensions.cs" />
     <Compile Include="CoreML\UIImageOrientationExtensions.cs" />
-    <Compile Include="Base.lproj\PhotoViewController+CoreML.cs" />
     <Compile Include="UserActivity\SpotlightHelper.cs" />
     <Compile Include="UserActivity\UserActivityHelper.cs" />
+    <Compile Include="DetailViewController.cs" />
+    <Compile Include="DetailViewController.designer.cs">
+      <DependentUpon>DetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailViewController+NSUserActivity.cs" />
+    <Compile Include="LocalAuthViewController.cs" />
+    <Compile Include="LocalAuthViewController.designer.cs">
+      <DependentUpon>LocalAuthViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapViewController.cs" />
+    <Compile Include="MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapViewController+Annotations.cs" />
+    <Compile Include="NavigationController.cs" />
+    <Compile Include="NavigationController.designer.cs">
+      <DependentUpon>NavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationController+LocalAuth.cs" />
+    <Compile Include="PeekViewController.cs" />
+    <Compile Include="PeekViewController.designer.cs">
+      <DependentUpon>PeekViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoViewController.cs" />
+    <Compile Include="PhotoViewController.designer.cs">
+      <DependentUpon>PhotoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoViewController+CoreML.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
