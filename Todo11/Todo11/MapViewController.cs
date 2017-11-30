@@ -39,6 +39,7 @@ namespace Todo11App
             View.AddSubview(CloseButton);
 
             Map.ShowsUserLocation = true;
+            Map.ShowsCompass = true;
             Map.AddGestureRecognizer((longPressGestureRecognizer = new UILongPressGestureRecognizer(OnMapLongPress)));
             doubleTapGestureRecognizer = new UITapGestureRecognizer() { NumberOfTapsRequired = 2 };
 
@@ -51,14 +52,14 @@ namespace Todo11App
             Map.AddGestureRecognizer(doubleTapGestureRecognizer);
 
 
-            Map.DidUpdateUserLocation += (sender, e) => {
-                if (Map.UserLocation != null)
-                {
-                    CLLocationCoordinate2D coords = Map.UserLocation.Coordinate;
-                    MKCoordinateSpan span = new MKCoordinateSpan(MilesToLatitudeDegrees(2), MilesToLongitudeDegrees(2, coords.Latitude));
-                    Map.Region = new MKCoordinateRegion(coords, span);
-                }
-            };
+            //Map.DidUpdateUserLocation += (sender, e) => {
+            //    if (Map.UserLocation != null)
+            //    {
+            //        CLLocationCoordinate2D coords = Map.UserLocation.Coordinate;
+            //        MKCoordinateSpan span = new MKCoordinateSpan(MilesToLatitudeDegrees(2), MilesToLongitudeDegrees(2, coords.Latitude));
+            //        Map.Region = new MKCoordinateRegion(coords, span);
+            //    }
+            //};
             if (Map.UserLocation != null)
             {
                 CLLocationCoordinate2D coords = Map.UserLocation.Coordinate;

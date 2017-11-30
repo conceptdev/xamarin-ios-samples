@@ -14,7 +14,6 @@ namespace Todo11App
         /// <summary>
         /// Ensure that the drop session contains a drag item with a data representation that the view can consume.
         /// </summary>
-        [Export("tableView:canHandleDropSession:")]
         public bool CanHandleDropSession(UITableView tableView, IUIDropSession session)
         {
             return session.CanLoadObjects(typeof(NSString));
@@ -22,14 +21,13 @@ namespace Todo11App
 
         /// <summary>
         /// A drop proposal from a table view includes two items: a drop operation,
-        /// typically .move or .copy; and an intent, which declares the action the
+        /// typically Move or Copy; and an intent, which declares the action the
         /// table view will take upon receiving the items. (A drop proposal from a
         /// custom view does includes only a drop operation, not an intent.)
         /// </summary>
-        [Export("tableView:dropSessionDidUpdate:withDestinationIndexPath:")]
         public UITableViewDropProposal DropSessionDidUpdate(UITableView tableView, IUIDropSession session, NSIndexPath destinationIndexPath)
         {
-            // The .move operation is available only for dragging within a single app.
+            // The Move operation is available only for dragging within a single app.
             if (tableView.HasActiveDrag)
             {
                 if (session.Items.Length > 1)
@@ -87,12 +85,13 @@ namespace Todo11App
                 for (var j = 0; j < stringItems.Count; j++)
                 {
                     var indexPath1 = NSIndexPath.FromRowSection(destinationIndexPath.Row + j, 0);
-
+                    // update backing data
                     InsertTodo(new TodoItem { Name = stringItems[j] }, destinationIndexPath.Row); 
-                    todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); 
 
                     indexPaths.Add(indexPath1);
                 }
+                todoItems = AppDelegate.Current.TodoMgr.GetOrderedTodos().ToList(); 
+                // animate table view to match
                 if (indexPaths.Count > 0 && indexPaths.Count == stringItems.Count)
                 {
                     tableView.InsertRows(indexPaths.ToArray(), UITableViewRowAnimation.Automatic);

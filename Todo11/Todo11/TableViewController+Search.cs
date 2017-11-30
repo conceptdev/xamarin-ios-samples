@@ -15,8 +15,9 @@ namespace Todo11App
                 DimsBackgroundDuringPresentation = false
             };
             search.SearchResultsUpdater = this; // implemented the interface above
-            DefinesPresentationContext = true;  // IMPORTANT: ensures segue works
             NavigationItem.SearchController = search;
+
+            DefinesPresentationContext = true;  // IMPORTANT: ensures segue works
         }
 
         public void UpdateSearchResultsForSearchController(UISearchController searchController)

@@ -1,10 +1,9 @@
-using Foundation;
 using System;
-using UIKit;
 using System.Collections.Generic;
 using System.Linq;
-using CoreGraphics;
 using CoreLocation;
+using Foundation;
+using UIKit;
 
 namespace Todo11App
 {
@@ -25,6 +24,15 @@ namespace Todo11App
 		public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            // Impelement delegate and datasource for tableview to operate
+            TableView.DataSource = this;
+            TableView.Delegate = this;
+
+            // for Drag and Drop
+            TableView.DragDelegate = this;
+            TableView.DropDelegate = this;
+
 
             AddButton.Clicked += (sender, e) =>
             {
@@ -64,14 +72,6 @@ namespace Todo11App
                 }
             };
             NavigationController.View.AddSubview(MapButton);
-
-            // Impelement delegate and datasource for tableview to operate
-            TableView.DataSource = this;
-            TableView.Delegate = this;
-
-            // for Drag and Drop
-            TableView.DragDelegate = this;
-            TableView.DropDelegate = this;
 
             // for 3DTouch
             if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
