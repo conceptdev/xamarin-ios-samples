@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08A1E777-C427-42A1-9DB4-F7C9105E389B}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Todo11App</RootNamespace>
+    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <XamarinInsightsApiKey>xxxxxxxxxxxxxxxxxxx</XamarinInsightsApiKey>
+    <AssemblyName>Todo11App</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>false</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignKey>iPhone Developer: Craig Dunn (6Q937X2U43)</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer: Craig Dunn (6Q937X2U43)</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>false</MtouchProfiling>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+<CodesignProvision>To11o Dev Profile</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.4.118\lib\netstandard1.1\SQLite-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Constants\ActivityTypes.cs" />
+    <Compile Include="Constants\Spotlight.cs" />
+    <Compile Include="Constants\ShortcutIdentifiers.cs" />
+    <Compile Include="TableViewController.cs" />
+    <Compile Include="TableViewController.designer.cs">
+      <DependentUpon>TableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewController+DataDelegates.cs" />
+    <Compile Include="TableViewController+Drag.cs" />
+    <Compile Include="TableViewController+Drop.cs" />
+    <Compile Include="TableViewController+3DTouch.cs" />
+    <Compile Include="TableViewController+Search.cs" />
+    <Compile Include="TableViewController+RowActions.cs" />
+    <Compile Include="AppDelegate+NSUserActivity.cs" />
+    <Compile Include="AppDelegate+LocalAuth.cs" />
+    <Compile Include="MapMarkers\TodoAnnotation.cs" />
+    <Compile Include="MapMarkers\TodoView.cs" />
+    <Compile Include="MapMarkers\ClusterView.cs" />
+    <Compile Include="MapMarkers\MKAnnotationWrapperExtensions.cs" />
+    <Compile Include="CoreML\MachineLearningModel.cs" />
+    <Compile Include="CoreML\EventArgsT.cs" />
+    <Compile Include="CoreML\UIImageExtensions.cs" />
+    <Compile Include="CoreML\UIImageOrientationExtensions.cs" />
+    <Compile Include="UserActivity\SpotlightHelper.cs" />
+    <Compile Include="UserActivity\UserActivityHelper.cs" />
+    <Compile Include="DetailViewController.cs" />
+    <Compile Include="DetailViewController.designer.cs">
+      <DependentUpon>DetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailViewController+NSUserActivity.cs" />
+    <Compile Include="LocalAuthViewController.cs" />
+    <Compile Include="LocalAuthViewController.designer.cs">
+      <DependentUpon>LocalAuthViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapViewController.cs" />
+    <Compile Include="MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapViewController+Annotations.cs" />
+    <Compile Include="NavigationController.cs" />
+    <Compile Include="NavigationController.designer.cs">
+      <DependentUpon>NavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationController+LocalAuth.cs" />
+    <Compile Include="PeekViewController.cs" />
+    <Compile Include="PeekViewController.designer.cs">
+      <DependentUpon>PeekViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoViewController.cs" />
+    <Compile Include="PhotoViewController.designer.cs">
+      <DependentUpon>PhotoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoViewController+CoreML.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Base.lproj\MainStoryboard.storyboard" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Base.lproj\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\ar.lproj\" />
+    <Folder Include="Resources\he.lproj\" />
+    <Folder Include="Resources\Images.xcassets\" />
+    <Folder Include="Constants\" />
+    <Folder Include="MapMarkers\" />
+    <Folder Include="CoreML\" />
+    <Folder Include="UserActivity\" />
+    <Folder Include="Resources\VGG16.mlmodelc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\en.lproj\MainStoryboard.strings" />
+    <BundleResource Include="Resources\es.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\es.lproj\MainStoryboard.strings" />
+    <BundleResource Include="Resources\ja.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\ja.lproj\MainStoryboard.strings" />
+    <BundleResource Include="Resources\ar.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\ar.lproj\MainStoryboard.strings" />
+    <BundleResource Include="Resources\ar.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\he.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\he.lproj\MainStoryboard.strings" />
+    <BundleResource Include="Resources\he.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\ja.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\es.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\en.lproj\Localizable.stringsdict" />
+    <BundleResource Include="Resources\es.lproj\Localizable.stringsdict" />
+  </ItemGroup>
+  <Import Project="..\TodoData\TodoData.projitems" Label="Shared" Condition="Exists('..\TodoData\TodoData.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="packages\SQLitePCL.raw.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw.targets" Condition="Exists('packages\SQLitePCL.raw.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw.targets')" />
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\Icon-app-60%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-60%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-72.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-72%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-76%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-29%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-40%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-spotlight-50%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon.png" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\splash-xamagon.imageset\splash-xamagon%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\box.png" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\box%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\box.imageset\box%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox.png" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\checkbox.imageset\checkbox%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-57%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-83.5%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-20.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\icon-app-60.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcon.appiconset\iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Todo11Intent\Todo11Intent.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{20B1A30D-E06F-4E5C-B2EA-3BBB18E4D1E6}</Project>
+      <Name>Todo11Intent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Todo11IntentUI\Todo11IntentUI.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{D548F558-4872-4118-A092-D1CBF73F7C9A}</Project>
+      <Name>Todo11IntentUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+"Todo" = "Todo11";
+"(new)" = "(new)";
+"<new task>" = "<new todo>";
+"task name" = "todo name";
+"other task info"= "other todo info";
+"Delete" = "Delete";
+"Cancel" = "Cancel";
+
+/*"tasks_left.one" = "1 day remaining";  
+"tasks_left.other" = "%d days remaining"; */

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{8A3B3F52-8C8C-417B-995B-93BD784C3669}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TodoData</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BusinessEntityBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBusinessEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TodoItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TodoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TodoRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TodoManager+InsertSampleData.cs" />
+  </ItemGroup>
+</Project>
