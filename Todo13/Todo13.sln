@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo13", "Todo11\Todo13.csproj", "{08A1E777-C427-42A1-9DB4-F7C9105E389B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo13", "Todo13\Todo13.csproj", "{08A1E777-C427-42A1-9DB4-F7C9105E389B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo13Intent", "Todo13Intent\Todo13Intent.csproj", "{20B1A30D-E06F-4E5C-B2EA-3BBB18E4D1E6}"
 EndProject

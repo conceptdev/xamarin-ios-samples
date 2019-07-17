@@ -194,3 +194,4 @@ FakesAssemblies/
 *.DS_Store
 
 Todo11/Todo11/Resources/VGG16.mlmodelc/
+*/.vscode/settings.json
